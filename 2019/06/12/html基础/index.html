@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/Ham.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/Ham.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="html简介 HTML 指的是超文本标记语言 (Hyper Text Markup Language) XHTML指可扩展超文本标记语言（标识语言）（EXtensible HyperText Markup Language）。 Web标准，W3C,WHATWG,ECMA     W3C制定的结构和表现的标准W3C( World Wide Web Consortium )万维网联盟   WHATWG">
+<meta name="keywords" content="html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="html基础">
+<meta property="og:url" content="http://Junokl.com/2019/06/12/html基础/index.html">
+<meta property="og:site_name" content="势必要上进的咸鱼军">
+<meta property="og:description" content="html简介 HTML 指的是超文本标记语言 (Hyper Text Markup Language) XHTML指可扩展超文本标记语言（标识语言）（EXtensible HyperText Markup Language）。 Web标准，W3C,WHATWG,ECMA     W3C制定的结构和表现的标准W3C( World Wide Web Consortium )万维网联盟   WHATWG">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-06-12T02:27:17.946Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="html基础">
+<meta name="twitter:description" content="html简介 HTML 指的是超文本标记语言 (Hyper Text Markup Language) XHTML指可扩展超文本标记语言（标识语言）（EXtensible HyperText Markup Language）。 Web标准，W3C,WHATWG,ECMA     W3C制定的结构和表现的标准W3C( World Wide Web Consortium )万维网联盟   WHATWG">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://Junokl.com/2019/06/12/html基础/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>html基础 | 势必要上进的咸鱼军</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">势必要上进的咸鱼军</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">一只小小小攻城狮</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">19</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">18</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">55</span></a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Junokl.com/2019/06/12/html基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="唐唐胖次">
+      <meta itemprop="description" content="每天努力一点点">
+      <meta itemprop="image" content="/images/baby.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="势必要上进的咸鱼军">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">html基础
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-12 10:25:22" itemprop="dateCreated datePublished" datetime="2019-06-12T10:25:22+08:00">2019-06-12</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/html/" itemprop="url" rel="index"><span itemprop="name">html</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="html简介"><a href="#html简介" class="headerlink" title="html简介"></a>html简介</h2><ol>
+<li>HTML 指的是超文本标记语言 (Hyper Text Markup Language)</li>
+<li>XHTML指可扩展超文本标记语言（标识语言）（EXtensible HyperText Markup Language）。</li>
+<li>Web标准，W3C,WHATWG,ECMA </li>
+</ol>
+<blockquote>
+<p> W3C制定的结构和表现的标准W3C( World Wide Web Consortium )万维网联盟</p>
+</blockquote>
+<blockquote>
+<p>WHATWG 浏览器厂商临时组成的组织</p>
+<p>ECMA：欧洲电脑场商联合会，制定的行为js的标准</p>
+</blockquote>
+<h2 id="html基本语法"><a href="#html基本语法" class="headerlink" title="html基本语法"></a>html基本语法</h2><p>​        1. html标签 由尖括号包裹起来的整体</p>
+<pre><code>2. html元素 由一对双标签或者一个单标签 组成
+ 3. html属性
+      属性=：“属性值”，html属性书写在标签名字后面，
+      用空格隔开属性或者属性值。
+  4. html注释 
+  &lt;!--这是html注释，说明解析且不会呈现在页面上(不能嵌套)--&gt;
+</code></pre><h2 id="标签"><a href="#标签" class="headerlink" title="标签"></a>标签</h2><h6 id="标题标签"><a href="#标题标签" class="headerlink" title="标题标签"></a><strong>标题标签</strong></h6><p>​        h1-h6. 直观上字体越来越小，语义上越来越轻<br>                一级标题最好一个页面只用一次</p>
+<h6 id="段落标签"><a href="#段落标签" class="headerlink" title="段落标签"></a><strong>段落标签</strong></h6><p>​        p     备注：浏览器解析时，会将多个空格解析成一个空格</p>
+<h6 id="换行标识符"><a href="#换行标识符" class="headerlink" title="换行标识符"></a><strong>换行标识符</strong></h6><p>​            <br></p>
+<h6 id="标识符"><a href="#标识符" class="headerlink" title="标识符"></a><strong>标识符</strong></h6><p>​        &nbsp; 空格 &lt;小于号 &gt; 大于号备注空格的大小不等同于文字大小，但是空格大小受<br>                    文字大小影响</p>
+<h6 id="加粗标签"><a href="#加粗标签" class="headerlink" title="加粗标签"></a><strong>加粗标签</strong></h6><p>​            b    strong </p>
+<h6 id="倾斜标签"><a href="#倾斜标签" class="headerlink" title="倾斜标签"></a><strong>倾斜标签</strong></h6><p>​             i、em        备注：视觉标签b、i、s       语义标签strong、em</p>
+<h6 id="分割线标签"><a href="#分割线标签" class="headerlink" title="分割线标签"></a><strong>分割线标签</strong></h6><p>​        <hr></p>
+<h6 id="列表标签"><a href="#列表标签" class="headerlink" title="列表标签"></a><strong>列表标签</strong></h6><p>无序列表 ul(unordered list)&gt;li(list item 列表项)     只能嵌套 li</p>
+<p>​            </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ul</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">li</span>&gt;</span>猪肉<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">li</span>&gt;</span>酱油<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">li</span>&gt;</span>青菜<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;/<span class="name">ul</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>有序列表 ol （ordered list）&gt;li</p>
+<p>​    </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">ol</span>&gt;</span></span><br><span class="line">                 <span class="tag">&lt;<span class="name">li</span>&gt;</span>睁开眼<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">                 <span class="tag">&lt;<span class="name">li</span>&gt;</span>看手机<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">                 <span class="tag">&lt;<span class="name">li</span>&gt;</span>洗漱<span class="tag">&lt;/<span class="name">li</span>&gt;</span></span><br><span class="line">             <span class="tag">&lt;/<span class="name">ol</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>自定义列表dl(defintion list)&gt;dt(definition term 自定义列表项)+dd(definition description对自定义                        列表项的描述)</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dl</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">dt</span>&gt;</span>文具<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">                   <span class="tag">&lt;<span class="name">dd</span>&gt;</span>钢笔<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">                   <span class="tag">&lt;<span class="name">dd</span>&gt;</span>笔记本<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">dt</span>&gt;</span>蔬菜<span class="tag">&lt;/<span class="name">dt</span>&gt;</span></span><br><span class="line">                   <span class="tag">&lt;<span class="name">dd</span>&gt;</span>白菜<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">                   <span class="tag">&lt;<span class="name">dd</span>&gt;</span>茄子<span class="tag">&lt;/<span class="name">dd</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">dl</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p><strong>图片标签</strong>             img        [src 引入图片的路径] [alt] 图片无法加载出来时候呈现的文字<br>                                    [title] 鼠标悬停时，出现的文字</p>
+<p><strong>锚链接、超链接</strong>         a        [href]跳转的路径、#不跳转或者当前页面的最顶端<br>                                    [target]跳转的窗口  属性值：_self 默认在当前窗口跳转<br>                                                                           _blank 在新窗口跳转</p>
+<h6 id="表格"><a href="#表格" class="headerlink" title="表格"></a><strong>表格</strong></h6><p>​                          table&gt;tr行&gt;td单元格</p>
+<p>​                                              table[border给单元格加上边框]<br>                                              [cell spacing]单元格与单元格之间的距离<br>                                              [cell padding]单元格的内填充，单元格内容与边框之间的距离<br>                                              [width] 表格宽度<br>                                              [height] 表格高度</p>
+<p><strong>合并单元格</strong>                   td[colspan 合并列]</p>
+<p>​                           td[rowspan] 合并行</p>
+<h6 id="表单"><a href="#表单" class="headerlink" title="表单"></a><strong>表单</strong></h6><p>​                    form表单&gt;input表单控件+select下拉框</p>
+<p>​                    form:<br>                         [action 提交到的后台地址]<br>                           [methhod 提交方式=(get、post)]<br>                           [name表单名字]<br>                            input:<br>                         [type]类型: text 文本框      password密码框     radio单选框<br>                                           submit 提交按钮     button普通按钮  reset重置按钮<br>                            [name]  同一组单选框或者多选框要起一样的没名字. 要提交的表单内容必须要加名字<br>                        [checked] 默认选中<br>                        [value]给表单添加初始内容</p>
+<p>​                    form&gt;select&gt;optiont选项 value[selected默认选中]</p>
+<p>​                    form&gt;textarea文本域【cols列】[rows行]</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------阅读有风险<i class="fa fa-paw"></i>请谨慎阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/html/" rel="tag"># html</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/11/Vue/" rel="next" title="Vue">
+                <i class="fa fa-chevron-left"></i> Vue
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/12/css基本语法/" rel="prev" title="css基本语法">
+                css基本语法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/baby.png" alt="唐唐胖次">
+            
+              <p class="site-author-name" itemprop="name">唐唐胖次</p>
+              <div class="site-description motion-element" itemprop="description">每天努力一点点</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">55</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/Junokl" title="GitHub &rarr; https://github.com/Junokl" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#html简介"><span class="nav-number">1.</span> <span class="nav-text">html简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#html基本语法"><span class="nav-number">2.</span> <span class="nav-text">html基本语法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#标签"><span class="nav-number">3.</span> <span class="nav-text">标签</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#标题标签"><span class="nav-number">3.0.0.0.1.</span> <span class="nav-text">标题标签</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#段落标签"><span class="nav-number">3.0.0.0.2.</span> <span class="nav-text">段落标签</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#换行标识符"><span class="nav-number">3.0.0.0.3.</span> <span class="nav-text">换行标识符</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#标识符"><span class="nav-number">3.0.0.0.4.</span> <span class="nav-text">标识符</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#加粗标签"><span class="nav-number">3.0.0.0.5.</span> <span class="nav-text">加粗标签</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#倾斜标签"><span class="nav-number">3.0.0.0.6.</span> <span class="nav-text">倾斜标签</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#分割线标签"><span class="nav-number">3.0.0.0.7.</span> <span class="nav-text">分割线标签</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#列表标签"><span class="nav-number">3.0.0.0.8.</span> <span class="nav-text">列表标签</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#表格"><span class="nav-number">3.0.0.0.9.</span> <span class="nav-text">表格</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#表单"><span class="nav-number">3.0.0.0.10.</span> <span class="nav-text">表单</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">唐唐胖次</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,0" opacity="0.5" zindex="-1" count="150" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>

@@ -1,0 +1,1231 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/Ham.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/Ham.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="SVN 版本管理版本的概念版本管理的好处及种类 RCS（Revision Control System）即程序改版控制系统，主要功能是用来管理文件的版本，可以节省空间和时间。这样就不需要在每个程序开发到某一个阶段就将数据拷贝到其他的地方备份起来了。 CVS（Concurrent Version System）现代管理里工具始祖 SVN（Subversion）集中式管理工具的集大成者 GIT分布式版">
+<meta name="keywords" content="git">
+<meta property="og:type" content="article">
+<meta property="og:title" content="svn和git的使用">
+<meta property="og:url" content="http://Junokl.com/2019/06/12/svn和git的使用/index.html">
+<meta property="og:site_name" content="势必要上进的咸鱼军">
+<meta property="og:description" content="SVN 版本管理版本的概念版本管理的好处及种类 RCS（Revision Control System）即程序改版控制系统，主要功能是用来管理文件的版本，可以节省空间和时间。这样就不需要在每个程序开发到某一个阶段就将数据拷贝到其他的地方备份起来了。 CVS（Concurrent Version System）现代管理里工具始祖 SVN（Subversion）集中式管理工具的集大成者 GIT分布式版">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http:///F://mydoc/kphone/newOutline/section2/SVN/img/svn_1.jpg">
+<meta property="og:image" content="http:///F://mydoc/kphone/newOutline/section2/javascript/32Git%26Module/doc/img/gitstatus.png">
+<meta property="og:updated_time" content="2019-06-12T03:10:16.473Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="svn和git的使用">
+<meta name="twitter:description" content="SVN 版本管理版本的概念版本管理的好处及种类 RCS（Revision Control System）即程序改版控制系统，主要功能是用来管理文件的版本，可以节省空间和时间。这样就不需要在每个程序开发到某一个阶段就将数据拷贝到其他的地方备份起来了。 CVS（Concurrent Version System）现代管理里工具始祖 SVN（Subversion）集中式管理工具的集大成者 GIT分布式版">
+<meta name="twitter:image" content="http:///F://mydoc/kphone/newOutline/section2/SVN/img/svn_1.jpg">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://Junokl.com/2019/06/12/svn和git的使用/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>svn和git的使用 | 势必要上进的咸鱼军</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">势必要上进的咸鱼军</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">一只小小小攻城狮</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">19</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">18</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">55</span></a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Junokl.com/2019/06/12/svn和git的使用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="唐唐胖次">
+      <meta itemprop="description" content="每天努力一点点">
+      <meta itemprop="image" content="/images/baby.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="势必要上进的咸鱼军">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">svn和git的使用
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-12 11:09:20" itemprop="dateCreated datePublished" datetime="2019-06-12T11:09:20+08:00">2019-06-12</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/git/" itemprop="url" rel="index"><span itemprop="name">git</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="SVN-版本管理"><a href="#SVN-版本管理" class="headerlink" title="SVN 版本管理"></a>SVN 版本管理</h1><h2 id="版本的概念"><a href="#版本的概念" class="headerlink" title="版本的概念"></a>版本的概念</h2><h2 id="版本管理的好处及种类"><a href="#版本管理的好处及种类" class="headerlink" title="版本管理的好处及种类"></a>版本管理的好处及种类</h2><ul>
+<li>RCS（Revision Control System）<br>即程序改版控制系统，主要功能是用来管理文件的版本，可以节省空间和时间。这样就不需要在每个程序开发到某一个阶段就将数据拷贝到其他的地方备份起来了。</li>
+<li>CVS（Concurrent Version System）<br>现代管理里工具始祖</li>
+<li>SVN（Subversion）<br>集中式管理工具的集大成者</li>
+<li>GIT<br>分布式版本管理工具（后面讲解）</li>
+</ul>
+<h2 id="SVN"><a href="#SVN" class="headerlink" title="SVN"></a>SVN</h2><p>SVN是Subversion的简称，是一个<strong>集中式</strong>代码管理版本控制系统，相较于RCS、CVS，它采用了分支管理系统，它的设计目标就是取代CVS。说得简单一点SVN就是用于多个人共同开发同一个项目，共用资源的目的。<br><img src="///F://mydoc/kphone/newOutline/section2/SVN/img/svn_1.jpg" alt="集中式版本管理系统示意图"></p>
+<p><strong>集中式：</strong><br>\1. 需要中心服务器<br>\2. 需要联网</p>
+<h3 id="服务器安装"><a href="#服务器安装" class="headerlink" title="服务器安装"></a>服务器安装</h3><p>下载：<a href="https://www.visualsvn.com/downloads/" target="_blank" rel="noopener">https://www.visualsvn.com/downloads/</a></p>
+<h3 id="客户端安装"><a href="#客户端安装" class="headerlink" title="客户端安装"></a>客户端安装</h3><p>下载：<a href="https://tortoisesvn.net/downloads.zh.html" target="_blank" rel="noopener">https://tortoisesvn.net/downloads.zh.html</a></p>
+<h3 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h3><h4 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h4><ul>
+<li><p>迁出（SVN Checkout）：获取远程仓库(服务器)内容</p>
+<blockquote>
+<p>必须在非svn目录中操作</p>
+</blockquote>
+<ul>
+<li>拿到服务器仓库地址（URL of repository）</li>
+<li>获得用户名密码</li>
+</ul>
+</li>
+<li><p>更新（SVN Update）：同步文件</p>
+<blockquote>
+<p>当迁出相应目录后，如果他人对服务器上此目录内容进行了修改，则需要再次获取改动内容到本地目录的过程称为更新</p>
+</blockquote>
+</li>
+<li><p>提交(SVN Commit)：把本地修改提交到服务器</p>
+<blockquote>
+<p>每次提交前，都要先Update一下，确保更新到服务器最新版本后再提交</p>
+</blockquote>
+<ul>
+<li>填写关于本次更新的日志（log message），这是必填项，否则commit会失败</li>
+<li>每成功提交一次，SVN版本号自动加1</li>
+</ul>
+</li>
+</ul>
+<h4 id="其他操作"><a href="#其他操作" class="headerlink" title="其他操作"></a>其他操作</h4><ul>
+<li>增加文件(Add)</li>
+<li>检查更新（Check for modifications）</li>
+<li>删除文件（Delete）</li>
+<li>撤销更改（Revert）</li>
+<li>锁定和解锁（Get lock and Release lock）<br>当项目需要时可以在本地硬盘中将迁出的内容进行锁定，选中要被锁定的文件右键选择“Tortoise SVN”的“Get lock…”项进行锁定（锁定后他人将无法修改此文件），系统弹出锁定信息框。 当文本文件锁定后，需要通过解锁他人才能继续对文件进行修改。</li>
+<li>重命名文件（Rename）</li>
+<li>获取历史文件（Show log）</li>
+</ul>
+<h4 id="利用SVN管理代码一天的工作流程："><a href="#利用SVN管理代码一天的工作流程：" class="headerlink" title="利用SVN管理代码一天的工作流程："></a>利用SVN管理代码一天的工作流程：</h4><ol>
+<li>从服务器下载项目组最新代码。</li>
+<li>然后进行工作，每隔一段时间向服务器自己的分支提交一次代码。</li>
+<li>下班时间快到了，把自己的代码合并到服务器上，一天的工作完成。</li>
+</ol>
+<h2 id="利用svn管理微信飞机大战游戏版的本"><a href="#利用svn管理微信飞机大战游戏版的本" class="headerlink" title="利用svn管理微信飞机大战游戏版的本"></a>利用svn管理微信飞机大战游戏版的本</h2><h2 id="术语"><a href="#术语" class="headerlink" title="术语"></a>术语</h2><ul>
+<li>Revision (修订版本)－－文件历史记录中的被开发者提交的变化。一个修订版本就是一个时常变化的项目的 snapshot (瞬态图)。</li>
+<li>Repository (源代码库)－－CVS 存储所有修订版本历史记录的地方。每个项目都有自己的一个确定的源代码库。</li>
+<li>Working copy (工作拷贝)－－开发者对文件作出修改时文件所在的拷贝。</li>
+<li>Check out (检验)－－从源代码库中申请一份工作拷贝。该工作拷贝反映的是取出时项目的瞬时状态。当开发者对拷贝作出修改时，必须运用 commit (提交)和 update (更新) 命令来 “发布”变化和查看其他开发者所作的修改。</li>
+<li>Commit (提交)－－将工作拷贝中的变化输入中央源代码库。</li>
+<li>Log message (日志信息)－－提交修订版本的时候，附带描述变化的注解。通过查阅记录信息，人们可以获得一个当前项目进程的总结。</li>
+<li>Update (更新)－－从源代码库中取出别人的修改数据，将其输入自己的工作拷贝，并显示自己的工作拷贝是否有未提交的修改。注意，不要和 commit (提交)混淆，更新和提交是一对互补的指令。记住： Update 将使工作拷贝和源代码库拷贝保持同步更新。</li>
+<li>Conflicts (冲突)－－两个开发者对同一个区域所做的改动都提交给主版本时出现的情况，在 CVS 觉察并指出这个冲突后，开发者必须解决该冲突。</li>
+</ul>
+<h1 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h1><p>Git是一个开源的分布式版本控制系统，可以有效、高速的处理从很小到非常大的项目版本管理</p>
+<h2 id="安装与配置"><a href="#安装与配置" class="headerlink" title="安装与配置"></a>安装与配置</h2><ul>
+<li><p>下载与安装<br>下载地址：<a href="https://git-for-windows.github.io" target="_blank" rel="noopener">https://git-for-windows.github.io</a></p>
+</li>
+<li><p>配置个人信息（名字与邮箱）<br>使用Git的第一件事就是设置你的名字和email,这些就是你在提交commit时的签名</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--global user.name <span class="string">"Your Name"</span></span><br><span class="line">git<span class="built_in"> config </span>--global user.email <span class="string">"email@example.com"</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>查看是否配置成功，用命名git config -l</p>
+</blockquote>
+</li>
+</ul>
+<h2 id="git的使用（命令行）"><a href="#git的使用（命令行）" class="headerlink" title="git的使用（命令行）"></a>git的使用（命令行）</h2><h3 id="创建本地仓库"><a href="#创建本地仓库" class="headerlink" title="创建本地仓库"></a>创建本地仓库</h3><ul>
+<li><p>git init：把当前目录变成一个git仓库，并自动创建master分支</p>
+<blockquote>
+<p>以上命令会在当前目录下创建了一个.git 隐藏目录，它就是所谓的Git 仓库。生成仓库后的目录就不是普通的文档目录了，我们将其称为工作区，所以工作区中都包含一个git仓库，而一个git仓库中又包含一个暂存区和一个版本库</p>
+</blockquote>
+</li>
+</ul>
+<h3 id="工作区与版本库概念"><a href="#工作区与版本库概念" class="headerlink" title="工作区与版本库概念"></a>工作区与版本库概念</h3><ul>
+<li>工作区（Working Directory）：电脑中的目录</li>
+<li>仓库：工作区有一个隐藏目录.git，这个不算工作区，而是Git仓库。<ul>
+<li>暂存区（stage/index）：一个临时的存储区域</li>
+<li>版本库 （Repository）</li>
+</ul>
+</li>
+</ul>
+<h3 id="添加文件到版本库的步骤（重点）"><a href="#添加文件到版本库的步骤（重点）" class="headerlink" title="添加文件到版本库的步骤（重点）"></a>添加文件到版本库的步骤（重点）</h3><ol>
+<li><p>创建（修改）文件<br>往工作区中添加/修改文件</p>
+</li>
+<li><p>添加到暂存区：</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">add</span><span class="bash"> &lt;file&gt;</span></span><br></pre></td></tr></table></figure>
+<p>把修改存放到暂存区</p>
+<ul>
+<li><p><code>git add 文件夹</code>：把文件夹下的所有修改添加到暂存区</p>
+</li>
+<li><figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">add</span><span class="bash"> .</span></span><br></pre></td></tr></table></figure>
+<p>：添加所有修改到暂存区</p>
+<blockquote>
+<p>如果想过滤部分文件，请查看 <a href="#git_3">过滤清单</a></p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>提交到版本库：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">git</span> commit -m <span class="string">"备注"</span></span><br></pre></td></tr></table></figure>
+<p>使用git commit 命令可将暂存区的内容提交至版本库中，这个过程称为提交，每一次提交都意味着版本在进行一次更新（会自动生成一个commit id）</p>
+<blockquote>
+<p>PS：如果不写-m回车会进入vim编辑界面，退出方法：</p>
+</blockquote>
+<ul>
+<li>进入编辑状态：i</li>
+<li>退出编辑状态：ESC</li>
+<li>同时按下Shift和冒号（:），接着输入输入：q（退出不保存），wq（保存并退出）</li>
+</ul>
+</li>
+</ol>
+<h3 id="其他辅助命令"><a href="#其他辅助命令" class="headerlink" title="其他辅助命令"></a>其他辅助命令</h3><ul>
+<li>查看仓库变更状态：<code>git status</code><br>用status查看仓库会有几种状态：untracked、unstaged、uncommitted<br><img src="///F://mydoc/kphone/newOutline/section2/javascript/32Git%26Module/doc/img/gitstatus.png" alt="仓库变更状态"></li>
+</ul>
+<h2 id="git远程仓库"><a href="#git远程仓库" class="headerlink" title="git远程仓库"></a>git远程仓库</h2><h3 id="注册登录"><a href="#注册登录" class="headerlink" title="注册登录"></a>注册登录</h3><ul>
+<li>github(国外):<a href="https://github.com/" target="_blank" rel="noopener">https://github.com/</a></li>
+<li>coding(国内):<a href="https://coding.net" target="_blank" rel="noopener">https://coding.net</a></li>
+</ul>
+<h3 id="关联本地仓库与远程仓库"><a href="#关联本地仓库与远程仓库" class="headerlink" title="关联本地仓库与远程仓库"></a>关联本地仓库与远程仓库</h3><blockquote>
+<p>有两种方式关联：ssh和https两种协议，https比较简单，但提交时每次都分输入用户名和密码，如使用https协议，直接跳过以下第1、第2步</p>
+</blockquote>
+<ol>
+<li><p>创建SSH Key：<code>ssh-keygen -t rsa -C &#39;email地址&#39;</code><br>以上命令会在当前window用户的目录里创建.ssh目录，里面有id_rsa（私钥）和id_rsa.pub（公钥）两个文件</p>
+<p>将公钥写到github的ssh keys 上</p>
+</li>
+<li><p>添加SSH Key到Git服务器<br>添加完成后测试线路是否连通：<code>ssh -T git@github.com</code></p>
+</li>
+<li><p>建立本地仓库与远程仓库的连接</p>
+<ul>
+<li><p>方式1：适用于先有本地仓库，后有远程仓库的情况</p>
+<p>格式：</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote <span class="keyword">add</span><span class="bash"> 远程仓库名 远程仓库地址</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git remote <span class="built_in">add</span> origin git@github.<span class="keyword">com</span>:xxx/<span class="keyword">view</span>.git</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>测试是否成功<code>git remote -v</code></p>
+<p>PS：删除远程仓库连接：<code>git remote remove 远程仓库名</code></p>
+</blockquote>
+</li>
+<li><p>方式2：克隆（适用于先有远程库，后有本地仓库的情况）</p>
+<p>格式：</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">clone</span> <span class="title">远程仓库地址</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>当你从远程仓库克隆时，实际上Git自动把本地的master分支和远程的master分支对应起来了，并且，远程仓库的默认名称是origin</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="推送到远程仓库（重点）"><a href="#推送到远程仓库（重点）" class="headerlink" title="推送到远程仓库（重点）"></a>推送到远程仓库（重点）</h3><ul>
+<li><p>git push</p>
+<p>格式：</p>
+<figure class="highlight armasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">git</span> <span class="keyword">push </span>远程仓库名 本地分支名:远程分支名</span><br></pre></td></tr></table></figure>
+<p>把本地分支内容推送到远程分支（远程分支名省略表示推送到与本地分支相同的分支）</p>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">push</span> <span class="built_in">origin</span> master</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="拉取与合并（重点）"><a href="#拉取与合并（重点）" class="headerlink" title="拉取与合并（重点）"></a>拉取与合并（重点）</h3><p>同步本地与远程仓库</p>
+<ul>
+<li><p>git pull</p>
+<p>格式：</p>
+<figure class="highlight nginx"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">git</span> pull 远程仓库名 远程分支名:本地分支名</span><br></pre></td></tr></table></figure>
+<p>拉取远程分支内容到本地并与本地分支进行合并（本地分支名省略表示合并到与远程分支名相同的分支）</p>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin <span class="literal">master</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>git fetch<br>拉取远程分支内容</p>
+</li>
+<li><p>git merge<br>合并分支内容</p>
+</li>
+</ul>
+<figure class="highlight crmsh"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git pull origin <span class="literal">master</span></span><br><span class="line"></span><br><span class="line">//以上命令相当与以下命令等效</span><br><span class="line">git fetch origin <span class="literal">master</span></span><br><span class="line">git merge origin/<span class="literal">master</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>**push和pull后的分支顺序格式：&lt;来源地&gt;:&lt;目的地&gt;</p>
+<p>模拟解决冲突问题</p>
+</blockquote>
+<h2 id="版本回退"><a href="#版本回退" class="headerlink" title="版本回退"></a>版本回退</h2><ul>
+<li>回退命令：<code>git reset</code><ul>
+<li>回退到上一个版本<br><code>git reset --hard HEAD^</code></li>
+<li>回退到指定版本：<br><code>git reset --hard [commit id]</code> 版本号没必要写全，前几位就可以了，Git会自动去找。</li>
+<li>回退指定文件<br><code>git reset --hard [commit id] &lt;file&gt;</code></li>
+<li>参数说明<ul>
+<li>–hard:工作区、暂存区、版本库的文件同时回退</li>
+<li>–mixed：暂存区、版本库的文件回退（默认）</li>
+<li>–soft：仅仅回退版本库中的文件</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>当前版本：HEAD<br>上一个版本：HEAD^<br>上上个版本：HEAD^^<br>… 依此类推<br>前100个版本：HEAD~100</li>
+<li>显示从最近到最远的提交日志：<code>git log</code><ul>
+<li>–pretty=oneline（显示简要信息id+备注）</li>
+<li>–graph（图形显示版本走向）</li>
+<li>–abbrev-commit（显示简写的id）</li>
+<li>一大串类似3628164…882e1e0的是commit id（版本号）</li>
+</ul>
+</li>
+<li>查看命令历史：<code>git reflog</code></li>
+<li>撤销文件修改<ul>
+<li><code>git checkout -- &lt;file&gt;</code>：放弃工作区的修改</li>
+<li><code>git rm --cache &lt;file&gt;</code>：撤销暂存区的修改</li>
+<li><code>git reset HEAD &lt;file&gt;</code>：撤销暂存区的修改</li>
+</ul>
+</li>
+<li>对比文件：<code>git diff &lt;file&gt;</code></li>
+</ul>
+<h2 id="git过滤配置-过滤清单"><a href="#git过滤配置-过滤清单" class="headerlink" title="git过滤配置(过滤清单)"></a>git过滤配置(过滤清单)</h2><p>一般来说每个Git项目中都需要一个“.gitignore”文件，这个文件的作用就是告诉Git哪些文件不需要添加到版本管理中。</p>
+<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#过滤node_modules根目录下的文件（不过滤其他目录下的node_modules文件夹）</span></span><br><span class="line"><span class="string">/node_modules</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#过滤所有mtk文件夹</span></span><br><span class="line">mtk/ </span><br><span class="line"></span><br><span class="line"><span class="comment">#过滤所有.zip文件</span></span><br><span class="line">*<span class="string">.zip</span> </span><br><span class="line">*<span class="string">.mp3</span></span><br><span class="line">*<span class="string">.mp4</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#过滤某个具体文件</span></span><br><span class="line"><span class="string">/mtk/do.c</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li><code>#为注释</code></li>
+<li>很简单吧，被过滤掉的文件就不会出现在你的GitHub库中了，当然本地库中还有，只是push的时候不会上传。</li>
+<li>演示sass遗留的依赖包问题：npm init创建package.js，npm install根据package.js下载包</li>
+</ul>
+<h2 id="分支操作（了解）"><a href="#分支操作（了解）" class="headerlink" title="分支操作（了解）"></a>分支操作（了解）</h2><ul>
+<li><p>创建分支：<code>git branch 分支名</code></p>
+</li>
+<li><p>切换分支：<code>git checkout 分支名</code></p>
+<blockquote>
+<p>以上两步合并为：<code>git checkout -b 分支名</code></p>
+</blockquote>
+</li>
+<li><p>查看分支：git branch<br>列出所有分支，当前分支前面会标一个*号</p>
+</li>
+<li><p>合并分支：</p>
+<figure class="highlight cos"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="keyword">merge</span> 分支名</span><br></pre></td></tr></table></figure>
+<ul>
+<li><p><code>git merge dev</code>：把dev分支合并到当前分支</p>
+</li>
+<li><p>Fast-forward：快速合并</p>
+<p>禁用快速合并： –no-ff （保持分支信息）</p>
+<blockquote>
+<p>合并要创建一个新的commit，所以加上-m参数，把commit描述写进去</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>删除分支：<code>git branch -d 分支名</code><br>强行删除，需要使用命令<code>git branch -D feature-vulcan</code></p>
+</li>
+<li><p>获取远程分支</p>
+<ol>
+<li>先获取（git fetch）</li>
+<li>然后在本地创建一个同名分支,并将远程分支映射到此分支（git branch dev origin/dev）</li>
+</ol>
+</li>
+</ul>
+<p><strong>在实际开发中，我们应该按照几个基本原则进行分支管理：</strong><br>首先，master分支应该是非常稳定的，也就是仅用来发布新版本，平时不能在上面干活；</p>
+<p>那在哪干活呢？干活都在dev分支上，也就是说，dev分支是不稳定的，到某个时候，比如1.0版本发布时，再把dev分支合并到master上，在master分支发布1.0版本；</p>
+<p>你和你的小伙伴们每个人都在dev分支上干活，每个人都有自己的分支，时不时地往dev分支上合并就可以了。</p>
+<p>所以，团队合作的分支看起来就像这样</p>
+<p><a href="http://www.ruanyifeng.com/blog/2011/05/how_to_choose_free_software_licenses.html" target="_blank" rel="noopener">http://www.ruanyifeng.com/blog/2011/05/how_to_choose_free_software_licenses.html</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------阅读有风险<i class="fa fa-paw"></i>请谨慎阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/git/" rel="tag"># git</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/12/js面向对象/" rel="next" title="js面向对象">
+                <i class="fa fa-chevron-left"></i> js面向对象
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/12/jQuery基础/" rel="prev" title="jQuery基础">
+                jQuery基础 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/baby.png" alt="唐唐胖次">
+            
+              <p class="site-author-name" itemprop="name">唐唐胖次</p>
+              <div class="site-description motion-element" itemprop="description">每天努力一点点</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">55</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/Junokl" title="GitHub &rarr; https://github.com/Junokl" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SVN-版本管理"><span class="nav-number">1.</span> <span class="nav-text">SVN 版本管理</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#版本的概念"><span class="nav-number">1.1.</span> <span class="nav-text">版本的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版本管理的好处及种类"><span class="nav-number">1.2.</span> <span class="nav-text">版本管理的好处及种类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SVN"><span class="nav-number">1.3.</span> <span class="nav-text">SVN</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器安装"><span class="nav-number">1.3.1.</span> <span class="nav-text">服务器安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#客户端安装"><span class="nav-number">1.3.2.</span> <span class="nav-text">客户端安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#使用"><span class="nav-number">1.3.3.</span> <span class="nav-text">使用</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本操作"><span class="nav-number">1.3.3.1.</span> <span class="nav-text">基本操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#其他操作"><span class="nav-number">1.3.3.2.</span> <span class="nav-text">其他操作</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#利用SVN管理代码一天的工作流程："><span class="nav-number">1.3.3.3.</span> <span class="nav-text">利用SVN管理代码一天的工作流程：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用svn管理微信飞机大战游戏版的本"><span class="nav-number">1.4.</span> <span class="nav-text">利用svn管理微信飞机大战游戏版的本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#术语"><span class="nav-number">1.5.</span> <span class="nav-text">术语</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git"><span class="nav-number">2.</span> <span class="nav-text">Git</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装与配置"><span class="nav-number">2.1.</span> <span class="nav-text">安装与配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git的使用（命令行）"><span class="nav-number">2.2.</span> <span class="nav-text">git的使用（命令行）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建本地仓库"><span class="nav-number">2.2.1.</span> <span class="nav-text">创建本地仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工作区与版本库概念"><span class="nav-number">2.2.2.</span> <span class="nav-text">工作区与版本库概念</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加文件到版本库的步骤（重点）"><span class="nav-number">2.2.3.</span> <span class="nav-text">添加文件到版本库的步骤（重点）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他辅助命令"><span class="nav-number">2.2.4.</span> <span class="nav-text">其他辅助命令</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git远程仓库"><span class="nav-number">2.3.</span> <span class="nav-text">git远程仓库</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注册登录"><span class="nav-number">2.3.1.</span> <span class="nav-text">注册登录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关联本地仓库与远程仓库"><span class="nav-number">2.3.2.</span> <span class="nav-text">关联本地仓库与远程仓库</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#推送到远程仓库（重点）"><span class="nav-number">2.3.3.</span> <span class="nav-text">推送到远程仓库（重点）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#拉取与合并（重点）"><span class="nav-number">2.3.4.</span> <span class="nav-text">拉取与合并（重点）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#版本回退"><span class="nav-number">2.4.</span> <span class="nav-text">版本回退</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#git过滤配置-过滤清单"><span class="nav-number">2.5.</span> <span class="nav-text">git过滤配置(过滤清单)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分支操作（了解）"><span class="nav-number">2.6.</span> <span class="nav-text">分支操作（了解）</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">唐唐胖次</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,0" opacity="0.5" zindex="-1" count="150" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>

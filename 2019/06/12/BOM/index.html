@@ -1,0 +1,1089 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/Ham.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/Ham.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="BOMBOM的概念BOM 是Browser Object Model（浏览器对象模型）的缩写，提供与浏览器窗口进行交互的对象。JavaScript语法的标准化组织是ECMA，DOM的标准化组织是W3C, 而BOM缺乏标准。这也是各种浏览器不兼容的根源所在 window对象window对象是BOM的核心, 是最顶层的对象，所有对象都是通过它延伸出来的，如图: 全局作用域 定义在全局环境下的变量都会成">
+<meta name="keywords" content="BOM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="BOM">
+<meta property="og:url" content="http://Junokl.com/2019/06/12/BOM/index.html">
+<meta property="og:site_name" content="势必要上进的咸鱼军">
+<meta property="og:description" content="BOMBOM的概念BOM 是Browser Object Model（浏览器对象模型）的缩写，提供与浏览器窗口进行交互的对象。JavaScript语法的标准化组织是ECMA，DOM的标准化组织是W3C, 而BOM缺乏标准。这也是各种浏览器不兼容的根源所在 window对象window对象是BOM的核心, 是最顶层的对象，所有对象都是通过它延伸出来的，如图: 全局作用域 定义在全局环境下的变量都会成">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-06-12T02:56:11.252Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="BOM">
+<meta name="twitter:description" content="BOMBOM的概念BOM 是Browser Object Model（浏览器对象模型）的缩写，提供与浏览器窗口进行交互的对象。JavaScript语法的标准化组织是ECMA，DOM的标准化组织是W3C, 而BOM缺乏标准。这也是各种浏览器不兼容的根源所在 window对象window对象是BOM的核心, 是最顶层的对象，所有对象都是通过它延伸出来的，如图: 全局作用域 定义在全局环境下的变量都会成">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://Junokl.com/2019/06/12/BOM/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>BOM | 势必要上进的咸鱼军</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">势必要上进的咸鱼军</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">一只小小小攻城狮</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">19</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">18</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">55</span></a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Junokl.com/2019/06/12/BOM/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="唐唐胖次">
+      <meta itemprop="description" content="每天努力一点点">
+      <meta itemprop="image" content="/images/baby.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="势必要上进的咸鱼军">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">BOM
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-12 10:55:02" itemprop="dateCreated datePublished" datetime="2019-06-12T10:55:02+08:00">2019-06-12</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/BOM/" itemprop="url" rel="index"><span itemprop="name">BOM</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="BOM"><a href="#BOM" class="headerlink" title="BOM"></a>BOM</h1><h2 id="BOM的概念"><a href="#BOM的概念" class="headerlink" title="BOM的概念"></a>BOM的概念</h2><p>BOM 是Browser Object Model（浏览器对象模型）的缩写，提供与浏览器窗口进行交互的对象。JavaScript语法的标准化组织是ECMA，DOM的标准化组织是W3C, 而BOM缺乏标准。这也是各种浏览器不兼容的根源所在</p>
+<h2 id="window对象"><a href="#window对象" class="headerlink" title="window对象"></a>window对象</h2><p>window对象是BOM的核心, 是最顶层的对象，所有对象都是通过它延伸出来的，如图:</p>
+<h2 id="全局作用域"><a href="#全局作用域" class="headerlink" title="全局作用域"></a>全局作用域</h2><ul>
+<li><p>定义在全局环境下的变量都会成为window对象的属性</p>
+</li>
+<li><p>把变量定义在函数体里，可以有效减少全局环境下的变量冲突，避免污染全局环境</p>
+</li>
+<li><p>在函数内部不用var声明的变量会成为全局变量，即window对象的属性</p>
+</li>
+<li><p>window对象可以在代码中省略，如window.alert()可以写成alert();</p>
+</li>
+<li><p>通过var在全局作用域下声明的变量用delete无法删除</p>
+<figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var obj = <span class="built_in">&#123;name</span>:<span class="string">'xxx'</span>&#125;</span><br><span class="line"></span><br><span class="line">//删除对象的属性用<span class="keyword">delete</span>：</span><br><span class="line"><span class="keyword">delete</span> obj<span class="built_in">.name</span>;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="window对象下的属性"><a href="#window对象下的属性" class="headerlink" title="window对象下的属性"></a>window对象下的属性</h3><h4 id="常用属性"><a href="#常用属性" class="headerlink" title="常用属性"></a>常用属性</h4><ul>
+<li>浏览器窗口尺寸<br>innerWidth/innerHeight, //表示浏览器窗口”可视区域”尺寸<br>outerWidth/outerHeight //表示整个浏览器窗口的尺寸</li>
+<li>滚动相关<ul>
+<li>scrollX/scrollY //获取浏览器窗口滚动条滚动过的距离</li>
+<li>scrollTo(x,y) //设置浏览器滚动距离</li>
+<li>scrollBy(xnum,ynum) //设置基于当前位置滚动的距离，可以为负数</li>
+</ul>
+</li>
+</ul>
+<h4 id="常用方法-了解"><a href="#常用方法-了解" class="headerlink" title="常用方法(了解)"></a>常用方法(了解)</h4><ul>
+<li><p>系统对话框</p>
+<ul>
+<li><p>alert(msg)//弹出对话框</p>
+</li>
+<li><p>confirm(msg)//弹出警告框，返回布尔值</p>
+</li>
+<li><p>prompt(msg,default)//弹出输入框，返回消息或null</p>
+<blockquote>
+<p>以上三个方法都会暂停代码的执行</p>
+</blockquote>
+</li>
+<li><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">open</span><span class="params">(url,name,[options])</span></span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code>: 打开一个新窗口并返回新 window 对象
+
+- name:不命名会每次打开新窗口，命名的第一次打开新窗口,之后在这个窗口中加载
+- options为字符串：`&apos;width=400,height=400,top=200,left=200&apos;`
+- opener父窗口对象，通过open方法打开的窗口才有opener对象
+</code></pre><ul>
+<li><p>close(): 关闭窗口</p>
+</li>
+<li><p>print(): 调出打印对话框</p>
+</li>
+</ul>
+<h4 id="属性对象"><a href="#属性对象" class="headerlink" title="属性对象"></a>属性对象</h4><ul>
+<li><p>document(核心): 文档对象，让我们可以在js脚本中直接访问页面元素(DOM)</p>
+<blockquote>
+<p>在DOM章节详细讲解</p>
+</blockquote>
+</li>
+<li><p>history(重要): 历史对象,包含窗口的浏览历史，可以实现后退</p>
+<ul>
+<li><p>属性：</p>
+<ul>
+<li>length 返回浏览器历史列表中的 URL 数量。</li>
+</ul>
+</li>
+<li><p>方法：</p>
+<ul>
+<li><p>back() 加载 history 列表中的前一个 URL。</p>
+</li>
+<li><p>forward() 加载 history 列表中的下一个 URL。</p>
+</li>
+<li><p>go() 加载 history 列表中的某个具体页面，支持负数。</p>
+<figure class="highlight gcode"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">history.go<span class="comment">(2)</span>;<span class="comment">//向前两个页面</span></span><br><span class="line">history.go<span class="comment">(-2)</span>;<span class="comment">//后退两个页面</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>location(重要):<br>location是BOM最有用的对象之一，保存着当前窗口中加载文档的相关信息，还提供一些导航功能，它是个很特别的对象，既是window的属性，也是document的属性</p>
+<ul>
+<li><p>属性：</p>
+<ul>
+<li>hash 设置或返回从井号 (#) 开始的 URL（锚）==&gt;哈希值。</li>
+<li>href 设置或返回完整的 URL。</li>
+<li>search 设置或返回从问号 (?) 开始的 URL（查询部分）。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">encodeURI</span>();<span class="comment">//转码</span></span><br><span class="line"><span class="built_in">decodeURI</span>();<span class="comment">//解码</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>PS：修改以上属性(hash除外)都会刷新当前页面，并生成历史纪录</p>
+</blockquote>
+</li>
+<li><p>方法：</p>
+<ul>
+<li>reload() 重新加载当前文档，带参数true表示不使用缓存刷新页面。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>navigator（了解）:<br>导航对象, 包含所有有关访问者浏览器的信息，通常用于检测浏览器类型</p>
+<ul>
+<li>appName 浏览器名称</li>
+<li>appVersion 浏览器版本</li>
+<li>platform 操作系统</li>
+<li>userAgent 用户代理信息，通过该属性可以获取浏览器及操作系统信息</li>
+<li>geolocation 获取地理位置信息</li>
+</ul>
+</li>
+</ul>
+<h3 id="window对象常用事件"><a href="#window对象常用事件" class="headerlink" title="window对象常用事件"></a>window对象常用事件</h3><ul>
+<li>onload //页面资源全部加载完成后触发这个事件</li>
+<li>onscroll//窗口滚动条滚动时触发</li>
+<li>onresize //窗口大小改变时触发</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------阅读有风险<i class="fa fa-paw"></i>请谨慎阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/BOM/" rel="tag"># BOM</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/12/es6方法/" rel="next" title="es6方法">
+                <i class="fa fa-chevron-left"></i> es6方法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/12/DOM/" rel="prev" title="DOM">
+                DOM <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/baby.png" alt="唐唐胖次">
+            
+              <p class="site-author-name" itemprop="name">唐唐胖次</p>
+              <div class="site-description motion-element" itemprop="description">每天努力一点点</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">55</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/Junokl" title="GitHub &rarr; https://github.com/Junokl" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#BOM"><span class="nav-number">1.</span> <span class="nav-text">BOM</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#BOM的概念"><span class="nav-number">1.1.</span> <span class="nav-text">BOM的概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#window对象"><span class="nav-number">1.2.</span> <span class="nav-text">window对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#全局作用域"><span class="nav-number">1.3.</span> <span class="nav-text">全局作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#window对象下的属性"><span class="nav-number">1.3.1.</span> <span class="nav-text">window对象下的属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#常用属性"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">常用属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常用方法-了解"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">常用方法(了解)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#属性对象"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">属性对象</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#window对象常用事件"><span class="nav-number">1.3.2.</span> <span class="nav-text">window对象常用事件</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">唐唐胖次</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,0" opacity="0.5" zindex="-1" count="150" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>

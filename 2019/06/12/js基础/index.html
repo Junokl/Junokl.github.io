@@ -1,0 +1,1663 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/Ham.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/Ham.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="（一）js历史(1)JavaScript的诞生JavaScript 诞生于 1995 年。由Netscape(网景公司)的程序员Brendan Eich(布兰登)与Sun公司联手开发一门脚本语言, 最初名字叫做Mocha，1995年9月改为LiveScript。12月，Netscape公司与Sun公司（Java语言的发明者）达成协议，后者允许将这种语言叫做JavaScript。这样一来，Netsc">
+<meta name="keywords" content="js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js基础">
+<meta property="og:url" content="http://Junokl.com/2019/06/12/js基础/index.html">
+<meta property="og:site_name" content="势必要上进的咸鱼军">
+<meta property="og:description" content="（一）js历史(1)JavaScript的诞生JavaScript 诞生于 1995 年。由Netscape(网景公司)的程序员Brendan Eich(布兰登)与Sun公司联手开发一门脚本语言, 最初名字叫做Mocha，1995年9月改为LiveScript。12月，Netscape公司与Sun公司（Java语言的发明者）达成协议，后者允许将这种语言叫做JavaScript。这样一来，Netsc">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-06-12T03:01:43.848Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="js基础">
+<meta name="twitter:description" content="（一）js历史(1)JavaScript的诞生JavaScript 诞生于 1995 年。由Netscape(网景公司)的程序员Brendan Eich(布兰登)与Sun公司联手开发一门脚本语言, 最初名字叫做Mocha，1995年9月改为LiveScript。12月，Netscape公司与Sun公司（Java语言的发明者）达成协议，后者允许将这种语言叫做JavaScript。这样一来，Netsc">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://Junokl.com/2019/06/12/js基础/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>js基础 | 势必要上进的咸鱼军</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">势必要上进的咸鱼军</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">一只小小小攻城狮</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">19</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">18</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">55</span></a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Junokl.com/2019/06/12/js基础/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="唐唐胖次">
+      <meta itemprop="description" content="每天努力一点点">
+      <meta itemprop="image" content="/images/baby.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="势必要上进的咸鱼军">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">js基础
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-12 10:48:56" itemprop="dateCreated datePublished" datetime="2019-06-12T10:48:56+08:00">2019-06-12</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="（一）js历史"><a href="#（一）js历史" class="headerlink" title="（一）js历史"></a>（一）<strong>js历史</strong></h4><h5 id="1-JavaScript的诞生"><a href="#1-JavaScript的诞生" class="headerlink" title="(1)JavaScript的诞生"></a><strong>(1)JavaScript的诞生</strong></h5><p>JavaScript 诞生于 1995 年。由Netscape(网景公司)的程序员Brendan Eich(布兰登)与Sun公司联手开发一门脚本语言, 最初名字叫做Mocha，1995年9月改为LiveScript。12月，Netscape公司与Sun公司（Java语言的发明者）达成协议，后者允许将这种语言叫做JavaScript。这样一来，Netscape公司可以借助Java语言的声势。</p>
+<p>1996年3月， Netscape公司的浏览器Navigator2.0浏览器正式内置了JavaScript脚本语言. 此后其他主流浏览器逐渐开始支持JavaScript.</p>
+<h4 id="2-js版本"><a href="#2-js版本" class="headerlink" title="(2)js版本"></a><strong>(2)js版本</strong></h4><p>JavaScript这种语言的基本语法结构是由ECMAScript来标准化的, 所以我们说的JavaScript版本一般指的是ECMAScript版本.</p>
+<p>· 1997年7月，ECMAScript 1.0发布。</p>
+<p>· 1998年6月，ECMAScript 2.0版发布。</p>
+<p>· 1999年12月，ECMAScript 3.0版发布。</p>
+<p>· 2007年10月，ECMAScript 4.0版草案想要提交ECMA组织, 但由于4.0版的目标过于激进, 改动太大, 并且微软,谷歌等大公司极力反对；一直到2008年7月ECMA开会决定，中止ECMAScript 4.0的开发（即废除了这个版本）</p>
+<p>· 2009年12月，ECMAScript 5.0版正式发布</p>
+<p>· 2011年6月，ECMAscript 5.1版发布</p>
+<p>· 2015年6月，ECMAScript 6正式发布，并且更名为“ECMAScript 2015”。</p>
+<h4 id="3-js语言的组成"><a href="#3-js语言的组成" class="headerlink" title="(3)js语言的组成"></a><strong>(3)js语言的组成</strong></h4><p>javascript = ECMAScript + BOM + DOM</p>
+<p>· 核心(ECMAScript)</p>
+<p>· 浏览器对象模型(BOM) </p>
+<p>· 文档对象模型(DOM) </p>
+<p>ECMA 欧洲电脑厂商联合会 制定js规范。</p>
+<p>W3c 指定html及css规范</p>
+<h4 id="一、js语法"><a href="#一、js语法" class="headerlink" title="一、js语法"></a>一、js语法</h4><h5 id="（一）js的书写位置"><a href="#（一）js的书写位置" class="headerlink" title="（一）js的书写位置"></a>（一）js的书写位置</h5><pre><code>1.script[src引入外部js文件][type=&quot;text/javascript&quot;可以省略]
+ * 若是存在src属性，在当前script标签里写代码无效。
+          2.作为a标签的href属性值[href=&quot;javascript:js代码;&quot;]
+</code></pre><h5 id="二-js注释"><a href="#二-js注释" class="headerlink" title="(二)js注释"></a>(二)js注释</h5><pre><code>//      单行注释
+  /*    多行注释,不要嵌套多行注释
+</code></pre><h5 id="三-声明变量及赋值"><a href="#三-声明变量及赋值" class="headerlink" title="(三) 声明变量及赋值"></a>(三) 声明变量及赋值</h5><pre><code> 1. 声明变量(容器)，通过关键字 var
+        var a;
+2. 给变量赋值,将10的值赋给a
+        a = 10;
+ 3. 同时声明变量及赋值  var 变量名 = 值;
+    var uname = &quot;lemon&quot;;
+ 4. 同时声明多个变量，用逗号隔开
+var b,c,d;
+b = 100;
+c = 200;
+d = 300;
+var b = 100,c = 200,d = 300;
+</code></pre><h4 id="二、输出"><a href="#二、输出" class="headerlink" title="二、输出"></a>二、输出</h4><h5 id="1-alert-变量不加引号-具体的值-弹窗输出"><a href="#1-alert-变量不加引号-具体的值-弹窗输出" class="headerlink" title="1.alert(变量不加引号||具体的值) 弹窗输出"></a>1.alert(变量不加引号||具体的值) 弹窗输出</h5><p>alert(uname);<br>alert(10);<br>alert(“uname”);</p>
+<h5 id="2-document-write-变量不加引号-具体的值-在body里面输出内容"><a href="#2-document-write-变量不加引号-具体的值-在body里面输出内容" class="headerlink" title="2. document.write(变量不加引号||具体的值) 在body里面输出内容"></a>2. document.write(变量不加引号||具体的值) 在body里面输出内容</h5><p>document.write() 可配合标签使用<br>document.write(“啦啦啦，我是买包小行家“);<br>document.write(uname);</p>
+<h5 id="3-console-log-变量不加引号-具体的值-往控制台console输出内容"><a href="#3-console-log-变量不加引号-具体的值-往控制台console输出内容" class="headerlink" title="3. console.log(变量不加引号||具体的值) 往控制台console输出内容"></a>3. console.log(变量不加引号||具体的值) 往控制台console输出内容</h5><pre><code>调试
+</code></pre><h5 id="4-元素-innerHTML-””-作为元素代码输出"><a href="#4-元素-innerHTML-””-作为元素代码输出" class="headerlink" title="4.元素.innerHTML=””     作为元素代码输出"></a>4.元素.innerHTML=””     作为元素代码输出</h5><p>（1）将外层引号改成不一样的（单引、双引）    </p>
+<p> （2）通过反斜杠\转义字符</p>
+<h4 id="三、运算"><a href="#三、运算" class="headerlink" title="三、运算"></a>三、运算</h4><h5 id="（一）算术运算-求余数"><a href="#（一）算术运算-求余数" class="headerlink" title="（一）算术运算 + - * / %(求余数)"></a>（一）算术运算 + - * / %(求余数)</h5><pre><code>1.字符串拼接： 当+运算符两侧有一侧为字符串，此时为字符串拼接。例如1+&quot;2&quot;=&quot;12&quot;.
+
+*备注：字符串内拼接变量口诀 &quot;+变量+&quot; (引号可以是单引号)
+</code></pre><h5 id="计算两个文本框的值"><a href="#计算两个文本框的值" class="headerlink" title="计算两个文本框的值"></a>计算两个文本框的值</h5><pre><code> 1.获取到两个文本框 document.getElementById(&quot;id名&quot;)
+2.获取到两个文本框里面的内容 value
+3.文本框内容进行算术运算，将最终结果输出
+4.点击按钮时，才执行23代码
+    （1）给按钮元素添加点击事件 [onclick=&quot;函数名()&quot;]
+    （2）定义函数，函数里面定义23代码 function 函数名(){js代码}
+</code></pre><h5 id="备注遇到的问题"><a href="#备注遇到的问题" class="headerlink" title="备注遇到的问题"></a>备注遇到的问题</h5><pre><code>（1）代码执行顺序是从上往下的，必须在元素创建之后才能获取
+   (2) 点击事件[onclick=&quot;函数名()&quot;]触发函数,自定义函数通过function 函数名(){js代码}
+（3）**文本框的值肯定是字符串类型，会存在字符串拼接的问题**
+</code></pre><h5 id="（二）赋值运算"><a href="#（二）赋值运算" class="headerlink" title="（二）赋值运算"></a>（二）赋值运算</h5><ol>
+<li>=  将右边的值赋值给左边 </li>
+<li>+= 在原来基础的内容上追加内容</li>
+<li>同理 -=    *=    /=   %=</li>
+</ol>
+<h5 id="三-关系运算-返回布尔值-存在隐式转换"><a href="#三-关系运算-返回布尔值-存在隐式转换" class="headerlink" title="(三)关系运算          !!!!!返回布尔值(存在隐式转换)!!!!!"></a>(三)关系运算          !!!!!返回布尔值(存在隐式转换)!!!!!</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">**<span class="number">1.</span> == 等于，判断两边的值的内容发生隐式转换后一致，就返回<span class="literal">true</span>**</span><br><span class="line"><span class="number">2.</span> != 不等于，只有当两边的值的内容发生隐式转换后不一致，才返回<span class="literal">true</span></span><br><span class="line"><span class="number">3.</span> &gt;  &gt;=  <span class="xml"><span class="tag">&lt;  &lt;=</span></span></span><br><span class="line"><span class="xml">4. === 全等于，只有类型以及内容都一致的情况下（不发生隐式转换），才会返回true</span></span><br><span class="line"><span class="xml">5. !==  不全等于</span></span><br><span class="line"><span class="xml"> 	 •    关系运算符的比较规则: </span></span><br><span class="line"><span class="xml">	 1. 数字和数字比较, 直接比较大小</span></span><br><span class="line"><span class="xml">		 2. 数字和字符串比较, 字符串转换为数字后再比较</span></span><br><span class="line"><span class="xml"> 	 **3. 字符串和字符串比较, 进行字符的ASCII码值比较**</span></span><br></pre></td></tr></table></figure>
+<h5 id="四-逻辑运算"><a href="#四-逻辑运算" class="headerlink" title="(四)逻辑运算"></a>(四)逻辑运算</h5><figure class="highlight erlang-repl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>.与运算 &amp;&amp; </span><br><span class="line"> 	* 运算符两侧的值都为true才返回true</span><br><span class="line">* !!!!!若与运算左侧的值返回false，直接终止运算!!!!!!!!</span><br><span class="line"><span class="number">2</span>.或运算 ||</span><br><span class="line">	* 运算符两侧的值都为false才返回false</span><br><span class="line"> 	* 若或运算左侧的值返回true，直接终止运算</span><br></pre></td></tr></table></figure>
+<h5 id="五-一元运算"><a href="#五-一元运算" class="headerlink" title="(五)一元运算"></a>(五)一元运算</h5><h5 id="自增1"><a href="#自增1" class="headerlink" title="++ 自增1"></a>++ 自增1</h5><pre><code>前置 ++a,先对a进行自增1，再将a的值返回出去
+后置 a++,先将a的值返回出去，再对a进行自增1
+</code></pre><h5 id="–-自减1"><a href="#–-自减1" class="headerlink" title="– 自减1"></a>– 自减1</h5><pre><code>同上
+</code></pre><h5 id="六-三元运算符-双分支情况使用"><a href="#六-三元运算符-双分支情况使用" class="headerlink" title="(六)三元运算符(双分支情况使用)"></a>(六)三元运算符(双分支情况使用)</h5><pre><code>条件 ？满足条件执行这里:不满足条件执行这里
+</code></pre><h4 id="四、数据类型（值）"><a href="#四、数据类型（值）" class="headerlink" title="四、数据类型（值）"></a>四、数据类型（值）</h4><h5 id="（一）基本数据类型"><a href="#（一）基本数据类型" class="headerlink" title="（一）基本数据类型"></a>（一）基本数据类型</h5><h6 id="1-数字类型-Number"><a href="#1-数字类型-Number" class="headerlink" title="1.数字类型 Number"></a>1.数字类型 Number</h6><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">var uage</span> = 17;</span><br></pre></td></tr></table></figure>
+<h6 id="2-字符串类型String-带引号的值都是字符串类型"><a href="#2-字符串类型String-带引号的值都是字符串类型" class="headerlink" title="2.字符串类型String,带引号的值都是字符串类型"></a>2.字符串类型String,带引号的值都是字符串类型</h6><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">var uname</span> = <span class="string">"lemon"</span>;</span><br></pre></td></tr></table></figure>
+<h6 id="3-布尔类型-Boolean。两个值：true、false"><a href="#3-布尔类型-Boolean。两个值：true、false" class="headerlink" title="3.布尔类型 Boolean。两个值：true、false"></a>3.布尔类型 Boolean。两个值：true、false</h6><figure class="highlight nimrod"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> <span class="literal">result</span> = <span class="literal">true</span>;</span><br></pre></td></tr></table></figure>
+<h5 id="二-特殊数据类型"><a href="#二-特殊数据类型" class="headerlink" title="(二)特殊数据类型"></a>(二)特殊数据类型</h5><h5 id="1-Null-类型只有一个特殊的值为-null-表示一个空对象引用-指针-。"><a href="#1-Null-类型只有一个特殊的值为-null-表示一个空对象引用-指针-。" class="headerlink" title="1.Null 类型只有一个特殊的值为 null,表示一个空对象引用(指针)。"></a>1.Null 类型只有一个特殊的值为 null,表示一个空对象引用(指针)。</h5><h5 id="2-Undefined-只有一个值undefined。当声明一个变量但未赋值，返回undefined。"><a href="#2-Undefined-只有一个值undefined。当声明一个变量但未赋值，返回undefined。" class="headerlink" title="2.Undefined 只有一个值undefined。当声明一个变量但未赋值，返回undefined。"></a>2.Undefined 只有一个值undefined。当声明一个变量但未赋值，返回undefined。</h5><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">备注：区分<span class="literal">undefined</span>与<span class="keyword">is</span> <span class="keyword">not</span> defined</span><br><span class="line"><span class="literal">undefined</span> 声明变量未赋值</span><br><span class="line"><span class="keyword">is</span> <span class="keyword">not</span> defined 报错，变量未声明 定义  </span><br><span class="line"></span><br><span class="line">syntax error 语法错误</span><br></pre></td></tr></table></figure>
+<h5 id="三-引用数据类型"><a href="#三-引用数据类型" class="headerlink" title="(三) 引用数据类型"></a>(三) 引用数据类型</h5><figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">Array</span><span class="params">(数组)</span></span>、Object</span><br></pre></td></tr></table></figure>
+<h5 id="（四）、typeof-判断数据类型"><a href="#（四）、typeof-判断数据类型" class="headerlink" title="（四）、typeof() 判断数据类型"></a>（四）、typeof() 判断数据类型</h5><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typeof</span>(<span class="number">123</span>);<span class="comment">//number</span></span><br><span class="line"><span class="keyword">typeof</span>(<span class="literal">NaN</span>);<span class="comment">//number</span></span><br><span class="line"><span class="keyword">typeof</span>(<span class="string">"123"</span>);<span class="comment">//string</span></span><br><span class="line"><span class="keyword">typeof</span>(<span class="literal">true</span>);<span class="comment">//boolean</span></span><br><span class="line"><span class="keyword">typeof</span>(<span class="literal">null</span>);<span class="comment">//object </span></span><br><span class="line"><span class="keyword">typeof</span>(<span class="literal">undefined</span>);<span class="comment">//undefined</span></span><br></pre></td></tr></table></figure>
+<h4 id="五）数据类型的转换"><a href="#五）数据类型的转换" class="headerlink" title="(五）数据类型的转换"></a>(五）数据类型的转换</h4><h5 id="1-主动转换"><a href="#1-主动转换" class="headerlink" title="1.主动转换"></a>1.主动转换</h5><p>Number() 将其他数据类型转换成数字类型<br>2.隐式转换：当运算无法进行下去时，内部就会尝试进行数据类型的转换。</p>
+<h5 id="1-直接转换"><a href="#1-直接转换" class="headerlink" title="1.直接转换"></a>1.直接转换</h5><p>  (1）<strong>Number() 转换成数字类型</strong><br>    Number(字符串) =&gt; 数字、NaN<br>    Number(布尔值) =&gt; 1、0<br>（2）String() 转换成字符串类型,在值两侧加双引号<br>  (3）Boolean() 转换成布尔类型,true、false<br>    备注：数字0、NaN、””、underfine、null 转换成布尔值为false，其余的都是true</p>
+<ol start="2">
+<li><p>隐式转换 当运算无法进行下去时，内部就会尝试进行数据类型的转换。</p>
+<h5 id="常用的方法："><a href="#常用的方法：" class="headerlink" title="常用的方法："></a>常用的方法：</h5><p>1.<strong>parseInt(a)</strong> 将a取整</p>
+<pre><code>parseInt(&quot;123.333abc&quot;)====&gt;123
+</code></pre><p>2.<strong>parseFloat(a)</strong> 取浮点数<br> parseFloat(“123.333abc”)====&gt;123.333<br>3.<strong>Math.round(a)</strong> 对a进行四舍五入取整<br>4.<strong>Math.random()</strong> 取[0,1)里面的随机数，包含0不包含1。</p>
+<p>5.<strong>getElementById(“id名”)</strong> 获取id名所在的元素</p>
+<p>6.定义函数     </p>
+<p><strong>function 函数名()</strong>{</p>
+<pre><code>var 变量 = .**getElementById(&quot;id名&quot;)**；（获取id名所在元素）
+
+var 变量 = 上面变量.属性值； (获取id名元素的属性值)
+</code></pre><p>}</p>
+</li>
+</ol>
+<h3 id="程序三大流程"><a href="#程序三大流程" class="headerlink" title="程序三大流程"></a>程序三大流程</h3><pre><code>顺序执行：从上到下
+分支执行：通过条件判断语句，执行相应的代码
+循环执行：通过循环语句，执行响应的代码
+</code></pre><h3 id="进制"><a href="#进制" class="headerlink" title="进制"></a>进制</h3><h5 id="1-十进制"><a href="#1-十进制" class="headerlink" title="1.十进制"></a>1.十进制</h5><h5 id="2-二进制-0b开头，取值为0或1"><a href="#2-二进制-0b开头，取值为0或1" class="headerlink" title="2.二进制 0b开头，取值为0或1"></a>2.二进制 0b开头，取值为0或1</h5><h5 id="3-八进制-0o开头，取值0-7"><a href="#3-八进制-0o开头，取值0-7" class="headerlink" title="3.八进制 0o开头，取值0-7"></a>3.八进制 0o开头，取值0-7</h5><h5 id="4-十六进制-0x开头，取值0-9，a-f"><a href="#4-十六进制-0x开头，取值0-9，a-f" class="headerlink" title="4.十六进制 0x开头，取值0-9，a-f"></a>4.十六进制 0x开头，取值0-9，a-f</h5><h5 id="5-进制转换"><a href="#5-进制转换" class="headerlink" title="5.进制转换"></a>5.进制转换</h5><pre><code>(1）十进制转多进制 toString(n)
+(2) 多进制转十进制 parseInt(num,n);
+(3) toFixed(n) 保留n位小数
+</code></pre><h2 id="语句"><a href="#语句" class="headerlink" title="语句"></a>语句</h2><h3 id="分支选择语句"><a href="#分支选择语句" class="headerlink" title="分支选择语句"></a>分支选择语句</h3><h4 id="（一）if语句"><a href="#（一）if语句" class="headerlink" title="（一）if语句"></a>（一）if语句</h4><h5 id="1-单分支-if-条件-满足条件执行代码"><a href="#1-单分支-if-条件-满足条件执行代码" class="headerlink" title="1.单分支 if(条件){满足条件执行代码}"></a>1.单分支 if(条件){满足条件执行代码}</h5><pre><code>if(a == 5){
+     alert(&quot;这个数是5&quot;);
+    }
+</code></pre><h5 id="2-双分支-if-条件-满足条件执行-else-不满足if条件执行这里的代码"><a href="#2-双分支-if-条件-满足条件执行-else-不满足if条件执行这里的代码" class="headerlink" title="2.双分支 if(条件){满足条件执行}else{不满足if条件执行这里的代码}"></a>2.双分支 if(条件){满足条件执行}else{不满足if条件执行这里的代码}</h5><p> if(a == 5){<br>            alert(“这个数是5”);<br>     }else{<br>            alert(“这个数不是5”)<br>        }</p>
+<h5 id="3-多分支"><a href="#3-多分支" class="headerlink" title="3.多分支"></a>3.多分支</h5><p>if(条件1){<br>     满足条件1执行<br>}else if(条件2){<br>    满足条件2执行<br>}else{<br>    不满足以上所有条件执行<br>}</p>
+<h4 id="常犯错误："><a href="#常犯错误：" class="headerlink" title="常犯错误："></a>常犯错误：</h4><ol>
+<li>= 代表的是赋值号， a = b; a =c;相当于b =c。这种说法是不存在的，从始至终，只改变了a的取值，b没有任何变化。</li>
+</ol>
+<h3 id="补充："><a href="#补充：" class="headerlink" title="补充："></a>补充：</h3><h4 id="点击事件执行函数"><a href="#点击事件执行函数" class="headerlink" title="点击事件执行函数"></a>点击事件执行函数</h4><h5 id="（1）给元素添加-onclick-“函数名（）”-（2）定义函数：function-函数名"><a href="#（1）给元素添加-onclick-“函数名（）”-（2）定义函数：function-函数名" class="headerlink" title="（1）给元素添加[onclick = “函数名（）”]   （2）定义函数：function 函数名(){}"></a>（1）给元素添加[onclick = “函数名（）”]   （2）定义函数：function 函数名(){}</h5><h5 id="2-ele-onclick-函数名-（2）定义函数：function-函数名"><a href="#2-ele-onclick-函数名-（2）定义函数：function-函数名" class="headerlink" title="(2) ele.onclick = 函数名  （2）定义函数：function 函数名(){}"></a>(2) ele.onclick = 函数名  （2）定义函数：function 函数名(){}</h5><h5 id="3-ele-onclick-function-lt-匿名函数"><a href="#3-ele-onclick-function-lt-匿名函数" class="headerlink" title="(3)ele.onclick = function(){}   &lt;== 匿名函数"></a>(3)ele.onclick = function(){}   &lt;== 匿名函数</h5><h3 id="switch语句"><a href="#switch语句" class="headerlink" title="switch语句"></a>switch语句</h3><p>switch(变量||表达式){<br>    case 值1:<br>    case 值2:<br>            满足值1执行这里代码;<br>             break;<br>     case 值3:<br>            满足值2执行这里代码;<br>             break;<br>         …..<br>    default:<br>            以上条件都不满足执行这里的代码;<br>            break;<br>}<br>注意事项：</p>
+<ul>
+<li>语句在比较值时使用的是全等操作符</li>
+<li>break: 跳出switch语句</li>
+<li>switch (<strong>true</strong>){<pre><code>**case _num1&gt;85:** box.innerHTML = &quot;优秀&quot; ; break;
+**case _num1&gt;=75&amp;&amp;_num1&lt;=85:** box.innerHTML = &quot;良好&quot; ; break;
+**case _num1&gt;=60&amp;&amp;_num1&lt;=75:** box.innerHTML = &quot;及格&quot; ; break;
+**case _num1&lt;60:** box.innerHTML = &quot;不及格&quot; ; break;
+</code></pre>}当其中case的条件为真时执行冒号后面的代码.</li>
+</ul>
+<h2 id="循环语句"><a href="#循环语句" class="headerlink" title="循环语句"></a>循环语句</h2><p><strong>概念：当满足一定条件的前提下，反复执行某一段代码（死循环）,直到条件不再满足时退出。</strong><br><strong>三大要素：变量初始化、条件、变量更新</strong></p>
+<h3 id="while语句"><a href="#while语句" class="headerlink" title="while语句"></a>while语句</h3><p><strong>变量初始化</strong><br><strong>while(条件){</strong><br>        //条件成立就会不断地执行这里的代码，直到条件不成立   </p>
+<pre><code>//所以这里一般会伴随着条件的更新
+</code></pre><p> <strong>}</strong></p>
+<p><strong>备注：若想在输出多个值作为元素的内容，可以考虑字符串拼接的方式。在循环结束后，再给元素赋值。</strong></p>
+<h3 id="do-while-语句"><a href="#do-while-语句" class="headerlink" title="do   while  语句"></a>do   while  语句</h3><p> <strong>do{</strong></p>
+<pre><code>**这里代码必执行一次**
+
+**}while(条件)｛**
+</code></pre><p><strong>｝</strong></p>
+<h3 id="for-变量初始化-条件-变量更新-执行的代码"><a href="#for-变量初始化-条件-变量更新-执行的代码" class="headerlink" title="for(变量初始化;条件;变量更新){执行的代码}"></a>for(变量初始化;条件;变量更新){执行的代码}</h3><p><strong>for(var i=10;i&gt;0;i–){</strong><br>    console.log(i);<br><strong>}</strong><br><strong>如何找bug？（1）console提示bug （2）source-打断点-watch添加观察的变量-f10跳过一个函数-f11执行函数的每一句代码</strong></p>
+<h5 id="备注：window-onload-function"><a href="#备注：window-onload-function" class="headerlink" title="备注：window.onload = function(){}"></a>备注：window.onload = function(){}</h5><p><strong>当页面中的所有内容加载完毕后，才执行函数里面的代码</strong></p>
+<h3 id="break、continue（循环语句使用）"><a href="#break、continue（循环语句使用）" class="headerlink" title="break、continue（循环语句使用）"></a>break、continue（循环语句使用）</h3><h5 id="1-break-跳出当前整个循环"><a href="#1-break-跳出当前整个循环" class="headerlink" title="1.break 跳出当前整个循环"></a>1.break 跳出当前整个循环</h5><h5 id="2-continue-跳出本次循环，继续下一次循环"><a href="#2-continue-跳出本次循环，继续下一次循环" class="headerlink" title="2.continue 跳出本次循环，继续下一次循环"></a>2.continue 跳出本次循环，继续下一次循环</h5><ul>
+<li>break一旦运行，当前循环语句里面的代码都不再执行。</li>
+<li>在多层循环嵌套中，一个break语句只向外跳一层循环。</li>
+<li>break和continue后如果带标识，可以跳出标识所在循环</li>
+</ul>
+<h3 id="循环嵌套"><a href="#循环嵌套" class="headerlink" title="循环嵌套"></a>循环嵌套</h3><p>for(var i=0;i&lt;3;i++){<br>            for(var j=0;j&lt;3;j++){<br>                console.log(i,j);    //00 01 02  10 11 12 20 21 22<br>            }<br>        }<br>        // 执行完里层循环，再执行外层循环</p>
+<h1 id="函数的定义及好处"><a href="#函数的定义及好处" class="headerlink" title="函数的定义及好处"></a><strong>函数的定义及好处</strong></h1><p>(1)函数就是把特定功能的代码抽取出并<strong>进行封装,用来重复执行一些功能</strong>。</p>
+<p>(2)使用函数的好处:</p>
+<pre><code>函数可以重复某一部分代码（通过函数名调用）
+
+使程序变得更简短而清晰
+
+便于程序维护
+</code></pre><h2 id="函数的定义"><a href="#函数的定义" class="headerlink" title="函数的定义"></a><strong>函数的定义</strong></h2><h5 id="·-关键字function声明（声明式）："><a href="#·-关键字function声明（声明式）：" class="headerlink" title="· 关键字function声明（声明式）："></a>· 关键字function声明（声明式）：</h5><pre><code>格式：function 函数名(){}
+</code></pre><h5 id="·-函数表达式-赋值式"><a href="#·-函数表达式-赋值式" class="headerlink" title="· 函数表达式(赋值式)"></a>· 函数表达式(赋值式)</h5><pre><code>格式：var 函数名     = function(){}
+</code></pre><h5 id="·-Function构造函数（不推荐）"><a href="#·-Function构造函数（不推荐）" class="headerlink" title="· Function构造函数（不推荐）"></a>· Function构造函数（不推荐）</h5><pre><code>var sum = new Function(‘num1’,’num2’,’return num1+num2’);
+</code></pre><p><strong>尽量避免与变量重名</strong></p>
+<h4 id="函数的分类"><a href="#函数的分类" class="headerlink" title="函数的分类"></a>函数的分类</h4><pre><code>内置函数 alert（）
+
+自定义函数
+
+匿名函数
+</code></pre><h1 id="函数的执行"><a href="#函数的执行" class="headerlink" title="函数的执行"></a>函数的执行</h1><h5 id="声明提前："><a href="#声明提前：" class="headerlink" title="声明提前："></a>声明提前：</h5><p>1.执行js代码前，会将所有的声明提前到当前作用域的最前面。</p>
+<p>2.当声明提前完成后，才从上往下执行js代码。</p>
+<p>备注：不能再赋值式声明函数前，先使用函数，这样会报错：is not a function（声明提前）</p>
+<pre><code>关键字 function声明的函数，可以在函数前后任意调用。
+
+ 运算无法进行下去会进行隐性转换 、与数字运算无法进行输出NaN.
+</code></pre><h5 id="执行类型"><a href="#执行类型" class="headerlink" title="执行类型"></a>执行类型</h5><p>1.手动调用:</p>
+<pre><code>sum();
+</code></pre><p>2.事件驱动:</p>
+<pre><code>格式：元素.事件 = 函数名(或者匿名函数);
+buton.onclick = sum;
+</code></pre><h5 id="常用事件"><a href="#常用事件" class="headerlink" title="常用事件"></a><strong>常用事件</strong></h5><p>· onclick：点击事件</p>
+<p>· ondblclick：双击事件</p>
+<p>· onmouseover：鼠标移入事件</p>
+<p>· onmouseout:鼠标移开事件</p>
+<p>· onchange：内容改变事件（一般用于表单元素）</p>
+<p>  onkeyup：键盘按键弹起事件</p>
+<h1 id="作用域"><a href="#作用域" class="headerlink" title="作用域"></a>作用域</h1><p>1.全局作用域：函数最外层。</p>
+<p>2.局部作用域：函数内。</p>
+<p>3.全局变量：声明在全局作用域中的变量，在任意位置使用。</p>
+<p>4.局部变量：声明在局部作用域中的变量，只能在当前函数内使用。</p>
+<h3 id="变量的访问规则"><a href="#变量的访问规则" class="headerlink" title="变量的访问规则"></a><strong>变量的访问规则</strong></h3><p>就近原则（如查找变量a）：</p>
+<p>* 使用变量a时先从当前函数查找，如果有则可以使用;</p>
+<p>* 如果当前函数无变量a,则往父级函数查找，如果找到则使用，并停止查找;</p>
+<p>* 如果在父级函数还是无法找到，则继续往上一层函数查找，以此类推;</p>
+<p>* 直到最顶层(全局作用域)，如果还是没找到，则报not defined错误;</p>
+<h3 id="作用域链"><a href="#作用域链" class="headerlink" title="作用域链"></a><strong>作用域链</strong></h3><p>当函数访问变量时，根据就近原则从内到外查询变量，这个路径称为作用域链。</p>
+<h1 id="函数的实参与形参"><a href="#函数的实参与形参" class="headerlink" title="函数的实参与形参"></a><strong>函数的实参与形参</strong></h1><h5 id="函数的传参：传参的作用：将值传入函数内"><a href="#函数的传参：传参的作用：将值传入函数内" class="headerlink" title="函数的传参：传参的作用：将值传入函数内"></a>函数的传参：传参的作用：将值传入函数内</h5><p>形参：函数声明时的参数（变量）形式参数</p>
+<p>实参：函数执行时的参数 实际参数</p>
+<p>注意:形参和实参的数量可以不同</p>
+<h5 id="argunments"><a href="#argunments" class="headerlink" title="argunments"></a>argunments</h5><p>一个类数组，保存着实参的信息</p>
+<p>arguments[n (从0开始)]    可以获取到实参的长度</p>
+<p>argunments.length         获取实参的长度</p>
+<h1 id="函数返回值-return"><a href="#函数返回值-return" class="headerlink" title="函数返回值 return"></a><strong>函数返回值</strong> <strong>return</strong></h1><h5 id="1-传参是将值传进函数内，return是将值返回到函数外，需要用一个变量接收。"><a href="#1-传参是将值传进函数内，return是将值返回到函数外，需要用一个变量接收。" class="headerlink" title="1. 传参是将值传进函数内，return是将值返回到函数外，需要用一个变量接收。"></a>1. 传参是将值传进函数内，return是将值返回到函数外，需要用一个变量接收。</h5><ol start="2">
+<li><h5 id="如果函数没有return-执行完后返回undefined"><a href="#如果函数没有return-执行完后返回undefined" class="headerlink" title="如果函数没有return,执行完后返回undefined"></a>如果函数没有return,执行完后返回undefined</h5><h5 id="return终止函数的执行-即return后的代码不会执行"><a href="#return终止函数的执行-即return后的代码不会执行" class="headerlink" title="return终止函数的执行,即return后的代码不会执行"></a>return终止函数的执行,即return后的代码不会执行</h5></li>
+</ol>
+<h1 id="this-当前对象"><a href="#this-当前对象" class="headerlink" title="this 当前对象"></a>this 当前对象</h1><p>取决于谁调用了这个函数。</p>
+<p>1。大多数情况下，执行函数的对象一般都是window</p>
+<p>2。事件驱动执行函数，那么此时的this 指向执行函数的对象.</p>
+<h1 id="递归：自己执行自己"><a href="#递归：自己执行自己" class="headerlink" title="递归：自己执行自己"></a>递归：自己执行自己</h1><p>*需要一个退出函数return条件，若不存在退出条件会死循环。</p>
+<pre><code>--num（先自减再返回值）num--（先返回值再自减）
+</code></pre><p>*递归前输出，正向输出</p>
+<p>*递归后输出，按最后一次递归的值输出。</p>
+<h1 id="回调函数"><a href="#回调函数" class="headerlink" title="回调函数"></a>回调函数</h1><p>若想执行乙，但是需要甲的一个变量，选择在甲函数里面执行乙函数。</p>
+<p>！！！！函数作为参数！！！！！！</p>
+<h1 id="数组Array-一个变量存储多个信息"><a href="#数组Array-一个变量存储多个信息" class="headerlink" title="数组Array:一个变量存储多个信息"></a>数组Array:一个变量存储多个信息</h1><pre><code>1.获取数组某个信息 索引从0开始计算。
+
+2.属性length 数组的长度。
+</code></pre><p>函数的传参（基本数据类型与引用数据类型的区别）</p>
+<pre><code>（1）基本数据类型传参
+
+（2）引用数据类型传参（其实传递的是地址，复制出去的数的值改变，会影响到原数组的值）
+</code></pre><h1 id="数组"><a href="#数组" class="headerlink" title="数组"></a>数组</h1><p>一系列数据的集合，每一项可以保存任何类型的数据，称为数组的元素，每个元素之间用逗号隔开</p>
+<blockquote>
+<p>数组格式：[1,2,3]</p>
+</blockquote>
+<h2 id="数组的声明（创建）"><a href="#数组的声明（创建）" class="headerlink" title="数组的声明（创建）"></a>数组的声明（创建）</h2><figure class="highlight haxe"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1)字面量(推荐)</span></span><br><span class="line"><span class="keyword">var</span> arr = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">//2)使用构造函数创建</span></span><br><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="type">Array</span>();<span class="comment">//创建一个空数组</span></span><br><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="type">Array</span>(<span class="number">7</span>);<span class="comment">//创建一个长度为7的数组（数组项都为undefined）</span></span><br><span class="line"><span class="keyword">var</span> arr = <span class="keyword">new</span> <span class="type">Array</span>(<span class="string">'王大锤'</span>,<span class="number">18</span> ,<span class="string">'普通青年'</span>,<span class="string">'广州'</span>);<span class="comment">//创建数组并同时写入数据</span></span><br></pre></td></tr></table></figure>
+<h2 id="数组操作"><a href="#数组操作" class="headerlink" title="数组操作"></a>数组操作</h2><h4 id="1-数组的读取与写入"><a href="#1-数组的读取与写入" class="headerlink" title="(1)数组的读取与写入"></a>(1)数组的读取与写入</h4><h5 id="数组的索引-arr-index"><a href="#数组的索引-arr-index" class="headerlink" title="* 数组的索引 arr[index]"></a>* 数组的索引 arr[index]</h5><pre><code>index代表索引值，从0开始计数。
+</code></pre><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">var arr = [<span class="string">'html5'</span>,<span class="string">'css3'</span>,<span class="string">'javascript'</span>];</span><br><span class="line"></span><br><span class="line"><span class="regexp">//</span>读取</span><br><span class="line">arr[<span class="number">0</span>]; <span class="regexp">//</span>=&gt; <span class="string">'html5'</span></span><br><span class="line">arr[<span class="number">2</span>]; <span class="regexp">//</span>=&gt; <span class="string">'javascript'</span></span><br><span class="line"></span><br><span class="line"><span class="regexp">//</span>写入</span><br><span class="line">arr[<span class="number">3</span>] = <span class="string">'web前端'</span>;</span><br></pre></td></tr></table></figure>
+<h4 id="2-数组的遍历"><a href="#2-数组的遍历" class="headerlink" title="(2)数组的遍历"></a>(2)数组的遍历</h4><h5 id="数组的长度-arr-length"><a href="#数组的长度-arr-length" class="headerlink" title="* 数组的长度 arr.length"></a>* 数组的长度 arr.length</h5><figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">var arr = [<span class="string">'html5'</span>,<span class="string">'css3'</span>,<span class="string">'javascript'</span>];</span><br><span class="line"><span class="keyword">for</span>(var <span class="built_in">i</span>=<span class="number">0</span>;<span class="built_in">i</span>&lt;arr.<span class="built_in">length</span>;<span class="built_in">i</span>++)&#123;</span><br><span class="line">    console.<span class="built_in">log</span>(arr[<span class="built_in">i</span>]);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="案例：创建一个数组，存放50个三位数的随机数。"><a href="#案例：创建一个数组，存放50个三位数的随机数。" class="headerlink" title="*案例：创建一个数组，存放50个三位数的随机数。"></a>*案例：创建一个数组，存放50个三位数的随机数。</h5><pre><code>var arr = [];
+for(var i=0;i&lt;50;i++){
+    //三种写法：
+    // arr[i] = randomNumber(100,999);
+    // arr[arr.length] = randomNumber(100,999);
+    // arr.push(randomNumber(100,999));
+}
+</code></pre><h2 id="数组方法"><a href="#数组方法" class="headerlink" title="数组方法"></a>数组方法</h2><h4 id="（1）增删改"><a href="#（1）增删改" class="headerlink" title="（1）增删改"></a>（1）增删改</h4><ol>
+<li>push： 往数组尾部添加一个或多个元素，返回数组新的长度    all.push(all[i]);</li>
+<li>pop：删除数组最后一个元素，返回删除的元素</li>
+<li>unshift：往数组开头添加一个或多个元素，返回数组新的长度</li>
+<li>shift：删除数组第一个元素，返回删除的元素</li>
+<li>splice(startIdx,deleteNum,…items)：在数组中插入、删除、替换的通用方法</li>
+</ol>
+<h5 id="总结："><a href="#总结：" class="headerlink" title="*总结："></a>*总结：</h5><table>
+<thead>
+<tr>
+<th>方法</th>
+<th>返回值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>增，例如push（）,unshift()</td>
+<td>新数组的长度</td>
+</tr>
+<tr>
+<td>删，改，例如pop(),shift(),splice()</td>
+<td>被删除的元素</td>
+</tr>
+</tbody>
+</table>
+<h5 id="案例1：找出小于10的元素并组成一个新的数组"><a href="#案例1：找出小于10的元素并组成一个新的数组" class="headerlink" title="*案例1：找出小于10的元素并组成一个新的数组"></a>*案例1：找出小于10的元素并组成一个新的数组</h5><pre><code>var arr = [10,15,2,32,5,4,20,8,48,54,6];
+// 创建空数组，用于存放所有小于10的数
+var res = [];
+for(var i=0;i&lt;arr.length;i++){
+    if(arr[i] &lt; 10){
+        //res[i] = arr[i];//稀疏数组：索引值不连续的数组
+        res.push(arr[i]);
+    }
+}
+</code></pre><h5 id="案例2：随机点名"><a href="#案例2：随机点名" class="headerlink" title="*案例2：随机点名"></a>*案例2：随机点名</h5><pre><code>//1.获取文本框及按钮
+//2.生成数组，存放名字
+var arr = [&quot;莫赛&quot;, &quot;何贵宇&quot;, &quot;陈裕&quot;, &quot;林宇鹏&quot;, &quot;卢进球&quot;, &quot;蔡景超&quot;, &quot;周育盛&quot;, &quot;莫钟达&quot;, &quot;邓伟良&quot;, &quot;黄巧玲&quot;, &quot;刘泳仪&quot;, &quot;吕运学&quot;, &quot;苏玉婷&quot;, &quot;黄世军&quot;, &quot;袁家建&quot;, &quot;许诚誉&quot;, &quot;苏媛&quot;, &quot;冯梓兴&quot;, &quot;彭永冬&quot;, &quot;王国健&quot;, &quot;吕志威&quot;, &quot;杨凯彬&quot;, &quot;曾晓添&quot;, &quot;陆世鸿&quot;, &quot;陈瑞敏&quot;, &quot;陈永杏&quot;, &quot;陈培林&quot;, &quot;杨富荣&quot;, &quot;郑幸新&quot;, &quot;肖蔚飞杨家林&quot;, &quot;陆鹏&quot;, &quot;李明钢&quot;, &quot;陈育婷&quot;, &quot;吴玮珏&quot;, &quot;李芸芸&quot;, &quot;周旗勇&quot;, &quot;周华成&quot;, &quot;赵福杰&quot;, &quot;翁旭东&quot;, &quot;甘玉婷&quot;, &quot;林莉&quot;, &quot;梁秋鸿&quot;, &quot;赵晨熙&quot;];
+//3.声明函数，生成随机索引，获取数组中索引对应的值。
+function getName(){
+    // 获取随机索引值
+    var idx = randomNumber(0,namelist.length-1);
+    username.value = namelist[idx];
+}
+//4.执行函数
+getName();
+btn.onclick = function(){
+    getName();
+}        
+</code></pre><h4 id="（2）截取数组（原数组不变）"><a href="#（2）截取数组（原数组不变）" class="headerlink" title="（2）截取数组（原数组不变）"></a>（2）截取数组（原数组不变）</h4><p>slice(start[,end])：返回数组的片段或子数组，从start开始到end(不包括end所对应的元素)</p>
+<blockquote>
+<p>如果省略end参数，则截取到数组的最后一项<br>支持负数</p>
+</blockquote>
+<h5 id="可应用于复制一个数组为新数组-通过slice-0"><a href="#可应用于复制一个数组为新数组-通过slice-0" class="headerlink" title="* 可应用于复制一个数组为新数组,通过slice(0)"></a>* 可应用于复制一个数组为新数组,通过slice(0)</h5><h4 id="（3）数组排序"><a href="#（3）数组排序" class="headerlink" title="（3）数组排序"></a>（3）数组排序</h4><p>sort：将数组中的元素排序，并返回排序后的数组</p>
+<blockquote>
+<p>默认以字符串的排列方式（转换成ASCII码进行对比）</p>
+</blockquote>
+<h4 id="（4）数组倒序"><a href="#（4）数组倒序" class="headerlink" title="（4）数组倒序"></a>（4）数组倒序</h4><p>reverse：将数组中的元素颠倒顺序，返回逆序后的数组</p>
+<h4 id="（5）将数组拼接成字符串"><a href="#（5）将数组拼接成字符串" class="headerlink" title="（5）将数组拼接成字符串"></a>（5）将数组拼接成字符串</h4><p>join(separator) 返回字符串值，其中包含了连接到一起的数组的所有元素</p>
+<blockquote>
+<p>separator为分隔符，默认为逗号</p>
+</blockquote>
+<h4 id="（6）数组合并"><a href="#（6）数组合并" class="headerlink" title="（6）数组合并"></a>（6）数组合并</h4><p>concat() 返回一个新数组，这个新数组是由调用这个方法的数组和参数组成</p>
+<blockquote>
+<p>参数可以是多个</p>
+</blockquote>
+<h2 id="数组排序算法"><a href="#数组排序算法" class="headerlink" title="数组排序算法"></a>数组排序算法</h2><h4 id="冒泡排序"><a href="#冒泡排序" class="headerlink" title="冒泡排序"></a>冒泡排序</h4><ul>
+<li>遍历元素，跟其下一个元素对比</li>
+<li>把最大的逐个往后排列</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">var arr = [<span class="number">12</span>,<span class="number">3</span>,<span class="number">44</span>,<span class="number">343</span>,<span class="number">55</span>,<span class="number">1</span>,<span class="number">23</span>];</span><br><span class="line"><span class="keyword">for</span>(var <span class="built_in">i</span>=<span class="number">0</span>;<span class="built_in">i</span>&lt;arr.<span class="built_in">length</span><span class="number">-1</span>;<span class="built_in">i</span>++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(var <span class="built_in">j</span>=<span class="number">0</span>;<span class="built_in">j</span>&lt;arr.<span class="built_in">length</span>-<span class="built_in">i</span><span class="number">-1</span>;<span class="built_in">j</span>++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(arr[<span class="built_in">j</span>]&gt;arr[<span class="built_in">j</span>+<span class="number">1</span>])&#123;</span><br><span class="line">            var current = arr[<span class="built_in">j</span>];</span><br><span class="line">            arr[<span class="built_in">j</span>] = arr[<span class="built_in">j</span>+<span class="number">1</span>];</span><br><span class="line">            arr[<span class="built_in">j</span>+<span class="number">1</span>] = current;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">console.<span class="built_in">log</span>(arr);</span><br></pre></td></tr></table></figure>
+<h4 id="选择排序法"><a href="#选择排序法" class="headerlink" title="选择排序法"></a>选择排序法</h4><ul>
+<li>把当前元素分别跟后面所有的元素对比</li>
+<li>把最小的逐个往前排列</li>
+</ul>
+<figure class="highlight matlab"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">var arr = [<span class="number">12</span>,<span class="number">3</span>,<span class="number">44</span>,<span class="number">343</span>,<span class="number">55</span>,<span class="number">1</span>,<span class="number">23</span>];</span><br><span class="line"><span class="keyword">for</span>(var <span class="built_in">i</span>=<span class="number">0</span>;<span class="built_in">i</span>&lt;arr.<span class="built_in">length</span>;<span class="built_in">i</span>++)&#123;</span><br><span class="line">    <span class="keyword">for</span>(var <span class="built_in">j</span>=<span class="built_in">i</span>+<span class="number">1</span>;<span class="built_in">j</span>&lt;arr.<span class="built_in">length</span>;<span class="built_in">j</span>++)&#123;</span><br><span class="line">        <span class="keyword">if</span>(arr[<span class="built_in">i</span>]&gt;arr[<span class="built_in">j</span>])&#123;</span><br><span class="line">            var current = arr[<span class="built_in">i</span>];</span><br><span class="line">            arr[<span class="built_in">i</span>] = arr[<span class="built_in">j</span>];</span><br><span class="line">            arr[<span class="built_in">j</span>] = current;</span><br><span class="line">        &#125;</span><br><span class="line">        console.<span class="built_in">log</span>(<span class="string">"666"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">console.<span class="built_in">log</span>(arr);</span><br></pre></td></tr></table></figure>
+<h4 id="快速排序法"><a href="#快速排序法" class="headerlink" title="快速排序法"></a>快速排序法</h4><pre><code>/*
+* 利用递归函数实现排序
+* 每次获取数组中间元素cItem
+* 把大于和小于cItem的元素分别放置在arrGt和arrLt两个数组中,
+* 利用concat组合递归调用函数返回的值
+* 直到数组的长度等于1时，直接返回元素调出递归
+*/
+var arr = [10, 8, 20, 5, 6, 30, 11, 9]；
+function fastSort(arr){
+    //6. 递归退出条件
+    if(arr.length&lt;=1){
+        return arr;
+    }
+    //1. 找出数组中间位置元素
+    var cIdx = parseInt(arr.length/2);
+
+    //2.删除中间元素，避免与自己本身进行对比而造成死循环
+    var cItem = arr.splice(cIdx,1);//[6],arr=[10, 8, 20, 5, 30, 11, 9]
+
+    //3. 创建两个空数组用于保存大于或小于cItem的数字
+    var arrLt = [];//[5]
+    var arrGt = [];//[10,8,20,30,11,9]
+
+    // 4.遍历数组，分别与cItem进行对比
+    // 把小于cItem的数写入arrLt
+    // 把大于cItem的数写入arrGt
+    for(var i=0;i&lt;arr.length;i++){
+        if(arr[i]&lt;cItem[0]){
+            arrLt.push(arr[i])
+        }else{
+            arrGt.push(arr[i]);
+        }
+    }
+    // 5.组合排序后的数组
+    return fastSort([5]).concat(cItem,fastSort(arrGt));
+}
+console.log(fastSort(arr));
+</code></pre><h4 id="sort排序"><a href="#sort排序" class="headerlink" title="sort排序"></a>sort排序</h4><pre><code>arr.sort(function(a,b){
+    // 在函数内通过返回值告诉sort方法如何排序
+    return a-b;
+});
+</code></pre><h2 id="数组复制与传输"><a href="#数组复制与传输" class="headerlink" title="数组复制与传输"></a>数组复制与传输</h2><h4 id="如何复制数组"><a href="#如何复制数组" class="headerlink" title="如何复制数组"></a>如何复制数组</h4><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> arr = [<span class="string">'西施'</span>,<span class="string">'貂蝉'</span>,<span class="string">'张飞'</span>,<span class="string">'关羽'</span>,<span class="string">'刘备'</span>];</span><br><span class="line"><span class="keyword">var</span> res = [];</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;arr.length;i++)&#123;</span><br><span class="line">	res.push(arr[i]);<span class="comment">//方式1，此时res改变一，不影响arr</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//方式2：res = arr.slice(0);</span></span><br></pre></td></tr></table></figure>
+<h5 id="案例：编写一个map-arr-函数，把数组中的每一个数字都增加20-，并返回新的数组"><a href="#案例：编写一个map-arr-函数，把数组中的每一个数字都增加20-，并返回新的数组" class="headerlink" title="*案例：编写一个map(arr)函数，把数组中的每一个数字都增加20%，并返回新的数组"></a>*案例：编写一个map(arr)函数，把数组中的每一个数字都增加20%，并返回新的数组</h5><h4 id="数组作为参数传递"><a href="#数组作为参数传递" class="headerlink" title="数组作为参数传递"></a>数组作为参数传递</h4><pre><code>具体详情请看基本数据类型与引用数据类型的区别
+</code></pre><h2 id="多维数组-数组里面包含数组"><a href="#多维数组-数组里面包含数组" class="headerlink" title="多维数组(数组里面包含数组)"></a>多维数组(数组里面包含数组)</h2><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">var arr = [1,2,'html5',[3,4,'css3'],[5,6,'javascript']]</span><br><span class="line">arr[<span class="string">3</span>][<span class="symbol">2</span>]; //=&gt;'css3'</span><br></pre></td></tr></table></figure>
+<h1 id="对象Object"><a href="#对象Object" class="headerlink" title="对象Object"></a>对象Object</h1><h2 id="创建对象"><a href="#创建对象" class="headerlink" title="创建对象"></a>创建对象</h2><ul>
+<li>字面量（推荐）：<code>var obj = {name:&#39;小明&#39;,age:18}</code></li>
+<li>构造函数：<code>var obj = new Object();</code></li>
+</ul>
+<h2 id="对象的操作"><a href="#对象的操作" class="headerlink" title="对象的操作"></a>对象的操作</h2><h3 id="键值对"><a href="#键值对" class="headerlink" title="键值对"></a>键值对</h3><pre><code>对象的组成部分 {键(属性)：值(属性值)，}
+</code></pre><h2 id="操作对象键对应的值"><a href="#操作对象键对应的值" class="headerlink" title="操作对象键对应的值"></a>操作对象键对应的值</h2><figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">//</span>方式<span class="number">1</span>：点语法 obj.键</span><br><span class="line">obj.sex;</span><br><span class="line"><span class="regexp">//</span>方式<span class="number">2</span>：通过obj[<span class="string">"具体的键"</span>]</span><br><span class="line">obj[<span class="string">"sex"</span>];</span><br><span class="line"><span class="regexp">//</span>obj[key] <span class="regexp">//</span>key为所有键的统称变量，记住变量不加引号。</span><br></pre></td></tr></table></figure>
+<h4 id="1-添加、修改属性"><a href="#1-添加、修改属性" class="headerlink" title="(1)添加、修改属性"></a>(1)添加、修改属性</h4><figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">obj.sex = <span class="string">'男'</span>;</span><br><span class="line">obj[<span class="string">'weight'</span>] = <span class="number">60</span>；</span><br></pre></td></tr></table></figure>
+<h4 id="2-删除属性"><a href="#2-删除属性" class="headerlink" title="(2)删除属性"></a>(2)删除属性</h4><figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">var obj = &#123;<span class="string">name:</span><span class="string">'laoxie'</span>,<span class="string">age:</span><span class="number">18</span>,<span class="string">gender:</span><span class="string">'man'</span>&#125;</span><br><span class="line"><span class="comment">//删除age属性</span></span><br><span class="line">delete obj.age;</span><br></pre></td></tr></table></figure>
+<h4 id="3-读取属性值"><a href="#3-读取属性值" class="headerlink" title="(3)读取属性值"></a>(3)读取属性值</h4><figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">obj.<span class="keyword">name</span>;<span class="comment">//==&gt;小明</span></span><br><span class="line"><span class="comment">//如果读取一个不存在的属性，返回undefined</span></span><br></pre></td></tr></table></figure>
+<h4 id="4-遍历对象for…in"><a href="#4-遍历对象for…in" class="headerlink" title="(4)遍历对象for…in"></a>(4)遍历对象for…in</h4><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">var obj = <span class="built_in">&#123;name</span>:<span class="string">'laoxie'</span>，age:<span class="number">18</span>，gender:<span class="string">'男'</span>&#125;；  </span><br><span class="line"><span class="keyword">for</span>(var<span class="built_in"> key</span> <span class="keyword">in</span> obj)&#123;</span><br><span class="line">    //遍历obj对象里面所有的<span class="built_in">键key</span>,Obj<span class="built_in">[key</span>]操作所有键对应的值。</span><br><span class="line">   <span class="built_in"> document</span>.write(obj<span class="built_in">[key</span>]);//分别输出：<span class="string">'laoxie'</span>,<span class="number">18</span>,<span class="string">'男'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="数组与对象的组合"><a href="#数组与对象的组合" class="headerlink" title="数组与对象的组合"></a>数组与对象的组合</h2><figure class="highlight scheme"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">[&#123;</span><br><span class="line">       id:<span class="symbol">'001</span>',</span><br><span class="line">       name:<span class="symbol">'iphone7</span> plugs',</span><br><span class="line">       nickname:<span class="symbol">'肾7</span>',</span><br><span class="line">       imgurl:<span class="symbol">'img/ip7.jpg</span>',</span><br><span class="line">       price:5899.00,</span><br><span class="line">       sale:5888.00,</span><br><span class="line">       color:<span class="symbol">'土豪金</span>'</span><br><span class="line">   &#125;,&#123;</span><br><span class="line">       id:<span class="symbol">'002</span>',</span><br><span class="line">       name:<span class="symbol">'Note7</span>',</span><br><span class="line">       nickname：<span class="symbol">'爆炸7</span>',</span><br><span class="line">       imgurl:<span class="symbol">'img/note7.jpg</span>',</span><br><span class="line">       price:3899.00,</span><br><span class="line">       sale:998.00,</span><br><span class="line">       color:<span class="symbol">'黑色</span>'</span><br><span class="line">   &#125;,&#123;</span><br><span class="line">       id:<span class="symbol">'003</span>',</span><br><span class="line">       name:<span class="symbol">'荣耀7</span>',</span><br><span class="line">       nickname：<span class="symbol">'牛x7</span>',</span><br><span class="line">       imgurl:<span class="symbol">'img/honor7.jpg</span>',</span><br><span class="line">       price:1999.00,</span><br><span class="line">       sale:1899.00,</span><br><span class="line">       color:<span class="symbol">'白色</span>'</span><br><span class="line">   &#125;]</span><br></pre></td></tr></table></figure>
+<h1 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h1><p>字符串就是一串字符，由双（单）引号括起来。 </p>
+<h2 id="创建字符串"><a href="#创建字符串" class="headerlink" title="创建字符串"></a>创建字符串</h2><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//方式一：字面量（推荐）</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="string">'城市套路深，我想回农村'</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//方式二：构造函数</span></span><br><span class="line"><span class="comment">//PS：用new产生的变量都是引用类型的变量，也叫对象</span></span><br><span class="line"><span class="keyword">var</span> str = <span class="keyword">new</span> <span class="built_in">String</span>(<span class="string">'我不是黄蓉，我不会武功'</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="字符串的属性和方法"><a href="#字符串的属性和方法" class="headerlink" title="字符串的属性和方法"></a>字符串的属性和方法</h3><h4 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h4><ul>
+<li>length: 表示字符串的长度，只读（只能读取）</li>
+</ul>
+<h4 id="获取值方法"><a href="#获取值方法" class="headerlink" title="获取值方法"></a>获取值方法</h4><ul>
+<li>charAt(3) //获取下标为3的字符</li>
+<li>备注：es5可以通过索引获取字符，例如 str[3]</li>
+</ul>
+<h4 id="查找索引方法"><a href="#查找索引方法" class="headerlink" title="查找索引方法"></a>查找索引方法</h4><ul>
+<li>indexOf/lastIndexOf(keyword [,startIndex]) 从开头/尾部向后查找字符串<code>keyword</code>第一次出现的位置,如果没找到返回-1</li>
+</ul>
+<h5 id="案例：输出所有1-100之间7的倍数和包含7的数字"><a href="#案例：输出所有1-100之间7的倍数和包含7的数字" class="headerlink" title="案例：输出所有1-100之间7的倍数和包含7的数字"></a>案例：输出所有1-100之间7的倍数和包含7的数字</h5><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">var</span> <span class="built_in">num</span>=<span class="number">1</span>;<span class="built_in">num</span>&lt;=<span class="number">100</span>;<span class="built_in">num</span>++)&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="built_in">num</span>%<span class="number">7</span>===<span class="number">0</span> || <span class="built_in">String</span>(<span class="built_in">num</span>).indexOf(<span class="number">7</span>)&gt;=<span class="number">0</span>)&#123;</span><br><span class="line">    	<span class="built_in">document</span>.write(<span class="built_in">num</span> + <span class="string">', '</span>)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h5 id="案例：16进制随机背景色"><a href="#案例：16进制随机背景色" class="headerlink" title="案例：16进制随机背景色"></a>案例：16进制随机背景色</h5><pre><code>var str = &apos;0123456789abcdef&apos;;//15
+var res = &apos;#&apos;;
+var randomIdx；
+for(var i=0;i&lt;6;i++){
+    randomIdx = parseInt(Math.random()*str.length）；
+    res += str[randomIdx];
+}
+//封装成函数
+</code></pre><h4 id="字符串分割成数组方法"><a href="#字符串分割成数组方法" class="headerlink" title="字符串分割成数组方法"></a>字符串分割成数组方法</h4><ul>
+<li>split(分割符)：根据分割字符，把字符串拆分成数组</li>
+</ul>
+<h4 id="字符串替换方法"><a href="#字符串替换方法" class="headerlink" title="字符串替换方法"></a>字符串替换方法</h4><ul>
+<li><p>replace(str|regExp,’‘) 替换字符串</p>
+<blockquote>
+<p>字符串的替换只能执行一次，不能够进行全局匹配，如果需要全局匹配，则应使用正则表达式</p>
+</blockquote>
+</li>
+</ul>
+<h5 id="案例：过滤不文明用语"><a href="#案例：过滤不文明用语" class="headerlink" title="案例：过滤不文明用语"></a>案例：过滤不文明用语</h5><pre><code>//1.获取元素
+//2.点击按钮，获取输入信息，将输入信息添加到数组，渲染到页面上。
+//3.定义敏感字符，用数组存放（可以先写成字符串，转成数组）
+//4.将输入信息添加到数组前，先替换不文明用语
+arr_mingan.forEach(function(item){
+    //初级写法： _msg = _msg.replace(item,&apos;**&apos;);
+    // * 不能过滤大小写
+    // * 不能过滤多个
+    // 解决办法：利用构造函数创建正则表达式
+    var reg = new RegExp(item,&apos;ig&apos;);
+    _msg = _msg.replace(reg,&apos;**&apos;);
+})
+</code></pre><h4 id="字符串的截取方法"><a href="#字符串的截取方法" class="headerlink" title="字符串的截取方法"></a>字符串的截取方法</h4><ul>
+<li>substring(start[,end])：不包括end所在字符，end省略表示截取到最后</li>
+<li>substr(start[,len])：支持负数，len为截取的数量</li>
+<li>slice(start[,end]) ：截取start到end(不包括end)的字符串，支持负数</li>
+</ul>
+<h5 id="案例：获取url参数"><a href="#案例：获取url参数" class="headerlink" title="案例：获取url参数"></a>案例：获取url参数</h5><pre><code>var url = &apos;https://www.baidu.com/s?name=laoxie&amp;age=18&amp;sex=male&amp;&apos;;
+//1. 查找?号所在的索引值
+var idx = url.indexOf(&apos;?&apos;);
+//2.截取到参数字符串
+var params = url.slice(idx+1,-1);//name=laoxie&amp;age=18&amp;sex=male
+//3.生成参数数组
+params = params.split(&apos;&amp;&apos;);//[&apos;name=laoxie&apos;,&apos;age=18&apos;,&apos;sex=male&apos;]
+// 4.遍历数组，获取所有属性/属性值，并组成一个对象
+var obj = {};//{key:value}
+params.forEach(function(kv){
+    var arr = kv.split(&apos;=&apos;);
+    obj[arr[0]] = arr[1]；
+});
+</code></pre><h4 id="字符串大小写转换"><a href="#字符串大小写转换" class="headerlink" title="字符串大小写转换"></a>字符串大小写转换</h4><ul>
+<li>toLowerCase()：转换成小写</li>
+<li>toUpperCase()：转换成大写</li>
+</ul>
+<h4 id="ECMAscript5新增"><a href="#ECMAscript5新增" class="headerlink" title="ECMAscript5新增"></a>ECMAscript5新增</h4><ul>
+<li>str[3]//通过下标获取</li>
+<li>trim()：删除前后所有空格，返回新的字符串</li>
+</ul>
+<h2 id="ASCII码和字符集"><a href="#ASCII码和字符集" class="headerlink" title="ASCII码和字符集"></a>ASCII码和字符集</h2><ul>
+<li>字符串.charCodeAt(3) //获取下标为3的字符的编码</li>
+<li>String.fromCharCode(94) //编码转换成字符</li>
+</ul>
+<h1 id="了解正则表达式-后面再深入了解"><a href="#了解正则表达式-后面再深入了解" class="headerlink" title="了解正则表达式(后面再深入了解)"></a>了解正则表达式(后面再深入了解)</h1><figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//创建方式：直接量</span></span><br><span class="line"><span class="keyword">var</span> reg = <span class="comment">//gi;</span></span><br><span class="line"><span class="comment">//构造函数的方式</span></span><br><span class="line"><span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">''</span>);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>g:表示匹配所有</li>
+<li>i:不区分大小写</li>
+</ul>
+<h1 id="Math对象方法"><a href="#Math对象方法" class="headerlink" title="Math对象方法"></a>Math对象方法</h1><p>一个保存数学公式和信息的对象，一般用于执行数学任务</p>
+<h2 id="属性-1"><a href="#属性-1" class="headerlink" title="属性"></a>属性</h2><ul>
+<li>Math.PI //3.1415926</li>
+</ul>
+<h2 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h2><ul>
+<li>round(3.6) //四舍五入取整</li>
+<li>ceil(11.3) //12 向上取整</li>
+<li>floor(11.8) //11 向下取整</li>
+<li>random() //返回0-1之间的随机数（不包括1）</li>
+<li>max(num1, num2) //返回较大的数</li>
+<li>min(num1, num2) //返回较小的数</li>
+<li>abs(num) //绝对值</li>
+<li>pow(x,y) //x的y次方</li>
+<li>sqrt(num) //开平方根</li>
+</ul>
+<h2 id="相关数学知识"><a href="#相关数学知识" class="headerlink" title="相关数学知识"></a>相关数学知识</h2><ul>
+<li><p>三角函数复习</p>
+<ul>
+<li><p>sin(radian)</p>
+</li>
+<li><p>cos(radian)</p>
+</li>
+<li><p>tan(radian)</p>
+</li>
+<li><p>角度与弧度的转换</p>
+<blockquote>
+<p>弧度=角度*Math.PI/180</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>勾股定理复习</p>
+<blockquote>
+<p>在直角三角形中，斜边的平方等于直角边的平方和</p>
+</blockquote>
+</li>
+<li><p>曲线方程复习(一元二次方程)</p>
+</li>
+</ul>
+<h1 id="日期Date"><a href="#日期Date" class="headerlink" title="日期Date"></a>日期Date</h1><h3 id="了解时间"><a href="#了解时间" class="headerlink" title="了解时间"></a>了解时间</h3><ul>
+<li>GMT：格林尼治标准时(Greenwich Mean Time)，俗称“天文学时间”</li>
+<li>UTC：协调世界时(Universal Time Coordinated)，“原子物理时间”，它更加精确,50亿年才误差1秒</li>
+<li>时区：为了克服时间上的混乱，1884年在华盛顿召开的一次国际经度会议（又称国际子午线会议[1]）上，规定将全球划分为24个时区（东、西各12个时区）。规定英国（格林尼治天文台旧址）为中时区（零时区）、东1-12区，西1-12区。每个时区横跨经度15度，时间正好是1小时</li>
+<li>闰年：四年一闰，百年不闰，四百年再闰</li>
+<li>纪元时间(UNIX TIME)：1970-1-1零时</li>
+</ul>
+<h3 id="创建日期时间对象"><a href="#创建日期时间对象" class="headerlink" title="创建日期时间对象"></a>创建日期时间对象</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">构造函数</span><br><span class="line"><span class="comment">    * 不带参数：得到的是代码执行时的时间（本地时间）</span></span><br><span class="line"><span class="comment">    * 带参数</span></span><br><span class="line"><span class="comment">        * 字符串：指定日期</span></span><br><span class="line"><span class="comment">        * 数字：指定毫秒数</span></span><br><span class="line"><span class="comment">//1）创建当前时间的日期和时间</span></span><br><span class="line"><span class="keyword">var</span> <span class="keyword">d</span> = new <span class="built_in">Date</span>();</span><br><span class="line"></span><br><span class="line"><span class="comment">//2）创建指定日期的时间和日期</span></span><br><span class="line"><span class="keyword">var</span> <span class="keyword">d</span> = new <span class="built_in">Date</span>(<span class="string">"2015/08/22"</span>);</span><br><span class="line"><span class="keyword">var</span> <span class="keyword">d</span> = new <span class="built_in">Date</span>(56521211021);<span class="comment">//参数为距1970-1-1零时的毫秒数</span></span><br></pre></td></tr></table></figure>
+<h3 id="日期时间对象的方法"><a href="#日期时间对象的方法" class="headerlink" title="日期时间对象的方法"></a>日期时间对象的方法</h3><h5 id="获取年月日"><a href="#获取年月日" class="headerlink" title="获取年月日"></a>获取年月日</h5><p>getFullYear()/setFullYear(2014)   set设置<br>getMonth()/setMonth(8)注意：获取月份是从0开始的   set设置<br>getDate()/setDate(25)  set设置</p>
+<h5 id="获取星期"><a href="#获取星期" class="headerlink" title="获取星期"></a>获取星期</h5><p>getDay() 0-6:星期天-星期六</p>
+<h5 id="获取时分秒"><a href="#获取时分秒" class="headerlink" title="获取时分秒"></a>获取时分秒</h5><p>getHours()/setHours()<br>getMinutes()/setMinutes()<br>getSeconds()/setSeconds()</p>
+<h6 id="案例：将当前日期格式化输出为-“2018年08月24-星期五”格式"><a href="#案例：将当前日期格式化输出为-“2018年08月24-星期五”格式" class="headerlink" title="案例：将当前日期格式化输出为 “2018年08月24 星期五”格式"></a>案例：将当前日期格式化输出为 “2018年08月24 星期五”格式</h6><pre><code>var d = new Date();
+// 1.获取年份、月份、日、星期
+var year = d.getFullYear();
+var month = d.getMonth()+1;
+var date = d.getDate();
+var day = d.getDay();//0-6代表星期日到星期六
+var week = &apos;天，一，二，三，四，五，六&apos;.split(&apos;，&apos;);
+output.innerHTML = &apos;当前时间为：&apos; + year + &apos;年&apos; + month + &apos;月&apos; + date + &apos;日 星期&apos; + week[day];
+//2.使用定时器，每秒执行一次上面的代码（封装成函数）。setInterval(fn,1000);
+//3.一开始渲染页面时，要先执行一次函数。（因为定时器设置1秒的间隔）
+//4.优化：当时分秒小于10的时候，补0操作
+</code></pre><h6 id="案例：时间设置：-日期date的n天后的日期"><a href="#案例：时间设置：-日期date的n天后的日期" class="headerlink" title="案例：时间设置： 日期date的n天后的日期"></a>案例：时间设置： 日期date的n天后的日期</h6><pre><code>function afterDate(date,n){
+    // 指定日期创建对象
+    var d = new Date(date);
+    d.setDate(d.getDate() + n);
+    return d;
+}
+</code></pre><h5 id="日期处理"><a href="#日期处理" class="headerlink" title="日期处理"></a>日期处理</h5><ul>
+<li>getTime()/setTime()：获取/修改某个日期自1970年1月1日0时以来的毫秒数</li>
+<li>toLocaleDateString(); 以特定地区格式显示年、月、日</li>
+<li>toUTCString(); 转换成UTC时间</li>
+</ul>
+<h6 id="案例：判断两个日期相差的天数"><a href="#案例：判断两个日期相差的天数" class="headerlink" title="案例：判断两个日期相差的天数"></a>案例：判断两个日期相差的天数</h6><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>把开始时间和结束时间转成毫秒数</span><br><span class="line"><span class="number">2.</span>两个毫秒数相减，得到时间差</span><br><span class="line"><span class="number">3.</span>把时间差转成天数</span><br></pre></td></tr></table></figure>
+<h3 id="ES5方法"><a href="#ES5方法" class="headerlink" title="ES5方法"></a>ES5方法</h3><p>Date.parse(“2015-08-24”)//返回指定日期距1970-1-1零时的毫秒数</p>
+<blockquote>
+<p>PS：转换格式默认支持2015-08-24或2015/08/24</p>
+</blockquote>
+<p>Date.now();//返回执行这行代码时距1970-1-1零时的毫秒数</p>
+<h3 id="延迟与定时器"><a href="#延迟与定时器" class="headerlink" title="延迟与定时器"></a>延迟与定时器</h3><ul>
+<li>setTimeout(fn,200)：两百毫秒后执行fn这个函数（只执行一次）,返回一个id标识</li>
+<li>clearTimeout(timeoutID)：清除指定id标识的延迟操作</li>
+<li>setInterval(fn,30)：每隔30毫秒执行一次fn这个函数,返回一个id标识</li>
+<li>clearInterval(intervalID)：清除指定id标识的定时器操作</li>
+</ul>
+<figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> timer = setTimeout(<span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="comment">//2s后执行这里的代码</span></span><br><span class="line">&#125;,<span class="number">2000</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//清除</span></span><br><span class="line">clearTimeout(timer);</span><br></pre></td></tr></table></figure>
+<h6 id="案例：实现进度条"><a href="#案例：实现进度条" class="headerlink" title="案例：实现进度条"></a>案例：实现进度条</h6><pre><code>// 1.进度条变量初始宽度
+var width = 0;
+// 2.进度条变量宽度每隔一段时间，递增一定的值
+var timer = setInterval(function(){
+    width += 13;
+    // 3.当进度条变量宽度大于浏览器可视区域宽度，停止定时器，赋值为浏览器可视区域的宽度
+    if(width &gt;= window.innerWidth){//333,366
+        width = window.innerWidth;
+        clearInterval(timer)
+    }
+    // 4.将进度条变量的值，赋值给进度条样式
+    bar.style.width = width + &apos;px&apos;;
+},30);
+</code></pre><h6 id="案例：实现倒计时"><a href="#案例：实现倒计时" class="headerlink" title="案例：实现倒计时"></a>案例：实现倒计时</h6><figure class="highlight glsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span>）指定结束时间</span><br><span class="line">var end = '<span class="number">2018</span><span class="number">-3</span><span class="number">-1</span> <span class="number">14</span>:<span class="number">50</span>:<span class="number">40</span>';					</span><br><span class="line"><span class="number">2</span>）定时器，每秒拿当前时间跟结束时间对比，计算差值</span><br><span class="line">	var <span class="keyword">offset</span> = Date.parse(end) - Date.now();</span><br><span class="line"><span class="number">3</span>）把差值转换成《剩余时间》</span><br><span class="line">	<span class="keyword">offset</span> = Math.<span class="built_in">floor</span>(<span class="keyword">offset</span>/<span class="number">1000</span>);</span><br><span class="line">	var sec = <span class="keyword">offset</span>%<span class="number">60</span>;<span class="comment">//50,5</span></span><br><span class="line">    var <span class="built_in">min</span> = Math.<span class="built_in">floor</span>(<span class="keyword">offset</span>/<span class="number">60</span>)%<span class="number">60</span>;</span><br><span class="line">    var hour = Math.<span class="built_in">floor</span>(<span class="keyword">offset</span>/<span class="number">60</span>/<span class="number">60</span>)%<span class="number">24</span>;</span><br><span class="line">    var day = Math.<span class="built_in">floor</span>(<span class="keyword">offset</span>/<span class="number">60</span>/<span class="number">60</span>/<span class="number">24</span>);</span><br><span class="line">    <span class="comment">// 补0操作</span></span><br><span class="line"><span class="number">4</span>）拼接时间格式，写入页面</span><br><span class="line"><span class="number">5</span>）倒计时结束时（应写在步骤<span class="number">3</span>前面，不再呈现在页面上）</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">offset</span> &lt;= <span class="number">0</span>)&#123;</span><br><span class="line">         <span class="comment">// 停止定时器</span></span><br><span class="line">         <span class="comment">// 替换购买按钮</span></span><br><span class="line">		<span class="comment">// *隐藏倒计时</span></span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="正则表达式"><a href="#正则表达式" class="headerlink" title="正则表达式"></a>正则表达式</h1><h2 id="了解正则表达式"><a href="#了解正则表达式" class="headerlink" title="了解正则表达式"></a>了解正则表达式</h2><ul>
+<li>什么是正则表达式<br>正则表达式(regular expression)是一个描述字符模式的对象。</li>
+<li>为什么要使用正则表达式<br>正则表达式能够进行强大的“模式匹配”和“文本检索与替换”功能。前端往往有大量的表单数据校验的工作，采用正则表达式会使得数据校验的工作量大大减轻</li>
+</ul>
+<h2 id="创建正则表达式"><a href="#创建正则表达式" class="headerlink" title="创建正则表达式"></a>创建正则表达式</h2><h3 id="使用RegExp构造函数，"><a href="#使用RegExp构造函数，" class="headerlink" title="使用RegExp构造函数，"></a>使用RegExp构造函数，</h3><ul>
+<li><p>第一个参数就是我们的模式“字符串”</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reg= <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'study'</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//使用特殊字符</span></span><br><span class="line"><span class="keyword">var</span> reg= <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'\\d\\w+'</span>);\d\w+</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>第二个参数可选，模式修饰符</p>
+<ul>
+<li>i: case-insensitive，表示忽略大小写</li>
+<li>g: global，表示全局匹配</li>
+<li>m: multiline，表示多行匹配</li>
+</ul>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">'study'</span>, <span class="string">'ig'</span>);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="还可以用字面量方式直接声明"><a href="#还可以用字面量方式直接声明" class="headerlink" title="还可以用字面量方式直接声明"></a>还可以用字面量方式直接声明</h3><figure class="highlight ebnf"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attribute">var reg</span> = /study/gi;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>直接量是字符匹配，不支持变量</li>
+</ul>
+<h2 id="使用正则表达式"><a href="#使用正则表达式" class="headerlink" title="使用正则表达式"></a>使用正则表达式</h2><h3 id="支持正则表达式的字符串方法"><a href="#支持正则表达式的字符串方法" class="headerlink" title="支持正则表达式的字符串方法"></a>支持正则表达式的字符串方法</h3><ul>
+<li>search<br>返回第一次匹配时所在的索引值,如果匹配不到则返回-1</li>
+<li>match<ul>
+<li>默认匹配字符串，返回一个数组<ul>
+<li>0:所匹配的字符</li>
+<li>index:匹配第一个字符所在的索引</li>
+<li>input:对字符串的引用</li>
+</ul>
+</li>
+<li>全局匹配(g)，返回一个匹配所有字符串数组</li>
+<li>如果匹配不到则返回null</li>
+</ul>
+</li>
+<li>replace<br>替换字符串</li>
+<li>split<br><code>&#39;a,b ,c , d, e&#39;.split(/\s*,\s* /);</code></li>
+</ul>
+<h3 id="正则表达式的属性和方法"><a href="#正则表达式的属性和方法" class="headerlink" title="正则表达式的属性和方法"></a>正则表达式的属性和方法</h3><ul>
+<li><p>测试正则表达式用test方法,返回布尔值</p>
+<ul>
+<li>格式：正则表达式.test(字符串)</li>
+<li>用&lt;正则表达式&gt;测试&lt;字符串&gt;是否匹配,返回true/false</li>
+</ul>
+</li>
+<li><p>测试正则表达式exec方法</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="regexp">/xx/</span>.exec(字符串)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="匹配规则"><a href="#匹配规则" class="headerlink" title="匹配规则"></a>匹配规则</h3><ul>
+<li><p>所有字母和数字都是按照字面量进行匹配,和字符串匹配等效<br><code>/good/gi</code></p>
+</li>
+<li><p>字符类（只记小写字母即可）</p>
+<ul>
+<li><p><code>.</code> : 除换行以外的字符</p>
+</li>
+<li><p>\w : 代表数字或字母或下划线</p>
+</li>
+<li><p>\W : 非数字字母和下划线字符</p>
+</li>
+<li><p>\d : 数字</p>
+</li>
+<li><p>\D : 非数字</p>
+</li>
+<li><p>\s : 代表一个空格</p>
+</li>
+<li><p>\S : 空格以外的字符</p>
+</li>
+<li><p>\b : 匹配一个单词边界，也就是指单词和空格间的位置</p>
+</li>
+<li><p>\B : 匹配非单词边界。</p>
+<blockquote>
+<p>PS:以上所有字符类都只是匹配“一个”字符</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>特殊符号</p>
+<blockquote>
+<p>^ $ . * + ? = ! : | \ / () [] {}</p>
+</blockquote>
+<ul>
+<li><p>[]: 代表任意“单个字符” ,里面的内容表示“或”的关系</p>
+<ul>
+<li>-: 代表范围</li>
+<li>^: 代表非</li>
+</ul>
+</li>
+<li><p>(): 表示分组（n是以最左边括号出现的顺序排列）</p>
+<ul>
+<li><p>$1: 表示第一个分组</p>
+</li>
+<li><p>$n: 表示第n个分组（不能写在正则表达式里）</p>
+</li>
+<li><p>\n: 在正则分组后面使用，表示对第n个分组的引用(一定要写在正则表达式里)</p>
+<blockquote>
+<p>PS: 编写的正则分组数量越少越好</p>
+</blockquote>
+</li>
+</ul>
+</li>
+<li><p>|: 表示或者！！！！</p>
+</li>
+<li><p>锚点定位</p>
+<ul>
+<li>^: 表示以什么开头</li>
+<li>$: 表示以什么结尾</li>
+</ul>
+</li>
+<li><p>表示数量，对前一个字符计数，</p>
+<ul>
+<li><p>*: 代表0个或0个以上 &lt;===&gt;{0,}</p>
+</li>
+<li><p>+: 代表1个或1个以上 &lt;===&gt;{1,}</p>
+</li>
+<li><p>?: 代表0个或1个 &lt;===&gt;{0,1}</p>
+</li>
+<li><p>{}:</p>
+<figure class="highlight tex"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">\<span class="name">d</span><span class="string">&#123;5&#125;</span></span>: 匹配5个数字</span><br><span class="line"><span class="tag">\<span class="name">d</span><span class="string">&#123;5,10&#125;</span></span>: 匹配5个到10个数字</span><br><span class="line"><span class="tag">\<span class="name">d</span><span class="string">&#123;5,&#125;</span></span>: 匹配5个或5个以上的数字</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>PS:<br>1）数量词*,+,{5,}，会尽可能多的去匹配结果（贪婪）<br>2）在后面加一个?表示尽可能少的去匹配结果（非贪婪）<br>google,goooogle ==&gt; /go+/</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><strong>[案例]</strong></p>
+<ul>
+<li><p>快速替换html标签</p>
+</li>
+<li><p>去除首尾空格</p>
+</li>
+<li><p>提取手机号码</p>
+</li>
+<li><p>表单验证</p>
+<ul>
+<li><p>验证账号</p>
+<ul>
+<li>不能为空，</li>
+<li>不能使用特殊字符（数字、字母、下划线、横杠），</li>
+<li>必须以字母开头，</li>
+<li>长度6-20</li>
+</ul>
+</li>
+<li><p>昵称只能输入中文</p>
+<blockquote>
+<p>Unicode编码中的汉字范围 /^[\u2E80-\u9FFF]+$/</p>
+</blockquote>
+</li>
+<li><p>电子邮件</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">jinrong.xie@qq.com</span><br><span class="line">x@qq.com</span><br><span class="line">x@<span class="number">163</span>.com</span><br><span class="line">x@a-r<span class="selector-class">.com</span><span class="selector-class">.cn</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>密码</p>
+<ul>
+<li>长度小于20</li>
+<li>不能包含空格</li>
+</ul>
+</li>
+<li><p>身份证</p>
+<p>18/15位</p>
+<figure class="highlight basic"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="symbol">445655 </span><span class="number">19900707</span> <span class="number">2165</span></span><br><span class="line"><span class="symbol">445655 </span><span class="number">19900707</span> <span class="number">211</span>x</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>手机号码</p>
+</li>
+<li><p>生日</p>
+</li>
+</ul>
+</li>
+</ul>
+<pre><code><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1999</span>/<span class="number">05</span>/<span class="number">08</span></span><br><span class="line"><span class="number">1999</span><span class="number">-5</span><span class="number">-8</span></span><br><span class="line"><span class="number">19990508</span></span><br></pre></td></tr></table></figure>
+</code></pre>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------阅读有风险<i class="fa fa-paw"></i>请谨慎阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag"># js</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/12/css基本语法/" rel="next" title="css基本语法">
+                <i class="fa fa-chevron-left"></i> css基本语法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/12/es5方法/" rel="prev" title="es5方法">
+                es5方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/baby.png" alt="唐唐胖次">
+            
+              <p class="site-author-name" itemprop="name">唐唐胖次</p>
+              <div class="site-description motion-element" itemprop="description">每天努力一点点</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">55</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/Junokl" title="GitHub &rarr; https://github.com/Junokl" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#（一）js历史"><span class="nav-number">1.</span> <span class="nav-text">（一）js历史</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-JavaScript的诞生"><span class="nav-number">1.1.</span> <span class="nav-text">(1)JavaScript的诞生</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-js版本"><span class="nav-number">2.</span> <span class="nav-text">(2)js版本</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-js语言的组成"><span class="nav-number">3.</span> <span class="nav-text">(3)js语言的组成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#一、js语法"><span class="nav-number">4.</span> <span class="nav-text">一、js语法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#（一）js的书写位置"><span class="nav-number">4.1.</span> <span class="nav-text">（一）js的书写位置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#二-js注释"><span class="nav-number">4.2.</span> <span class="nav-text">(二)js注释</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#三-声明变量及赋值"><span class="nav-number">4.3.</span> <span class="nav-text">(三) 声明变量及赋值</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二、输出"><span class="nav-number">5.</span> <span class="nav-text">二、输出</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-alert-变量不加引号-具体的值-弹窗输出"><span class="nav-number">5.1.</span> <span class="nav-text">1.alert(变量不加引号||具体的值) 弹窗输出</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-document-write-变量不加引号-具体的值-在body里面输出内容"><span class="nav-number">5.2.</span> <span class="nav-text">2. document.write(变量不加引号||具体的值) 在body里面输出内容</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-console-log-变量不加引号-具体的值-往控制台console输出内容"><span class="nav-number">5.3.</span> <span class="nav-text">3. console.log(变量不加引号||具体的值) 往控制台console输出内容</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-元素-innerHTML-””-作为元素代码输出"><span class="nav-number">5.4.</span> <span class="nav-text">4.元素.innerHTML=””     作为元素代码输出</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#三、运算"><span class="nav-number">6.</span> <span class="nav-text">三、运算</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#（一）算术运算-求余数"><span class="nav-number">6.1.</span> <span class="nav-text">（一）算术运算 + - * / %(求余数)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#计算两个文本框的值"><span class="nav-number">6.2.</span> <span class="nav-text">计算两个文本框的值</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#备注遇到的问题"><span class="nav-number">6.3.</span> <span class="nav-text">备注遇到的问题</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#（二）赋值运算"><span class="nav-number">6.4.</span> <span class="nav-text">（二）赋值运算</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#三-关系运算-返回布尔值-存在隐式转换"><span class="nav-number">6.5.</span> <span class="nav-text">(三)关系运算          !!!!!返回布尔值(存在隐式转换)!!!!!</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#四-逻辑运算"><span class="nav-number">6.6.</span> <span class="nav-text">(四)逻辑运算</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#五-一元运算"><span class="nav-number">6.7.</span> <span class="nav-text">(五)一元运算</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#自增1"><span class="nav-number">6.8.</span> <span class="nav-text">++ 自增1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#–-自减1"><span class="nav-number">6.9.</span> <span class="nav-text">– 自减1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#六-三元运算符-双分支情况使用"><span class="nav-number">6.10.</span> <span class="nav-text">(六)三元运算符(双分支情况使用)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#四、数据类型（值）"><span class="nav-number">7.</span> <span class="nav-text">四、数据类型（值）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#（一）基本数据类型"><span class="nav-number">7.1.</span> <span class="nav-text">（一）基本数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#1-数字类型-Number"><span class="nav-number">7.1.1.</span> <span class="nav-text">1.数字类型 Number</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#2-字符串类型String-带引号的值都是字符串类型"><span class="nav-number">7.1.2.</span> <span class="nav-text">2.字符串类型String,带引号的值都是字符串类型</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#3-布尔类型-Boolean。两个值：true、false"><span class="nav-number">7.1.3.</span> <span class="nav-text">3.布尔类型 Boolean。两个值：true、false</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#二-特殊数据类型"><span class="nav-number">7.2.</span> <span class="nav-text">(二)特殊数据类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-Null-类型只有一个特殊的值为-null-表示一个空对象引用-指针-。"><span class="nav-number">7.3.</span> <span class="nav-text">1.Null 类型只有一个特殊的值为 null,表示一个空对象引用(指针)。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-Undefined-只有一个值undefined。当声明一个变量但未赋值，返回undefined。"><span class="nav-number">7.4.</span> <span class="nav-text">2.Undefined 只有一个值undefined。当声明一个变量但未赋值，返回undefined。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#三-引用数据类型"><span class="nav-number">7.5.</span> <span class="nav-text">(三) 引用数据类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#（四）、typeof-判断数据类型"><span class="nav-number">7.6.</span> <span class="nav-text">（四）、typeof() 判断数据类型</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#五）数据类型的转换"><span class="nav-number">8.</span> <span class="nav-text">(五）数据类型的转换</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-主动转换"><span class="nav-number">8.1.</span> <span class="nav-text">1.主动转换</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#1-直接转换"><span class="nav-number">8.2.</span> <span class="nav-text">1.直接转换</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#常用的方法："><span class="nav-number">8.3.</span> <span class="nav-text">常用的方法：</span></a></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#程序三大流程"><span class="nav-number"></span> <span class="nav-text">程序三大流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#进制"><span class="nav-number"></span> <span class="nav-text">进制</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-十进制"><span class="nav-number">0.1.</span> <span class="nav-text">1.十进制</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-二进制-0b开头，取值为0或1"><span class="nav-number">0.2.</span> <span class="nav-text">2.二进制 0b开头，取值为0或1</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-八进制-0o开头，取值0-7"><span class="nav-number">0.3.</span> <span class="nav-text">3.八进制 0o开头，取值0-7</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-十六进制-0x开头，取值0-9，a-f"><span class="nav-number">0.4.</span> <span class="nav-text">4.十六进制 0x开头，取值0-9，a-f</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-进制转换"><span class="nav-number">0.5.</span> <span class="nav-text">5.进制转换</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#语句"><span class="nav-number"></span> <span class="nav-text">语句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#分支选择语句"><span class="nav-number"></span> <span class="nav-text">分支选择语句</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#（一）if语句"><span class="nav-number">1.</span> <span class="nav-text">（一）if语句</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-单分支-if-条件-满足条件执行代码"><span class="nav-number">1.1.</span> <span class="nav-text">1.单分支 if(条件){满足条件执行代码}</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-双分支-if-条件-满足条件执行-else-不满足if条件执行这里的代码"><span class="nav-number">1.2.</span> <span class="nav-text">2.双分支 if(条件){满足条件执行}else{不满足if条件执行这里的代码}</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-多分支"><span class="nav-number">1.3.</span> <span class="nav-text">3.多分支</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#常犯错误："><span class="nav-number">2.</span> <span class="nav-text">常犯错误：</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#补充："><span class="nav-number"></span> <span class="nav-text">补充：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#点击事件执行函数"><span class="nav-number">1.</span> <span class="nav-text">点击事件执行函数</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#（1）给元素添加-onclick-“函数名（）”-（2）定义函数：function-函数名"><span class="nav-number">1.1.</span> <span class="nav-text">（1）给元素添加[onclick = “函数名（）”]   （2）定义函数：function 函数名(){}</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-ele-onclick-函数名-（2）定义函数：function-函数名"><span class="nav-number">1.2.</span> <span class="nav-text">(2) ele.onclick = 函数名  （2）定义函数：function 函数名(){}</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-ele-onclick-function-lt-匿名函数"><span class="nav-number">1.3.</span> <span class="nav-text">(3)ele.onclick = function(){}   &lt;== 匿名函数</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#switch语句"><span class="nav-number"></span> <span class="nav-text">switch语句</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#循环语句"><span class="nav-number"></span> <span class="nav-text">循环语句</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#while语句"><span class="nav-number"></span> <span class="nav-text">while语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#do-while-语句"><span class="nav-number"></span> <span class="nav-text">do   while  语句</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#for-变量初始化-条件-变量更新-执行的代码"><span class="nav-number"></span> <span class="nav-text">for(变量初始化;条件;变量更新){执行的代码}</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#备注：window-onload-function"><span class="nav-number">0.1.</span> <span class="nav-text">备注：window.onload = function(){}</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#break、continue（循环语句使用）"><span class="nav-number"></span> <span class="nav-text">break、continue（循环语句使用）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-break-跳出当前整个循环"><span class="nav-number">0.1.</span> <span class="nav-text">1.break 跳出当前整个循环</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-continue-跳出本次循环，继续下一次循环"><span class="nav-number">0.2.</span> <span class="nav-text">2.continue 跳出本次循环，继续下一次循环</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#循环嵌套"><span class="nav-number"></span> <span class="nav-text">循环嵌套</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函数的定义及好处"><span class="nav-number"></span> <span class="nav-text">函数的定义及好处</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#函数的定义"><span class="nav-number"></span> <span class="nav-text">函数的定义</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#·-关键字function声明（声明式）："><span class="nav-number">0.1.</span> <span class="nav-text">· 关键字function声明（声明式）：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#·-函数表达式-赋值式"><span class="nav-number">0.2.</span> <span class="nav-text">· 函数表达式(赋值式)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#·-Function构造函数（不推荐）"><span class="nav-number">0.3.</span> <span class="nav-text">· Function构造函数（不推荐）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#函数的分类"><span class="nav-number">1.</span> <span class="nav-text">函数的分类</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函数的执行"><span class="nav-number"></span> <span class="nav-text">函数的执行</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#声明提前："><span class="nav-number">0.1.</span> <span class="nav-text">声明提前：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#执行类型"><span class="nav-number">0.2.</span> <span class="nav-text">执行类型</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#常用事件"><span class="nav-number">0.3.</span> <span class="nav-text">常用事件</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#作用域"><span class="nav-number"></span> <span class="nav-text">作用域</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#变量的访问规则"><span class="nav-number"></span> <span class="nav-text">变量的访问规则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#作用域链"><span class="nav-number"></span> <span class="nav-text">作用域链</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函数的实参与形参"><span class="nav-number"></span> <span class="nav-text">函数的实参与形参</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#函数的传参：传参的作用：将值传入函数内"><span class="nav-number">0.1.</span> <span class="nav-text">函数的传参：传参的作用：将值传入函数内</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#argunments"><span class="nav-number">0.2.</span> <span class="nav-text">argunments</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#函数返回值-return"><span class="nav-number"></span> <span class="nav-text">函数返回值 return</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-传参是将值传进函数内，return是将值返回到函数外，需要用一个变量接收。"><span class="nav-number">0.1.</span> <span class="nav-text">1. 传参是将值传进函数内，return是将值返回到函数外，需要用一个变量接收。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#如果函数没有return-执行完后返回undefined"><span class="nav-number">0.2.</span> <span class="nav-text">如果函数没有return,执行完后返回undefined</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#return终止函数的执行-即return后的代码不会执行"><span class="nav-number">0.3.</span> <span class="nav-text">return终止函数的执行,即return后的代码不会执行</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#this-当前对象"><span class="nav-number"></span> <span class="nav-text">this 当前对象</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#递归：自己执行自己"><span class="nav-number"></span> <span class="nav-text">递归：自己执行自己</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#回调函数"><span class="nav-number"></span> <span class="nav-text">回调函数</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数组Array-一个变量存储多个信息"><span class="nav-number"></span> <span class="nav-text">数组Array:一个变量存储多个信息</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#数组"><span class="nav-number"></span> <span class="nav-text">数组</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#数组的声明（创建）"><span class="nav-number"></span> <span class="nav-text">数组的声明（创建）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组操作"><span class="nav-number"></span> <span class="nav-text">数组操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-数组的读取与写入"><span class="nav-number">1.</span> <span class="nav-text">(1)数组的读取与写入</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#数组的索引-arr-index"><span class="nav-number">1.1.</span> <span class="nav-text">* 数组的索引 arr[index]</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-数组的遍历"><span class="nav-number">2.</span> <span class="nav-text">(2)数组的遍历</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#数组的长度-arr-length"><span class="nav-number">2.1.</span> <span class="nav-text">* 数组的长度 arr.length</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#案例：创建一个数组，存放50个三位数的随机数。"><span class="nav-number">2.2.</span> <span class="nav-text">*案例：创建一个数组，存放50个三位数的随机数。</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组方法"><span class="nav-number"></span> <span class="nav-text">数组方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#（1）增删改"><span class="nav-number">1.</span> <span class="nav-text">（1）增删改</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#总结："><span class="nav-number">1.1.</span> <span class="nav-text">*总结：</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#案例1：找出小于10的元素并组成一个新的数组"><span class="nav-number">1.2.</span> <span class="nav-text">*案例1：找出小于10的元素并组成一个新的数组</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#案例2：随机点名"><span class="nav-number">1.3.</span> <span class="nav-text">*案例2：随机点名</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（2）截取数组（原数组不变）"><span class="nav-number">2.</span> <span class="nav-text">（2）截取数组（原数组不变）</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#可应用于复制一个数组为新数组-通过slice-0"><span class="nav-number">2.1.</span> <span class="nav-text">* 可应用于复制一个数组为新数组,通过slice(0)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（3）数组排序"><span class="nav-number">3.</span> <span class="nav-text">（3）数组排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（4）数组倒序"><span class="nav-number">4.</span> <span class="nav-text">（4）数组倒序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（5）将数组拼接成字符串"><span class="nav-number">5.</span> <span class="nav-text">（5）将数组拼接成字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#（6）数组合并"><span class="nav-number">6.</span> <span class="nav-text">（6）数组合并</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组排序算法"><span class="nav-number"></span> <span class="nav-text">数组排序算法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#冒泡排序"><span class="nav-number">1.</span> <span class="nav-text">冒泡排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选择排序法"><span class="nav-number">2.</span> <span class="nav-text">选择排序法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#快速排序法"><span class="nav-number">3.</span> <span class="nav-text">快速排序法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#sort排序"><span class="nav-number">4.</span> <span class="nav-text">sort排序</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组复制与传输"><span class="nav-number"></span> <span class="nav-text">数组复制与传输</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#如何复制数组"><span class="nav-number">1.</span> <span class="nav-text">如何复制数组</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#案例：编写一个map-arr-函数，把数组中的每一个数字都增加20-，并返回新的数组"><span class="nav-number">1.1.</span> <span class="nav-text">*案例：编写一个map(arr)函数，把数组中的每一个数字都增加20%，并返回新的数组</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#数组作为参数传递"><span class="nav-number">2.</span> <span class="nav-text">数组作为参数传递</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#多维数组-数组里面包含数组"><span class="nav-number"></span> <span class="nav-text">多维数组(数组里面包含数组)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#对象Object"><span class="nav-number"></span> <span class="nav-text">对象Object</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建对象"><span class="nav-number"></span> <span class="nav-text">创建对象</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#对象的操作"><span class="nav-number"></span> <span class="nav-text">对象的操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#键值对"><span class="nav-number"></span> <span class="nav-text">键值对</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作对象键对应的值"><span class="nav-number"></span> <span class="nav-text">操作对象键对应的值</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-添加、修改属性"><span class="nav-number">1.</span> <span class="nav-text">(1)添加、修改属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-删除属性"><span class="nav-number">2.</span> <span class="nav-text">(2)删除属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-读取属性值"><span class="nav-number">3.</span> <span class="nav-text">(3)读取属性值</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-遍历对象for…in"><span class="nav-number">4.</span> <span class="nav-text">(4)遍历对象for…in</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数组与对象的组合"><span class="nav-number"></span> <span class="nav-text">数组与对象的组合</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#字符串"><span class="nav-number"></span> <span class="nav-text">字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建字符串"><span class="nav-number"></span> <span class="nav-text">创建字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串的属性和方法"><span class="nav-number"></span> <span class="nav-text">字符串的属性和方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#属性"><span class="nav-number">1.</span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#获取值方法"><span class="nav-number">2.</span> <span class="nav-text">获取值方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#查找索引方法"><span class="nav-number">3.</span> <span class="nav-text">查找索引方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#案例：输出所有1-100之间7的倍数和包含7的数字"><span class="nav-number">3.1.</span> <span class="nav-text">案例：输出所有1-100之间7的倍数和包含7的数字</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#案例：16进制随机背景色"><span class="nav-number">3.2.</span> <span class="nav-text">案例：16进制随机背景色</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串分割成数组方法"><span class="nav-number">4.</span> <span class="nav-text">字符串分割成数组方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串替换方法"><span class="nav-number">5.</span> <span class="nav-text">字符串替换方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#案例：过滤不文明用语"><span class="nav-number">5.1.</span> <span class="nav-text">案例：过滤不文明用语</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串的截取方法"><span class="nav-number">6.</span> <span class="nav-text">字符串的截取方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#案例：获取url参数"><span class="nav-number">6.1.</span> <span class="nav-text">案例：获取url参数</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串大小写转换"><span class="nav-number">7.</span> <span class="nav-text">字符串大小写转换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ECMAscript5新增"><span class="nav-number">8.</span> <span class="nav-text">ECMAscript5新增</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ASCII码和字符集"><span class="nav-number"></span> <span class="nav-text">ASCII码和字符集</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#了解正则表达式-后面再深入了解"><span class="nav-number"></span> <span class="nav-text">了解正则表达式(后面再深入了解)</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Math对象方法"><span class="nav-number"></span> <span class="nav-text">Math对象方法</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#属性-1"><span class="nav-number"></span> <span class="nav-text">属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#方法"><span class="nav-number"></span> <span class="nav-text">方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#相关数学知识"><span class="nav-number"></span> <span class="nav-text">相关数学知识</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#日期Date"><span class="nav-number"></span> <span class="nav-text">日期Date</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#了解时间"><span class="nav-number"></span> <span class="nav-text">了解时间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建日期时间对象"><span class="nav-number"></span> <span class="nav-text">创建日期时间对象</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#日期时间对象的方法"><span class="nav-number"></span> <span class="nav-text">日期时间对象的方法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#获取年月日"><span class="nav-number">0.1.</span> <span class="nav-text">获取年月日</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#获取星期"><span class="nav-number">0.2.</span> <span class="nav-text">获取星期</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#获取时分秒"><span class="nav-number">0.3.</span> <span class="nav-text">获取时分秒</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#案例：将当前日期格式化输出为-“2018年08月24-星期五”格式"><span class="nav-number">0.3.1.</span> <span class="nav-text">案例：将当前日期格式化输出为 “2018年08月24 星期五”格式</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#案例：时间设置：-日期date的n天后的日期"><span class="nav-number">0.3.2.</span> <span class="nav-text">案例：时间设置： 日期date的n天后的日期</span></a></li></ol></li><li class="nav-item nav-level-5"><a class="nav-link" href="#日期处理"><span class="nav-number">0.4.</span> <span class="nav-text">日期处理</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#案例：判断两个日期相差的天数"><span class="nav-number">0.4.1.</span> <span class="nav-text">案例：判断两个日期相差的天数</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ES5方法"><span class="nav-number"></span> <span class="nav-text">ES5方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#延迟与定时器"><span class="nav-number"></span> <span class="nav-text">延迟与定时器</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#案例：实现进度条"><span class="nav-number">0.0.1.</span> <span class="nav-text">案例：实现进度条</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#案例：实现倒计时"><span class="nav-number">0.0.2.</span> <span class="nav-text">案例：实现倒计时</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#正则表达式"><span class="nav-number"></span> <span class="nav-text">正则表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#了解正则表达式"><span class="nav-number"></span> <span class="nav-text">了解正则表达式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#创建正则表达式"><span class="nav-number"></span> <span class="nav-text">创建正则表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用RegExp构造函数，"><span class="nav-number"></span> <span class="nav-text">使用RegExp构造函数，</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#还可以用字面量方式直接声明"><span class="nav-number"></span> <span class="nav-text">还可以用字面量方式直接声明</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用正则表达式"><span class="nav-number"></span> <span class="nav-text">使用正则表达式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#支持正则表达式的字符串方法"><span class="nav-number"></span> <span class="nav-text">支持正则表达式的字符串方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#正则表达式的属性和方法"><span class="nav-number"></span> <span class="nav-text">正则表达式的属性和方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#匹配规则"><span class="nav-number"></span> <span class="nav-text">匹配规则</span></a></li></ol></li></ol></li></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">唐唐胖次</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,0" opacity="0.5" zindex="-1" count="150" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>

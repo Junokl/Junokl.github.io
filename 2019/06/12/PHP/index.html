@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/Ham.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/Ham.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="wampserver安装及使用1. wampserver安装 a:安装 Web 服务器Apache p:安装 PHP解析器 m:安装MySQL数据库   对于初学者建议使用集成的服务器组件（如：WampServer），它已经包含了 PHP、Apache、Mysql 等服务,免去了开发人员将时间花费在繁琐的配置环境过程。  WampServer下载地址：http://www.wampserver.c">
+<meta name="keywords" content="PHP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP">
+<meta property="og:url" content="http://Junokl.com/2019/06/12/PHP/index.html">
+<meta property="og:site_name" content="势必要上进的咸鱼军">
+<meta property="og:description" content="wampserver安装及使用1. wampserver安装 a:安装 Web 服务器Apache p:安装 PHP解析器 m:安装MySQL数据库   对于初学者建议使用集成的服务器组件（如：WampServer），它已经包含了 PHP、Apache、Mysql 等服务,免去了开发人员将时间花费在繁琐的配置环境过程。  WampServer下载地址：http://www.wampserver.c">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-06-12T03:33:40.377Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP">
+<meta name="twitter:description" content="wampserver安装及使用1. wampserver安装 a:安装 Web 服务器Apache p:安装 PHP解析器 m:安装MySQL数据库   对于初学者建议使用集成的服务器组件（如：WampServer），它已经包含了 PHP、Apache、Mysql 等服务,免去了开发人员将时间花费在繁琐的配置环境过程。  WampServer下载地址：http://www.wampserver.c">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://Junokl.com/2019/06/12/PHP/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>PHP | 势必要上进的咸鱼军</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">势必要上进的咸鱼军</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">一只小小小攻城狮</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">19</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">18</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">55</span></a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Junokl.com/2019/06/12/PHP/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="唐唐胖次">
+      <meta itemprop="description" content="每天努力一点点">
+      <meta itemprop="image" content="/images/baby.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="势必要上进的咸鱼军">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">PHP
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-12 11:33:03" itemprop="dateCreated datePublished" datetime="2019-06-12T11:33:03+08:00">2019-06-12</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/PHP/" itemprop="url" rel="index"><span itemprop="name">PHP</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="wampserver安装及使用"><a href="#wampserver安装及使用" class="headerlink" title="wampserver安装及使用"></a>wampserver安装及使用</h1><h3 id="1-wampserver安装"><a href="#1-wampserver安装" class="headerlink" title="1. wampserver安装"></a>1. wampserver安装</h3><ul>
+<li>a:安装 Web 服务器Apache</li>
+<li>p:安装 PHP解析器</li>
+<li>m:安装MySQL数据库</li>
+</ul>
+<blockquote>
+<p>对于初学者建议使用集成的服务器组件（如：WampServer），它已经包含了 PHP、Apache、Mysql 等服务,免去了开发人员将时间花费在繁琐的配置环境过程。</p>
+</blockquote>
+<p>WampServer下载地址：<a href="http://www.wampserver.com/" target="_blank" rel="noopener">http://www.wampserver.com/</a></p>
+<p>若是缺乏某个dll，直接安装<a href="./anzhuangbao/vc_redist.x64_2015.exe">vc_redist.x64_2015.exe</a></p>
+<p>【计算机-管理-服务和应用程序-服务-wampapache-wampmysql（开启服务前，先停止svn、mysql、iis）】</p>
+<blockquote>
+<p>测试：</p>
+<p>当wampserver图片变成绿色：</p>
+<ol>
+<li>网址中输入localhost或127.0.0.1（本机ip），默认打开C:\wamp64\www路径下的index.php</li>
+<li>同样可以localhost/*** 访问默认路径下（C:\wamp64\www）的任意文件</li>
+</ol>
+</blockquote>
+<h3 id="2-创建虚拟目录"><a href="#2-创建虚拟目录" class="headerlink" title="2.创建虚拟目录"></a>2.创建虚拟目录</h3><ul>
+<li>左键小图标—-&gt;apache—-&gt;alias directories—&gt;add an alias </li>
+<li>创建虚拟目录名字，例如aaa。enter后</li>
+<li>创建虚拟目录对应的url，即需要开启web服务的文件夹路径(路径不可有中文、空格)</li>
+<li>以上步骤完毕，访问虚拟目录只需在浏览器输入<a href="http://localhost/aaa，可访问目录下任意文件。" target="_blank" rel="noopener">http://localhost/aaa，可访问目录下任意文件。</a></li>
+</ul>
+<h3 id="3-创建端口"><a href="#3-创建端口" class="headerlink" title="3.创建端口"></a>3.创建端口</h3><ul>
+<li><p>左键小图标—-&gt;apache—-&gt;httpd-vhost.conf</p>
+</li>
+<li><p>复制如下代码，往下写。（//只是注释，记得删掉）</p>
+</li>
+<li><figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">listen <span class="number">1704</span>    <span class="comment">//端口号</span></span><br><span class="line"><span class="params">&lt;VirtualHost *:<span class="number">1704</span>&gt;</span>      <span class="comment">//端口号</span></span><br><span class="line">	ServerName localhost</span><br><span class="line">	DocumentRoot D:\laoxie\<span class="number">01</span>Basic      <span class="comment">//端口对应url(不可有中文路径、空格)</span></span><br><span class="line">	<span class="params">&lt;Directory  "D:\laoxie\<span class="number">01</span>Basic"&gt;</span>    <span class="comment">//端口对应url</span></span><br><span class="line">		Options +Indexes +Includes +FollowSymLinks +MultiViews</span><br><span class="line">		AllowOverride All</span><br><span class="line">		Require all granted     </span><br><span class="line">	<span class="params">&lt;/Directory&gt;</span></span><br><span class="line"><span class="params">&lt;/VirtualHost&gt;</span></span><br></pre></td></tr></table></figure>
+<p>以上步骤完毕，访问端口下目录只需在浏览器输入<a href="http://localhost:1704，可访问目录下任意文件。" target="_blank" rel="noopener">http://localhost:1704，可访问目录下任意文件。</a></p>
+</li>
+</ul>
+<h3 id="4-开启局域网服务器"><a href="#4-开启局域网服务器" class="headerlink" title="4.开启局域网服务器"></a>4.开启局域网服务器</h3><pre><code>1.查看本机ip地址：common+r进入cmd，输入ipconfig，查看ipv4。
+
+2.在vhost.conf给端口对应的url添加一句代码
+</code></pre><figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#Require <span class="built_in">local</span> <span class="comment">//#代表注释</span></span><br><span class="line"><span class="keyword">Require</span> <span class="literal">all</span> granted    <span class="comment">//允许其他主机访问</span></span><br></pre></td></tr></table></figure>
+<h1 id="PHP"><a href="#PHP" class="headerlink" title="PHP"></a>PHP</h1><h3 id="1-概念"><a href="#1-概念" class="headerlink" title="1.概念"></a>1.概念</h3><blockquote>
+<p>PHP是一种通用开源服务端脚本语言，将程序嵌入到HTML文档中去执行，结果以纯 HTML 形式返回给浏览器。<br>PHP: Hypertext Preprocessor “超文本预处理器”，1994年由Rasmus Lerdorf创建，刚刚开始仅仅是为了要维护他本人个人网页而制作的一个简单程序（Perl语言编写），原名Personal Home Page（PHP由此得名），后用C语言重新编写，改名Hypertext Preprocessor</p>
+</blockquote>
+<h5 id="PHP能做什么："><a href="#PHP能做什么：" class="headerlink" title="PHP能做什么："></a>PHP能做什么：</h5><ul>
+<li>生成动态页面内容</li>
+<li>创建、打开、读取、写入文件</li>
+<li>收集ajax数据</li>
+<li>发送和接收cookie</li>
+<li>添加、删除、修改您的数据库中的数据</li>
+<li>限制用户访问您的网站上的一些页面</li>
+<li>加密数据</li>
+</ul>
+<h3 id="2-基本语法"><a href="#2-基本语法" class="headerlink" title="2.基本语法"></a>2.基本语法</h3><blockquote>
+<ul>
+<li>默认文件扩展名是 “.php”。</li>
+<li>通常包含 HTML 标签和一些 PHP 脚本代码。</li>
+</ul>
+</blockquote>
+<h5 id="分界标示符"><a href="#分界标示符" class="headerlink" title="分界标示符"></a>分界标示符</h5><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?</span>php<span class="comment"> //开始 </span></span><br><span class="line"></span><br><span class="line">//...php代码</span><br><span class="line">  </span><br><span class="line"><span class="meta">?&gt;</span><span class="comment"> //结束</span></span><br></pre></td></tr></table></figure>
+<h5 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h5><blockquote>
+<p>与js一样，分单行和多行注释</p>
+</blockquote>
+<ul>
+<li>单行注释：<code>//</code></li>
+<li>多行注释：<code>/**/</code></li>
+</ul>
+<h5 id="输出语句"><a href="#输出语句" class="headerlink" title="输出语句"></a>输出语句</h5><ul>
+<li><h5 id="echo"><a href="#echo" class="headerlink" title="echo"></a>echo</h5><p>可以输出一个或多个字符串（字符串可以包含HTML标签），速度较快，一般用于向前端返回数据</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php">    <span class="comment">//输出一个字符</span></span></span><br><span class="line"><span class="php">    <span class="keyword">echo</span> <span class="string">"Hello world!&lt;br&gt;"</span>;</span></span><br><span class="line"><span class="php">    <span class="comment">//输出多个字符</span></span></span><br><span class="line"><span class="php">    <span class="keyword">echo</span> <span class="string">"This"</span>, <span class="string">" string"</span>, <span class="string">" was"</span>, <span class="string">" made"</span>, <span class="string">" with multiple parameters."</span>;</span></span><br><span class="line"><span class="php"><span class="meta">?&gt;</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">json_encode(<span class="built_in">array</span>,JSON_UNESCAPED_UNICODE);  把数组转成字符串</span><br><span class="line">	php5.4+ 使用JSON_UNESCAPED_UNICODE防止中文转义</span><br><span class="line">json_decode(json,<span class="built_in">assoc</span>);把字符串转成数组/对象</span><br><span class="line">	json：待解码的 json <span class="built_in">string</span> 格式的字符串</span><br><span class="line">	<span class="built_in">assoc</span>：默认<span class="literal">false</span>,返回object, 当该参数为 <span class="literal">true</span> 时，将返回<span class="built_in">array</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>print_r()<br>打印关于变量的信息，适用于数组、对象的打印，一般用于测试</p>
+</li>
+<li><p>var_dump()<br>判断一个变量的类型与长度,并输出变量的数据类型和数值，一般用于测试</p>
+</li>
+</ul>
+<h3 id="3-变量"><a href="#3-变量" class="headerlink" title="3.变量"></a>3.变量</h3><h5 id="命名规则"><a href="#命名规则" class="headerlink" title="命名规则"></a>命名规则</h5><ul>
+<li>以 $ 符号开始，后面跟着变量的名称（$称为标识符，不属于变量组成部分）</li>
+<li>只能包含字母、数字字符以及下划线，不能以数字开头（不能包含空格）</li>
+<li>区分大小写</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//PHP 没有声明变量的命令，也没有声明提前的概念。</span></span><br><span class="line"><span class="comment">//变量在第一次赋值时被创建：</span></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    $txt=<span class="string">"Hello world!"</span>;</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h5 id="拼接字符串及变量"><a href="#拼接字符串及变量" class="headerlink" title="拼接字符串及变量"></a>拼接字符串及变量</h5><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php">    $myname = <span class="string">"lemon"</span>;  </span></span><br><span class="line"><span class="php">    <span class="keyword">echo</span> <span class="string">'My name is'</span> . $myname;  <span class="comment">//1.通过并置运算符.拼接字符串及变量</span></span></span><br><span class="line"><span class="php">    <span class="comment">//或者</span></span></span><br><span class="line"><span class="php">    <span class="keyword">echo</span> <span class="string">"My name is $myname"</span>； <span class="comment">//2.双引号内可以直接输出变量，无需拼接</span></span></span><br><span class="line"><span class="php"><span class="meta">?&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h5 id="函数中访问全局变量！！！"><a href="#函数中访问全局变量！！！" class="headerlink" title="函数中访问全局变量！！！"></a>函数中访问全局变量！！！</h5><ul>
+<li>全局变量：在函数外部定义的变量，可以在任意位置访问(需要手动定义为全局变量)</li>
+<li>局部变量：函数内部声明的变量，仅能在函数内部访问</li>
+</ul>
+<p>（1） $GLOBALS</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php">    $x=<span class="string">'global x'</span>;</span></span><br><span class="line"><span class="php">    <span class="function"><span class="keyword">function</span> <span class="title">myTest</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="php">        <span class="comment">//echo $x;//报错 Undefined variable:未声明定义的变量</span></span></span><br><span class="line"><span class="php">        <span class="keyword">echo</span> $GLOBALS[<span class="string">'x'</span>]; <span class="comment">//1.获取全部变量正确写法：$GLOBALS[变量名]，其中变量名不带$。</span></span></span><br><span class="line"><span class="php"></span></span><br><span class="line"><span class="php">        <span class="comment">//2.同时，可以在函数中创建全局变量</span></span></span><br><span class="line"><span class="php">        $GLOBALS[<span class="string">'y'</span>] = $GLOBALS[<span class="string">'x'</span>] + $GLOBALS[<span class="string">'y'</span>];</span></span><br><span class="line"><span class="php">    &#125; </span></span><br><span class="line"><span class="php">    myTest();</span></span><br><span class="line"><span class="php">    <span class="keyword">echo</span> $y;</span></span><br><span class="line"><span class="php"><span class="meta">?&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>（2）global 关键字</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php">    $x=<span class="number">5</span>;</span></span><br><span class="line"><span class="php">    <span class="function"><span class="keyword">function</span> <span class="title">myTest</span><span class="params">()</span></span>&#123;</span></span><br><span class="line"><span class="php">        <span class="keyword">global</span> $x;</span></span><br><span class="line"><span class="php">        $y=$x;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php">    myTest();</span></span><br><span class="line"><span class="php">    <span class="keyword">echo</span> $y; </span></span><br><span class="line"><span class="php"><span class="meta">?&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h5 id="超级全局变量"><a href="#超级全局变量" class="headerlink" title="超级全局变量"></a>超级全局变量</h5><ul>
+<li><code>$GLOBALS</code><br>是PHP的一个包含所有全局变量的数组，可以在任意位置使用</li>
+<li><code>$_SERVER</code><br>是一个包含了头信息(header)、路径(path)等信息的数组</li>
+<li><code>$_POST / $_GET</code><br>被广泛应用于收集表单数据，常用于ajax请求等操作</li>
+<li><code>$_COOKIE</code><br>用于收集前端发送过来的cookie数据</li>
+<li><code>$_REQUEST</code><br>变量包含了 <code>$_GET、$_POST 和 $_COOKIE</code> 的内容</li>
+<li><code>$_SESSION</code><br>服务器版cookie</li>
+<li><code>$_FILES</code></li>
+</ul>
+<h5 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h5><ul>
+<li>规范<ul>
+<li>命名规则与变量一致，但常量名不需要加 $ 修饰符。</li>
+<li>常量值被定义后，在脚本的其他任何地方都不能被改变。</li>
+<li>默认是全局作用域，可以在整个运行的脚本的任何地方使用。</li>
+<li>常量名建议全部大写</li>
+</ul>
+</li>
+<li>格式： <code>define(name常量名称,value常量值)</code> </li>
+</ul>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">define</span></span>(<span class="string">"EN_NAME"</span>, <span class="string">"laoxie"</span>);   <span class="comment">// const MY_NAME = "lemon";</span></span><br></pre></td></tr></table></figure>
+<h3 id="4-运算符及语句（等同于js）"><a href="#4-运算符及语句（等同于js）" class="headerlink" title="4.运算符及语句（等同于js）"></a>4.运算符及语句（等同于js）</h3><pre><code>算术运算符、赋值运算符、递增/递减运算符、比较运算符(等于大于...)、逻辑运算符(与或非)、三元运算符
+条件语句、循环语句
+</code></pre><h3 id="5-数据类型"><a href="#5-数据类型" class="headerlink" title="5.数据类型"></a>5.数据类型</h3><p>$$<br>String（字符串）<br>Integer（整型）<br>Float（浮点型）<br>Boolean（布尔型）<br>Array（数组）<br>Object（对象）<br>NULL（空值）<br>$$</p>
+<h5 id="String"><a href="#String" class="headerlink" title="String"></a>String</h5><ul>
+<li><p>strlen() 获取字符串长度，得到的字符的字节数</p>
+</li>
+<li><p>mb_strlen() 获取字符串长度，</p>
+</li>
+<li><p>strpos() 查找某个字符在字符串中的索引，如果未找到匹配，则返回 false</p>
+<figure class="highlight less"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">strpos</span>(<span class="string">"Hello world!"</span>,<span class="string">"world"</span>);<span class="comment">//=&gt;6</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h5 id="Array"><a href="#Array" class="headerlink" title="Array"></a>Array</h5><blockquote>
+<p>数组是一个能在单个变量中存储多个值的特殊变量。</p>
+</blockquote>
+<h6 id="（1）创建数组：array"><a href="#（1）创建数组：array" class="headerlink" title="（1）创建数组：array()"></a>（1）创建数组：array()</h6><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.数值数组，等同于js的数组</span></span><br><span class="line">$cars=<span class="keyword">array</span>(<span class="string">"Volvo"</span>,<span class="string">"BMW"</span>,<span class="string">"Toyota"</span>);</span><br><span class="line"><span class="comment">//2.关联数组，等同于js的对象</span></span><br><span class="line">$age=<span class="keyword">array</span>(<span class="string">"Peter"</span>=&gt;<span class="string">"35"</span>,<span class="string">"Ben"</span>=&gt;<span class="string">"37"</span>,<span class="string">"Joe"</span>=&gt;<span class="string">"43"</span>);</span><br><span class="line"><span class="comment">//3.多维数组，包含一个或多个数组的数组</span></span><br></pre></td></tr></table></figure>
+<h6 id="（2）数组常用方法"><a href="#（2）数组常用方法" class="headerlink" title="（2）数组常用方法"></a>（2）数组常用方法</h6><ul>
+<li>count() 获取数组长度</li>
+<li>in_array() 判断某个值是否存在数组中</li>
+<li>array_slice() 从数组中取出一段</li>
+<li>array_rand() 随机获取数组的索引值</li>
+</ul>
+<h6 id="练习案例：在php文件里生成动态商品页面"><a href="#练习案例：在php文件里生成动态商品页面" class="headerlink" title="练习案例：在php文件里生成动态商品页面"></a>练习案例：在php文件里生成动态商品页面</h6><h6 id="（3）遍历数组"><a href="#（3）遍历数组" class="headerlink" title="（3）遍历数组"></a>（3）遍历数组</h6><ul>
+<li><p>for    一般用于遍历数值数组</p>
+</li>
+<li><p>foreach() 一般用于遍历关联数组,或者对象</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php">    <span class="comment">//遍历数值数组：for循环</span></span></span><br><span class="line"><span class="php">    $cars=<span class="keyword">array</span>(<span class="string">"Volvo"</span>,<span class="string">"BMW"</span>,<span class="string">"Toyota"</span>);</span></span><br><span class="line"><span class="php">    $arrlength=count($cars);</span></span><br><span class="line"><span class="php">    <span class="keyword">for</span>($x=<span class="number">0</span>;$x&lt;$arrlength;$x++)&#123;</span></span><br><span class="line"><span class="php">        <span class="keyword">echo</span> $cars[$x] . <span class="string">"&lt;br&gt;"</span>;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php">    <span class="comment">//关联数组：</span></span></span><br><span class="line"><span class="php">    $age=<span class="keyword">array</span>(<span class="string">"Peter"</span>=&gt;<span class="string">"35"</span>,<span class="string">"Ben"</span>=&gt;<span class="string">"37"</span>,<span class="string">"Joe"</span>=&gt;<span class="string">"43"</span>);</span></span><br><span class="line"><span class="php">    <span class="comment">//获取单个值</span></span></span><br><span class="line"><span class="php">    <span class="keyword">echo</span> $age[<span class="string">'peter'</span>];</span></span><br><span class="line"><span class="php">    <span class="comment">//遍历关联数组：foreach..as</span></span></span><br><span class="line"><span class="php">    <span class="keyword">foreach</span>($age <span class="keyword">as</span> $key=&gt;$value)&#123;</span></span><br><span class="line"><span class="php">        <span class="keyword">echo</span> $key .<span class="string">":"</span>. $value;</span></span><br><span class="line"><span class="php">        <span class="keyword">echo</span> <span class="string">"&lt;br&gt;"</span>;</span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php">    <span class="comment">//多维数组：</span></span></span><br><span class="line"><span class="php">    <span class="keyword">foreach</span>($age <span class="keyword">as</span> $item)&#123;</span></span><br><span class="line"><span class="php">        <span class="comment">//item代表数组里面的关联数组</span></span></span><br><span class="line"><span class="php">    &#125;</span></span><br><span class="line"><span class="php"><span class="meta">?&gt;</span></span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h6 id="数组排序"><a href="#数组排序" class="headerlink" title="数组排序"></a>数组排序</h6><ul>
+<li>sort() 对数组进行升序排列</li>
+<li>rsort() 对数组进行降序排列</li>
+<li>asort() 根据关联数组的值，对数组进行升序排列</li>
+<li>ksort() 根据关联数组的键，对数组进行升序排列</li>
+<li>arsort() 根据关联数组的值，对数组进行降序排列</li>
+<li>krsort() 根据关联数组的键，对数组进行降序排列</li>
+</ul>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------阅读有风险<i class="fa fa-paw"></i>请谨慎阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/PHP/" rel="tag"># PHP</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/12/Ajax/" rel="next" title="Ajax">
+                <i class="fa fa-chevron-left"></i> Ajax
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/12/node/" rel="prev" title="node">
+                node <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/baby.png" alt="唐唐胖次">
+            
+              <p class="site-author-name" itemprop="name">唐唐胖次</p>
+              <div class="site-description motion-element" itemprop="description">每天努力一点点</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">55</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/Junokl" title="GitHub &rarr; https://github.com/Junokl" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#wampserver安装及使用"><span class="nav-number">1.</span> <span class="nav-text">wampserver安装及使用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-wampserver安装"><span class="nav-number">1.0.1.</span> <span class="nav-text">1. wampserver安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-创建虚拟目录"><span class="nav-number">1.0.2.</span> <span class="nav-text">2.创建虚拟目录</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-创建端口"><span class="nav-number">1.0.3.</span> <span class="nav-text">3.创建端口</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-开启局域网服务器"><span class="nav-number">1.0.4.</span> <span class="nav-text">4.开启局域网服务器</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#PHP"><span class="nav-number">2.</span> <span class="nav-text">PHP</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-概念"><span class="nav-number">2.0.1.</span> <span class="nav-text">1.概念</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#PHP能做什么："><span class="nav-number">2.0.1.0.1.</span> <span class="nav-text">PHP能做什么：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-基本语法"><span class="nav-number">2.0.2.</span> <span class="nav-text">2.基本语法</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#分界标示符"><span class="nav-number">2.0.2.0.1.</span> <span class="nav-text">分界标示符</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#注释"><span class="nav-number">2.0.2.0.2.</span> <span class="nav-text">注释</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#输出语句"><span class="nav-number">2.0.2.0.3.</span> <span class="nav-text">输出语句</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#echo"><span class="nav-number">2.0.2.0.4.</span> <span class="nav-text">echo</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-变量"><span class="nav-number">2.0.3.</span> <span class="nav-text">3.变量</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#命名规则"><span class="nav-number">2.0.3.0.1.</span> <span class="nav-text">命名规则</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#拼接字符串及变量"><span class="nav-number">2.0.3.0.2.</span> <span class="nav-text">拼接字符串及变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#函数中访问全局变量！！！"><span class="nav-number">2.0.3.0.3.</span> <span class="nav-text">函数中访问全局变量！！！</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#超级全局变量"><span class="nav-number">2.0.3.0.4.</span> <span class="nav-text">超级全局变量</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#常量"><span class="nav-number">2.0.3.0.5.</span> <span class="nav-text">常量</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-运算符及语句（等同于js）"><span class="nav-number">2.0.4.</span> <span class="nav-text">4.运算符及语句（等同于js）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-数据类型"><span class="nav-number">2.0.5.</span> <span class="nav-text">5.数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#String"><span class="nav-number">2.0.5.0.1.</span> <span class="nav-text">String</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Array"><span class="nav-number">2.0.5.0.2.</span> <span class="nav-text">Array</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#（1）创建数组：array"><span class="nav-number">2.0.5.0.2.1.</span> <span class="nav-text">（1）创建数组：array()</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（2）数组常用方法"><span class="nav-number">2.0.5.0.2.2.</span> <span class="nav-text">（2）数组常用方法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#练习案例：在php文件里生成动态商品页面"><span class="nav-number">2.0.5.0.2.3.</span> <span class="nav-text">练习案例：在php文件里生成动态商品页面</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#（3）遍历数组"><span class="nav-number">2.0.5.0.2.4.</span> <span class="nav-text">（3）遍历数组</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#数组排序"><span class="nav-number">2.0.5.0.2.5.</span> <span class="nav-text">数组排序</span></a></li></ol></li></ol></li></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">唐唐胖次</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,0" opacity="0.5" zindex="-1" count="150" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>

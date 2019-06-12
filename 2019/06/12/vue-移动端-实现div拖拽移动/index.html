@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/Ham.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/Ham.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="vue 移动端 实现div拖拽移动 相关知识点touchstart 当在屏幕上按下手指时触发 touchmove 当在屏幕上移动手指时触发 touchend 当在屏幕上抬起手指时触发mousedown mousemove mouseup对应的是PC端的事件 touchcancel 当一些更高级别的事件发生的时候（如电话接入或者弹出信息）会取消当前的touch操作，即触发touchcancel。一般">
+<meta name="keywords" content="vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue-移动端-实现div拖拽移动">
+<meta property="og:url" content="http://Junokl.com/2019/06/12/vue-移动端-实现div拖拽移动/index.html">
+<meta property="og:site_name" content="势必要上进的咸鱼军">
+<meta property="og:description" content="vue 移动端 实现div拖拽移动 相关知识点touchstart 当在屏幕上按下手指时触发 touchmove 当在屏幕上移动手指时触发 touchend 当在屏幕上抬起手指时触发mousedown mousemove mouseup对应的是PC端的事件 touchcancel 当一些更高级别的事件发生的时候（如电话接入或者弹出信息）会取消当前的touch操作，即触发touchcancel。一般">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-06-12T15:30:08.995Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue-移动端-实现div拖拽移动">
+<meta name="twitter:description" content="vue 移动端 实现div拖拽移动 相关知识点touchstart 当在屏幕上按下手指时触发 touchmove 当在屏幕上移动手指时触发 touchend 当在屏幕上抬起手指时触发mousedown mousemove mouseup对应的是PC端的事件 touchcancel 当一些更高级别的事件发生的时候（如电话接入或者弹出信息）会取消当前的touch操作，即触发touchcancel。一般">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://Junokl.com/2019/06/12/vue-移动端-实现div拖拽移动/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>vue-移动端-实现div拖拽移动 | 势必要上进的咸鱼军</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">势必要上进的咸鱼军</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">一只小小小攻城狮</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">19</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">18</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">55</span></a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Junokl.com/2019/06/12/vue-移动端-实现div拖拽移动/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="唐唐胖次">
+      <meta itemprop="description" content="每天努力一点点">
+      <meta itemprop="image" content="/images/baby.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="势必要上进的咸鱼军">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">vue-移动端-实现div拖拽移动
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-12 17:14:23" itemprop="dateCreated datePublished" datetime="2019-06-12T17:14:23+08:00">2019-06-12</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="vue-移动端-实现div拖拽移动"><a href="#vue-移动端-实现div拖拽移动" class="headerlink" title="vue 移动端 实现div拖拽移动"></a>vue 移动端 实现div拖拽移动</h4><blockquote>
+<p>相关知识点<br>touchstart 当在屏幕上按下手指时触发</p>
+<p>touchmove 当在屏幕上移动手指时触发</p>
+<p>touchend 当在屏幕上抬起手指时触发<br>mousedown mousemove mouseup对应的是PC端的事件</p>
+<p>touchcancel 当一些更高级别的事件发生的时候（如电话接入或者弹出信息）会取消当前的touch操作，即触发touchcancel。一般会在touchcancel时暂停游戏、存档等操作。</p>
+</blockquote>
+<h4 id="html"><a href="#html" class="headerlink" title="html"></a>html</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"webId"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span>&gt;</span>你的web页面<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 如果碰到滑动问题，1.1 请检查这里是否属于同一点。 --&gt;</span></span><br><span class="line">        <span class="comment">&lt;!-- 悬浮的HTML --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">v-if</span>=<span class="string">"!isShow"</span> <span class="attr">class</span>=<span class="string">"xuanfu"</span> <span class="attr">id</span>=<span class="string">"moveDiv"</span></span></span><br><span class="line"><span class="tag">          @<span class="attr">mousedown</span>=<span class="string">"down"</span> @<span class="attr">touchstart</span>=<span class="string">"down"</span></span></span><br><span class="line"><span class="tag">             //<span class="attr">..prevent</span> 防止滑动时，页面也跟着滑动</span></span><br><span class="line"><span class="tag">          @<span class="attr">mousemove</span>=<span class="string">"move"</span> @<span class="attr">touchmove.prevent</span>=<span class="string">"move"</span>	</span></span><br><span class="line"><span class="tag">          @<span class="attr">mouseup</span>=<span class="string">"end"</span> @<span class="attr">touchend</span>=<span class="string">"end"</span></span></span><br><span class="line"><span class="tag">        &gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"yuanqiu"</span>&gt;</span></span><br><span class="line">            两个大括号包住[pageInfo.totalPage]</span><br><span class="line">          <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="js"><a href="#js" class="headerlink" title="js"></a>js</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">data() &#123;</span><br><span class="line">  <span class="keyword">return</span> &#123;</span><br><span class="line">    flags: <span class="literal">false</span>,</span><br><span class="line">    position: &#123; <span class="attr">x</span>: <span class="number">0</span>, <span class="attr">y</span>: <span class="number">0</span> &#125;,</span><br><span class="line">    nx: <span class="string">''</span>, <span class="attr">ny</span>: <span class="string">''</span>, <span class="attr">dx</span>: <span class="string">''</span>, <span class="attr">dy</span>: <span class="string">''</span>, <span class="attr">xPum</span>: <span class="string">''</span>, <span class="attr">yPum</span>: <span class="string">''</span>,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">methods: &#123;</span><br><span class="line">  <span class="comment">// 实现移动端拖拽</span></span><br><span class="line">  down()&#123;</span><br><span class="line">    <span class="keyword">this</span>.flags = <span class="literal">true</span>;</span><br><span class="line">    <span class="keyword">var</span> touch;</span><br><span class="line">    <span class="keyword">if</span>(event.touches)&#123;</span><br><span class="line">        touch = event.touches[<span class="number">0</span>];</span><br><span class="line">    &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">        touch = event;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">this</span>.position.x = touch.clientX;</span><br><span class="line">    <span class="keyword">this</span>.position.y = touch.clientY;</span><br><span class="line">    <span class="keyword">this</span>.dx = moveDiv.offsetLeft;</span><br><span class="line">    <span class="keyword">this</span>.dy = moveDiv.offsetTop;</span><br><span class="line">  &#125;,</span><br><span class="line">  move()&#123;</span><br><span class="line">    <span class="keyword">if</span>(<span class="keyword">this</span>.flags)&#123;</span><br><span class="line">      <span class="keyword">var</span> touch ;</span><br><span class="line">      <span class="keyword">if</span>(event.touches)&#123;</span><br><span class="line">          touch = event.touches[<span class="number">0</span>];</span><br><span class="line">      &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">          touch = event;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">this</span>.nx = touch.clientX - <span class="keyword">this</span>.position.x;</span><br><span class="line">      <span class="keyword">this</span>.ny = touch.clientY - <span class="keyword">this</span>.position.y;</span><br><span class="line">      <span class="keyword">this</span>.xPum = <span class="keyword">this</span>.dx+<span class="keyword">this</span>.nx;</span><br><span class="line">      <span class="keyword">this</span>.yPum = <span class="keyword">this</span>.dy+<span class="keyword">this</span>.ny;</span><br><span class="line">      moveDiv.style.left = <span class="keyword">this</span>.xPum+<span class="string">"px"</span>;</span><br><span class="line">      moveDiv.style.top = <span class="keyword">this</span>.yPum +<span class="string">"px"</span>;</span><br><span class="line">      <span class="comment">//阻止页面的滑动默认事件；如果碰到滑动问题，1.2 请注意是否获取到 touchmove</span></span><br><span class="line">      <span class="built_in">document</span>.addEventListener(<span class="string">"touchmove"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">          event.preventDefault();</span><br><span class="line">      &#125;,<span class="literal">false</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;,</span><br><span class="line"><span class="comment">//鼠标释放时候的函数</span></span><br><span class="line">  end()&#123;</span><br><span class="line">    <span class="keyword">this</span>.flags = <span class="literal">false</span>;</span><br><span class="line">  &#125;,</span><br><span class="line">&#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="css"><a href="#css" class="headerlink" title="css"></a>css</h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="selector-tag">style</span>&gt;</span><br><span class="line">  <span class="selector-class">.xuanfu</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">4.5rem</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">4.5rem</span>;</span><br><span class="line">    <span class="comment">/* 如果碰到滑动问题，1.3 请检查 z-index。z-index需比web大一级*/</span></span><br><span class="line">    <span class="attribute">z-index</span>: <span class="number">999</span>;</span><br><span class="line">    <span class="attribute">position</span>: fixed;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">4.2rem</span>;</span><br><span class="line">    <span class="attribute">right</span>: <span class="number">3.2rem</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">0.8rem</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="built_in">rgba</span>(0, 0, 0, 0.55);</span><br><span class="line">  &#125;</span><br><span class="line">  <span class="selector-class">.yuanqiu</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">2.7rem</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">2.7rem</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">0.3rem</span> solid <span class="built_in">rgba</span>(140, 136, 136, 0.5);</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0.65rem</span> auto;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#000000</span>;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">1.6rem</span>;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">2.7rem</span>;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#ffffff</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<p><a href="https://wgjh5.github.io/vueSummarize/vuejs%20%E7%A7%BB%E5%8A%A8%E7%AB%AF%20%E5%AE%9E%E7%8E%B0div%E6%8B%96%E6%8B%BD%E7%A7%BB%E5%8A%A8/app/dist/index.html#/app" target="_blank" rel="noopener">demo</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------阅读有风险<i class="fa fa-paw"></i>请谨慎阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vue/" rel="tag"># vue</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/12/vue-pdf简单用法/" rel="next" title="vue-pdf简单用法">
+                <i class="fa fa-chevron-left"></i> vue-pdf简单用法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/12/vue-i18n用法/" rel="prev" title="vue-i18n用法">
+                vue-i18n用法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/baby.png" alt="唐唐胖次">
+            
+              <p class="site-author-name" itemprop="name">唐唐胖次</p>
+              <div class="site-description motion-element" itemprop="description">每天努力一点点</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">55</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/Junokl" title="GitHub &rarr; https://github.com/Junokl" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#vue-移动端-实现div拖拽移动"><span class="nav-number">1.</span> <span class="nav-text">vue 移动端 实现div拖拽移动</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#html"><span class="nav-number">2.</span> <span class="nav-text">html</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#js"><span class="nav-number">3.</span> <span class="nav-text">js</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#css"><span class="nav-number">4.</span> <span class="nav-text">css</span></a></li></ol></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">唐唐胖次</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,0" opacity="0.5" zindex="-1" count="150" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>

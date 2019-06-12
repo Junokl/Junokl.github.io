@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/Ham.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/Ham.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="node 安装node环境 npm install gulp 写一份gulpfile.js配置gulp的参数 gulp命令执行js来完成代码处理（压缩，重命名）  install如果没有安装的node环境去node官网安装维护版本 查看版本号，在cmd中执行， 1node -v introduceNode.js®是一个基于Chrome V8引擎的JavaScript运行时 前端（浏览器端） 要运行">
+<meta name="keywords" content="node">
+<meta property="og:type" content="article">
+<meta property="og:title" content="node">
+<meta property="og:url" content="http://Junokl.com/2019/06/12/node/index.html">
+<meta property="og:site_name" content="势必要上进的咸鱼军">
+<meta property="og:description" content="node 安装node环境 npm install gulp 写一份gulpfile.js配置gulp的参数 gulp命令执行js来完成代码处理（压缩，重命名）  install如果没有安装的node环境去node官网安装维护版本 查看版本号，在cmd中执行， 1node -v introduceNode.js®是一个基于Chrome V8引擎的JavaScript运行时 前端（浏览器端） 要运行">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-06-12T03:42:52.886Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="node">
+<meta name="twitter:description" content="node 安装node环境 npm install gulp 写一份gulpfile.js配置gulp的参数 gulp命令执行js来完成代码处理（压缩，重命名）  install如果没有安装的node环境去node官网安装维护版本 查看版本号，在cmd中执行， 1node -v introduceNode.js®是一个基于Chrome V8引擎的JavaScript运行时 前端（浏览器端） 要运行">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://Junokl.com/2019/06/12/node/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>node | 势必要上进的咸鱼军</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">势必要上进的咸鱼军</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">一只小小小攻城狮</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">19</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">18</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">55</span></a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Junokl.com/2019/06/12/node/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="唐唐胖次">
+      <meta itemprop="description" content="每天努力一点点">
+      <meta itemprop="image" content="/images/baby.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="势必要上进的咸鱼军">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">node
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-12 11:41:35" itemprop="dateCreated datePublished" datetime="2019-06-12T11:41:35+08:00">2019-06-12</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/node/" itemprop="url" rel="index"><span itemprop="name">node</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="node"><a href="#node" class="headerlink" title="node"></a>node</h1><ul>
+<li>安装<a href="https://nodejs.org/zh-cn/" target="_blank" rel="noopener">node</a>环境</li>
+<li><code>npm install gulp</code></li>
+<li>写一份<strong>gulpfile.js</strong>配置gulp的参数</li>
+<li>gulp命令执行js来完成代码处理（压缩，重命名）</li>
+</ul>
+<h1 id="install"><a href="#install" class="headerlink" title="install"></a>install</h1><p>如果没有安装的node环境去<a href="https://nodejs.org/zh-cn/" target="_blank" rel="noopener">node官网</a>安装维护版本</p>
+<p>查看版本号，在cmd中执行，</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node -v</span><br></pre></td></tr></table></figure>
+<h1 id="introduce"><a href="#introduce" class="headerlink" title="introduce"></a>introduce</h1><p>Node.js®是一个基于<code>Chrome V8</code>引擎的JavaScript运行时</p>
+<h3 id="前端（浏览器端）"><a href="#前端（浏览器端）" class="headerlink" title="前端（浏览器端）"></a>前端（浏览器端）</h3><blockquote>
+<p>要运行JS，必须借助于HTML文件，没有HTML文件和浏览器环境，那JS是无法运行     （要有HTML文件，也要有浏览器环境）<br>浏览器=界面+控制台<br>JS是必须运行在浏览器上，所以只能控制浏览器</p>
+</blockquote>
+<h3 id="后端（服务器端）"><a href="#后端（服务器端）" class="headerlink" title="后端（服务器端）"></a>后端（服务器端）</h3><blockquote>
+<p>要运行JS，（既不需要HTML文件，也不需要浏览器环境，只需要Node环境），node替代了HTML文件，也替代了浏览器<br>服务器(node)=控制台<br>JS有了node环境，可以运行在非浏览器环境下，因为node是装在系统上，所以JS可以操作系统<br>node(浏览器的控制台===chrome的V8引擎)&lt;浏览器</p>
+</blockquote>
+<h1 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h1><p>如何使用node</p>
+<ul>
+<li>写一份JS代码</li>
+<li>在命令行定位到此代码的位置，运行命令<code>node JS文件的名字.js</code></li>
+</ul>
+<h1 id="模块化"><a href="#模块化" class="headerlink" title="模块化"></a>模块化</h1><h1 id="自定义模块化"><a href="#自定义模块化" class="headerlink" title="自定义模块化"></a>自定义模块化</h1><h3 id="前端"><a href="#前端" class="headerlink" title="前端"></a>前端</h3><ul>
+<li>写多条<code>&lt;script&gt;引入JS</code>在html分开引入</li>
+<li>利用<code>require.js</code><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"jquery.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"cookie.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"module.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="node（后端）"><a href="#node（后端）" class="headerlink" title="node（后端）"></a>node（后端）</h3><p>它没有html，所以需要借助于两个JS方法</p>
+<p>导出，借助于<code>module.exports</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">plus</span>(<span class="params">a, b</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a + b</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sub</span>(<span class="params">a,b</span>)</span>&#123;</span><br><span class="line">	<span class="keyword">return</span> a-b</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">	plus,</span><br><span class="line">	sub</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>导入,借助于<code>require</code>,建议用相对路径<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> tool = <span class="built_in">require</span>(<span class="string">"./plus.js"</span>);</span><br></pre></td></tr></table></figure></p>
+<h1 id="内置模块"><a href="#内置模块" class="headerlink" title="内置模块"></a>内置模块</h1><p>不需要自己写，就是node环境自带，它自己写好给你的，就可以引入</p>
+<p>Node拿来作为PHP的一种替代（多一种可选的方案）</p>
+<p>PHP能做的，Node也能做</p>
+<table>
+<thead>
+<tr>
+<th>模块</th>
+<th>名字</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>读写文件</td>
+<td>fs</td>
+</tr>
+<tr>
+<td>创建服务器</td>
+<td>http</td>
+</tr>
+<tr>
+<td>查看系统</td>
+<td>os</td>
+</tr>
+<tr>
+<td>压缩文件</td>
+<td>zip</td>
+</tr>
+<tr>
+<td>…</td>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+<p>其他模块参考 <a href="https://nodejs.org/dist/latest-v8.x/docs/api/" target="_blank" rel="noopener">node官网内置模块API文档</a></p>
+<h3 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h3><p>http超文本传输协议<br>前端最多就是ajax(http协议的一种前端实现方案)  GET/POST</p>
+<table>
+<thead>
+<tr>
+<th>GET</th>
+<th>POST</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>参数在url上</td>
+<td>参数在请求体</td>
+</tr>
+<tr>
+<td>有可能有长度</td>
+<td>没长度限制</td>
+</tr>
+<tr>
+<td>不安全</td>
+<td>安全</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>状态码</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1xx</td>
+<td>开始执行</td>
+</tr>
+<tr>
+<td>2xx</td>
+<td>成功</td>
+</tr>
+<tr>
+<td>3xx</td>
+<td>重定向</td>
+</tr>
+<tr>
+<td>4xx</td>
+<td>客户端错误,浏览器端</td>
+</tr>
+<tr>
+<td>5xx</td>
+<td>服务端</td>
+</tr>
+</tbody>
+</table>
+<p>apache(wamp集成环境)+php</p>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">window</span></span><br><span class="line">apache</span><br><span class="line">mysql</span><br><span class="line">php</span><br></pre></td></tr></table></figure>
+<h3 id="创建服务器"><a href="#创建服务器" class="headerlink" title="创建服务器"></a>创建服务器</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> http = <span class="built_in">require</span>(<span class="string">'http'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(http);</span><br><span class="line"><span class="keyword">var</span> server = http.createServer(<span class="built_in">Function</span>(request,response)&#123;</span><br><span class="line">	response.end(<span class="string">"hello world"</span>);</span><br><span class="line">&#125;)</span><br><span class="line">server.listen(<span class="number">12345</span>);<span class="comment">//(0,65535)</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"启动服务器"</span>);</span><br></pre></td></tr></table></figure>
+<p>出现跨域，加一个头部来解决<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">header(<span class="string">"Access-Control-Allow-Origin:*"</span>)</span><br></pre></td></tr></table></figure></p>
+<h1 id="第三方模块"><a href="#第三方模块" class="headerlink" title="第三方模块"></a>第三方模块</h1><p>我们可以从<a href="https://www.npmjs.com/" target="_blank" rel="noopener">npm</a>包管理中心去下载一些第三方包（别人写好传上去的），去在本地node平台实现自己的一些功能</p>
+<p>安装第三方包模块</p>
+<p>gulp就是一个常用的第三方模块</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm install xxx(gulp) -g</span><br><span class="line">npm i</span><br></pre></td></tr></table></figure>
+<p>建议安装<code>cnpm</code>替代<code>npm</code>,在命令行上输入以下代码安装<br><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">npm</span> install -g cnpm --registry=https:<span class="regexp">//</span>registry.<span class="built_in">npm</span>.taobao.org</span><br></pre></td></tr></table></figure></p>
+<p>除了全局安装之外，安装任何包都会在该目录下<code>node_modules</code>，你的包就会被安装在该文件夹下<br>这个文件夹不要传到svn和git服务器上，以后你移植这个项目的时候不要把<code>node_modules</code>，只要<br>用<code>package.json</code>描述文件去代替它，这份文件记录着你开发node的一些关键信息，比如你安装过什么模块作为依赖</p>
+<h3 id="卸载"><a href="#卸载" class="headerlink" title="卸载"></a>卸载</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm uninstall xxx  //卸载某个模块</span><br><span class="line">npm uninstall //全部卸载</span><br></pre></td></tr></table></figure>
+<h3 id="初始化"><a href="#初始化" class="headerlink" title="初始化"></a>初始化</h3><p>生成一份<code>package.json</code>描述文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm init</span><br></pre></td></tr></table></figure></p>
+<h2 id="使用第三方模块"><a href="#使用第三方模块" class="headerlink" title="使用第三方模块"></a>使用第三方模块</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> request = <span class="built_in">require</span>(<span class="string">'request'</span>);</span><br><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</span><br></pre></td></tr></table></figure>
+<h1 id="参考教程"><a href="#参考教程" class="headerlink" title="参考教程"></a>参考教程</h1><p><a href="https://www.runoob.com/nodejs/nodejs-tutorial.html" target="_blank" rel="noopener">runoob菜鸟教程</a></p>
+<h1 id="异步"><a href="#异步" class="headerlink" title="异步"></a>异步</h1><h3 id="前端（浏览器端）-1"><a href="#前端（浏览器端）-1" class="headerlink" title="前端（浏览器端）"></a>前端（浏览器端）</h3><p>前端异步只有一下几种情况是异步<br><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ajax xmlhttprequest</span><br><span class="line"><span class="keyword">set</span>Interval/<span class="keyword">set</span>Timeout</span><br><span class="line">jsonp</span><br></pre></td></tr></table></figure></p>
+<h3 id="后端（服务器端node）"><a href="#后端（服务器端node）" class="headerlink" title="后端（服务器端node）"></a>后端（服务器端node）</h3><p>比前端多很多，很多方法都是异步的</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fs.readFile <span class="comment">//异步</span></span><br><span class="line">fs.readFileSync <span class="comment">//同步</span></span><br></pre></td></tr></table></figure>
+<p>异步一般配合回调函数,回调函数能让异步变得有意义</p>
+<p>同步比异步少了回调函数</p>
+<p>同步阻塞，相对稳定，不需要回调</p>
+<p>异步非阻塞，相对不稳定，配合回调才有意义</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//同步</span></span><br><span class="line"><span class="keyword">var</span> data = fs.readFileSync(<span class="string">'./test.txt'</span>);</span><br><span class="line"><span class="built_in">console</span>.log(data.toString());</span><br><span class="line"></span><br><span class="line"><span class="comment">//异步</span></span><br><span class="line">fs.readFile(<span class="string">'./test.txt'</span>,<span class="function"><span class="keyword">function</span>(<span class="params">err,data2</span>)</span>&#123;</span><br><span class="line">	<span class="built_in">console</span>.log(data2.toString());</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h1 id="回调嵌套"><a href="#回调嵌套" class="headerlink" title="回调嵌套"></a>回调嵌套</h1><p>如果出现多个回调嵌套的时候，建议是用<code>promise</code>来去解决这个回调地狱<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">buyPizza</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">		setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">"买披萨"</span>);</span><br><span class="line">			resolve()</span><br><span class="line">		&#125;, <span class="number">1000</span>);</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">buyDrink</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">		setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">"买饮料"</span>);</span><br><span class="line">			resolve()</span><br><span class="line">		&#125;, <span class="number">1000</span>);</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">eatMeal</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">new</span> <span class="built_in">Promise</span>(<span class="function">(<span class="params">resolve, reject</span>) =&gt;</span> &#123;</span><br><span class="line">		setTimeout(<span class="function"><span class="params">()</span> =&gt;</span> &#123;</span><br><span class="line">			<span class="built_in">console</span>.log(<span class="string">"吃东西"</span>);</span><br><span class="line">			<span class="comment">//resolve()</span></span><br><span class="line">		&#125;, <span class="number">1000</span>);</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;</span><br><span class="line">buyPizza().then(buyDrink).then(eatMeal);</span><br></pre></td></tr></table></figure></p>
+<h1 id="request"><a href="#request" class="headerlink" title="request"></a>request</h1><p>任何前端请求都有</p>
+<p>请求头（浏览器信息），请求体（POST请求，请求参数会放在这个地方）   用户不可见的</p>
+<p>响应头（服务器信息），响应体（页面的内容，用户可见）</p>
+<ul>
+<li><a href="https://www.npmjs.com/package/request" target="_blank" rel="noopener">request模块文档</a></li>
+</ul>
+<h3 id="爬虫"><a href="#爬虫" class="headerlink" title="爬虫"></a>爬虫</h3><p>爬取网站的内容，然后可以保存到本地，或者分析页面获取有价值的信息<br><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> request = <span class="built_in">require</span>(<span class="string">'request'</span>);</span><br><span class="line"><span class="keyword">var</span> fs = <span class="built_in">require</span>(<span class="string">'fs'</span>);</span><br><span class="line">request(<span class="string">'http://www.umei.cc/'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">error, response, body</span>) </span>&#123;</span><br><span class="line">	<span class="comment">//console.log('error:', error); // Print the error if one occurred</span></span><br><span class="line">	<span class="comment">//console.log('statusCode:', response &amp;&amp; response.statusCode); // Print the response status code if a response was received</span></span><br><span class="line">	<span class="built_in">console</span>.log(<span class="string">'body:'</span>, body); <span class="comment">// Print the HTML for the Google homepage.</span></span><br><span class="line"><span class="comment">//	fs.writeFile('test.html', body, function(err) &#123;</span></span><br><span class="line"><span class="comment">//		console.log("成功保存")</span></span><br><span class="line"><span class="comment">//	&#125;)</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"开始请求"</span>);</span><br></pre></td></tr></table></figure></p>
+<h3 id="cheerio"><a href="#cheerio" class="headerlink" title="cheerio"></a>cheerio</h3><ul>
+<li><a href="https://www.npmjs.com/package/cheerio" target="_blank" rel="noopener">cheerio使用文档</a></li>
+</ul>
+<p>实现网页内容分析，用法类似于jQuery，node版本jQuery,可以用它爬取文字，图片，音频</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> request = <span class="built_in">require</span>(<span class="string">'request'</span>);</span><br><span class="line"><span class="keyword">var</span> cheerio = <span class="built_in">require</span>(<span class="string">'cheerio'</span>);</span><br><span class="line">request(<span class="string">'http://www.umei.cc/'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">error, response, body</span>) </span>&#123;</span><br><span class="line">	<span class="comment">//console.log('body:', body); // Print the HTML for the Google homepage.</span></span><br><span class="line">	<span class="keyword">const</span> $ = cheerio.load(body);</span><br><span class="line">	$(<span class="string">"img"</span>).each(<span class="function">(<span class="params">i,e</span>)=&gt;</span>&#123;</span><br><span class="line">		<span class="built_in">console</span>.log($(e).attr(<span class="string">"src"</span>))</span><br><span class="line">	&#125;)</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(<span class="string">"开始请求"</span>);</span><br></pre></td></tr></table></figure>
+<p>并非所有网站都是能爬，有些网站是防爬虫，还有一些网页是前端JS动态生成</p>
+<p><strong>并非所有网站都是能爬，有些网站是防爬虫，还有一些网页是前端JS动态生成</strong></p>
+<blockquote>
+<p>解释：* 爬虫的意义就是：利用request链接到网站，爬取它的内容；</p>
+</blockquote>
+<pre><code>* 在请求出来的内容中用cheerio筛选出你要的有用的信息
+</code></pre>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------阅读有风险<i class="fa fa-paw"></i>请谨慎阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/node/" rel="tag"># node</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/12/PHP/" rel="next" title="PHP">
+                <i class="fa fa-chevron-left"></i> PHP
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/12/express/" rel="prev" title="express">
+                express <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/baby.png" alt="唐唐胖次">
+            
+              <p class="site-author-name" itemprop="name">唐唐胖次</p>
+              <div class="site-description motion-element" itemprop="description">每天努力一点点</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">55</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/Junokl" title="GitHub &rarr; https://github.com/Junokl" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#node"><span class="nav-number">1.</span> <span class="nav-text">node</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#install"><span class="nav-number">2.</span> <span class="nav-text">install</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#introduce"><span class="nav-number">3.</span> <span class="nav-text">introduce</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#前端（浏览器端）"><span class="nav-number">3.0.1.</span> <span class="nav-text">前端（浏览器端）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后端（服务器端）"><span class="nav-number">3.0.2.</span> <span class="nav-text">后端（服务器端）</span></a></li></ol></li></ol><li class="nav-item nav-level-1"><a class="nav-link" href="#运行"><span class="nav-number">4.</span> <span class="nav-text">运行</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#模块化"><span class="nav-number">5.</span> <span class="nav-text">模块化</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#自定义模块化"><span class="nav-number">6.</span> <span class="nav-text">自定义模块化</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#前端"><span class="nav-number">6.0.1.</span> <span class="nav-text">前端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#node（后端）"><span class="nav-number">6.0.2.</span> <span class="nav-text">node（后端）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#内置模块"><span class="nav-number">7.</span> <span class="nav-text">内置模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP"><span class="nav-number">7.0.1.</span> <span class="nav-text">HTTP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建服务器"><span class="nav-number">7.0.2.</span> <span class="nav-text">创建服务器</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#第三方模块"><span class="nav-number">8.</span> <span class="nav-text">第三方模块</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装"><span class="nav-number">8.0.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#卸载"><span class="nav-number">8.0.2.</span> <span class="nav-text">卸载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#初始化"><span class="nav-number">8.0.3.</span> <span class="nav-text">初始化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用第三方模块"><span class="nav-number">8.1.</span> <span class="nav-text">使用第三方模块</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考教程"><span class="nav-number">9.</span> <span class="nav-text">参考教程</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#异步"><span class="nav-number">10.</span> <span class="nav-text">异步</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#前端（浏览器端）-1"><span class="nav-number">10.0.1.</span> <span class="nav-text">前端（浏览器端）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#后端（服务器端node）"><span class="nav-number">10.0.2.</span> <span class="nav-text">后端（服务器端node）</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#回调嵌套"><span class="nav-number">11.</span> <span class="nav-text">回调嵌套</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#request"><span class="nav-number">12.</span> <span class="nav-text">request</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#爬虫"><span class="nav-number">12.0.1.</span> <span class="nav-text">爬虫</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cheerio"><span class="nav-number">12.0.2.</span> <span class="nav-text">cheerio</span></a></li></ol></li></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">唐唐胖次</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,0" opacity="0.5" zindex="-1" count="150" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>

@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/Ham.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/Ham.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Vue-cli 3.0版本与2.X版本比较3.0版本创建的目录     (vue create my-project   以下创建的是默认的模板) 2.X版本创建的目录       (创建命令 vue init webpack my-project) 二者区别：主要是配置webpack的区别2.x版本里会帮你以webpack的模板创建好各类文件都有默认的参数，只需要改就行了。而3.0版本开始，目录">
+<meta name="keywords" content="vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue脚手架">
+<meta property="og:url" content="http://Junokl.com/2019/06/12/vue脚手架/index.html">
+<meta property="og:site_name" content="势必要上进的咸鱼军">
+<meta property="og:description" content="Vue-cli 3.0版本与2.X版本比较3.0版本创建的目录     (vue create my-project   以下创建的是默认的模板) 2.X版本创建的目录       (创建命令 vue init webpack my-project) 二者区别：主要是配置webpack的区别2.x版本里会帮你以webpack的模板创建好各类文件都有默认的参数，只需要改就行了。而3.0版本开始，目录">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://github.com/PandoraSB0X/record/blob/master/note/img/vue-cli3.0.png?raw=true">
+<meta property="og:image" content="https://github.com/PandoraSB0X/record/blob/master/note/img/vue-cli2.x.png?raw=true">
+<meta property="og:image" content="https://github.com/PandoraSB0X/record/blob/master/note/img/vue-cli3.0img/vue-cli-1.png?raw=true">
+<meta property="og:image" content="https://github.com/PandoraSB0X/record/blob/master/note/img/vue-cli3.0img/vue-cli-2.png?raw=true">
+<meta property="og:image" content="https://github.com/PandoraSB0X/record/blob/master/note/img/vue-cli3.0img/vue-cli-3.png?raw=true">
+<meta property="og:image" content="https://github.com/PandoraSB0X/record/blob/master/note/img/vue-cli3.0img/vue-cli-4.png?raw=true">
+<meta property="og:image" content="https://github.com/PandoraSB0X/record/blob/master/note/img/vue-cli3.0img/vue-cli-5.png?raw=true">
+<meta property="og:image" content="https://github.com/PandoraSB0X/record/blob/master/note/img/vue-cli3.0img/vue-cli-6.png?raw=true">
+<meta property="og:image" content="https://github.com/PandoraSB0X/record/blob/master/note/img/vue-cli3.0img/vue-cli-7.png?raw=true">
+<meta property="og:updated_time" content="2019-06-12T15:35:54.258Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue脚手架">
+<meta name="twitter:description" content="Vue-cli 3.0版本与2.X版本比较3.0版本创建的目录     (vue create my-project   以下创建的是默认的模板) 2.X版本创建的目录       (创建命令 vue init webpack my-project) 二者区别：主要是配置webpack的区别2.x版本里会帮你以webpack的模板创建好各类文件都有默认的参数，只需要改就行了。而3.0版本开始，目录">
+<meta name="twitter:image" content="https://github.com/PandoraSB0X/record/blob/master/note/img/vue-cli3.0.png?raw=true">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://Junokl.com/2019/06/12/vue脚手架/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>vue脚手架 | 势必要上进的咸鱼军</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">势必要上进的咸鱼军</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">一只小小小攻城狮</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">19</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">18</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">55</span></a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Junokl.com/2019/06/12/vue脚手架/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="唐唐胖次">
+      <meta itemprop="description" content="每天努力一点点">
+      <meta itemprop="image" content="/images/baby.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="势必要上进的咸鱼军">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">vue脚手架
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-12 15:09:48" itemprop="dateCreated datePublished" datetime="2019-06-12T15:09:48+08:00">2019-06-12</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Vue-cli-3-0版本与2-X版本比较"><a href="#Vue-cli-3-0版本与2-X版本比较" class="headerlink" title="Vue-cli 3.0版本与2.X版本比较"></a>Vue-cli 3.0版本与2.X版本比较</h3><h5 id="3-0版本创建的目录-vue-create-my-project-以下创建的是默认的模板"><a href="#3-0版本创建的目录-vue-create-my-project-以下创建的是默认的模板" class="headerlink" title="3.0版本创建的目录     (vue create my-project   以下创建的是默认的模板)"></a>3.0版本创建的目录     (vue create my-project   以下创建的是默认的模板)</h5><p><img src="https://github.com/PandoraSB0X/record/blob/master/note/img/vue-cli3.0.png?raw=true" alt="vue-cli3.0"></p>
+<h5 id="2-X版本创建的目录-创建命令-vue-init-webpack-my-project"><a href="#2-X版本创建的目录-创建命令-vue-init-webpack-my-project" class="headerlink" title="2.X版本创建的目录       (创建命令 vue init webpack my-project)"></a>2.X版本创建的目录       (创建命令 vue init webpack my-project)</h5><p><img src="https://github.com/PandoraSB0X/record/blob/master/note/img/vue-cli2.x.png?raw=true" alt="vue-cli2.x"></p>
+<h4 id="二者区别：主要是配置webpack的区别2-x版本里会帮你以webpack的模板创建好各类文件都有默认的参数，只需要改就行了。而3-0版本开始，目录结构相比2-0有很大的改变，之前的build和config文件夹没有了，如果要像以前那样配置webpack的参数，只需要在项目的根目录下新建vue-config-js-文件注意是根目录，不是src目录。"><a href="#二者区别：主要是配置webpack的区别2-x版本里会帮你以webpack的模板创建好各类文件都有默认的参数，只需要改就行了。而3-0版本开始，目录结构相比2-0有很大的改变，之前的build和config文件夹没有了，如果要像以前那样配置webpack的参数，只需要在项目的根目录下新建vue-config-js-文件注意是根目录，不是src目录。" class="headerlink" title="二者区别：主要是配置webpack的区别2.x版本里会帮你以webpack的模板创建好各类文件都有默认的参数，只需要改就行了。而3.0版本开始，目录结构相比2.0有很大的改变，之前的build和config文件夹没有了，如果要像以前那样配置webpack的参数，只需要在项目的根目录下新建vue.config.js 文件注意是根目录，不是src目录。"></a>二者区别：主要是配置webpack的区别2.x版本里会帮你以webpack的模板创建好各类文件都有默认的参数，只需要改就行了。而3.0版本开始，目录结构相比2.0有很大的改变，之前的<code>build</code>和<code>config</code>文件夹没有了，如果要像以前那样配置<code>webpack</code>的参数，只需要在项目的根目录下新建<code>vue.config.js 文件</code>注意是根目录，不是<code>src</code>目录。</h4><h4 id="如果你还想继续使用vue-cli2-x的创建方法可以这样做："><a href="#如果你还想继续使用vue-cli2-x的创建方法可以这样做：" class="headerlink" title="如果你还想继续使用vue-cli2.x的创建方法可以这样做："></a>如果你还想继续使用vue-cli2.x的创建方法可以这样做：</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ npm install -g @vue/cli-init</span><br><span class="line"># `vue init` 的运行效果将会跟 `vue-cli@2.x` 相同</span><br><span class="line">$ vue init webpack my-project</span><br></pre></td></tr></table></figure>
+<h3 id="vue-cli-2-x项目目录说明"><a href="#vue-cli-2-x项目目录说明" class="headerlink" title="vue-cli 2.x项目目录说明"></a>vue-cli 2.x项目目录说明</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span> build文件夹中放的是webpack的配置文件，其中webpack.base.conf.js是通用配置，webpack.dev.conf.js是我们在开发项目的时候启动项目的配置，webpack.prod.conf.js是我们开发完成之后，最后打包的时候的配置</span><br><span class="line"><span class="number">2.</span> config文件夹里是将一些配置抽离出来的文件，例如开发服务器的配置</span><br><span class="line"><span class="number">3.</span> <span class="keyword">static</span>是我们的静态文件目标</span><br><span class="line">   我们把一些文件放入到<span class="keyword">static</span>目录中之后就可以使用服务器的绝对地址来引入这些文件了，不用担心打包输出文件后目录结构变化带来的影响</span><br><span class="line"><span class="number">4.</span> src是我们的开发目录</span><br><span class="line">   webpack是一个模块化打包工具，开发的时候可能会写很多模块，这些模块都会互相依赖，最终需要放入到一个文件中，这个文件就是我们的入口文件，而vue项目中一般有一个入口文件就好了</span><br><span class="line">   main.js是我们的入口文件</span><br><span class="line">   我们在开发vue项目的时候，一般情况下都是这样的：</span><br><span class="line">   在外面有一个根实例，根实例里面又有一个根组件，其他的所有的组件都会直接或者间接的引入到根组件中</span><br><span class="line">   在main.js里我们会把引入全局工具、进行全局配置的代码在这里运行或者引入</span><br></pre></td></tr></table></figure>
+<h3 id="vue-cli-3-创建项目步骤："><a href="#vue-cli-3-创建项目步骤：" class="headerlink" title="vue-cli 3 创建项目步骤："></a>vue-cli 3 创建项目步骤：</h3><p><img src="https://github.com/PandoraSB0X/record/blob/master/note/img/vue-cli3.0img/vue-cli-1.png?raw=true" alt="vue-cli-1"></p>
+<h4 id="第一个是默认模板；第二个是自定义选择；第一个会默认安装基本模板、选择第二个进入以下选择"><a href="#第一个是默认模板；第二个是自定义选择；第一个会默认安装基本模板、选择第二个进入以下选择" class="headerlink" title="第一个是默认模板；第二个是自定义选择；第一个会默认安装基本模板、选择第二个进入以下选择"></a>第一个是默认模板；第二个是自定义选择；第一个会默认安装基本模板、选择第二个进入以下选择</h4><p><img src="https://github.com/PandoraSB0X/record/blob/master/note/img/vue-cli3.0img/vue-cli-2.png?raw=true" alt="vue-cli-2"></p>
+<h4 id="方向键控制空格选择-Enter进入下一步"><a href="#方向键控制空格选择-Enter进入下一步" class="headerlink" title="方向键控制空格选择 Enter进入下一步"></a>方向键控制空格选择 Enter进入下一步</h4><p><img src="https://github.com/PandoraSB0X/record/blob/master/note/img/vue-cli3.0img/vue-cli-3.png?raw=true" alt="vue-cli-3"></p>
+<h4 id="路由是否选择history模式-否的话是哈希路由，选择css预处理器-sass和less"><a href="#路由是否选择history模式-否的话是哈希路由，选择css预处理器-sass和less" class="headerlink" title="路由是否选择history模式 ,否的话是哈希路由，选择css预处理器 sass和less"></a>路由是否选择history模式 ,否的话是哈希路由，选择css预处理器 sass和less</h4><p><img src="https://github.com/PandoraSB0X/record/blob/master/note/img/vue-cli3.0img/vue-cli-4.png?raw=true" alt="vue-cli-4"></p>
+<h4 id="选择代码规范配置"><a href="#选择代码规范配置" class="headerlink" title="选择代码规范配置"></a>选择代码规范配置</h4><p><img src="https://github.com/PandoraSB0X/record/blob/master/note/img/vue-cli3.0img/vue-cli-5.png?raw=true" alt="vue-cli-5"></p>
+<h4 id="选择保存时候进行代码检测，在后面也可以关闭检测"><a href="#选择保存时候进行代码检测，在后面也可以关闭检测" class="headerlink" title="选择保存时候进行代码检测，在后面也可以关闭检测"></a>选择保存时候进行代码检测，在后面也可以关闭检测</h4><p><img src="https://github.com/PandoraSB0X/record/blob/master/note/img/vue-cli3.0img/vue-cli-6.png?raw=true" alt="vue-cli-6"></p>
+<h4 id="会保存在根目录下，然后会有一步是否保存本次配置，可以选择保存此次配置作为下次开发的模板。"><a href="#会保存在根目录下，然后会有一步是否保存本次配置，可以选择保存此次配置作为下次开发的模板。" class="headerlink" title="会保存在根目录下，然后会有一步是否保存本次配置，可以选择保存此次配置作为下次开发的模板。"></a>会保存在根目录下，然后会有一步是否保存本次配置，可以选择保存此次配置作为下次开发的模板。</h4><h3 id="vue-cli-3-x需要在根目录也就是与src同级的目录创建一个vue-config-js用来配置webpack，代理等参数。"><a href="#vue-cli-3-x需要在根目录也就是与src同级的目录创建一个vue-config-js用来配置webpack，代理等参数。" class="headerlink" title="vue-cli 3.x需要在根目录也就是与src同级的目录创建一个vue.config.js用来配置webpack，代理等参数。"></a>vue-cli 3.x需要在根目录也就是与src同级的目录创建一个vue.config.js用来配置webpack，代理等参数。</h3><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// vue.config.js 配置说明</span></span><br><span class="line"><span class="comment">// 这里只列一部分，具体配置惨考文档</span></span><br><span class="line"><span class="built_in">module</span>.exports = &#123;</span><br><span class="line">    <span class="comment">// baseUrl  type:&#123;string&#125; default:'/'  从 Vue CLI 3.3 起已弃用，请使用publicPath</span></span><br><span class="line">    <span class="comment">// 将部署应用程序的基本URL</span></span><br><span class="line">    <span class="comment">// 默认情况下，Vue CLI假设您的应用程序将部署在域的根目录下。</span></span><br><span class="line">    <span class="comment">// https://www.my-app.com/。如果应用程序部署在子路径上，则需要使用此选项指定子路径。例如，如果您的应用程序部署在https://www.foobar.com/my-app/，集baseUrl到'/my-app/'.</span></span><br><span class="line"><span class="comment">//这个值也可以被设置为空字符串 ('') 或是相对路径 ('./') 修改这个 那么打包出来的index.html里的路径也是根据这个改变</span></span><br><span class="line">    publicPath: <span class="string">"./"</span>,</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// outputDir: 在npm run build时 生成文件的目录 type:string, default:'dist'</span></span><br><span class="line"></span><br><span class="line">     outputDir: <span class="string">'dist'</span>,</span><br><span class="line"></span><br><span class="line">    <span class="comment">// pages:&#123; type:Object,Default:undfind &#125; </span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  构建多页面模式的应用程序.每个“页面”都应该有一个相应的JavaScript条目文件。该值应该是一</span></span><br><span class="line"><span class="comment">  个对象，其中键是条目的名称，而该值要么是指定其条目、模板和文件名的对象，要么是指定其条目</span></span><br><span class="line"><span class="comment">  的字符串，</span></span><br><span class="line"><span class="comment">  详情请看下面多页面配置</span></span><br><span class="line"><span class="comment">  注意：请保证pages里配置的路径和文件名 在你的文档目录都存在 否则启动服务会报错的</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line">     pages: &#123;</span><br><span class="line">         <span class="comment">//此处如果打包后打开显示空白那就直写 entry  其他不写</span></span><br><span class="line">          <span class="built_in">console</span>: &#123;</span><br><span class="line">            <span class="comment">// 应用入口配置，相当于单页面应用的main.js，必需项</span></span><br><span class="line">            entry: <span class="string">'src/modules/console/console.js'</span>,</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 应用的模版，相当于单页面应用的public/index.html，可选项，省略时默认与模块名一致</span></span><br><span class="line">            <span class="comment">// template: 'public/console.html',</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// 编译后在dist目录的输出文件名，可选项，省略时默认与模块名一致</span></span><br><span class="line">            <span class="comment">// filename: 'console.html',</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// 标题，可选项，一般情况不使用，通常是在路由切换时设置title</span></span><br><span class="line">            <span class="comment">// 需要注意的是使用title属性template 中的 title 标签需要是 &lt;title&gt;&lt;%=htmlWebpackPlugin.options.title %&gt;&lt;/title&gt;</span></span><br><span class="line">            <span class="comment">// title: 'console page',</span></span><br><span class="line"></span><br><span class="line">            <span class="comment">// 包含的模块，可选项</span></span><br><span class="line">            <span class="comment">// chunks: ['console']</span></span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="comment">// 只有entry属性时，直接用字符串表示模块入口</span></span><br><span class="line">        client: <span class="string">'src/modules/client/client.js'</span></span><br><span class="line">   	 &#125;,</span><br><span class="line"></span><br><span class="line">    <span class="comment">//   lintOnSave：&#123; type:Boolean default:true &#125; 问你是否使用eslint</span></span><br><span class="line">    lintOnSave: <span class="literal">true</span>,</span><br><span class="line">    <span class="comment">// productionSourceMap：&#123; type:Bollean,default:true &#125; 生产源映射</span></span><br><span class="line">    <span class="comment">// 如果您不需要生产时的源映射，那么将此设置为false可以加速生产构建</span></span><br><span class="line">    productionSourceMap: <span class="literal">false</span>,</span><br><span class="line">    <span class="comment">// devServer:&#123;type:Object&#125; 3个属性host,port,https</span></span><br><span class="line">    <span class="comment">// 它支持webPack-dev-server的所有选项</span></span><br><span class="line"></span><br><span class="line">    devServer: &#123;</span><br><span class="line">        port: <span class="number">8085</span>, <span class="comment">// 端口号</span></span><br><span class="line">        host: <span class="string">'localhost'</span>,</span><br><span class="line">        https: <span class="literal">false</span>, <span class="comment">// https:&#123;type:Boolean&#125;</span></span><br><span class="line">        open: <span class="literal">true</span>, <span class="comment">//配置自动启动浏览器</span></span><br><span class="line">        <span class="comment">// proxy: 'http://localhost:4000' // 配置跨域处理,只有一个代理</span></span><br><span class="line">        proxy: &#123;</span><br><span class="line">            <span class="string">'/api'</span>: &#123;</span><br><span class="line">                target: <span class="string">'&lt;url&gt;'</span>,</span><br><span class="line">                ws: <span class="literal">true</span>,</span><br><span class="line">                changeOrigin: <span class="literal">true</span></span><br><span class="line">            &#125;,</span><br><span class="line">            <span class="string">'/foo'</span>: &#123;</span><br><span class="line">                target: <span class="string">'&lt;other_url&gt;'</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;,  <span class="comment">// 配置多个代理</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="基本上以上的vue-config-js配置能解决大部分的问题如果还需要修改就根据具体的业务进行修改。"><a href="#基本上以上的vue-config-js配置能解决大部分的问题如果还需要修改就根据具体的业务进行修改。" class="headerlink" title="基本上以上的vue.config.js配置能解决大部分的问题如果还需要修改就根据具体的业务进行修改。"></a>基本上以上的vue.config.js配置能解决大部分的问题如果还需要修改就根据具体的业务进行修改。</h4><h3 id="Vue-cli-3-多页面配置"><a href="#Vue-cli-3-多页面配置" class="headerlink" title="Vue cli 3 多页面配置"></a>Vue cli 3 多页面配置</h3><h5 id="创建多页面应用"><a href="#创建多页面应用" class="headerlink" title="创建多页面应用"></a>创建多页面应用</h5><p>首先，安装两个插件，vue-router和vue-wechat-title。vue-router不解释了，vue-wechat-title为单页面应用修改标题的插件.(就是标签页的名字)</p>
+<h5 id="创建模块"><a href="#创建模块" class="headerlink" title="创建模块"></a>创建模块</h5><p>在src下创建目录modules，在modules下创建两个模块console和client；</p>
+<p>在public下添加模版console.html和clien.html(直接复制原有的index.html即可，然后修改里面唯一div的id)</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">"X-UA-Compatible"</span> <span class="attr">content</span>=<span class="string">"IE=edge"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width,initial-scale=1.0"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span><span class="tag">&lt;<span class="name">%=</span> <span class="attr">htmlWebpackPlugin.options.title</span> %&gt;</span><span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"console"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">///模块里的 js vue文件与 app.vue main.js 对比</span><br><span class="line">模块console 的 console.js</span><br><span class="line">//</span><br><span class="line">import Vue from &apos;vue&apos;</span><br><span class="line">import Console from &apos;./Console.vue&apos;</span><br><span class="line">import router from &apos;./router&apos;</span><br><span class="line"></span><br><span class="line">Vue.use(require(&apos;vue-wechat-title&apos;))</span><br><span class="line"></span><br><span class="line">new Vue(&#123;</span><br><span class="line">    router,</span><br><span class="line">    render: h =&gt; h(Console)</span><br><span class="line">&#125;).$mount(&apos;#console&apos;)</span><br><span class="line">//</span><br><span class="line">main.js</span><br><span class="line">//</span><br><span class="line">import Vue from &apos;vue&apos;</span><br><span class="line">import App from &apos;./App.vue&apos;</span><br><span class="line"></span><br><span class="line">Vue.config.productionTip = false</span><br><span class="line"></span><br><span class="line">new Vue(&#123;</span><br><span class="line">    router,</span><br><span class="line">  	render: h =&gt; h(App)</span><br><span class="line">&#125;).$mount(&apos;#app&apos;)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">////console.vue</span><br><span class="line">&lt;template&gt;</span><br><span class="line">    &lt;div id=&quot;console&quot; v-wechat-title=&quot;$route.meta.title&quot;&gt;</span><br><span class="line">        &lt;router-view&gt;&lt;/router-view&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">    export default &#123;</span><br><span class="line">        name: &quot;console&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style scoped&gt;&lt;/style&gt;</span><br><span class="line"></span><br><span class="line">////app.vue</span><br><span class="line">&lt;template&gt;</span><br><span class="line">  &lt;div id=&quot;app&quot;&gt;</span><br><span class="line">    &lt;router-view&gt;&lt;/router-view&gt;</span><br><span class="line">  &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">export default &#123;</span><br><span class="line">  name: &apos;app&apos;,</span><br><span class="line">&#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;style&gt;&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<h5 id="应用路由配置"><a href="#应用路由配置" class="headerlink" title="应用路由配置"></a>应用路由配置</h5><p>通过vue-router为应用配置路由，以console模块为例，在router.js中添加路由配置：</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> VueRouter <span class="keyword">from</span> <span class="string">'vue-router'</span></span><br><span class="line"><span class="comment">//需要加路由的话就像单页面那样配置</span></span><br><span class="line">Vue.use(VueRouter)</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> routes = [</span><br><span class="line">    &#123; <span class="attr">path</span>: <span class="string">'/'</span>, <span class="attr">name</span>: <span class="string">'login'</span>, <span class="attr">component</span>: <span class="function"><span class="params">r</span> =&gt;</span> &#123; <span class="built_in">require</span>([<span class="string">'./login/Login'</span>], r) &#125;, <span class="attr">meta</span>: &#123; <span class="attr">title</span>: <span class="string">'console 登录'</span> 两个大括号结尾</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">new</span> VueRouter(&#123;</span><br><span class="line">    routes: routes</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h5 id="应用title跟随路由切换"><a href="#应用title跟随路由切换" class="headerlink" title="应用title跟随路由切换"></a>应用title跟随路由切换</h5><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> Vue <span class="keyword">from</span> <span class="string">'vue'</span></span><br><span class="line"><span class="keyword">import</span> Console <span class="keyword">from</span> <span class="string">'./Console.vue'</span></span><br><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">'./router'</span></span><br><span class="line"></span><br><span class="line">Vue.use(<span class="built_in">require</span>(<span class="string">'vue-wechat-title'</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">new</span> Vue(&#123;</span><br><span class="line">    router,</span><br><span class="line">    render: <span class="function"><span class="params">h</span> =&gt;</span> h(Console)</span><br><span class="line">&#125;).$mount(<span class="string">'#console'</span>)</span><br></pre></td></tr></table></figure>
+<p>在console.vue中添加<code>v-wechat-title</code>指令，console.vue内容为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">		//如此路由里就能根据 router.js 里配置的 title 进行切换</span><br><span class="line">    &lt;div id=&quot;console&quot; v-wechat-title=&quot;$route.meta.title&quot;&gt;</span><br><span class="line">        &lt;router-view&gt;&lt;/router-view&gt;</span><br><span class="line">    &lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">    export default &#123;</span><br><span class="line">        name: &quot;console&quot;</span><br><span class="line">    &#125;</span><br><span class="line">&lt;/script&gt;</span><br><span class="line"></span><br><span class="line">&lt;style scoped&gt;</span><br><span class="line"></span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
+<p>至此，针对console模块的配置完成，对client模块做相同配置即可。</p>
+<p>项目结构图</p>
+<p><img src="https://github.com/PandoraSB0X/record/blob/master/note/img/vue-cli3.0img/vue-cli-7.png?raw=true" alt="vue-cli-6"></p>
+<p>模块里的文件可完全复制app.vue和main.js修改。</p>
+<p><a href="https://www.jianshu.com/p/05c1bc5074a9" target="_blank" rel="noopener">参考文档1</a>        <a href="https://blog.csdn.net/wangxinxin1992816/article/details/81097550" target="_blank" rel="noopener">参考文档2</a></p>
+<h4 id="axios踩坑记录-拦截器使用-vue-cli代理跨域proxy-webpack打包部署到服务器"><a href="#axios踩坑记录-拦截器使用-vue-cli代理跨域proxy-webpack打包部署到服务器" class="headerlink" title="axios踩坑记录+拦截器使用+vue cli代理跨域proxy+webpack打包部署到服务器"></a>axios踩坑记录+拦截器使用+vue cli代理跨域proxy+webpack打包部署到服务器</h4><p><a href="https://www.cnblogs.com/goloving/p/8901960.html" target="_blank" rel="noopener">https://www.cnblogs.com/goloving/p/8901960.html</a></p>
+<h4 id="由于还未在项目中实战使用先记到这里，等使用过后再来更新"><a href="#由于还未在项目中实战使用先记到这里，等使用过后再来更新" class="headerlink" title="(由于还未在项目中实战使用先记到这里，等使用过后再来更新)"></a>(由于还未在项目中实战使用先记到这里，等使用过后再来更新)</h4>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------阅读有风险<i class="fa fa-paw"></i>请谨慎阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vue/" rel="tag"># vue</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/12/react/" rel="next" title="react">
+                <i class="fa fa-chevron-left"></i> react
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/12/拖拽放大旋转/" rel="prev" title="拖拽放大旋转">
+                拖拽放大旋转 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/baby.png" alt="唐唐胖次">
+            
+              <p class="site-author-name" itemprop="name">唐唐胖次</p>
+              <div class="site-description motion-element" itemprop="description">每天努力一点点</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">55</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/Junokl" title="GitHub &rarr; https://github.com/Junokl" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Vue-cli-3-0版本与2-X版本比较"><span class="nav-number">1.</span> <span class="nav-text">Vue-cli 3.0版本与2.X版本比较</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#3-0版本创建的目录-vue-create-my-project-以下创建的是默认的模板"><span class="nav-number">1.0.1.</span> <span class="nav-text">3.0版本创建的目录     (vue create my-project   以下创建的是默认的模板)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-X版本创建的目录-创建命令-vue-init-webpack-my-project"><span class="nav-number">1.0.2.</span> <span class="nav-text">2.X版本创建的目录       (创建命令 vue init webpack my-project)</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二者区别：主要是配置webpack的区别2-x版本里会帮你以webpack的模板创建好各类文件都有默认的参数，只需要改就行了。而3-0版本开始，目录结构相比2-0有很大的改变，之前的build和config文件夹没有了，如果要像以前那样配置webpack的参数，只需要在项目的根目录下新建vue-config-js-文件注意是根目录，不是src目录。"><span class="nav-number">1.1.</span> <span class="nav-text">二者区别：主要是配置webpack的区别2.x版本里会帮你以webpack的模板创建好各类文件都有默认的参数，只需要改就行了。而3.0版本开始，目录结构相比2.0有很大的改变，之前的build和config文件夹没有了，如果要像以前那样配置webpack的参数，只需要在项目的根目录下新建vue.config.js 文件注意是根目录，不是src目录。</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#如果你还想继续使用vue-cli2-x的创建方法可以这样做："><span class="nav-number">1.2.</span> <span class="nav-text">如果你还想继续使用vue-cli2.x的创建方法可以这样做：</span></a></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#vue-cli-2-x项目目录说明"><span class="nav-number">2.</span> <span class="nav-text">vue-cli 2.x项目目录说明</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue-cli-3-创建项目步骤："><span class="nav-number">3.</span> <span class="nav-text">vue-cli 3 创建项目步骤：</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#第一个是默认模板；第二个是自定义选择；第一个会默认安装基本模板、选择第二个进入以下选择"><span class="nav-number">3.1.</span> <span class="nav-text">第一个是默认模板；第二个是自定义选择；第一个会默认安装基本模板、选择第二个进入以下选择</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#方向键控制空格选择-Enter进入下一步"><span class="nav-number">3.2.</span> <span class="nav-text">方向键控制空格选择 Enter进入下一步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#路由是否选择history模式-否的话是哈希路由，选择css预处理器-sass和less"><span class="nav-number">3.3.</span> <span class="nav-text">路由是否选择history模式 ,否的话是哈希路由，选择css预处理器 sass和less</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选择代码规范配置"><span class="nav-number">3.4.</span> <span class="nav-text">选择代码规范配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#选择保存时候进行代码检测，在后面也可以关闭检测"><span class="nav-number">3.5.</span> <span class="nav-text">选择保存时候进行代码检测，在后面也可以关闭检测</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#会保存在根目录下，然后会有一步是否保存本次配置，可以选择保存此次配置作为下次开发的模板。"><span class="nav-number">3.6.</span> <span class="nav-text">会保存在根目录下，然后会有一步是否保存本次配置，可以选择保存此次配置作为下次开发的模板。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue-cli-3-x需要在根目录也就是与src同级的目录创建一个vue-config-js用来配置webpack，代理等参数。"><span class="nav-number">4.</span> <span class="nav-text">vue-cli 3.x需要在根目录也就是与src同级的目录创建一个vue.config.js用来配置webpack，代理等参数。</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本上以上的vue-config-js配置能解决大部分的问题如果还需要修改就根据具体的业务进行修改。"><span class="nav-number">4.1.</span> <span class="nav-text">基本上以上的vue.config.js配置能解决大部分的问题如果还需要修改就根据具体的业务进行修改。</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Vue-cli-3-多页面配置"><span class="nav-number">5.</span> <span class="nav-text">Vue cli 3 多页面配置</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#创建多页面应用"><span class="nav-number">5.0.1.</span> <span class="nav-text">创建多页面应用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#创建模块"><span class="nav-number">5.0.2.</span> <span class="nav-text">创建模块</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#应用路由配置"><span class="nav-number">5.0.3.</span> <span class="nav-text">应用路由配置</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#应用title跟随路由切换"><span class="nav-number">5.0.4.</span> <span class="nav-text">应用title跟随路由切换</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#axios踩坑记录-拦截器使用-vue-cli代理跨域proxy-webpack打包部署到服务器"><span class="nav-number">5.1.</span> <span class="nav-text">axios踩坑记录+拦截器使用+vue cli代理跨域proxy+webpack打包部署到服务器</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#由于还未在项目中实战使用先记到这里，等使用过后再来更新"><span class="nav-number">5.2.</span> <span class="nav-text">(由于还未在项目中实战使用先记到这里，等使用过后再来更新)</span></a></li></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">唐唐胖次</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,0" opacity="0.5" zindex="-1" count="150" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>

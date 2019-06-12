@@ -1,0 +1,1047 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/Ham.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/Ham.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="朋友的教程1. 引言我们知道，在chrome（等一些现代浏览器）中，你可以将访问的网站添加到桌面，这样就会在桌面生成一个类似“快捷方式”的图标，当你点击该图标时，便可以快速访问该网站（Web App）。我们以第一篇文章中的demo为例，其添加到桌面后以及重新打开时的状态如下：  然而，对于PWA来说，有一些重要的特性：  Web App可以被添加到桌面并有它自己的应用图标； 同时，从桌面开启时，会">
+<meta name="keywords" content="vue">
+<meta property="og:type" content="article">
+<meta property="og:title" content="vue中cli2和cli3配合pwa的简单用法">
+<meta property="og:url" content="http://Junokl.com/2019/06/12/vue中cli2和cli3配合pwa的简单用法/index.html">
+<meta property="og:site_name" content="势必要上进的咸鱼军">
+<meta property="og:description" content="朋友的教程1. 引言我们知道，在chrome（等一些现代浏览器）中，你可以将访问的网站添加到桌面，这样就会在桌面生成一个类似“快捷方式”的图标，当你点击该图标时，便可以快速访问该网站（Web App）。我们以第一篇文章中的demo为例，其添加到桌面后以及重新打开时的状态如下：  然而，对于PWA来说，有一些重要的特性：  Web App可以被添加到桌面并有它自己的应用图标； 同时，从桌面开启时，会">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="https://segmentfault.com/img/remote/1460000015828716?w=750&h=482">
+<meta property="og:image" content="https://segmentfault.com/img/remote/1460000015828717?w=750&h=482">
+<meta property="og:image" content="https://segmentfault.com/img/remote/1460000015828718?w=750&h=400">
+<meta property="og:image" content="https://segmentfault.com/img/remote/1460000015828719?w=1240&h=476">
+<meta property="og:updated_time" content="2019-06-12T10:06:28.230Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="vue中cli2和cli3配合pwa的简单用法">
+<meta name="twitter:description" content="朋友的教程1. 引言我们知道，在chrome（等一些现代浏览器）中，你可以将访问的网站添加到桌面，这样就会在桌面生成一个类似“快捷方式”的图标，当你点击该图标时，便可以快速访问该网站（Web App）。我们以第一篇文章中的demo为例，其添加到桌面后以及重新打开时的状态如下：  然而，对于PWA来说，有一些重要的特性：  Web App可以被添加到桌面并有它自己的应用图标； 同时，从桌面开启时，会">
+<meta name="twitter:image" content="https://segmentfault.com/img/remote/1460000015828716?w=750&h=482">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://Junokl.com/2019/06/12/vue中cli2和cli3配合pwa的简单用法/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>vue中cli2和cli3配合pwa的简单用法 | 势必要上进的咸鱼军</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">势必要上进的咸鱼军</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">一只小小小攻城狮</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">19</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">18</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">55</span></a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Junokl.com/2019/06/12/vue中cli2和cli3配合pwa的简单用法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="唐唐胖次">
+      <meta itemprop="description" content="每天努力一点点">
+      <meta itemprop="image" content="/images/baby.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="势必要上进的咸鱼军">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">vue中cli2和cli3配合pwa的简单用法
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-12 18:06:04" itemprop="dateCreated datePublished" datetime="2019-06-12T18:06:04+08:00">2019-06-12</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/vue/" itemprop="url" rel="index"><span itemprop="name">vue</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h4 id="朋友的教程"><a href="#朋友的教程" class="headerlink" title="朋友的教程"></a><a href="https://github.com/wgjh5/pwaApp" target="_blank" rel="noopener">朋友的教程</a></h4><h2 id="1-引言"><a href="#1-引言" class="headerlink" title="1. 引言"></a>1. 引言</h2><p>我们知道，在chrome（等一些现代浏览器）中，你可以将访问的网站添加到桌面，这样就会在桌面生成一个类似“快捷方式”的图标，当你点击该图标时，便可以快速访问该网站（Web App）。我们以<a href="https://segmentfault.com/a/1190000015827401" target="_blank" rel="noopener">第一篇文章</a>中的demo为例，其添加到桌面后以及重新打开时的状态如下：</p>
+<p><img src="https://segmentfault.com/img/remote/1460000015828716?w=750&amp;h=482" alt="普通Web App被添加到桌面后的展示形式"></p>
+<p>然而，对于PWA来说，有一些重要的特性：</p>
+<ul>
+<li>Web App可以被添加到桌面并有它自己的应用图标；</li>
+<li>同时，从桌面开启时，会和原生app一样有它自己的“开屏图”；</li>
+<li>更进一步的，这个Web App在的样子几乎和原生应用一样——没有浏览器的地址栏、工具条，似乎和Native App一样运行在一个独立的容器中。</li>
+</ul>
+<p>就像下面这样：</p>
+<p><img src="https://segmentfault.com/img/remote/1460000015828717?w=750&amp;h=482" alt="PWA被添加到桌面后的展示形式"></p>
+<p>接下来，我们会基于该系列——《PWA技术学习与实践》的前一篇<a href="https://juejin.im/post/5ac8a67c5188255c5668b0b8" target="_blank" rel="noopener">《2018，开始你的PWA学习之旅》</a> 中所提及的一个普通Web App的demo来进行改造，来实现PWA的这一效果。或者直接从github clone learning-pwa（<a href="https://github.com/alienzhou/learning-pwa/tree/master" target="_blank" rel="noopener">https://github.com/alienzhou/…</a>）这个仓库也可以。切换到manifest分支，即可看到本文的最后成果。 </p>
+<h2 id="2-Web-App-Manifest"><a href="#2-Web-App-Manifest" class="headerlink" title="2.Web App Manifest"></a>2.Web App Manifest</h2><p>Manifest是一个JSON格式的文件，你可以把它理解为一个指定了Web App桌面图标、名称、开屏图标、运行模式等一系列资源的一个清单。</p>
+<blockquote>
+<p>manifest 的目的是将Web应用程序安装到设备的主屏幕，为用户提供更快的访问和更丰富的体验。 —— MDN</p>
+</blockquote>
+<p>我们来看一下，learning-pwa中的<a href="https://github.com/alienzhou/learning-pwa/blob/manifest/public/manifest.json" target="_blank" rel="noopener">manifest.json</a>文件内容</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="attr">"name"</span>: <span class="string">"图书搜索"</span>,</span><br><span class="line">    <span class="attr">"short_name"</span>: <span class="string">"书查"</span>,</span><br><span class="line">    <span class="attr">"start_url"</span>: <span class="string">"/"</span>,</span><br><span class="line">    <span class="attr">"display"</span>: <span class="string">"standalone"</span>,</span><br><span class="line">    <span class="attr">"background_color"</span>: <span class="string">"#333"</span>,</span><br><span class="line">    <span class="attr">"description"</span>: <span class="string">"一个搜索图书的小WebAPP（基于豆瓣开放接口）"</span>,</span><br><span class="line">    <span class="attr">"orientation"</span>: <span class="string">"portrait-primary"</span>,</span><br><span class="line">    <span class="attr">"theme_color"</span>: <span class="string">"#5eace0"</span>,</span><br><span class="line">    <span class="attr">"icons"</span>: [&#123;</span><br><span class="line">        <span class="attr">"src"</span>: <span class="string">"img/icons/book-32.png"</span>,</span><br><span class="line">        <span class="attr">"sizes"</span>: <span class="string">"32x32"</span>,</span><br><span class="line">        <span class="attr">"type"</span>: <span class="string">"image/png"</span></span><br><span class="line">    &#125;, &#123;</span><br><span class="line">        <span class="attr">"src"</span>: <span class="string">"img/icons/book-72.png"</span>,</span><br><span class="line">        <span class="attr">"sizes"</span>: <span class="string">"72x72"</span>,</span><br><span class="line">        <span class="attr">"type"</span>: <span class="string">"image/png"</span></span><br><span class="line">    &#125;, &#123;</span><br><span class="line">        <span class="attr">"src"</span>: <span class="string">"img/icons/book-128.png"</span>,</span><br><span class="line">        <span class="attr">"sizes"</span>: <span class="string">"128x128"</span>,</span><br><span class="line">        <span class="attr">"type"</span>: <span class="string">"image/png"</span></span><br><span class="line">    &#125;, &#123;</span><br><span class="line">        <span class="attr">"src"</span>: <span class="string">"img/icons/book-144.png"</span>,</span><br><span class="line">        <span class="attr">"sizes"</span>: <span class="string">"144x144"</span>,</span><br><span class="line">        <span class="attr">"type"</span>: <span class="string">"image/png"</span></span><br><span class="line">    &#125;, &#123;</span><br><span class="line">        <span class="attr">"src"</span>: <span class="string">"img/icons/book-192.png"</span>,</span><br><span class="line">        <span class="attr">"sizes"</span>: <span class="string">"192x192"</span>,</span><br><span class="line">        <span class="attr">"type"</span>: <span class="string">"image/png"</span></span><br><span class="line">    &#125;, &#123;</span><br><span class="line">        <span class="attr">"src"</span>: <span class="string">"img/icons/book-256.png"</span>,</span><br><span class="line">        <span class="attr">"sizes"</span>: <span class="string">"256x256"</span>,</span><br><span class="line">        <span class="attr">"type"</span>: <span class="string">"image/png"</span></span><br><span class="line">    &#125;, &#123;</span><br><span class="line">        <span class="attr">"src"</span>: <span class="string">"img/icons/book-512.png"</span>,</span><br><span class="line">        <span class="attr">"sizes"</span>: <span class="string">"512x512"</span>,</span><br><span class="line">        <span class="attr">"type"</span>: <span class="string">"image/png"</span></span><br><span class="line">    &#125;]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以看出，上面的JSON配置文件非常直观，通过声明各个属性的值，即可改造我们的Web App。那么下面就针对每个具体值进行简单的介绍。</p>
+<h3 id="2-1-name-short-name"><a href="#2-1-name-short-name" class="headerlink" title="2.1. name, short_name"></a>2.1. name, short_name</h3><p>指定了Web App的名称。<code>short_name</code>其实是该应用的一个简称。一般来说，当没有足够空间展示应用的<code>name</code>时，系统就会使用<code>short_name</code>。可以看到本文的例子中，图书搜索这个应用在桌面上展示的名称就是<code>short_name</code>书查。</p>
+<h3 id="2-2-start-url"><a href="#2-2-start-url" class="headerlink" title="2.2. start_url"></a>2.2. start_url</h3><p>这个属性指定了用户打开该Web App时加载的URL。相对URL会相对于manifest。这里我们指定了<code>start_url</code>为<code>/</code>，访问根目录。</p>
+<h3 id="2-3-display"><a href="#2-3-display" class="headerlink" title="2.3. display"></a>2.3. display</h3><p><code>display</code>控制了应用的显示模式，它有四个值可以选择：<code>fullscreen</code>、<code>standalone</code>、<code>minimal-ui</code>和<code>browser</code>。</p>
+<ul>
+<li><code>fullscreen</code>：全屏显示，会尽可能将所有的显示区域都占满；</li>
+<li><code>standalone</code>：独立应用模式，这种模式下打开的应用有自己的启动图标，并且不会有浏览器的地址栏。因此看起来更像一个Native App；</li>
+<li><code>minimal-ui</code>：与<code>standalone</code>相比，该模式会多出地址栏；</li>
+<li><code>browser</code>：一般来说，会和正常使用浏览器打开样式一致。</li>
+</ul>
+<p>让我们来看下这四种模式的差异：</p>
+<p><img src="https://segmentfault.com/img/remote/1460000015828718?w=750&amp;h=400" alt="display四种模式的差异"></p>
+<p>当然，不同的系统所表现出的具体样式也不完全一样。就像示例中的虚拟按键在<code>fullscreen</code>模式下会默认隐藏。</p>
+<h3 id="2-4-orientation"><a href="#2-4-orientation" class="headerlink" title="2.4. orientation"></a>2.4. orientation</h3><p>控制Web App的方向。设置某些值会具有类似锁屏的效果（禁止旋转），例如例子中的<code>portrait-primary</code>。具体的值包括：<code>any, natural, landscape, landscape-primary, landscape-secondary, portrait, portrait-primary, portrait-secondary</code>。</p>
+<h3 id="2-5-icons，-background-color"><a href="#2-5-icons，-background-color" class="headerlink" title="2.5. icons， background_color"></a>2.5. icons， background_color</h3><p><code>icons</code>用来指定应用的桌面图标。icons本身是一个数组，每个元素包含三个属性：</p>
+<ul>
+<li>sizes：图标的大小。通过指定大小，系统会选取最合适的图标展示在相应位置上。</li>
+<li>src：图标的文件路径。注意相对路径是相对于manifest。</li>
+<li>type：图标的图片类型。</li>
+</ul>
+<p>需要指出的是，我一直提的“开屏图”其实是背景颜色+图标的展示模式（并不会设置一张所谓的开屏图）。<code>background_color</code>是在应用的样式资源为加载完毕前的默认背景，因此会展示在开屏界面。<code>background_color</code>加上我们刚才定义的<code>icons</code>就组成了Web App打开时的“开屏图”。</p>
+<h3 id="2-6-theme-color"><a href="#2-6-theme-color" class="headerlink" title="2.6. theme_color"></a>2.6. theme_color</h3><p>定义应用程序的默认主题颜色。 这有时会影响操作系统显示应用程序的方式（例如，在Android的任务切换器上，主题颜色包围应用程序）。此外，还可以在meta标签中设置theme_color：<code>&lt;meta name=&quot;theme-color&quot; content=&quot;#5eace0&quot;/&gt;</code></p>
+<h3 id="2-7-description"><a href="#2-7-description" class="headerlink" title="2.7. description"></a>2.7. description</h3><p>这个字段的含义非常简单，就是一段对该应用的描述。</p>
+<h2 id="3-使用Manifest"><a href="#3-使用Manifest" class="headerlink" title="3. 使用Manifest"></a>3. 使用Manifest</h2><p>创建好manifest文件后，下一步就是需要知道如何能让我们的Web App使用它——非常简单，只需要在head中添加一个link标签：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 在index.html中添加以下meta标签 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"manifest"</span> <span class="attr">href</span>=<span class="string">"/manifest.json"</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>这样，在android上我们使用chrome将应用添加到桌面，就会拥有文章开头处的PWA效果。你可在这里验证manifest.json的内容：<a href="https://manifest-validator.appspot.com/" target="_blank" rel="noopener">Web Manifest Validator</a></p>
+<p>如果你看到这里，那么恭喜你，已经知道如何让我们的Web App看起来更像一个独立的Native App。是不是非常简单？</p>
+<h2 id="4-iOS-Windows"><a href="#4-iOS-Windows" class="headerlink" title="4. iOS, Windows?"></a>4. iOS, Windows?</h2><p>上面的一切看似美好，然而真的如此么？</p>
+<p>到目前为止，我们的工作都非常顺利：创建manifest.json，添加meta标签，然后把我们的Web App添加到桌面。然而，如果我们在iPhone上访问我们的站点，然后“添加到主屏幕”，你会发现——一切都失效了！是的，你没有看错，一切都回到了原样。</p>
+<p><img src="https://segmentfault.com/img/remote/1460000015828719?w=1240&amp;h=476" alt="manifest的兼容性"></p>
+<p>如果你看过<a href="https://caniuse.com/#search=manifest" target="_blank" rel="noopener">caniuse</a>上manifest的兼容性，那会令你更加头疼。但是，也不必太过忧伤，在iOS与windows上，我们有其他的方式</p>
+<h2 id="5-iOS（safari）中的处理方式"><a href="#5-iOS（safari）中的处理方式" class="headerlink" title="5. iOS（safari）中的处理方式"></a>5. iOS（safari）中的处理方式</h2><p>safari虽然不支持Web App Manifest，但是它有自己的一些head标签来定义相应的资源与展示形式：</p>
+<ul>
+<li><code>apple-touch-icon</code>：桌面图标，通过在head中添加<code>&lt;link rel=&quot;apple-touch-icon&quot; href=&quot;your_icon.png&quot;&gt;</code>即可。其中还可以添加sizes属性，来指示系统使用在各类平台（iphone、ipad…）中使用最合适的图标</li>
+<li><code>apple-mobile-web-app-title</code>：应用的标题。注意，这里需要使用meta标签<code>&lt;meta name=&quot;apple-mobile-web-app-title&quot; content=&quot;AppTitle&quot;&gt;</code></li>
+<li><code>apple-mobile-web-app-capable</code>：类似于manifest中的display的功能，通过设置为yes可以进入standalone模式，同样也是meta标签<code>&lt;meta name=&quot;apple-mobile-web-app-capable&quot; content=&quot;yes&quot;&gt;</code></li>
+<li><code>apple-mobile-web-app-status-bar-style</code>：这会改变iOS移动设备的状态栏的样式，并且只有在standalone模式中才会有效果。<code>&lt;meta name=&quot;apple-mobile-web-app-status-bar-style&quot; content=&quot;black&quot;&gt;</code>，不过在iPhoneX上black会导致状态栏不显示任何东西。</li>
+</ul>
+<p>下面是learning-pwa项目中的相关设置</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta <span class="attribute">name</span>=<span class="string">"apple-mobile-web-app-capable"</span> <span class="attribute">content</span>=<span class="string">"yes"</span>&gt;</span><br><span class="line">&lt;meta <span class="attribute">name</span>=<span class="string">"apple-mobile-web-app-status-bar-style"</span> <span class="attribute">content</span>=<span class="string">"default"</span>&gt;</span><br><span class="line">&lt;meta <span class="attribute">name</span>=<span class="string">"apple-mobile-web-app-title"</span> <span class="attribute">content</span>=<span class="string">"图书搜索"</span>&gt;</span><br><span class="line">&lt;link <span class="attribute">rel</span>=<span class="string">"apple-touch-icon"</span> <span class="attribute">href</span>=<span class="string">"img/icons/book-256.png"</span>&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="6-IE中的处理方式"><a href="#6-IE中的处理方式" class="headerlink" title="6. IE中的处理方式"></a>6. IE中的处理方式</h2><p>与Safari类似，IE中也有自己的meta标签来指示相应的资源。其中比较重要的有：</p>
+<ul>
+<li><code>application-name</code>：指明了app的名称</li>
+<li><code>msapplication-TileColor</code>：指明了“tile”的背景颜色</li>
+<li><code>msapplication-xxxlogo</code>：不同大小的“tile”所使用的图标，包括这几种：<code>msapplication-square70x70logo, msapplication-square150x150logo, msapplication-wide310x150logo, msapplication-square310x310logo</code></li>
+</ul>
+<p>下面是learning-pwa项目中的相关设置，其中图标的设置为了方便就复用了已有的图标文件</p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;meta <span class="attribute">name</span>=<span class="string">"application-name"</span> <span class="attribute">content</span>=<span class="string">"图书搜索"</span> /&gt;</span><br><span class="line">&lt;meta <span class="attribute">name</span>=<span class="string">"msapplication-TileColor"</span> <span class="attribute">content</span>=<span class="string">"#222"</span>&gt;</span><br><span class="line">&lt;meta <span class="attribute">name</span>=<span class="string">"msapplication-square70x70logo"</span> <span class="attribute">content</span>=<span class="string">"img/icons/book-72.png"</span> /&gt;</span><br><span class="line">&lt;meta <span class="attribute">name</span>=<span class="string">"msapplication-square150x150logo"</span> <span class="attribute">content</span>=<span class="string">"img/icons/book-144.png"</span> /&gt;</span><br><span class="line">&lt;meta <span class="attribute">name</span>=<span class="string">"msapplication-square310x310logo"</span> <span class="attribute">content</span>=<span class="string">"img/icons/book-256.png"</span> /&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="写在最后"><a href="#写在最后" class="headerlink" title="写在最后"></a>写在最后</h2><p>本文主要探索如何让被添加到桌面的Web App具有更贴近Native App的使用体验（桌面图标、开屏页、shell…）。</p>
+<p>因此，我们使用了Web App Manifest。通过我们添加manifest文件，并在HTML中设置相应的meta标签来使用它即可；而在safari与ie中，可以通过一些特有的meta、link标签来实现。是不是很简单，很方便？这就使得我们能够以很低成本的改动我们Web App。这也就是PWA概念的理念之一：你可以渐进式地提高Web App的能力，同时在兼容性上，也会根据不同的浏览器的支持度提供渐进增强的能力。</p>
+<p><a href="https://blog.csdn.net/u014418725/article/details/86999639" target="_blank" rel="noopener">参考链接</a></p>
+<p><a href="https://lavas.baidu.com/" target="_blank" rel="noopener">lavas官网链接</a></p>
+<p><a href="https://lavas.baidu.com/pwa/engage-retain-users/add-to-home-screen/app-install-banners" target="_blank" rel="noopener">安装横幅官网链接</a></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------阅读有风险<i class="fa fa-paw"></i>请谨慎阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/vue/" rel="tag"># vue</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/12/vue中keep-alive方法/" rel="next" title="vue中keep-alive方法">
+                <i class="fa fa-chevron-left"></i> vue中keep-alive方法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/baby.png" alt="唐唐胖次">
+            
+              <p class="site-author-name" itemprop="name">唐唐胖次</p>
+              <div class="site-description motion-element" itemprop="description">每天努力一点点</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">55</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/Junokl" title="GitHub &rarr; https://github.com/Junokl" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#朋友的教程"><span class="nav-number">1.</span> <span class="nav-text">朋友的教程</span></a></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#1-引言"><span class="nav-number"></span> <span class="nav-text">1. 引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Web-App-Manifest"><span class="nav-number"></span> <span class="nav-text">2.Web App Manifest</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-name-short-name"><span class="nav-number"></span> <span class="nav-text">2.1. name, short_name</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-start-url"><span class="nav-number"></span> <span class="nav-text">2.2. start_url</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-display"><span class="nav-number"></span> <span class="nav-text">2.3. display</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-4-orientation"><span class="nav-number"></span> <span class="nav-text">2.4. orientation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-5-icons，-background-color"><span class="nav-number"></span> <span class="nav-text">2.5. icons， background_color</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-6-theme-color"><span class="nav-number"></span> <span class="nav-text">2.6. theme_color</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-7-description"><span class="nav-number"></span> <span class="nav-text">2.7. description</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-使用Manifest"><span class="nav-number"></span> <span class="nav-text">3. 使用Manifest</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-iOS-Windows"><span class="nav-number"></span> <span class="nav-text">4. iOS, Windows?</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-iOS（safari）中的处理方式"><span class="nav-number"></span> <span class="nav-text">5. iOS（safari）中的处理方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-IE中的处理方式"><span class="nav-number"></span> <span class="nav-text">6. IE中的处理方式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#写在最后"><span class="nav-number"></span> <span class="nav-text">写在最后</span></a></li></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">唐唐胖次</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,0" opacity="0.5" zindex="-1" count="150" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>

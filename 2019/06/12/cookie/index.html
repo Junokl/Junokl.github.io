@@ -1,0 +1,1180 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/Ham.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/Ham.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="网络知识（了解）通信协议通信规则，设备与设备之间通信时共同遵守的规则 TCP/UDP/IPIP： Internet Protocol（网络之间互连的协议），规定了计算机在因特网上进行通信时应当遵守的规则  IP地址：4个字节, 一共32位 ，用来标识设备在网络中的位置  TCP：Transmission Control Protocol（传输控制协议）  TCP面向连接的协议（通信之前必须先建立连">
+<meta name="keywords" content="js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="cookie">
+<meta property="og:url" content="http://Junokl.com/2019/06/12/cookie/index.html">
+<meta property="og:site_name" content="势必要上进的咸鱼军">
+<meta property="og:description" content="网络知识（了解）通信协议通信规则，设备与设备之间通信时共同遵守的规则 TCP/UDP/IPIP： Internet Protocol（网络之间互连的协议），规定了计算机在因特网上进行通信时应当遵守的规则  IP地址：4个字节, 一共32位 ，用来标识设备在网络中的位置  TCP：Transmission Control Protocol（传输控制协议）  TCP面向连接的协议（通信之前必须先建立连">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-06-12T03:00:44.402Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="cookie">
+<meta name="twitter:description" content="网络知识（了解）通信协议通信规则，设备与设备之间通信时共同遵守的规则 TCP/UDP/IPIP： Internet Protocol（网络之间互连的协议），规定了计算机在因特网上进行通信时应当遵守的规则  IP地址：4个字节, 一共32位 ，用来标识设备在网络中的位置  TCP：Transmission Control Protocol（传输控制协议）  TCP面向连接的协议（通信之前必须先建立连">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://Junokl.com/2019/06/12/cookie/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>cookie | 势必要上进的咸鱼军</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">势必要上进的咸鱼军</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">一只小小小攻城狮</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">19</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">18</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">55</span></a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Junokl.com/2019/06/12/cookie/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="唐唐胖次">
+      <meta itemprop="description" content="每天努力一点点">
+      <meta itemprop="image" content="/images/baby.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="势必要上进的咸鱼军">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">cookie
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-12 11:00:17" itemprop="dateCreated datePublished" datetime="2019-06-12T11:00:17+08:00">2019-06-12</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/js/" itemprop="url" rel="index"><span itemprop="name">js</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="网络知识（了解）"><a href="#网络知识（了解）" class="headerlink" title="网络知识（了解）"></a>网络知识（了解）</h2><h3 id="通信协议"><a href="#通信协议" class="headerlink" title="通信协议"></a>通信协议</h3><p>通信规则，设备与设备之间通信时共同遵守的规则</p>
+<h3 id="TCP-UDP-IP"><a href="#TCP-UDP-IP" class="headerlink" title="TCP/UDP/IP"></a>TCP/UDP/IP</h3><p>IP： Internet Protocol（网络之间互连的协议），规定了计算机在因特网上进行通信时应当遵守的规则</p>
+<ul>
+<li>IP地址：4个字节, 一共32位 ，用来标识设备在网络中的位置</li>
+</ul>
+<p>TCP：Transmission Control Protocol（传输控制协议）</p>
+<ul>
+<li>TCP面向连接的协议（通信之前必须先建立连接）</li>
+<li>TCP相对可靠，它建立连接的过程称为3次握手</li>
+<li>经历3次握手，才能建立连接</li>
+<li>所有的消息传送，需要对方确认送达</li>
+</ul>
+<blockquote>
+<p>//正常通信<br>A：”土豆，土豆，我是茄子，收到请回答”<br>B：”茄子，茄子，我是土豆，收到消息，有什么指示？”<br>A：”没事，没事，我以为你挂了呢”<br>A：”开始传送消息…”   </p>
+</blockquote>
+<blockquote>
+<p>//如果对方没回应，则不断重复发送当前消息，直至对方收到回应为止。<br>A：”茄子，茄子，我是土豆，我被人油炸了，现在改名叫薯片，收到请回答”<br>…………<br>A：”茄子，茄子，我是土豆，我被人油炸了，现在改名叫薯片，收到请回答，第2遍”<br>…………<br>A：”茄子，茄子，我是土豆，我被人油炸了，现在改名叫薯片，收到请回答，第3遍”<br>…………<br>B：”薯片，薯片，我收到消息”<br>因此可以确保数据的准确送达</p>
+</blockquote>
+<p>UDP:面向数据报的协议 (不可靠的协议)，如果TCP比作是打电话，那么UDP就是在发短信</p>
+<ul>
+<li>无需建立连接，发送消息也无需对方确认</li>
+<li>无法保证数据的发送顺序，以及准确率</li>
+<li>UDP通常用于视频、语音等通信（丢掉了一帧画面是无所谓的）</li>
+</ul>
+<h3 id="http-https"><a href="#http-https" class="headerlink" title="http/https"></a>http/https</h3><p>超文本传输协议HyperText Transfer Protocol，基于TCP协议的一种高级协议, 用于客户端和服务器直接的通信.</p>
+<p>http的特点是，请求完成后就立即断开与服务器的连接</p>
+<blockquote>
+<p>缺点:<br>通信使用明文（不加密），内容可能会被窃听<br>不适用特定的Web服务器，如：聊天室，消息广播</p>
+</blockquote>
+<h3 id="socket"><a href="#socket" class="headerlink" title="socket"></a>socket</h3><p>是一种通信模式，客户端与服务端一直保持着连接，用于随时传输数据</p>
+<h2 id="cookie"><a href="#cookie" class="headerlink" title="cookie"></a>cookie</h2><h3 id="cookie的概念"><a href="#cookie的概念" class="headerlink" title="cookie的概念"></a>cookie的概念</h3><p>cookie 是客户端与服务器端进行通讯使用的一个能够在浏览器本地化存储的技术</p>
+<blockquote>
+<p>PS：chrome不支持本地文件的cookie读写</p>
+</blockquote>
+<h6 id="演示：利用sublimeserver开启服务器，演示cookie的设置与获取（了解协议域名端口）"><a href="#演示：利用sublimeserver开启服务器，演示cookie的设置与获取（了解协议域名端口）" class="headerlink" title="演示：利用sublimeserver开启服务器，演示cookie的设置与获取（了解协议域名端口）"></a>演示：利用sublimeserver开启服务器，演示cookie的设置与获取（了解协议域名端口）</h6><h3 id="cookie的基本设置及获取"><a href="#cookie的基本设置及获取" class="headerlink" title="cookie的基本设置及获取"></a>cookie的基本设置及获取</h3><figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">设置:<span class="built_in">document</span>.cookie = <span class="string">'name=value'</span></span><br><span class="line">    * 一次只能写入一个cookie</span><br><span class="line">读取:<span class="built_in">document</span>.cookie</span><br><span class="line">	* 一次性读取所有cookie</span><br></pre></td></tr></table></figure>
+<h6 id="案例：保存图片拖拽位置"><a href="#案例：保存图片拖拽位置" class="headerlink" title="案例：保存图片拖拽位置"></a>案例：保存图片拖拽位置</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1.鼠标松开，保存图片位置。即设置cookie：保存left,top</span></span><br><span class="line"><span class="built_in">document</span>.cookie = <span class="string">'left='</span> + girl.style.left;<span class="comment">//100px</span></span><br><span class="line"><span class="built_in">document</span>.cookie = <span class="string">'top='</span> + girl.style.top;<span class="comment">//100px</span></span><br><span class="line"><span class="comment">// 2.页面加载，获取cookie：获取top,left</span></span><br><span class="line"><span class="keyword">var</span> cookies = <span class="built_in">document</span>.cookie;<span class="comment">//得到所有cookie</span></span><br><span class="line">cookies = cookies.split(<span class="string">'; '</span>);</span><br><span class="line"><span class="comment">//3. 遍历数组，找出top,left,给图片设置位置</span></span><br><span class="line">cookies.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">cookie</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">var</span> arr = cookie.split(<span class="string">'='</span>);</span><br><span class="line">    <span class="keyword">if</span>(arr[<span class="number">0</span>] === <span class="string">'left'</span> || arr[<span class="number">0</span>] === <span class="string">'top'</span>)&#123;</span><br><span class="line">    	girl.style[arr[<span class="number">0</span>]] = arr[<span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h6 id="案例-七天免登陆"><a href="#案例-七天免登陆" class="headerlink" title="案例:七天免登陆"></a>案例:七天免登陆</h6><pre><code>btnSubmit.onclick = function(){
+    // 5.表单submit按下即提交，不管满不满足条件。所以阻止默认行为
+    e.preventDefault();
+    // 1.获取用户名密码
+    var _username = username.value.trim();
+    var _password = password.value;
+    //2.若用户名长度为0，退出函数。
+    if(_username.length===0){
+        alert(&apos;用户名不能为空&apos;);
+        return;
+    }
+    //3.判断是否勾选&quot;7天内免登陆&quot;选项。若勾选保存cookie
+    if(checkbox.checked){
+        var d = new Date();
+        d.setDate(d.getDate()+7);//d此时是一个UTC时间对象，转成字符串格式
+        document.cookie = &apos;username=&apos; + _username + &apos;;expires=&apos;+d.toUTCString();
+    }
+    //4.不管有没有勾选，点击提交，显示跳转页面
+    location.href = &apos;http://www.baidu.com&apos;;
+}
+// 6.下一次访问：判断页面是否存在cookie，是否存在username的cookie，若存在自动登录，即自动跳转到百度
+var cookies = document.cookie;
+//（1）判断页面是否存在cookie，即cookie长度不为0
+if(cookies.length&gt;0){
+    cookies = cookies.split(&apos;; &apos;);
+    cookies.forEach(function(item){
+        var arr = item.split(&apos;=&apos;);
+        //（2）是否存在username的cookie
+        if(arr[0] === &apos;username&apos;){
+            location.href = &apos;http://www.baidu.com&apos;;
+        }
+    });
+}
+</code></pre><h3 id="cookie的组成部分"><a href="#cookie的组成部分" class="headerlink" title="cookie的组成部分"></a>cookie的组成部分</h3><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">格式：'name=value[<span class="string">;expires=xx</span>][<span class="symbol">;path=/</span>][<span class="string">;domain=xxx</span>]'</span><br><span class="line">参数：</span><br><span class="line"><span class="code">	expires：有效期</span></span><br><span class="line"><span class="code">		默认Session：临时cookie（关闭浏览器会被清除）</span></span><br><span class="line"><span class="code">		格式：'expires=' + d.toUTCString</span></span><br><span class="line"><span class="code">	path：保存cookie的位置</span></span><br><span class="line"><span class="code">		默认当前html所在目录</span></span><br><span class="line"><span class="code">		格式：'path=/'</span></span><br><span class="line"><span class="code">    domain：域名</span></span><br><span class="line"><span class="code">    	默认：当前域名</span></span><br><span class="line">读取：document.cookie（读取当前能访问的所有cookie）</span><br><span class="line"><span class="code">	当前目录-&gt;根目录</span></span><br></pre></td></tr></table></figure>
+<h3 id="封装cookie的操作"><a href="#封装cookie的操作" class="headerlink" title="封装cookie的操作"></a>封装cookie的操作</h3><pre><code>var Cookie = {
+    get:function(key){
+        // 1.先获取所有cookie，若cookie没有值，返回空字符串
+        var cookies = document.cookie;
+        if(cookies.length === 0){
+            return &apos;&apos;;
+        }
+        // 2.拆分每一个cookie
+        cookies = cookies.split(&apos;; &apos;);
+        for(var i=0;i&lt;cookies.length;i++){
+            var arr = cookies[i].split(&apos;=&apos;);
+            if(arr[0] === key){
+                return arr[1];
+            }
+        }
+    },
+    set:function(key,value,date,path){
+        //拼接字符串
+        var str = key + &apos;=&apos; + value;
+        if(date){
+            str += &apos;;expires=&apos; + date.toUTCString();
+        }
+        if(path){
+            str += &apos;;path=&apos;+path;
+        }
+        document.cookie = str;
+    },
+    remove:function(key,path){
+        //获取过期的日期，重新设置cookie
+        var d = new Date();
+        d.setDate(d.getDate()-1);
+        this.set(key,&apos;x&apos;,d,path);
+    },
+
+    // 清空cookie
+    clear:function(){
+    }
+}
+</code></pre><h3 id="cookie的限制"><a href="#cookie的限制" class="headerlink" title="cookie的限制"></a>cookie的限制</h3><blockquote>
+<p>数量50个（不同浏览器值不同）</p>
+<p>大小2m（不同浏览器值不同）</p>
+<p>只能写入字符串</p>
+</blockquote>
+<h3 id="JSON"><a href="#JSON" class="headerlink" title="JSON"></a>JSON</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">* 转换</span></span><br><span class="line"><span class="comment">    * 对象/数组 -&gt; json字符串：JSON.stringify()</span></span><br><span class="line"><span class="comment">    * json字符串 -&gt; 对象/数组：JSON.parse()</span></span><br><span class="line"><span class="comment">* 格式：</span></span><br><span class="line"><span class="comment">    * 属性名和字符串必须使用双引号</span></span><br><span class="line"><span class="comment">    * 不能有注释</span></span><br><span class="line"><span class="comment">    * 不能存在多余逗号</span></span><br><span class="line"><span class="comment">* 属性值必须为以下类型</span></span><br><span class="line"><span class="comment">    * String</span></span><br><span class="line"><span class="comment">    * Number</span></span><br><span class="line"><span class="comment">    * Boolean</span></span><br><span class="line"><span class="comment">    * Object</span></span><br><span class="line"><span class="comment">    * Array</span></span><br><span class="line"><span class="comment">    * Null</span></span><br></pre></td></tr></table></figure>
+<h6 id="案例：将商品添加到购物车列表"><a href="#案例：将商品添加到购物车列表" class="headerlink" title="案例：将商品添加到购物车列表"></a>案例：将商品添加到购物车列表</h6><pre><code>// 3.每次刷新，拿到上一次的存放值。第一次是为空数组
+// * 若已经存在值，默认为JSON字符串，要转回数组
+var goodslist = Cookie.get(&apos;goodslist&apos;) || [];
+if(typeof goodslist === &apos;string&apos;){
+    goodslist = JSON.parse(goodslist);
+}
+// 1.利用事件委托实现添加到购物车的效果
+goods.onclick = function(e){
+    e = e || window.event;
+    var target = e.target || e.srcElement;
+    if(target.parentNode.className === &apos;add2cart&apos;){
+        // 2.若当前为按钮被点击
+        // （1）生成一个商品信息对象{guid，name，imgurl，price，qty（商品数量）}
+        // （2）推入数组，将数组添加到cookie里面
+        // （3）考虑如果商品信息已经添加过，则应该增加数组里面的该商品数量
+        //     * 第一步:判断当前的guid是否在数组存在。
+        //  * 第二步:若存在，拿到该商品信息在数组中的索引，利用索引将qty++
+        var currentLi = target.parentNode.parentNode;
+        var guid = currentLi.getAttribute(&apos;data-guid&apos;);
+        var idx;
+        var has = goodslist.some(function(g,i){
+            idx = i;
+            return g.guid === guid;
+        });
+        if(has){
+            goodslist[idx].qty++;
+        }else{
+            var goods = {
+                guid:guid,
+                name:currentLi.children[1].innerText,
+                imgurl:currentLi.children[0].src,
+                price:currentLi.children[2].innerText,
+                // 商品数量
+                qty:1
+            }
+            goodslist.push(goods);
+        }
+        document.cookie = &apos;goodslist=&apos;+ JSON.stringify(goodslist);
+    }
+</code></pre><h6 id="案例：显示购物车列表"><a href="#案例：显示购物车列表" class="headerlink" title="案例：显示购物车列表"></a>案例：显示购物车列表</h6><pre><code>//1.获取goodslist的cookie，根据cookie数据生成html结构
+//2.遍历时同时计算总价给subPrice元素赋值
+var goodslist;
+render();
+function render(){
+    goodslist = Cookie.getCookie(&apos;goodslist&apos;) || [];
+    if(typeof goodslist === &apos;string&apos;){
+        goodslist = JSON.parse(goodslist);
+    }
+    //2.遍历时，同时计算商品金额
+    var total = 0;
+    var ul = document.createElement(&apos;ul&apos;);
+    ul.innerHTML = goodslist.map(function(goods){
+        total += goods.price * goods.qty;
+        return &apos;&lt;li data-guid=&quot;&apos;+goods.guid+&apos;&quot;&gt;&apos; + 
+            &apos;&lt;img src=&quot;&apos;+goods.imgurl+&apos;&quot;&gt;&apos; + 
+            &apos;&lt;h4&gt;&apos;+goods.name+&apos;&lt;/h4&gt;&apos; + 
+            &apos;&lt;p class=&quot;price&quot;&gt;价格：&lt;span&gt;&apos;+goods.price+&apos;&amp;times;&apos;+goods.qty+&apos;&lt;/span&gt;&lt;/p&gt;&apos; + 
+            &apos;&lt;span class=&quot;btn-close&quot;&gt;&amp;times;&lt;/span&gt;&apos; + 
+            &apos;&lt;/li&gt;&apos;；
+    }).join(&apos;&apos;);
+    carList.innerHTML = &apos;&apos;;
+    carList.appendChild(ul);
+    subPrice.innerHTML = total.toFixed(2);
+}
+// 3.点击按钮，移除cookie数据，重新渲染商品列表。同时阻止浏览器默认行为
+btnClear.onclick = function(){
+    Cookie.remove(&apos;goodslist&apos;);
+    render();
+    return false;
+}
+//4.当点击某个商品的删除时
+//（1）获取到当前商品的guid，遍历数组goodslist，根据guid值相同，找到被删除的元素在数组中的索引。
+//（2）通过索引，删除goodslist的中的某个商品。之后推出循环
+//（3）重新生成cookie后，渲染
+carList.onclick = function(e){
+    e = e || window.event;
+    var target = e.target || e.srcElement;
+    if(target.className === &apos;btn-close&apos;){
+        var currentLi = target.parentNode;
+        var guid = currentLi.getAttribute(&apos;data-guid&apos;);
+        for(var i=0;i&lt;goodslist.length;i++){
+            if(goodslist[i].guid === guid){
+                goodslist.splice(i,1);
+                break;
+            }
+        }
+        Cookie.set(&apos;goodslist&apos;,JSON.stringify(goodslist));
+        render();
+    }
+}
+</code></pre>
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------阅读有风险<i class="fa fa-paw"></i>请谨慎阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag"># js</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/12/js的event事件/" rel="next" title="js的event事件">
+                <i class="fa fa-chevron-left"></i> js的event事件
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/12/Animation/" rel="prev" title="Animation">
+                Animation <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/baby.png" alt="唐唐胖次">
+            
+              <p class="site-author-name" itemprop="name">唐唐胖次</p>
+              <div class="site-description motion-element" itemprop="description">每天努力一点点</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">55</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/Junokl" title="GitHub &rarr; https://github.com/Junokl" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#网络知识（了解）"><span class="nav-number">1.</span> <span class="nav-text">网络知识（了解）</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#通信协议"><span class="nav-number">1.1.</span> <span class="nav-text">通信协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#TCP-UDP-IP"><span class="nav-number">1.2.</span> <span class="nav-text">TCP/UDP/IP</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#http-https"><span class="nav-number">1.3.</span> <span class="nav-text">http/https</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#socket"><span class="nav-number">1.4.</span> <span class="nav-text">socket</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#cookie"><span class="nav-number">2.</span> <span class="nav-text">cookie</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#cookie的概念"><span class="nav-number">2.1.</span> <span class="nav-text">cookie的概念</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#演示：利用sublimeserver开启服务器，演示cookie的设置与获取（了解协议域名端口）"><span class="nav-number">2.1.0.0.1.</span> <span class="nav-text">演示：利用sublimeserver开启服务器，演示cookie的设置与获取（了解协议域名端口）</span></a></li></ol></li></ol></li></ol><li class="nav-item nav-level-3"><a class="nav-link" href="#cookie的基本设置及获取"><span class="nav-number">2.2.</span> <span class="nav-text">cookie的基本设置及获取</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#案例：保存图片拖拽位置"><span class="nav-number">2.2.0.0.1.</span> <span class="nav-text">案例：保存图片拖拽位置</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#案例-七天免登陆"><span class="nav-number">2.2.0.0.2.</span> <span class="nav-text">案例:七天免登陆</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cookie的组成部分"><span class="nav-number">2.3.</span> <span class="nav-text">cookie的组成部分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#封装cookie的操作"><span class="nav-number">2.4.</span> <span class="nav-text">封装cookie的操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#cookie的限制"><span class="nav-number">2.5.</span> <span class="nav-text">cookie的限制</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#JSON"><span class="nav-number">2.6.</span> <span class="nav-text">JSON</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#案例：将商品添加到购物车列表"><span class="nav-number">2.6.0.0.1.</span> <span class="nav-text">案例：将商品添加到购物车列表</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#案例：显示购物车列表"><span class="nav-number">2.6.0.0.2.</span> <span class="nav-text">案例：显示购物车列表</span></a></li></ol></li></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">唐唐胖次</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,0" opacity="0.5" zindex="-1" count="150" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>

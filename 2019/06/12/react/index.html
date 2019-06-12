@@ -1,0 +1,1189 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/Ham.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/Ham.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="一、react脚手架安装步骤1234$ cnpm install -g create-react-app	//全局安装react$ create-react-app my-app			//创建脚手架$ cd my-app/						$ npm start 二、react添加取消类名方式1. 添加取消类名 思路：现在上面定义一个变量，例如：isShowSearchBar:true，然后给你要点击的">
+<meta name="keywords" content="react">
+<meta property="og:type" content="article">
+<meta property="og:title" content="react">
+<meta property="og:url" content="http://Junokl.com/2019/06/12/react/index.html">
+<meta property="og:site_name" content="势必要上进的咸鱼军">
+<meta property="og:description" content="一、react脚手架安装步骤1234$ cnpm install -g create-react-app	//全局安装react$ create-react-app my-app			//创建脚手架$ cd my-app/						$ npm start 二、react添加取消类名方式1. 添加取消类名 思路：现在上面定义一个变量，例如：isShowSearchBar:true，然后给你要点击的">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-06-12T15:29:37.009Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="react">
+<meta name="twitter:description" content="一、react脚手架安装步骤1234$ cnpm install -g create-react-app	//全局安装react$ create-react-app my-app			//创建脚手架$ cd my-app/						$ npm start 二、react添加取消类名方式1. 添加取消类名 思路：现在上面定义一个变量，例如：isShowSearchBar:true，然后给你要点击的">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://Junokl.com/2019/06/12/react/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>react | 势必要上进的咸鱼军</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">势必要上进的咸鱼军</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">一只小小小攻城狮</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">19</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">18</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">55</span></a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Junokl.com/2019/06/12/react/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="唐唐胖次">
+      <meta itemprop="description" content="每天努力一点点">
+      <meta itemprop="image" content="/images/baby.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="势必要上进的咸鱼军">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">react
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-12 15:08:54" itemprop="dateCreated datePublished" datetime="2019-06-12T15:08:54+08:00">2019-06-12</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/react/" itemprop="url" rel="index"><span itemprop="name">react</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="一、react脚手架安装步骤"><a href="#一、react脚手架安装步骤" class="headerlink" title="一、react脚手架安装步骤"></a>一、react脚手架安装步骤</h2><figure class="highlight dsconfig"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ <span class="string">cnpm </span><span class="string">install </span>-g <span class="built_in">create-react-app</span>	//全局安装<span class="string">react</span></span><br><span class="line"><span class="string">$</span> <span class="built_in">create-react-app</span> <span class="string">my-app	</span>		//创建脚手架</span><br><span class="line">$ <span class="string">cd </span><span class="string">my-app/</span>						</span><br><span class="line">$ <span class="string">npm </span><span class="string">start</span></span><br></pre></td></tr></table></figure>
+<h2 id="二、react添加取消类名方式"><a href="#二、react添加取消类名方式" class="headerlink" title="二、react添加取消类名方式"></a>二、react添加取消类名方式</h2><h4 id="1-添加取消类名"><a href="#1-添加取消类名" class="headerlink" title="1. 添加取消类名"></a>1. 添加取消类名</h4><blockquote>
+<p>思路：现在上面定义一个变量，例如：isShowSearchBar:true，然后给你要点击的那个东西添加onClick={}事件，然后根据变量的true和false来决定添加取消类名，</p>
+</blockquote>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"> className=&#123;<span class="keyword">this</span>.state.isShowSearchBar? <span class="string">"weui-search-bar"</span>: <span class="string">"weui-search-bar weui-</span></span><br><span class="line"><span class="string">search-bar_focusing"</span>&#125;</span><br><span class="line"></span><br><span class="line">============定义变量阶段================</span><br><span class="line"> constructor(props)&#123;</span><br><span class="line">        <span class="keyword">super</span>(props);</span><br><span class="line">        <span class="keyword">this</span>.state = &#123;</span><br><span class="line">            isShowSearchBar:<span class="literal">true</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">=============改变变量阶段================</span><br><span class="line">changeSearchBar()&#123;</span><br><span class="line">        <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">            isShowSearchBar:!<span class="keyword">this</span>.state.isShowSearchBar</span><br><span class="line">        &#125;)</span><br><span class="line"> &#125;</span><br><span class="line"> </span><br><span class="line"> ==================绑定事件阶段==========</span><br><span class="line">&lt;a href=<span class="string">"javascript:"</span> onClick=&#123;<span class="keyword">this</span>.changeSearchBar.bind(<span class="keyword">this</span>)&#125; className=<span class="string">"weui-search-bar__cancel-btn"</span> id=<span class="string">"searchCancel"</span>&gt;取消&lt;/a&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">========================================================</span><br></pre></td></tr></table></figure>
+<h4 id="2-tab切换形式"><a href="#2-tab切换形式" class="headerlink" title="2. tab切换形式"></a>2. tab切换形式</h4><blockquote>
+<p>思路：先定义一个变量为0，以索引的形式切换，把点击事件写给你要点击的东西，当你点击的时候，把索引传给函数，通过函数事件把index赋给你定义的变量，然后在下面根据你的变量等于索引的三元表达式形式，添加类名，例子如下：</p>
+</blockquote>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Xfooter</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    constructor(props)&#123;</span><br><span class="line">        <span class="keyword">super</span>(props);</span><br><span class="line">        <span class="keyword">this</span>.state = &#123;</span><br><span class="line">            tab:<span class="number">0</span>,</span><br><span class="line">            tabs:[&#123;</span><br><span class="line">                title:<span class="string">"微信"</span>,</span><br><span class="line">                href:<span class="string">"wechat"</span>,</span><br><span class="line">                num:<span class="number">8</span>,</span><br><span class="line">                dot:<span class="literal">false</span></span><br><span class="line">            &#125;,&#123;</span><br><span class="line">                title:<span class="string">"通讯录"</span>,</span><br><span class="line">                href:<span class="string">"contact"</span>,</span><br><span class="line">                num:<span class="number">0</span>,</span><br><span class="line">                dot:<span class="literal">true</span></span><br><span class="line">            &#125;,&#123;</span><br><span class="line">                title:<span class="string">"发现"</span>,</span><br><span class="line">                href:<span class="string">"research"</span>,</span><br><span class="line">                num:<span class="number">0</span>,</span><br><span class="line">                dot:<span class="literal">false</span></span><br><span class="line">            &#125;,&#123;</span><br><span class="line">                title:<span class="string">"我"</span>,</span><br><span class="line">                href:<span class="string">"mine"</span>,</span><br><span class="line">                num:<span class="number">0</span>,</span><br><span class="line">                dot:<span class="literal">false</span></span><br><span class="line">            &#125;]</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">====================================================</span><br><span class="line"> toggloClass(index,e)&#123;</span><br><span class="line">        <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">            tab:index</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"> ===================================================</span><br><span class="line">  &lt;a href=<span class="string">"javascript:;"</span> key=&#123;index&#125; onClick=&#123;<span class="keyword">this</span>.toggloClass.bind(<span class="keyword">this</span>,index)&#125; className=&#123;<span class="keyword">this</span>.state.tab==index? <span class="string">"weui-tabbar__item weui-bar__item_on"</span>: <span class="string">"weui-tabbar__item"</span>&#125;&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="三、文本框聚焦"><a href="#三、文本框聚焦" class="headerlink" title="三、文本框聚焦"></a>三、文本框聚焦</h2><blockquote>
+<p>思路：先给你要聚焦的文本框绑定ref=“变量名”，然后在你的点击事件里面写，this.refs.变量名.focus();既可聚焦</p>
+</blockquote>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">==================</span><br><span class="line">this.refs.imput.focus();</span><br><span class="line"></span><br><span class="line">==========================================</span><br><span class="line">&lt;input <span class="attribute">ref</span>=<span class="string">"imput"</span> <span class="attribute">type</span>=<span class="string">"search"</span> <span class="attribute">className</span>=<span class="string">"weui-search-bar__input"</span> <span class="attribute">id</span>=<span class="string">"searchInput"</span> <span class="attribute">placeholder</span>=<span class="string">"搜索"</span> <span class="attribute">required</span>=<span class="string">""</span> /&gt;</span><br></pre></td></tr></table></figure>
+<h2 id="四、获取文本框的value方法"><a href="#四、获取文本框的value方法" class="headerlink" title="四、获取文本框的value方法"></a>四、获取文本框的value方法</h2><blockquote>
+<p>思路：先给文本框绑定onChange事件，记住要用大括号的形式{}，在上面的事件函数里面传个e，就直接获取e.target.value,然后再上面this.state里面定义一个变量，例如：searchValue:””,然后通过this.setState({})的方法把值赋给那个变量既可。</p>
+</blockquote>
+<figure class="highlight delphi"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">==============定义阶段===============</span><br><span class="line">  <span class="function"><span class="keyword">constructor</span><span class="params">(props)</span><span class="comment">&#123;</span></span></span><br><span class="line"><span class="function"><span class="comment">        super(props);</span></span></span><br><span class="line"><span class="function"><span class="comment">        this.state = &#123;</span></span></span><br><span class="line"><span class="function"><span class="comment">            isShowSearchBar:true,</span></span></span><br><span class="line"><span class="function"><span class="comment">            searchValue:""</span></span></span><br><span class="line"><span class="function"><span class="comment">        &#125;</span></span></span><br><span class="line"><span class="function">    &#125;</span></span><br><span class="line"><span class="function">    </span></span><br><span class="line"><span class="function">    </span></span><br><span class="line"><span class="function">    ==========获取文本框值阶段========</span></span><br><span class="line"><span class="function">    </span></span><br><span class="line"><span class="function">  <span class="title">getInputValue</span><span class="params">(e)</span><span class="comment">&#123;</span></span></span><br><span class="line"><span class="function"><span class="comment">       this.setState(&#123;</span></span></span><br><span class="line"><span class="function"><span class="comment">            searchValue:e.target.value</span></span></span><br><span class="line"><span class="function"><span class="comment">       &#125;</span>)</span></span><br><span class="line"><span class="function">        <span class="title">console</span>.<span class="title">log</span><span class="params">(e.target.value)</span></span></span><br><span class="line"><span class="function">    &#125;</span></span><br></pre></td></tr></table></figure>
+<h2 id="五、函数式编程"><a href="#五、函数式编程" class="headerlink" title="五、函数式编程"></a>五、函数式编程</h2><blockquote>
+<p>思路：能在虚拟dom里任意一地方放 两个大括号包住[]  编写逻辑，会在虚拟Dom里渲染return的数据</p>
+</blockquote>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">步骤：<span class="number">1.</span>先在上面定义一个数组</span><br><span class="line">	 <span class="number">2.</span>然后在下面写一个自执行的函数，例如：&#123;(<span class="function"><span class="params">()</span>=&gt;</span>&#123;</span><br><span class="line">	 	<span class="keyword">return</span> <span class="keyword">this</span>.state.tabs.map(<span class="function"><span class="params">(item,index)</span>=&gt;</span>&#123;</span><br><span class="line">                </span><br><span class="line">	 		&#125;)</span><br><span class="line">	 	</span><br><span class="line">	 &#125;)()&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="六、路由"><a href="#六、路由" class="headerlink" title="六、路由"></a>六、路由</h3><h4 id="1-路由的起步"><a href="#1-路由的起步" class="headerlink" title="1. 路由的起步"></a>1. 路由的起步</h4><ul>
+<li>下载路由模块</li>
+</ul>
+<figure class="highlight cmake"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> react-router-dom</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在index.js引入</li>
+</ul>
+<figure class="highlight capnproto"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; BrowserRouter <span class="keyword">as</span> Router, Route, Link &#125; <span class="keyword">from</span> <span class="string">"react-router-dom"</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在index.js外面包上<code>&lt;Router&gt;&lt;/Router&gt;</code></li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;Router&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;Xheader /&gt;</span><br><span class="line">      &lt;Xsearch /&gt;</span><br><span class="line">      &lt;Xpannel /&gt;</span><br><span class="line">      &lt;Xfooter /&gt;</span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>Router&gt;,</span><br><span class="line">  <span class="built_in">document</span>.getElementById(<span class="string">'root'</span>))</span><br></pre></td></tr></table></figure>
+<h4 id="2-路由的跳转实现及步骤"><a href="#2-路由的跳转实现及步骤" class="headerlink" title="2. 路由的跳转实现及步骤"></a>2. 路由的跳转实现及步骤</h4><ul>
+<li>建议在index.js页面引入哈希路由</li>
+</ul>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; HashRouter  <span class="keyword">as</span> Router, Route &#125; <span class="keyword">from</span> <span class="string">'react-router-dom'</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>在ReactDOM.render下面写上</li>
+</ul>
+<figure class="highlight dust"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="xml">ReactDOM.render(</span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">Router</span>&gt;</span></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">"/home/"</span> <span class="attr">component</span>=</span></span><span class="template-variable">&#123;Home&#125;</span><span class="xml"><span class="tag"> /&gt;</span>			//判断路径如果是/home/就去home组件</span></span><br><span class="line"><span class="xml">      <span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">"/Detail/"</span> <span class="attr">component</span>=</span></span><span class="template-variable">&#123;Detail&#125;</span><span class="xml"><span class="tag"> /&gt;</span>		//判断路径如果detail就去detail组件</span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">      </span><span class="template-tag">&#123;/* &lt;<span class="name">Redirect</span> from=<span class="string">"/home"</span> to=<span class="string">"/home/wechat"</span> /&gt; */&#125;</span><span class="xml"></span></span><br><span class="line"><span class="xml"></span></span><br><span class="line"><span class="xml">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;/<span class="name">Router</span>&gt;</span>,</span></span><br><span class="line"><span class="xml">  document.getElementById('root'))</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>然后在home页面引入路有插件和小组件</li>
+</ul>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Route &#125; <span class="keyword">from</span> <span class="string">'react-router-dom'</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> Wechat <span class="keyword">from</span> <span class="string">'../Wechat/Wechat'</span></span><br><span class="line"><span class="keyword">import</span> Contact <span class="keyword">from</span> <span class="string">'../Contact/Contact'</span></span><br><span class="line"><span class="keyword">import</span> Research <span class="keyword">from</span> <span class="string">'../Research/Research'</span></span><br><span class="line"><span class="keyword">import</span> Mine <span class="keyword">from</span> <span class="string">'../Mine/Mine'</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>根据路径判断调到那个路由</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">"/home/wechat"</span>  <span class="attr">component</span>=<span class="string">&#123;Wechat&#125;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">"/home/contact"</span> <span class="attr">component</span>=<span class="string">&#123;Contact&#125;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">"/home/research"</span> <span class="attr">component</span>=<span class="string">&#123;Research&#125;</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Route</span> <span class="attr">path</span>=<span class="string">"/home/mine"</span> <span class="attr">component</span>=<span class="string">&#123;Mine&#125;</span> /&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>去Xfooter页面引入路由组件</li>
+</ul>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Link &#125; <span class="keyword">from</span> <span class="string">'react-router-dom'</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>把<code>a</code>标签改为<code>Link</code>，然后在里面写<code>to{/home/${item.href</code></li>
+</ul>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="params">&lt;Link to=&#123;`/home/$&#123;item.href&#125;`&#125;&gt;</span><span class="params">&lt;/Link&gt;</span></span><br><span class="line">解释：你的href要在上面就定义好，然后直接调用，例如：</span><br><span class="line">&#123;title:<span class="string">"微信"</span>,</span><br><span class="line"><span class="symbol">href:</span><span class="string">"wechat"</span>,</span><br><span class="line"><span class="symbol">num:</span><span class="number">8</span>,</span><br><span class="line"><span class="symbol">dot:</span>false&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3-设置默认路由"><a href="#3-设置默认路由" class="headerlink" title="3. 设置默认路由"></a>3. 设置默认路由</h4><ul>
+<li>进入页面引入时加<code>Redirect</code></li>
+</ul>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; HashRouter  <span class="keyword">as</span> Router, Route , Redirect ,Switch&#125; <span class="keyword">from</span> <span class="string">'react-router-dom'</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>下面写默认路由</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(</span><br><span class="line">    &lt;Provider store=&#123;store&#125;&gt;</span><br><span class="line">        &lt;Router&gt;</span><br><span class="line">            &lt;div className=<span class="string">"container iphonex_padding"</span>&gt;</span><br><span class="line">                &lt;Switch&gt;</span><br><span class="line">                    &lt;Route path=<span class="string">"/home/"</span> component=&#123;Home&#125; /&gt;</span><br><span class="line">                    &lt;Redirect <span class="keyword">from</span>=<span class="string">"/"</span> exact  to=<span class="string">"/home/HomeIndex"</span> /&gt;</span><br><span class="line">                &lt;<span class="regexp">/Switch&gt;</span></span><br><span class="line"><span class="regexp">            &lt;/</span>div&gt;</span><br><span class="line">        &lt;<span class="regexp">/Router&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>Provider&gt;, <span class="built_in">document</span>.getElementById(<span class="string">'root'</span>));</span><br><span class="line">  </span><br><span class="line">  ======================</span><br><span class="line"> &lt;Link to=&#123; &#123;<span class="attr">pathname</span>:<span class="string">`/home/<span class="subst">$&#123;item.href&#125;</span>`</span>   replace &gt;</span><br><span class="line"> &lt;<span class="regexp">/Link&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="七、redux组件通信"><a href="#七、redux组件通信" class="headerlink" title="七、redux组件通信"></a>七、redux组件通信</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">npm <span class="keyword">install</span> <span class="comment">--save react-redux</span></span><br><span class="line">npm <span class="keyword">install</span> <span class="comment">--save redux</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>在index.js引入</li>
+</ul>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//redux</span></span><br><span class="line"><span class="keyword">import</span> &#123;Provider, connect&#125; <span class="keyword">from</span> <span class="string">'react-redux'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123;createStore&#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>创建仓库</li>
+</ul>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">const store = createStore(function(<span class="keyword">state</span>=&#123;</span><br><span class="line"></span><br><span class="line">&#125;,action)&#123;&#125;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在下面用<code>Provider</code>包住</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">ReactDOM.render(</span><br><span class="line">  &lt;Provider store=&#123;store&#125;&gt;		<span class="comment">//注入store</span></span><br><span class="line">  &lt;Router&gt;</span><br><span class="line">    &lt;div&gt;</span><br><span class="line">      &lt;Route path=<span class="string">"/home/"</span> component=&#123;Home&#125; /&gt;</span><br><span class="line">      &lt;Route path=<span class="string">"/Detail/"</span> component=&#123;Detail&#125; /&gt;</span><br><span class="line"></span><br><span class="line">      &lt;Redirect <span class="keyword">from</span>=<span class="string">"/home"</span> to=<span class="string">"/home/wechat"</span> /&gt;</span><br><span class="line"></span><br><span class="line">    &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">  &lt;/</span>Router&gt;</span><br><span class="line">  &lt;<span class="regexp">/Provider&gt;,</span></span><br><span class="line"><span class="regexp">  document.getElementById('root'))</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>在你要用redux的仓库引入</li>
+</ul>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; <span class="built_in">connect</span>&#125; from <span class="string">'react-redux'</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在最下面写</li>
+</ul>
+<figure class="highlight coffeescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> connect(<span class="function"><span class="params">(state)</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> state	<span class="regexp">//</span>把你从仓库拿到的东西<span class="keyword">return</span>出来</span><br><span class="line">&#125;,<span class="function"><span class="params">(dispatch)</span>=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        toggleSheet() &#123;			<span class="regexp">//</span>把你改的东西<span class="keyword">return</span>出去</span><br><span class="line">          dispatch(&#123;</span><br><span class="line">            type: <span class="string">'toggleSheet'</span>,</span><br><span class="line">            isShowActionSheet: <span class="literal">false</span></span><br><span class="line">          &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">      &#125;</span><br><span class="line">&#125;)(XactionSheet)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">================在结构里面写的=================</span><br><span class="line"> &lt;div className=<span class="string">"weui-skin_android"</span> onClick=&#123;<span class="keyword">this</span>.props.toggleSheet&#125; id=<span class="string">"androidActionsheet"</span> style=&#123;&#123;</span><br><span class="line">            opacity: <span class="number">1</span>,</span><br><span class="line">            display:<span class="keyword">this</span>.props.isShowActionSheet ? <span class="string">"block"</span>: <span class="string">"none"</span></span><br><span class="line">         &gt;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在index.js里面接收回你改的东西</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> store = createStore(<span class="function"><span class="keyword">function</span>(<span class="params">state=&#123;</span></span></span><br><span class="line"><span class="function"><span class="params">    isShowActionSheet:false		<span class="regexp">//</span>初始化设置为false</span></span></span><br><span class="line"><span class="function"><span class="params">&#125;,action</span>)</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">switch</span> (action.type) &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">'toggleSheet'</span>:	<span class="comment">//如果类型为 ‘toggleSheet’</span></span><br><span class="line">        <span class="keyword">return</span> &#123;		</span><br><span class="line">            ...state,		<span class="comment">//展开state</span></span><br><span class="line">            isShowActionSheet:action.isShowActionSheet	<span class="comment">//设置为接收回来的状态</span></span><br><span class="line">        &#125;</span><br><span class="line">      <span class="keyword">default</span>:</span><br><span class="line">        <span class="keyword">return</span> state	<span class="comment">//默认返回state的东西</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="九、组件"><a href="#九、组件" class="headerlink" title="九、组件"></a>九、组件</h2><ul>
+<li><p>里面包含html，css，js</p>
+</li>
+<li><p>react是把所有的html，css都放进js文件里面</p>
+</li>
+<li>react定义组件，先创建<code>xxx.js</code>，在文件里面引入<code>react</code>模块</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>所有组件继承于<code>Component</code></li>
+</ul>
+<figure class="highlight scala"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">组件名字</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>导出组件</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> App;</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">使用redux时，记住一定要把东西在仓库就先<span class="keyword">return</span>出来，要不然外边拿不到</span><br><span class="line">  <span class="keyword">switch</span> (action.type) &#123;</span><br><span class="line">    <span class="comment">//   case 'toggleSheet':</span></span><br><span class="line">    <span class="comment">//     return &#123;</span></span><br><span class="line">    <span class="comment">//         ...state,</span></span><br><span class="line">    <span class="comment">//         isShowActionSheet:action.isShowActionSheet</span></span><br><span class="line">    <span class="comment">//     &#125;</span></span><br><span class="line">      <span class="keyword">default</span>:</span><br><span class="line">        <span class="keyword">return</span> state</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3-react路由设置、及重定向"><a href="#3-react路由设置、及重定向" class="headerlink" title="3. react路由设置、及重定向"></a>3. react路由设置、及重定向</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">路由冲定向时会报错，记得要引入	**<span class="keyword">import</span> &#123; HashRouter  <span class="keyword">as</span> Router, Route , Redirect ,Switch&#125; <span class="keyword">from</span> <span class="string">'react-router-dom'</span></span><br><span class="line"></span><br><span class="line">===========</span><br><span class="line">用<span class="keyword">switch</span>包住你的路由判断那里</span><br><span class="line">&lt;Switch&gt;</span><br><span class="line">    &lt;Route path=<span class="string">"/home/"</span> component=&#123;Home&#125; /&gt;</span><br><span class="line">    &lt;Redirect <span class="keyword">from</span>=<span class="string">"/"</span> exact  to=<span class="string">"/home/HomeIndex"</span> /&gt;</span><br><span class="line">&lt;<span class="regexp">/Switch&gt;</span></span><br><span class="line"><span class="regexp"></span></span><br><span class="line"><span class="regexp">===============</span></span><br><span class="line"><span class="regexp">在link里面要把普通的`to`改成`to=&#123; &#123;pathname:`/</span>home/$&#123;item.href&#125;<span class="string">`   replace`</span></span><br></pre></td></tr></table></figure>
+<h4 id="4-redux修改仓库中数组的某一项、实现联动效果"><a href="#4-redux修改仓库中数组的某一项、实现联动效果" class="headerlink" title="4. redux修改仓库中数组的某一项、实现联动效果"></a>4. redux修改仓库中数组的某一项、实现联动效果</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">如果你要是想通过点击事件触发仓库中的某一个值，是数组的情况下，你需要遍历仓库中的数组，把你要变得索引传过来，然后让其他的不变，例如：</span><br><span class="line"><span class="keyword">const</span> store = createStore(<span class="function"><span class="keyword">function</span> (<span class="params">state = &#123;</span></span></span><br><span class="line"><span class="function"><span class="params">    navs: [&#123;</span></span></span><br><span class="line"><span class="function"><span class="params">      title: <span class="string">'推荐'</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">      href: <span class="string">'recommend'</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">      isShow:true,</span></span></span><br><span class="line"><span class="function"><span class="params">      recommend: []</span></span></span><br><span class="line"><span class="function"><span class="params">    &#125;, &#123;</span></span></span><br><span class="line"><span class="function"><span class="params">      title: <span class="string">'少儿'</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">      href: <span class="string">'children'</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">      isShow:false,</span></span></span><br><span class="line"><span class="function"><span class="params">      children: []</span></span></span><br><span class="line"><span class="function"><span class="params">    &#125;, &#123;</span></span></span><br><span class="line"><span class="function"><span class="params">      title: <span class="string">'成人'</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">      href: <span class="string">'adult'</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">      isShow:false,</span></span></span><br><span class="line"><span class="function"><span class="params">      adult: []</span></span></span><br><span class="line"><span class="function"><span class="params">    &#125;, &#123;</span></span></span><br><span class="line"><span class="function"><span class="params">      title: <span class="string">'父母'</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">      href: <span class="string">'parents '</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">      isShow:false,</span></span></span><br><span class="line"><span class="function"><span class="params">      parents: []</span></span></span><br><span class="line"><span class="function"><span class="params">    &#125;, &#123;</span></span></span><br><span class="line"><span class="function"><span class="params">      title: <span class="string">'家庭'</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">      href: <span class="string">'family'</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">      isShow:false,</span></span></span><br><span class="line"><span class="function"><span class="params">      family: []</span></span></span><br><span class="line"><span class="function"><span class="params">    &#125;, &#123;</span></span></span><br><span class="line"><span class="function"><span class="params">      title: <span class="string">'旅行'</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">      href: <span class="string">'travel'</span>,</span></span></span><br><span class="line"><span class="function"><span class="params">      isShow:false,</span></span></span><br><span class="line"><span class="function"><span class="params">      travel: []</span></span></span><br><span class="line"><span class="function"><span class="params">    &#125;]</span></span></span><br><span class="line"><span class="function"><span class="params">  &#125; ,action</span>) </span>&#123;</span><br><span class="line">  <span class="keyword">switch</span> (action.type) &#123;</span><br><span class="line">      <span class="keyword">case</span> <span class="string">'isActive'</span>: </span><br><span class="line">      <span class="keyword">var</span>  &#123;navs&#125;  = state		 <span class="comment">// 把仓库赋值给navs</span></span><br><span class="line">      <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;navs.length;i++)&#123;	 <span class="comment">// 遍历navs仓库，找到你要的东西</span></span><br><span class="line">        navs[i].isShow=<span class="literal">false</span></span><br><span class="line">        navs[action.index].isShow =action.isShow</span><br><span class="line">        <span class="built_in">console</span>.log(navs[i])</span><br><span class="line">      &#125;</span><br><span class="line">      navs.isShow = action.noShow</span><br><span class="line">        <span class="keyword">return</span> &#123;</span><br><span class="line">            ...state,</span><br><span class="line">            isShow:<span class="literal">false</span></span><br><span class="line">        &#125;</span><br><span class="line">    <span class="keyword">default</span>:</span><br><span class="line">      <span class="keyword">return</span> state</span><br><span class="line">  &#125;</span><br><span class="line">&#125;)</span><br><span class="line">===============触发那边==============</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> connect(<span class="function">(<span class="params">state</span>)=&gt;</span>&#123;</span><br><span class="line">    <span class="keyword">return</span> state    </span><br><span class="line">&#125; , (dispatch) =&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        isActive(index)&#123;</span><br><span class="line">            <span class="built_in">console</span>.log(<span class="keyword">this</span>.props)</span><br><span class="line">            <span class="keyword">this</span>.setState(&#123;</span><br><span class="line">                isActive:index		<span class="comment">//修改本地的内容</span></span><br><span class="line">            &#125;)</span><br><span class="line">            dispatch(&#123;</span><br><span class="line">                type:<span class="string">"isActive"</span>,</span><br><span class="line">                index: index,	<span class="comment">//传索引`index`</span></span><br><span class="line">                isShow:<span class="literal">true</span>		<span class="comment">//传状态</span></span><br><span class="line">              &#125;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)(Xnav);</span><br></pre></td></tr></table></figure>
+<h4 id="6-路由嵌套问题"><a href="#6-路由嵌套问题" class="headerlink" title="6. 路由嵌套问题"></a>6. 路由嵌套问题</h4><blockquote>
+<p>在哪个页面的二级路由，就写在哪个页面，例如：你要在首页写二级路由，你就把二级路由写在首页，</p>
+<p>然后一级路由会基于你二级路由跳转的路径跳转，所以你要加个斜杠<code>/</code>在一级路由那里<code>/${item.href}</code> </p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">===================二级路由home写法=====================</span><br><span class="line">&lt;Route path=<span class="string">'/home/Xrecommend'</span> component=&#123;Xrecommend&#125; /&gt;</span><br><span class="line">&lt;Route path=<span class="string">"/home/Xchildren"</span>  component=&#123;Xchildren&#125; /&gt;</span><br><span class="line">&lt;Route path=<span class="string">"/home/Xadult"</span> component=&#123;Xadult&#125; /&gt;</span><br><span class="line">&lt;Route path=<span class="string">"/home/Xparents"</span> component=&#123;Xparents&#125; /&gt;</span><br><span class="line">&lt;Route path=<span class="string">"/home/Xfamily"</span> component=&#123;Xfamily&#125; /&gt;</span><br><span class="line">&lt;Route path=<span class="string">"/home/Xtravel"</span> component=&#123;Xtravel&#125; /&gt;</span><br><span class="line"></span><br><span class="line">=============一级路由跳转=============</span><br><span class="line"> &lt;Link to=&#123; &#123;<span class="attr">pathname</span>:<span class="string">`/<span class="subst">$&#123;item.href&#125;</span>`</span>   replace key=&#123;index&#125; onClick=&#123;<span class="keyword">this</span>.toggleClass.bind(<span class="keyword">this</span>,index)&#125;  className=&#123;<span class="keyword">this</span>.state.tab===index? <span class="string">"public_tab_item active"</span> : <span class="string">"public_tab_item"</span>&#125; id=&#123;item.dataId&#125;&gt;</span><br><span class="line"> &lt;div className=<span class="string">"public_tab_info"</span>&gt;</span><br><span class="line"> &lt;p className=&#123;<span class="string">`public_tab_icon <span class="subst">$&#123;item.dataClass&#125;</span>`</span>&#125;&gt;<span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span></span><br><span class="line"> &lt;p&gt;&#123;item.title&#125;&lt;<span class="regexp">/p&gt;</span></span><br><span class="line"><span class="regexp"> &lt;/</span>div&gt;	</span><br><span class="line"> &lt;<span class="regexp">/Link&gt;</span></span><br></pre></td></tr></table></figure>
+<h4 id="7-导航高亮刷新保持"><a href="#7-导航高亮刷新保持" class="headerlink" title="7. 导航高亮刷新保持"></a>7. 导航高亮刷新保持</h4><blockquote>
+<p><code>window.location.hash.slice(2)</code><a href="http://www.cnblogs.com/icaihua/p/9869846.html" target="_blank" rel="noopener">参考链接</a></p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> (<span class="built_in">window</span>.location.hash.slice(<span class="number">2</span>)) &#123;</span><br><span class="line">       <span class="keyword">case</span> <span class="string">"/home/Xrecommend"</span>:</span><br><span class="line">         <span class="keyword">this</span>.state.tab=<span class="number">0</span></span><br><span class="line">         <span class="keyword">break</span>;</span><br><span class="line">         <span class="keyword">case</span> <span class="string">"bestchoice"</span>:</span><br><span class="line">         <span class="keyword">this</span>.state.tab=<span class="number">1</span></span><br><span class="line">         <span class="keyword">break</span>;</span><br><span class="line">         <span class="keyword">case</span> <span class="string">"search"</span>:</span><br><span class="line">         <span class="keyword">this</span>.state.tab=<span class="number">2</span></span><br><span class="line">         <span class="keyword">break</span>;</span><br><span class="line">         <span class="keyword">case</span> <span class="string">"mine"</span>:</span><br><span class="line">         <span class="keyword">this</span>.state.tab=<span class="number">3</span></span><br><span class="line">         <span class="keyword">break</span>;</span><br><span class="line">       <span class="keyword">default</span>: <span class="keyword">this</span>.state.tab=<span class="number">0</span></span><br><span class="line">         <span class="keyword">break</span>;</span><br><span class="line">     &#125;</span><br><span class="line"> &#125;</span><br><span class="line"> **然后下面根据路径变化打类名</span><br><span class="line"> </span><br><span class="line">=============正常方法================</span><br><span class="line"><span class="comment">// 根据路径给togoleclass赋值</span></span><br><span class="line">    <span class="keyword">switch</span> (props.location.pathname) &#123;</span><br><span class="line">     <span class="keyword">case</span> <span class="string">"/home/Xrecommend"</span>:</span><br><span class="line">     <span class="keyword">this</span>.state.togolleClass=<span class="number">0</span></span><br><span class="line">       <span class="keyword">break</span>;</span><br><span class="line">       <span class="keyword">case</span> <span class="string">"/home/Xchildren"</span>:</span><br><span class="line">     <span class="keyword">this</span>.state.togolleClass=<span class="number">1</span></span><br><span class="line">       <span class="keyword">break</span>;</span><br><span class="line">       <span class="keyword">case</span> <span class="string">"/home/Xadult"</span>:</span><br><span class="line">     <span class="keyword">this</span>.state.togolleClass=<span class="number">2</span></span><br><span class="line">       <span class="keyword">break</span>;</span><br><span class="line">       <span class="keyword">case</span> <span class="string">"/home/Xparents"</span>:</span><br><span class="line">     <span class="keyword">this</span>.state.togolleClass=<span class="number">3</span></span><br><span class="line">       <span class="keyword">break</span>;</span><br><span class="line">   <span class="keyword">case</span> <span class="string">"/home/Xfamily"</span>:</span><br><span class="line">     <span class="keyword">this</span>.state.togolleClass=<span class="number">4</span></span><br><span class="line">       <span class="keyword">break</span>;</span><br><span class="line">   <span class="keyword">case</span> <span class="string">"/home/Xtravel"</span>:</span><br><span class="line">     <span class="keyword">this</span>.state.togolleClass=<span class="number">5</span></span><br><span class="line">       <span class="keyword">break</span>;</span><br><span class="line">     <span class="keyword">default</span>:</span><br><span class="line">       <span class="keyword">this</span>.state.togolleClass=<span class="number">0</span></span><br><span class="line">       <span class="keyword">break</span>;</span><br><span class="line">   &#125;</span><br><span class="line">   ===========传值给子组件==========</span><br><span class="line">   &lt;Xnav tab=&#123;<span class="keyword">this</span>.state.togolleClass&#125;/&gt;</span><br><span class="line">   ==========接收============</span><br><span class="line">   <span class="keyword">this</span>.props = props; </span><br><span class="line">   ===========赋值==============</span><br><span class="line">   <span class="keyword">this</span>.state = &#123;</span><br><span class="line">       isActive:<span class="keyword">this</span>.props.tab</span><br><span class="line">      </span><br><span class="line">   &#125;</span><br><span class="line"> <span class="comment">//然后下面根据三元正常判断即可</span></span><br></pre></td></tr></table></figure>
+<h4 id="9-邮箱验证码步骤及思路"><a href="#9-邮箱验证码步骤及思路" class="headerlink" title="9.邮箱验证码步骤及思路"></a>9.邮箱验证码步骤及思路</h4><blockquote>
+<p>思路：当你点击发送验证码时，发起ajax请求，后端生成验证码，发送到你上面<code>注册</code>的邮箱，后端缓存验证码，留到用户拿到验证码输入时进行比对，正确，则插入数据库，失败不插入</p>
+</blockquote>
+<ul>
+<li>先下载模块<code>nodemailer</code></li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install nodemailer --save-dev</span><br></pre></td></tr></table></figure>
+<ul>
+<li>引入模块</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> nodemailer = <span class="built_in">require</span>(<span class="string">'nodemailer'</span>);	<span class="comment">//引入模块</span></span><br><span class="line"><span class="keyword">let</span> transporter = nodemailer.createTransport(&#123;</span><br><span class="line">    service: <span class="string">'qq'</span>,	<span class="comment">//类型qq邮箱</span></span><br><span class="line">    port: <span class="number">465</span>,</span><br><span class="line">    secure: <span class="literal">true</span>, <span class="comment">// true for 465, false for other ports</span></span><br><span class="line">    auth: &#123;</span><br><span class="line">        user:<span class="string">'854453495@qq.com'</span>, <span class="comment">// 发送方的邮箱</span></span><br><span class="line">        pass: <span class="string">'vrtjembbhfcmbegj'</span> <span class="comment">// smtp 的授权码</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">sendMail</span>(<span class="params">mail,code,call</span>)</span>&#123;</span><br><span class="line">    <span class="comment">// 发送的配置项</span></span><br><span class="line">    <span class="keyword">let</span> mailOptions = &#123;</span><br><span class="line">        <span class="keyword">from</span>: <span class="string">'"Fred Foo 👻" &lt;854453495@qq.com&gt;'</span>, <span class="comment">// 发送方</span></span><br><span class="line">        to: mail, <span class="comment">// 接收方</span></span><br><span class="line">        subject: <span class="string">'欢迎注册“小雨伞”保险！'</span>, <span class="comment">// 标题</span></span><br><span class="line">        text: <span class="string">'Hello world?'</span>, <span class="comment">// 文本内容</span></span><br><span class="line">        html: <span class="string">`&lt;h1&gt;您的验证码是:<span class="subst">$&#123;code&#125;</span>,请注意安全性，该验证码有效期为 5分钟&lt;/h1&gt;`</span><span class="comment">//页面内容</span></span><br><span class="line">    &#125;;</span><br><span class="line"></span><br><span class="line">   <span class="comment">//发送函数</span></span><br><span class="line">    transporter.sendMail(mailOptions, (error, info) =&gt; &#123;</span><br><span class="line">    <span class="keyword">if</span> (error) &#123;</span><br><span class="line">       call(<span class="number">-1</span>)</span><br><span class="line">    &#125;</span><br><span class="line">     call(<span class="number">0</span>)<span class="comment">//因为是异步 所有需要回调函数通知成功结果</span></span><br><span class="line"></span><br><span class="line">    &#125;);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="built_in">module</span>.exports=&#123;sendMail&#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>接收前端路由处</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> express = <span class="built_in">require</span>(<span class="string">'express'</span>);</span><br><span class="line"><span class="keyword">var</span> router = express.Router();</span><br><span class="line"><span class="keyword">var</span> db = <span class="built_in">require</span>(<span class="string">'../lib/db.js'</span>);</span><br><span class="line"><span class="keyword">var</span> email = <span class="built_in">require</span>(<span class="string">'./sendEmail.js'</span>);	<span class="comment">//引入封装好的函数</span></span><br><span class="line"><span class="built_in">console</span>.log(email)</span><br><span class="line"><span class="comment">//解决跨域问题</span></span><br><span class="line">router.all(<span class="string">'*'</span>, <span class="function"><span class="keyword">function</span> (<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">  res.header(<span class="string">'Access-Control-Allow-Origin'</span>, <span class="string">'*'</span>);</span><br><span class="line">  <span class="comment">//Access-Control-Allow-Headers ,可根据浏览器的F12查看,把对应的粘贴在这里就行</span></span><br><span class="line">  res.header(<span class="string">'Access-Control-Allow-Headers'</span>, <span class="string">'Content-Type'</span>);</span><br><span class="line">  res.header(<span class="string">'Access-Control-Allow-Methods'</span>, <span class="string">'*'</span>);</span><br><span class="line">  res.header(<span class="string">'Content-Type'</span>, <span class="string">'application/json;charset=utf-8'</span>);</span><br><span class="line">  next();</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"><span class="comment">/* GET users listing. */</span></span><br><span class="line">router.get(<span class="string">'/'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">  res.send(<span class="string">'respond with a resource'</span>);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> check=&#123;&#125;	<span class="comment">//声明一个对象缓存邮箱和验证码，留着</span></span><br><span class="line">router.post(<span class="string">'/email'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(req.body.params)</span><br><span class="line">    <span class="keyword">let</span> mail=req.body.params.email</span><br><span class="line">    <span class="keyword">if</span> (!mail) &#123;<span class="keyword">return</span> res.send(<span class="string">'参数错误'</span>)&#125;	<span class="comment">//email出错时或者为空时</span></span><br><span class="line">    <span class="keyword">let</span> code = <span class="built_in">parseInt</span>(<span class="built_in">Math</span>.random(<span class="number">0</span>,<span class="number">1</span>)*<span class="number">10000</span>)	<span class="comment">//生成随机验证码</span></span><br><span class="line">    check[mail]=code</span><br><span class="line">    <span class="comment">//发送邮件</span></span><br><span class="line">     email.sendMail(mail,code,(state)=&gt;&#123;</span><br><span class="line">            <span class="keyword">if</span> (state) &#123;</span><br><span class="line">                res.send(<span class="string">'验证码发送成功'</span>)</span><br><span class="line">            &#125;<span class="keyword">else</span>&#123;</span><br><span class="line">               res.send(<span class="string">'验证码发送失败'</span>)</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">      &#125;)</span><br><span class="line">   </span><br><span class="line">  </span><br><span class="line">&#125;);</span><br><span class="line">router.post(<span class="string">'/login'</span>, <span class="function"><span class="keyword">function</span>(<span class="params">req, res, next</span>) </span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(req.body.params)</span><br><span class="line">     db.query(<span class="function"><span class="keyword">function</span>(<span class="params">db</span>) </span>&#123; <span class="comment">//这里要用函数</span></span><br><span class="line">        db.collection(<span class="string">"login"</span>).insertMany([req.body.params], <span class="function"><span class="keyword">function</span>(<span class="params">err, result</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">            res.send(<span class="string">'succees'</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">&#125;);</span><br><span class="line"><span class="built_in">module</span>.exports = router;</span><br></pre></td></tr></table></figure>
+<h4 id="10-路由获取方法"><a href="#10-路由获取方法" class="headerlink" title="10.路由获取方法"></a>10.路由获取方法</h4><blockquote>
+<p>思路：在最大的组件获取到路由，通过props方法传到需要的子组件去</p>
+<p>备注：因为小组件拿不到props</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> url = <span class="keyword">this</span>.props.loction.pathname</span><br><span class="line">&lt;Xheader url=&#123;url&#125;/&gt;</span><br></pre></td></tr></table></figure>
+<h4 id="11-路由跳转的两种方式"><a href="#11-路由跳转的两种方式" class="headerlink" title="11.路由跳转的两种方式"></a>11.路由跳转的两种方式</h4><blockquote>
+<p>备注：如果不是需要注册登录那种判断，用Link即可</p>
+</blockquote>
+<ul>
+<li>Link方式</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; Link  &#125; <span class="keyword">from</span> <span class="string">'react-router-dom'</span></span><br><span class="line"></span><br><span class="line">&lt;Link to=&#123; &#123;<span class="attr">pathname</span>:<span class="string">`/<span class="subst">$&#123;item.href&#125;</span>`</span>   replace &gt; <span class="xml"><span class="tag">&lt;/<span class="name">Link</span>&gt;</span></span></span><br><span class="line">&lt;Link to=&#123; &#123;<span class="string">`/home`</span>  replace &gt; <span class="xml"><span class="tag">&lt;/<span class="name">Link</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>withRouter 方式</li>
+</ul>
+<p>应用场景说明:</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"> &lt;Route exact path=<span class="string">"/Home"</span> component=&#123;Home&#125;/&gt;</span><br><span class="line"></span><br><span class="line">目的就是让被修饰的组件可以从属性中获取history,location,match,</span><br><span class="line">路由组件可以直接获取这些属性，而非路由组件就必须通过withRouter修饰后才能获取这些属性了</span><br><span class="line"><span class="number">1.</span>只有包裹在Route组件里的才能使用<span class="string">`this.props.location`</span>，</span><br><span class="line"><span class="number">2.</span>假如有个需求，是面包屑或者导航组件里需要拿到<span class="string">`this.props.location`</span>（导航组件或者面包屑一般不会包裹在<span class="string">`Route`</span>里吧），那么直接这么写显然就不行了。必须通过withRouter修饰后才能获取到。</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; withRouter   &#125; <span class="keyword">from</span> <span class="string">'react-router-dom'</span></span><br><span class="line">===========React-Router <span class="number">2.4</span><span class="number">.0</span>版本以上=========</span><br><span class="line"><span class="keyword">import</span> &#123; withRouter &#125; <span class="keyword">from</span> <span class="string">'react-router'</span>;</span><br><span class="line">clsss ABC extends Component &#123;</span><br><span class="line">&#125;</span><br><span class="line"><span class="built_in">module</span>.exports = withRouter(ABC);</span><br><span class="line"></span><br><span class="line">===========React-Router <span class="number">3.0</span><span class="number">.0</span>版本以上=========</span><br><span class="line"><span class="keyword">this</span>.props.router.push(<span class="string">'/home/Xrecommend'</span>)</span><br><span class="line"></span><br><span class="line">===========React-Router <span class="number">4.0</span>版本以上===========</span><br><span class="line"><span class="keyword">this</span>.props.history.push(<span class="string">'/home/Xrecommend'</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>稳稳的写法</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; withRouter   &#125; <span class="keyword">from</span> <span class="string">'react-router-dom'</span></span><br><span class="line">=============================================</span><br><span class="line">goCar()&#123;</span><br><span class="line">   <span class="keyword">this</span>.props.history.push(<span class="string">'/carOrder'</span>)</span><br><span class="line"> &#125;</span><br><span class="line">============================================= </span><br><span class="line"> <span class="keyword">export</span> <span class="keyword">default</span> withRouter(Xorder)</span><br></pre></td></tr></table></figure>
+<h4 id="12-参数的获取"><a href="#12-参数的获取" class="headerlink" title="12.参数的获取"></a>12.参数的获取</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">使用<span class="string">`this.props.match.params.xxx`</span> 可以获取到当前路由的参数</span><br></pre></td></tr></table></figure>
+<h4 id="13-react-cookie用法"><a href="#13-react-cookie用法" class="headerlink" title="13.react cookie用法"></a>13.react <code>cookie</code>用法</h4><ul>
+<li>先下载模块</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cnpm install  react-cookie --save-dev</span><br></pre></td></tr></table></figure>
+<ul>
+<li>引入</li>
+</ul>
+<figure class="highlight clean"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> cookie <span class="keyword">from</span> <span class="string">'react-cookies'</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>存入<code>cookie</code></li>
+</ul>
+<figure class="highlight plain"><figcaption><span>basic</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cookie.save(&apos;userId&apos;, this.state.value)；</span><br></pre></td></tr></table></figure>
+<ul>
+<li>删除<code>cookie</code></li>
+</ul>
+<figure class="highlight arduino"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cookie.<span class="built_in">remove</span>(<span class="string">'userId'</span>)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>获取<code>cookie</code></li>
+</ul>
+<figure class="highlight pf"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">select([regex])</span><br><span class="line">this.<span class="keyword">state</span> =  &#123; <span class="keyword">user</span>Id: cookie.<span class="built_in">load</span>('<span class="keyword">user</span>Id') &#125;;</span><br></pre></td></tr></table></figure>
+<h4 id="14-React的Sass配置"><a href="#14-React的Sass配置" class="headerlink" title="14.React的Sass配置"></a>14.React的Sass配置</h4><ul>
+<li>先下载</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install sass-loader node-sass --save-dev</span><br></pre></td></tr></table></figure>
+<ul>
+<li>找到配置文件，</li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">node_modules/react-scripts/config/webpack.config.dev.js</span><br></pre></td></tr></table></figure>
+<ul>
+<li>找到module下的rules，然后找到最后一个配置，修改成如下的样子 </li>
+</ul>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    exclude: [/\.js$/,/\.html$/,/\.json$/,/\.scss$/],</span><br><span class="line"></span><br><span class="line">    loader: require.resolve(<span class="string">'file-loader'</span>),</span><br><span class="line"></span><br><span class="line">    options: &#123;</span><br><span class="line"></span><br><span class="line">            name: <span class="string">'static/media/[name].[hash:8].[ext]'</span>,</span><br><span class="line"></span><br><span class="line">        &#125;,</span><br><span class="line"></span><br><span class="line">&#125;,</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line"></span><br><span class="line">    <span class="built_in">test</span>:/\.scss$/,</span><br><span class="line"></span><br><span class="line">    loaders:[<span class="string">'style-loader'</span>,<span class="string">'css-loader'</span>,<span class="string">'sass-loader'</span>]</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">备注：如果不行的话，再把`webpack.config.prod.js`也变成同样的配置</span><br></pre></td></tr></table></figure>
+<h4 id="15-loading效果"><a href="#15-loading效果" class="headerlink" title="15.loading效果"></a>15.loading效果</h4><blockquote>
+<p>veu、react通用</p>
+</blockquote>
+<ul>
+<li>下载、引入axios</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">========react=========</span><br><span class="line">cnpm install axios --save-dev</span><br><span class="line"><span class="keyword">import</span> axios <span class="keyword">from</span> <span class="string">'axios'</span></span><br><span class="line">=========vue==========</span><br><span class="line">cnpm install mint-ui --save-dev</span><br><span class="line"><span class="keyword">import</span> Mint <span class="keyword">from</span> <span class="string">'mint-ui'</span>;</span><br><span class="line">Vue.use(Mint);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>下载引入antd-mobile </li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">=========react==========</span><br><span class="line"><span class="keyword">import</span> &#123; Toast &#125; <span class="keyword">from</span> <span class="string">'antd-mobile'</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="string">'./assets/antd-mobile.css'</span></span><br><span class="line">==========vue===========</span><br></pre></td></tr></table></figure>
+<ul>
+<li>引入样式</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">备注：样式在node-modues里面，可自行找路径，或复制过来</span><br><span class="line"><span class="keyword">import</span> <span class="string">'./assets/antd-mobile.css'</span></span><br><span class="line">*vue如需引用样式，同理</span><br><span class="line"><span class="keyword">import</span> <span class="string">'mint-ui/lib/style.css'</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在index.js写如下代码</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">=============请求之前loading==============</span><br><span class="line">axios.interceptors.request.use(<span class="function">(<span class="params">config</span>) =&gt;</span> &#123;</span><br><span class="line">  Toast.loading(<span class="string">''</span>, <span class="number">3</span>,<span class="literal">true</span>);</span><br><span class="line">	<span class="keyword">return</span> config;</span><br><span class="line">&#125;, (err) =&gt; &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">Promise</span>.reject(err)</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line">===========请求成功之后取消loading=======</span><br><span class="line">axios.interceptors.response.use(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">	Toast.hide(); <span class="comment">//关闭loading</span></span><br><span class="line">	<span class="keyword">return</span> response;</span><br><span class="line">&#125;, (err) =&gt; &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">Promise</span>.reject(err);</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<ul>
+<li>在vue的main.js中</li>
+</ul>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">============请求之前loading==============</span><br><span class="line">Axios.interceptors.request.use(<span class="function">(<span class="params">config</span>) =&gt;</span> &#123;</span><br><span class="line">	Mint.Indicator.open(&#123; <span class="comment">//打开loading</span></span><br><span class="line">		text: <span class="string">'加载中...'</span>,</span><br><span class="line">		spinnerType: <span class="string">'fading-circle'</span></span><br><span class="line">	&#125;);</span><br><span class="line">	<span class="keyword">return</span> config;</span><br><span class="line">&#125;, (err) =&gt; &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">Promise</span>.reject(err)</span><br><span class="line"></span><br><span class="line">&#125;)</span><br><span class="line">==============请求成功之后取消loading=======</span><br><span class="line">Axios.interceptors.response.use(<span class="function">(<span class="params">response</span>) =&gt;</span> &#123;</span><br><span class="line">	Mint.Indicator.close(); <span class="comment">//关闭loading</span></span><br><span class="line">	<span class="keyword">return</span> response;</span><br><span class="line">&#125;, (err) =&gt; &#123;</span><br><span class="line">	<span class="keyword">return</span> <span class="built_in">Promise</span>.reject(err);</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h4 id="16-回退goback-用法"><a href="#16-回退goback-用法" class="headerlink" title="16.回退goback()用法"></a>16.回退<code>goback()</code>用法</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123;createHashHistory&#125; <span class="keyword">from</span> <span class="string">'history'</span>;<span class="comment">//组件引入</span></span><br><span class="line"><span class="keyword">const</span> history = createHashHistory();</span><br><span class="line">===========后退=========</span><br><span class="line">goback()&#123;</span><br><span class="line">      <span class="keyword">this</span>.props.history.goBack()  </span><br><span class="line">  &#125;</span><br><span class="line">===========前进========</span><br><span class="line"> push()&#123;</span><br><span class="line">      <span class="keyword">this</span>.props.history.push()  </span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h4 id="切换路由回退顶部"><a href="#切换路由回退顶部" class="headerlink" title="切换路由回退顶部"></a>切换路由回退顶部</h4><figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ScrollToTop</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">  componentDidUpdate(prevProps) &#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="keyword">this</span>.props.location !== prevProps.location) &#123;</span><br><span class="line">      <span class="built_in">window</span>.scrollTo(<span class="number">0</span>, <span class="number">0</span>);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  render() &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">this</span>.props.children;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> withRouter(ScrollToTop);</span><br><span class="line"><span class="comment">//Route包裹 传入location 监听其变化新旧location不相等则执行window.scrollTo(0, 0);回顶部</span></span><br><span class="line">&lt;Route history=&#123;history&#125;  render=&#123;(&#123; location &#125;) =&gt; (</span><br><span class="line">    &lt;ScrollToTop location=&#123;location&#125;&gt;</span><br><span class="line">        &lt;div style=&#123;&#123;<span class="attr">position</span>: <span class="string">'absolute'</span>,<span class="attr">width</span>:<span class="string">'100%'</span>,<span class="attr">height</span>:<span class="string">'100%'</span>&gt;</span><br><span class="line">            &lt;Switch location=&#123;location&#125;&gt;</span><br><span class="line">                    &lt;Route  path=<span class="string">"/home/"</span> component=&#123;Home&#125; /&gt;</span><br><span class="line">                    &lt;Route  path=<span class="string">"/detail/"</span> component=&#123;Detail&#125; /&gt;</span><br><span class="line">                    &lt;Route  path=<span class="string">"/param/"</span> component=&#123;Param&#125; /&gt; </span><br><span class="line">                    &lt;Route  path=<span class="string">"/comment/"</span> component=&#123;Comment&#125; /&gt; </span><br><span class="line">                    &lt;Route  path=<span class="string">"/mine/"</span> component=&#123;Mine&#125; /&gt;</span><br><span class="line">                    &lt;Route  path=<span class="string">"/list"</span> component=&#123;List&#125;/&gt;</span><br><span class="line">                    &lt;Route  history=&#123;history&#125;  path=<span class="string">"/login"</span> component=&#123;Login&#125;/&gt;</span><br><span class="line">                    &lt;Route  history=&#123;history&#125; path=<span class="string">"/registe"</span> component=&#123;Registe&#125;/&gt;</span><br><span class="line">                    &lt;Route  path=<span class="string">"/phone"</span> component=&#123;Phone&#125;/&gt;</span><br><span class="line">                    &lt;Route path=<span class="string">"/exchangeRate"</span> component=&#123;ExchangeRate&#125;/&gt;</span><br><span class="line">                    &lt;Route path=<span class="string">"/cart/"</span> component=&#123;Cart&#125;/&gt;</span><br><span class="line">                    &lt;Route path=<span class="string">"/personal/"</span> component=&#123;Personal&#125;/&gt;</span><br><span class="line">                    &lt;Redirect history=&#123;history&#125; <span class="keyword">from</span>=<span class="string">"/"</span> exact to=<span class="string">"/home/mainPage1"</span> /&gt;</span><br><span class="line">                &lt;<span class="regexp">/Switch&gt; </span></span><br><span class="line"><span class="regexp">        &lt;/</span>div&gt;</span><br><span class="line">    &lt;<span class="regexp">/ScrollToTop&gt;</span></span><br><span class="line"><span class="regexp">)&#125;/</span>&gt;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------阅读有风险<i class="fa fa-paw"></i>请谨慎阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/react/" rel="tag"># react</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/12/nginx代理/" rel="next" title="nginx代理">
+                <i class="fa fa-chevron-left"></i> nginx代理
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/12/vue脚手架/" rel="prev" title="vue脚手架">
+                vue脚手架 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/baby.png" alt="唐唐胖次">
+            
+              <p class="site-author-name" itemprop="name">唐唐胖次</p>
+              <div class="site-description motion-element" itemprop="description">每天努力一点点</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">55</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/Junokl" title="GitHub &rarr; https://github.com/Junokl" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#一、react脚手架安装步骤"><span class="nav-number">1.</span> <span class="nav-text">一、react脚手架安装步骤</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、react添加取消类名方式"><span class="nav-number">2.</span> <span class="nav-text">二、react添加取消类名方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-添加取消类名"><span class="nav-number">2.0.1.</span> <span class="nav-text">1. 添加取消类名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-tab切换形式"><span class="nav-number">2.0.2.</span> <span class="nav-text">2. tab切换形式</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#三、文本框聚焦"><span class="nav-number">3.</span> <span class="nav-text">三、文本框聚焦</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、获取文本框的value方法"><span class="nav-number">4.</span> <span class="nav-text">四、获取文本框的value方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五、函数式编程"><span class="nav-number">5.</span> <span class="nav-text">五、函数式编程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#六、路由"><span class="nav-number">5.1.</span> <span class="nav-text">六、路由</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-路由的起步"><span class="nav-number">5.1.1.</span> <span class="nav-text">1. 路由的起步</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-路由的跳转实现及步骤"><span class="nav-number">5.1.2.</span> <span class="nav-text">2. 路由的跳转实现及步骤</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3-设置默认路由"><span class="nav-number">5.1.3.</span> <span class="nav-text">3. 设置默认路由</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七、redux组件通信"><span class="nav-number">6.</span> <span class="nav-text">七、redux组件通信</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#九、组件"><span class="nav-number">7.</span> <span class="nav-text">九、组件</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#3-react路由设置、及重定向"><span class="nav-number">7.0.1.</span> <span class="nav-text">3. react路由设置、及重定向</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-redux修改仓库中数组的某一项、实现联动效果"><span class="nav-number">7.0.2.</span> <span class="nav-text">4. redux修改仓库中数组的某一项、实现联动效果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#6-路由嵌套问题"><span class="nav-number">7.0.3.</span> <span class="nav-text">6. 路由嵌套问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#7-导航高亮刷新保持"><span class="nav-number">7.0.4.</span> <span class="nav-text">7. 导航高亮刷新保持</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#9-邮箱验证码步骤及思路"><span class="nav-number">7.0.5.</span> <span class="nav-text">9.邮箱验证码步骤及思路</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#10-路由获取方法"><span class="nav-number">7.0.6.</span> <span class="nav-text">10.路由获取方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#11-路由跳转的两种方式"><span class="nav-number">7.0.7.</span> <span class="nav-text">11.路由跳转的两种方式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#12-参数的获取"><span class="nav-number">7.0.8.</span> <span class="nav-text">12.参数的获取</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#13-react-cookie用法"><span class="nav-number">7.0.9.</span> <span class="nav-text">13.react cookie用法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#14-React的Sass配置"><span class="nav-number">7.0.10.</span> <span class="nav-text">14.React的Sass配置</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#15-loading效果"><span class="nav-number">7.0.11.</span> <span class="nav-text">15.loading效果</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#16-回退goback-用法"><span class="nav-number">7.0.12.</span> <span class="nav-text">16.回退goback()用法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#切换路由回退顶部"><span class="nav-number">7.0.13.</span> <span class="nav-text">切换路由回退顶部</span></a></li></ol></li></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">唐唐胖次</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,0" opacity="0.5" zindex="-1" count="150" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>

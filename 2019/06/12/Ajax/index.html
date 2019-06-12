@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/Ham.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/Ham.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="Ajax了解AJAX AJAX: Asynchronous Javascript And Xml，Ajax 技术的核心是XMLHttpRequest对象（简称XHR），这是由微软首先引入的一个特性，其他浏览器提供商后来都提供了相同的实现  *Ajax起源：最早出现在2005年的google搜索建议  ajax优点 增加速度：减轻服务器的负担,按需加载数据,最大程度的减少冗余请求 改善的用户体验：局">
+<meta name="keywords" content="ajax">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ajax">
+<meta property="og:url" content="http://Junokl.com/2019/06/12/Ajax/index.html">
+<meta property="og:site_name" content="势必要上进的咸鱼军">
+<meta property="og:description" content="Ajax了解AJAX AJAX: Asynchronous Javascript And Xml，Ajax 技术的核心是XMLHttpRequest对象（简称XHR），这是由微软首先引入的一个特性，其他浏览器提供商后来都提供了相同的实现  *Ajax起源：最早出现在2005年的google搜索建议  ajax优点 增加速度：减轻服务器的负担,按需加载数据,最大程度的减少冗余请求 改善的用户体验：局">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-06-12T03:32:19.083Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Ajax">
+<meta name="twitter:description" content="Ajax了解AJAX AJAX: Asynchronous Javascript And Xml，Ajax 技术的核心是XMLHttpRequest对象（简称XHR），这是由微软首先引入的一个特性，其他浏览器提供商后来都提供了相同的实现  *Ajax起源：最早出现在2005年的google搜索建议  ajax优点 增加速度：减轻服务器的负担,按需加载数据,最大程度的减少冗余请求 改善的用户体验：局">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://Junokl.com/2019/06/12/Ajax/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>Ajax | 势必要上进的咸鱼军</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">势必要上进的咸鱼军</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">一只小小小攻城狮</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">19</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">18</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">55</span></a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Junokl.com/2019/06/12/Ajax/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="唐唐胖次">
+      <meta itemprop="description" content="每天努力一点点">
+      <meta itemprop="image" content="/images/baby.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="势必要上进的咸鱼军">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Ajax
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-12 11:31:20" itemprop="dateCreated datePublished" datetime="2019-06-12T11:31:20+08:00">2019-06-12</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/ajax/" itemprop="url" rel="index"><span itemprop="name">ajax</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Ajax"><a href="#Ajax" class="headerlink" title="Ajax"></a>Ajax</h1><h2 id="了解AJAX"><a href="#了解AJAX" class="headerlink" title="了解AJAX"></a>了解AJAX</h2><ul>
+<li>AJAX: Asynchronous Javascript And Xml，Ajax 技术的核心是XMLHttpRequest对象（简称XHR），这是由微软首先引入的一个特性，其他浏览器提供商后来都提供了相同的实现</li>
+</ul>
+<p>*Ajax起源：<br>最早出现在2005年的google搜索建议</p>
+<ul>
+<li>ajax优点<ul>
+<li>增加速度：减轻服务器的负担,按需加载数据,最大程度的减少冗余请求</li>
+<li>改善的用户体验：局部刷新页面,减少用户等待时间,带来更好的用户体验</li>
+<li>页面和数据分离：前后端分离，操作更灵活，后期维护更方便</li>
+</ul>
+</li>
+<li>后端语言和服务器配置<ul>
+<li>php + Apache + mySQL</li>
+<li>NodeJS + MongoDB</li>
+<li>Java + tomcat + Oracle</li>
+<li>.NET + IIS + SQL Server</li>
+</ul>
+</li>
+</ul>
+<h2 id="json"><a href="#json" class="headerlink" title="json"></a>json</h2><h4 id="json数据-json字符串"><a href="#json数据-json字符串" class="headerlink" title="json数据(json字符串)"></a>json数据(json字符串)</h4><figure class="highlight prolog"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;<span class="string">"id"</span> : <span class="number">21465461461461</span>, <span class="string">"name"</span>: <span class="string">"张三"</span>&#125;,[&#123;<span class="string">"id"</span> : <span class="number">21465461461461</span>, <span class="string">"name"</span>: <span class="string">"张三"</span>&#125;]</span><br></pre></td></tr></table></figure>
+<h4 id="json字符串与对象的转换"><a href="#json字符串与对象的转换" class="headerlink" title="json字符串与对象的转换"></a>json字符串与对象的转换</h4><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">//（一）json字符串转成对象的转换</span><br><span class="line">//<span class="number">1</span>. <span class="built_in">eval</span>(<span class="string">"("</span>+json字符串+<span class="string">")"</span>); </span><br><span class="line">它的作用是，将一个普通的json格式的字符串，转换成Json格式的对象</span><br><span class="line">//<span class="built_in">var</span> list = <span class="built_in">eval</span>(<span class="string">"("</span>+request.responseText+<span class="string">")"</span>);</span><br><span class="line">//<span class="number">2</span>. JSON.parse(); //把JSON字符串转成JSON对象(js对象/数组)【es5】</span><br><span class="line"></span><br><span class="line">//（二）把JSON对象转成JSON字符串</span><br><span class="line">JSON.stringify();</span><br></pre></td></tr></table></figure>
+<h4 id="了解json文件存在的意义"><a href="#了解json文件存在的意义" class="headerlink" title="了解json文件存在的意义"></a>了解json文件存在的意义</h4><figure class="highlight cs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//模拟数据(与后端先商量)</span></span><br><span class="line">[<span class="meta"></span></span><br><span class="line"><span class="meta">	&#123;</span></span><br><span class="line"><span class="meta">		<span class="meta-string">"id"</span>:<span class="meta-string">"G001"</span>,</span></span><br><span class="line"><span class="meta">		<span class="meta-string">"name"</span>:<span class="meta-string">"Thermos 膳魔师 Funtainer系列水杯 12盎司（340g） 粉红色"</span>,</span></span><br><span class="line"><span class="meta">		<span class="meta-string">"imgurl"</span>:<span class="meta-string">"images/g1.jpg"</span>,</span></span><br><span class="line"><span class="meta">		<span class="meta-string">"price"</span>:899,</span></span><br><span class="line"><span class="meta">	&#125;</span></span><br><span class="line"><span class="meta"></span>]</span><br></pre></td></tr></table></figure>
+<h2 id="Ajax请求步骤"><a href="#Ajax请求步骤" class="headerlink" title="Ajax请求步骤"></a>Ajax请求步骤</h2><h4 id="创建请求对象-返回一个异步请求对象"><a href="#创建请求对象-返回一个异步请求对象" class="headerlink" title="创建请求对象,返回一个异步请求对象"></a>创建请求对象,返回一个异步请求对象</h4><p><code>var xhr = new XMLHttpRequest();</code></p>
+<h4 id="处理服务器返回数据"><a href="#处理服务器返回数据" class="headerlink" title="处理服务器返回数据"></a>处理服务器返回数据</h4><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">xhr.onreadystatechange = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(xhr.readyState == <span class="number">4</span>) &#123;</span><br><span class="line">        <span class="comment">//responseText：保存服务器返回的数据（从服务器返回的数据是“字符串”）。</span></span><br><span class="line">        alert(xhr.responseText);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="设置请求参数，建立与服务器连接"><a href="#设置请求参数，建立与服务器连接" class="headerlink" title="设置请求参数，建立与服务器连接"></a>设置请求参数，建立与服务器连接</h4><figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">xhr.<span class="keyword">open</span>(<span class="string">"get"</span>, <span class="string">"http://localhost/api/ajaxtest"</span>, <span class="keyword">true</span>);</span><br></pre></td></tr></table></figure>
+<h4 id="向服务器发送请求"><a href="#向服务器发送请求" class="headerlink" title="向服务器发送请求"></a>向服务器发送请求</h4><p><code>xhr.send(null);</code></p>
+<h6 id="案例：演示向goodslist-json请求数据"><a href="#案例：演示向goodslist-json请求数据" class="headerlink" title="案例：演示向goodslist.json请求数据"></a>案例：演示向goodslist.json请求数据</h6><h2 id="XMLHttpRequest对象属性方法"><a href="#XMLHttpRequest对象属性方法" class="headerlink" title="XMLHttpRequest对象属性方法"></a>XMLHttpRequest对象属性方法</h2><h4 id="open-type-url（同源策略）-async（同步、异步）"><a href="#open-type-url（同源策略）-async（同步、异步）" class="headerlink" title="open(type,url（同源策略）,async（同步、异步）)"></a>open(type,url（同源策略）,async（同步、异步）)</h4><figure class="highlight livecodeserver"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span><span class="built_in">open</span>(type,url,async): 建立与服务器的连接</span><br><span class="line">    type：请求的类型，<span class="built_in">get</span>、<span class="built_in">post</span></span><br><span class="line">    	* 区别? </span><br><span class="line">    		<span class="built_in">get</span>请求数据接在url后面，<span class="built_in">post</span>请求数据通过<span class="built_in">send</span>方法传递</span><br><span class="line">    		<span class="built_in">get</span>传递的数据会比较少</span><br><span class="line">    		<span class="built_in">get</span>传递的数据会暴露出来</span><br><span class="line">    url：数据请求的地址（API地址），一般由后端开发人员提供</span><br><span class="line">        * 当前页面访问地址，API地址两者一定要同域</span><br><span class="line">        * 同域（同源策略）：协议，域名，端口三者一致</span><br><span class="line">        * 报错： No <span class="string">'Access-Control-Allow-Origin'</span> header is present <span class="keyword">on</span> <span class="title">the</span> <span class="title">requested</span> <span class="title">resource</span>. <span class="title">Origin</span> <span class="string">'null'</span> <span class="title">is</span> <span class="title">therefore</span> <span class="title">not</span> <span class="title">allowed</span> <span class="title">access</span>.</span><br><span class="line">	async：是否异步发送请求（<span class="literal">true</span>,<span class="literal">false</span>），默认为<span class="literal">true</span></span><br><span class="line">        * 同步：按步骤顺序执行，前面的代码执行完后，后面的代码才会执行</span><br><span class="line">        	做完前一件事情, 才能下一件事情（排队）</span><br><span class="line">        * 异步：与其他操作同时执行，也叫并发（图片加载，ajax请求，定时器）</span><br></pre></td></tr></table></figure>
+<h4 id="send-data"><a href="#send-data" class="headerlink" title="send(data)"></a>send(data)</h4><figure class="highlight fsharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">2.</span>send(data): 向服务器发送请求</span><br><span class="line">	data：可选参数，post请求时才生效，表示发请求时传送的数据字符串。</span><br><span class="line">    	 xhr.send('size=<span class="number">20</span>&amp;<span class="class"><span class="keyword">type</span></span>=music');</span><br><span class="line">		在某些浏览器中，如果不需要通过post请求主体发送数据，则必须传入<span class="keyword">null</span></span><br><span class="line"><span class="comment">//备注：get请求的数据写在url地址后</span></span><br><span class="line">	request.<span class="keyword">open</span>(<span class="string">"get"</span>, <span class="string">"http://localhost/api/getdata.php?type=get&amp;qty=10"</span>, <span class="keyword">true</span>);</span><br><span class="line">	setRequestHeader(key,<span class="keyword">val</span>)：设置请求头</span><br><span class="line"><span class="comment">//备注：利用请求头设置POST提交数据格式：</span></span><br><span class="line">	xhr.setRequestHeader(‘content-<span class="class"><span class="keyword">type</span>’,”<span class="title">application</span>/<span class="title">x</span>-<span class="title">www</span>-<span class="title">form</span>-<span class="title">urlencoded</span>”)；//<span class="title">open</span>方法后设置</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>**在请求收到服务器的响应后，响应的数据会自动填充xhr 对象的属性，相关的属性简介如下：</p>
+</blockquote>
+<h4 id="readyState"><a href="#readyState" class="headerlink" title="readyState"></a>readyState</h4><figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0</span> － （未初始化）尚未调用<span class="keyword">open</span>()方法。</span><br><span class="line"><span class="number">1</span> － （启动）已经调用<span class="keyword">open</span>()方法，但尚未调用<span class="built_in">send</span>()方法。</span><br><span class="line"><span class="number">2</span> － （发送）<span class="built_in">send</span>()方法执行完成，但尚未接收到响应。</span><br><span class="line"><span class="number">3</span> － （接收）已经接收到部分响应数据。</span><br><span class="line"><span class="number">4</span> － （完成）响应内容解析完成，可以在客户端调用了</span><br><span class="line">只要readyState 属性的值由一个值变成另一个值，都会触发一次readystatechange 事件。必须在调用<span class="keyword">open</span>()之前指定onreadystatechange事件处理程序才能确保跨浏览器兼容性。</span><br></pre></td></tr></table></figure>
+<h4 id="responseText"><a href="#responseText" class="headerlink" title="responseText"></a>responseText</h4><pre><code>保存服务器返回的数据（从服务器返回的数据是“字符串”）。
+</code></pre><h4 id="status"><a href="#status" class="headerlink" title="status"></a>status</h4><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">* 响应的HTTP 状态。</span><br><span class="line">200（OK）：服务器成功返回了页面</span><br><span class="line">304（<span class="keyword">Not</span> Modified）：数据与服务器相同，不需要重服务器请求（直接使用缓存的数据）</span><br><span class="line">400（Bad Request）：语法错误导致服务器不识别</span><br><span class="line">401（Unauthorized）：请求需要用户认证</span><br><span class="line">404（<span class="keyword">Not</span> found）：请求地址不存在</span><br><span class="line">500（Internal<span class="built_in"> Server </span>Error）：服务器出错或无响应</span><br><span class="line">503（ServiceUnavailable）：由于服务器过载或维护导致无法完</span><br></pre></td></tr></table></figure>
+<h1 id="php本地数据操作"><a href="#php本地数据操作" class="headerlink" title="php本地数据操作"></a>php本地数据操作</h1><h4 id="获取前端数据"><a href="#获取前端数据" class="headerlink" title="获取前端数据"></a>获取前端数据</h4><figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$_GET 获取前端用<span class="keyword">get</span>方式传递过来的数据（url地址后面数据也能被获取）</span><br><span class="line">$_POST	获取前端用<span class="keyword">get</span>方式传递过来的数据</span><br><span class="line">isset() 判断某个值是否被设置，若不存在返回<span class="built_in">boolean</span></span><br></pre></td></tr></table></figure>
+<h4 id="文件的读取与写入"><a href="#文件的读取与写入" class="headerlink" title="文件的读取与写入"></a>文件的读取与写入</h4><h5 id="fopen-path-mode-：打开文件"><a href="#fopen-path-mode-：打开文件" class="headerlink" title="fopen(path,mode)：打开文件"></a>fopen(path,mode)：打开文件</h5><blockquote>
+<p>使用fopen函数打开文件时，你首先需要明确打开文件的模式：<br>1.将数据写入文件，亦或者读写文件<br>2.考虑如果文件中已经存在相关数据，你是覆盖原有文件中的数据呢，还是仅仅将新数据添加至文件末尾</p>
+</blockquote>
+<blockquote>
+<p>文件模式:</p>
+<ul>
+<li>r 以只读方式打开文件，从文件头开始读</li>
+<li>r+ 以读写方式打开文件，写入时以追加的方式写入文件</li>
+<li>w 以写入方式打开文件，从文件头开始写。文件不存在则尝试创建，若存在，则先删除文件中的内容</li>
+<li>w+ 以读写方式打开文件，从文件头开始读写。文件不存在则尝试创建，若存在，则先删除文件中的内容</li>
+<li>a 以写入方式打开，从文件末尾开始追加写。如果文件不存在则尝试创建</li>
+<li>a+ 以读写方式打开，从文件末尾开始追加写入或者读。如果文件不存在则尝试创建。</li>
+</ul>
+</blockquote>
+<h5 id="fread-file-length-：读取内容"><a href="#fread-file-length-：读取内容" class="headerlink" title="fread(file,length)：读取内容"></a>fread(file,length)：读取内容</h5><h5 id="fwrite-file-json字符串-：写入内容"><a href="#fwrite-file-json字符串-：写入内容" class="headerlink" title="fwrite(file,json字符串)：写入内容"></a>fwrite(file,json字符串)：写入内容</h5><h5 id="fclose-file-：关闭文件-避免资源占用"><a href="#fclose-file-：关闭文件-避免资源占用" class="headerlink" title="fclose(file)：关闭文件,避免资源占用"></a>fclose(file)：关闭文件,避免资源占用</h5><h5 id="filesize-path-：读取文件字符长度"><a href="#filesize-path-：读取文件字符长度" class="headerlink" title="filesize(path)：读取文件字符长度"></a>filesize(path)：读取文件字符长度</h5><pre><code>//1.以读取模式打开文件
+$path = &apos;./data/weibo.json&apos;
+$myfile = fopen($path, &apos;r&apos;);
+
+//2.读取文件内容
+$content = fread($myfile, filesize($path));
+
+//3.关闭文件，减少资源占用
+fclose($myfile);
+</code></pre><figure class="highlight maxima"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">echo返回数据</span><br><span class="line">json_encode(); 把数组转成字符串</span><br><span class="line">	php5.4+ 使用JSON_UNESCAPED_UNICODE防止中文转义</span><br><span class="line">json_decode(json,<span class="built_in">assoc</span>); 把字符串转成数组/对象</span><br><span class="line">	json：待解码的 json <span class="built_in">string</span> 格式的字符串</span><br><span class="line">	<span class="built_in">assoc</span>：默认<span class="literal">false</span>,返回嵌套对象的多维数组，通过arr-&gt;<span class="built_in">key</span>获取对象键对应的值。当该参数为 <span class="literal">true</span> 时，将返回嵌套关联数组的多维数组，通过arr[<span class="built_in">key</span>]获取关联数组键对应的值。</span><br></pre></td></tr></table></figure>
+<h6 id="案例：微博点赞"><a href="#案例：微博点赞" class="headerlink" title="案例：微博点赞"></a>案例：微博点赞</h6><figure class="highlight xquery"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br></pre></td><td class="code"><pre><span class="line">//（html页面）<span class="number">1</span>.发起ajax请求，将weibo.json的内容返回到页面</span><br><span class="line">var xhr = new XMLHttpRequest();</span><br><span class="line">xhr.onreadystatechange = <span class="keyword">function</span>()&#123;</span><br><span class="line">    <span class="keyword">if</span>(xhr.readyState === <span class="number">4</span> &amp;&amp; xhr.status === <span class="number">200</span>)&#123;</span><br><span class="line">        var res = JSON.parse(xhr.responseText);</span><br><span class="line">        ul.innerHTML = res.<span class="keyword">map</span>(<span class="type">item</span>=&gt;&#123;</span><br><span class="line">            <span class="keyword">return</span> `<span class="xml"><span class="tag">&lt;<span class="name">li</span> <span class="attr">data-id</span>=<span class="string">"$&#123;item.id&#125;"</span>&gt;</span></span></span><br><span class="line"><span class="xml">            </span><span class="xml"><span class="tag">&lt;<span class="name">h4</span>&gt;</span>$</span><span class="xquery">&#123;<span class="type">item</span>.username&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">h4</span>&gt;</span></span><span class="xml"></span></span><br><span class="line"><span class="xml">            </span><span class="xml"><span class="tag">&lt;<span class="name">p</span>&gt;</span>$</span><span class="xquery">&#123;<span class="type">item</span>.content&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><span class="xml"></span></span><br><span class="line"><span class="xml">            </span><span class="xml"><span class="tag">&lt;<span class="name">span</span>&gt;</span>$</span><span class="xquery">&#123;<span class="type">item</span>.comtcnt&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><span class="xml"></span></span><br><span class="line"><span class="xml">            </span><span class="xml"><span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"like"</span>&gt;</span>$</span><span class="xquery">&#123;<span class="type">item</span>.likecnt&#125;</span><span class="xml"><span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><span class="xml"></span></span><br><span class="line"><span class="xml">            <span class="tag">&lt;/<span class="name">li</span>&gt;</span></span>`;</span><br><span class="line">    	&#125;).join(<span class="string">''</span>);</span><br><span class="line">    	datalist.appendChild(ul);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">xhr.open(<span class="string">'get'</span>,<span class="string">'../data/weibo.json'</span><span class="built_in">,true</span>);</span><br><span class="line">xhr.send();</span><br><span class="line">//(html页面)<span class="number">2</span>.点赞，获取到当前按钮对用<span class="built_in">的id</span>，发送ajax请求，get方法通过url拼接参数传<span class="built_in">送id</span>到后台。</span><br><span class="line">//随后php页面对json数据进行修改，再将当前被改变的对象返回。xhr对象通过responseText进行接收为字符串，转成对象，获取到linkcnt键对应的值，给当前事件源修改innerHTML。</span><br><span class="line">//考虑多次请求，可能存在缓存状态，所以补充若是status为<span class="number">304</span>也为请求成功。</span><br><span class="line">datalist.onclick = <span class="keyword">function</span>(e)&#123;</span><br><span class="line">    <span class="keyword">if</span>(e.target.className === <span class="string">'like'</span>)&#123;</span><br><span class="line">        // e.target.innerText = e.target.innerText*<span class="number">1</span>+<span class="number">1</span>;</span><br><span class="line">        // 获取当前微<span class="built_in">博id</span></span><br><span class="line">        <span class="keyword">let</span> currentLi = e.target.parentNode;</span><br><span class="line">        <span class="keyword">let</span><span class="built_in"> id</span> = currentLi.dataset<span class="built_in">.id</span>;</span><br><span class="line">        <span class="keyword">let</span> xhr = new XMLHttpRequest();</span><br><span class="line">        <span class="keyword">let</span> status = [<span class="number">200</span>,<span class="number">304</span>];</span><br><span class="line">        xhr.onreadystatechange = <span class="keyword">function</span>()&#123;</span><br><span class="line">            <span class="keyword">if</span>(xhr.readyState === <span class="number">4</span> &amp;&amp; status.indexOf(xhr.status)&gt;=<span class="number">0</span>)&#123;</span><br><span class="line">                <span class="keyword">let</span> res = JSON.parse(xhr.responseText);</span><br><span class="line">                e.target.innerHTML = res.likecnt;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        xhr.open(<span class="string">'get'</span>,<span class="string">'../api/weibo.php?id='</span><span class="built_in">+id</span><span class="built_in">,true</span>);</span><br><span class="line">        xhr.send();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">//（php）</span><br><span class="line">//<span class="number">1</span>.接收前端传过来<span class="built_in">的id</span>，返回值为字符串</span><br><span class="line"><span class="variable">$id</span> = isset(<span class="variable">$_GET</span>[<span class="string">'id'</span>]) ? <span class="variable">$_GET</span>[<span class="string">'id'</span>] : Null;</span><br><span class="line">//<span class="number">2</span>.打开json文件fopen()，读取json文件数据fread()。</span><br><span class="line"><span class="variable">$path</span> = <span class="string">''</span>;//相对路径</span><br><span class="line"><span class="variable">$file</span> = fopen(<span class="variable">$path</span>,<span class="string">"r"</span>);</span><br><span class="line"><span class="variable">$content</span> = fread(<span class="variable">$file</span>,filesize(<span class="variable">$path</span>));</span><br><span class="line">fclose(<span class="variable">$file</span>);</span><br><span class="line">//<span class="number">2</span>.对得到的content内容转成json数组后，遍历里面每个<span class="type">item</span>对象，<span class="built_in">若id</span>键对应的值等于传入的<span class="variable">$id</span>,将该对象的linkcnt++。</span><br><span class="line"><span class="variable">$contentArr</span> = json.decode(<span class="variable">$content</span>);//此处contentArr为对象数组</span><br><span class="line"><span class="variable">$res</span>;</span><br><span class="line">foreach(<span class="variable">$contentArr</span> <span class="keyword">as</span> <span class="variable">$item</span>)&#123;</span><br><span class="line">    //此处<span class="type">item</span>为一个对象</span><br><span class="line">    <span class="keyword">if</span>(<span class="variable">$item-</span><span class="built_in">&gt;id</span> == <span class="variable">$id</span>)&#123;</span><br><span class="line">        <span class="variable">$item-</span>&gt;linkcnt++;</span><br><span class="line">        <span class="variable">$res</span> = <span class="variable">$item</span>;</span><br><span class="line">    &#125; </span><br><span class="line">&#125;</span><br><span class="line">//<span class="number">4</span>.将contentArr转成字符串，重新写入json文件</span><br><span class="line"><span class="variable">$file</span> = fopen(<span class="variable">$path</span>, <span class="string">'w'</span>);</span><br><span class="line">fwrite(<span class="variable">$file</span>, json_encode(<span class="variable">$arr</span>,JSON_UNESCAPED_UNICODE));</span><br><span class="line">fclose(<span class="variable">$file</span>);</span><br><span class="line">//<span class="number">5</span>.将步骤<span class="number">2</span>声明变量res，将改变的<span class="type">item</span>对象用res接收，转成字符串，echo给前端</span><br><span class="line">echo json_encode(<span class="variable">$res</span>,JSON_UNESCAPED_UNICODE);</span><br></pre></td></tr></table></figure>
+<h6 id="补充：eval的使用"><a href="#补充：eval的使用" class="headerlink" title="补充：eval的使用"></a>补充：eval的使用</h6><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> json = <span class="string">'&#123;"name":"lemon","age":18&#125;'</span>; <span class="comment">//标准json字符串</span></span><br><span class="line"><span class="keyword">var</span> json = <span class="string">'&#123;"name":"lemon",\'age\':18&#125;'</span>;<span class="comment">//不标准</span></span><br><span class="line"><span class="built_in">eval</span>(<span class="string">'('</span>+json+<span class="string">')'</span>);<span class="comment">//也可以转成对象</span></span><br><span class="line"><span class="built_in">eval</span>(<span class="string">'1+2'</span>);<span class="comment">//3</span></span><br><span class="line"><span class="built_in">eval</span>(<span class="string">'定义函数；执行函数'</span>) <span class="comment">//函数可以在字符串中执行</span></span><br></pre></td></tr></table></figure>
+<h6 id="讲解：ajax的来历及同源策略、同步异步"><a href="#讲解：ajax的来历及同源策略、同步异步" class="headerlink" title="讲解：ajax的来历及同源策略、同步异步"></a>讲解：ajax的来历及同源策略、同步异步</h6><h6 id="案例：用户名验证"><a href="#案例：用户名验证" class="headerlink" title="案例：用户名验证"></a>案例：用户名验证</h6><pre><code>username.onblur = function(){
+    let _username = username.value;
+    let status = [200,304];
+    let xhr = new XMLHttpRequest();
+    //xhr.onload意思为数据请求完成后，等同于xhr.readystate==4的状态
+    xhr.onload = function(){
+        if(status.includes(xhr.status)){
+            let res = xhr.responseText;//fail,success
+            if(res === &apos;fail&apos;){
+                username.nextElementSibling.innerHTML = `${_username}太受欢迎，你走吧`；
+            }else{
+                username.nextElementSibling.innerHTML = `恭喜你绿了`；
+            }
+        }
+    }
+    xhr.open(&apos;get&apos;,&apos;../api/checkname.php?username=&apos;+_username,true);
+    xhr.send();
+}
+//php
+//1.数组存放已经存在的用户名
+$userlist = array(&apos;张三&apos;,&apos;李四&apos;,&apos;王尼玛&apos;,&apos;奥巴马&apos;,&apos;laoxie&apos;,&apos;lemon&apos;);
+//2. 获取前端传来的用户名
+$username = isset($_GET[&apos;username&apos;]) ? $_GET[&apos;username&apos;] : null;
+//3. 判断前端传来的用户名是否已存在数组内
+$res = in_array($username, $userlist);
+if($res){
+    // 用户名已存在，注册失败
+    echo &quot;fail&quot;;
+}else{
+    echo &quot;success&quot;;
+}
+</code></pre><h6 id="案例：分页数据加载"><a href="#案例：分页数据加载" class="headerlink" title="案例：分页数据加载"></a>案例：分页数据加载</h6><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//html页面：</span></span><br><span class="line"><span class="keyword">var</span> qty = <span class="number">5</span>;</span><br><span class="line"><span class="comment">// 1.发起ajax请求数据，拿到返回的数据，转成对象。</span></span><br><span class="line">let status = [<span class="number">200</span>,<span class="number">304</span>]</span><br><span class="line">let xhr = <span class="keyword">new</span> XMLHttpRequest();</span><br><span class="line">xhr.onload = <span class="function"><span class="keyword">function</span><span class="params">()</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(status.includes(xhr.status))&#123;</span><br><span class="line">        let res = JSON.parse(xhr.responseText);</span><br><span class="line">        <span class="comment">// 2.拿到对象的data键对应的值(为json字符串)，渲染页面</span></span><br><span class="line">        datalist.innerHTML= res.data.map(<span class="function"><span class="keyword">function</span><span class="params">(item)</span></span>&#123;</span><br><span class="line">            <span class="keyword">return</span> `&lt;li&gt;</span><br><span class="line">            &lt;h4&gt;$&#123;item.name&#125;&lt;/h4&gt;</span><br><span class="line">            &lt;div&gt;$&#123;item.content&#125;&lt;/div&gt;</span><br><span class="line">            &lt;/li&gt;`;</span><br><span class="line">        &#125;).join(<span class="string">""</span>);</span><br><span class="line">        <span class="comment">//3.得到总页码数pageNum，parseInt(数据总数res.total/每页数据qty).遍历生成页码</span></span><br><span class="line">        <span class="keyword">var</span> pageNum = parseInt(res.total/res.qty);</span><br><span class="line">        page.innerHTML = <span class="string">""</span>;</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">var</span> i=<span class="number">0</span>;i&lt;pageNum;i++)&#123;</span><br><span class="line">            <span class="keyword">var</span> span = document.createElement(<span class="string">"span"</span>);</span><br><span class="line">            span.innerHTML = i+<span class="number">1</span>;</span><br><span class="line">            <span class="comment">//5.拿到返回的当前页码-1，把当前索引设置高亮</span></span><br><span class="line">            <span class="keyword">var</span> curidx = res.curpage <span class="number">-1</span>;</span><br><span class="line">            <span class="keyword">if</span>(i == curidx)&#123;span.className = <span class="string">"active"</span>;&#125;</span><br><span class="line">            page.appendChild(span);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">xhr.open(<span class="string">'get'</span>,<span class="string">'../api/lemon.php?qty='</span>+qty+<span class="string">'&amp;curpage=1'</span>,<span class="keyword">true</span>);</span><br><span class="line">xhr.send();</span><br><span class="line"><span class="comment">// 4.点击分页切换</span></span><br><span class="line">page.onclick = <span class="function"><span class="keyword">function</span><span class="params">(e)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(e.target.tagName.toLowerCase() === <span class="string">'span'</span>)&#123;</span><br><span class="line">        let curpage = e.target.innerText;</span><br><span class="line">        xhr.open(<span class="string">'get'</span>,<span class="string">'../api/lemon.php?qty='</span>+qty+<span class="string">'&amp;curpage='</span>+curpage,<span class="keyword">true</span>);</span><br><span class="line">        xhr.send();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//php：</span></span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    $qty = <span class="keyword">isset</span>($_GET[<span class="string">"qty"</span>])? $_GET[<span class="string">"qty"</span>] : <span class="number">5</span>;</span><br><span class="line">    $curpage = <span class="keyword">isset</span>($_GET[<span class="string">"curpage"</span>])? $_GET[<span class="string">"curpage"</span>] : <span class="number">1</span>;</span><br><span class="line">    <span class="comment">//1.拿到json数据,根据每页数量与当前页，裁切对应的数据</span></span><br><span class="line">    $path = <span class="string">'../data/football.json'</span>;</span><br><span class="line">    $file = fopen($path,<span class="string">'r'</span>);</span><br><span class="line">    $content = fread($file,filesize($path));</span><br><span class="line">    $data = json_decode($content);</span><br><span class="line">    $curdate = array_slice($data,$qty*($curpage<span class="number">-1</span>),$qty);</span><br><span class="line">    <span class="comment">//2.格式化数据，再返回给前端</span></span><br><span class="line">    $res = <span class="keyword">array</span>(</span><br><span class="line">        <span class="string">"total"</span> =&gt; count($data),</span><br><span class="line">        <span class="string">"data"</span> =&gt; $curdate,</span><br><span class="line">        <span class="string">"qty"</span> =&gt; $qty*<span class="number">1</span>,</span><br><span class="line">        <span class="string">"curpage"</span> =&gt; $curpage*<span class="number">1</span>,</span><br><span class="line">    );</span><br><span class="line">    <span class="keyword">echo</span> json_encode($res,JSON_UNESCAPED_UNICODE);</span><br><span class="line"><span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="ajax跨域解决方案"><a href="#ajax跨域解决方案" class="headerlink" title="ajax跨域解决方案"></a>ajax跨域解决方案</h2><h3 id="JSONP"><a href="#JSONP" class="headerlink" title="JSONP"></a>JSONP</h3><ul>
+<li>JSONP 是JSON with padding（填充式JSON 或参数式JSON）的简写。</li>
+<li>JSONP是一种可以绕过浏览器的安全限制，从不同的域请求数据的方法。</li>
+<li>JSONP请求不是ajax请求，是利用script标签能加载其他域名的js文件的原理，来实现跨域数据的请求 </li>
+<li>局限性：<ul>
+<li>只能为get请求</li>
+<li>接口必须有回调函数的执行</li>
+</ul>
+</li>
+</ul>
+<h6 id="演示：使用script标签其他js文件调用本地js的某个函数"><a href="#演示：使用script标签其他js文件调用本地js的某个函数" class="headerlink" title="演示：使用script标签其他js文件调用本地js的某个函数"></a>演示：使用script标签其他js文件调用本地js的某个函数</h6><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">//html页面：</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="actionscript">    <span class="function"><span class="keyword">function</span> <span class="title">sum</span><span class="params">(n)</span></span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(n);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"../js/common.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">//common.js代码</span><br><span class="line">sum(6666);</span><br><span class="line"></span><br><span class="line">//此时html页面的控制台打印 6666。</span><br></pre></td></tr></table></figure>
+<h6 id="演示：使用script标签其他php文件调用本地js的未知名方法，返回数据"><a href="#演示：使用script标签其他php文件调用本地js的未知名方法，返回数据" class="headerlink" title="演示：使用script标签其他php文件调用本地js的未知名方法，返回数据"></a>演示：使用script标签其他php文件调用本地js的未知名方法，返回数据</h6><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">//html页面：</span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="actionscript">    <span class="function"><span class="keyword">function</span> <span class="title">sum</span><span class="params">(data)</span></span>&#123;</span></span><br><span class="line"><span class="javascript">        <span class="built_in">console</span>.log(data);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="actionscript">    <span class="function"><span class="keyword">function</span> <span class="title">sum2</span><span class="params">(data)</span></span>&#123;</span></span><br><span class="line"><span class="undefined">        alert(data);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"../api/lemon.php?callback=函数名"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line">//php文件：</span><br><span class="line"><span class="php"><span class="meta">&lt;?php</span></span></span><br><span class="line"><span class="php">    $fn = $_GET[<span class="string">"callback"</span>];</span></span><br><span class="line"><span class="php">    <span class="keyword">echo</span> <span class="string">"$fn(数据)"</span>;</span></span><br><span class="line"><span class="php"><span class="meta">?&gt;</span></span></span><br></pre></td></tr></table></figure>
+<h6 id="案例：利用JSONP原理调用百度建议"><a href="#案例：利用JSONP原理调用百度建议" class="headerlink" title="案例：利用JSONP原理调用百度建议"></a>案例：利用JSONP原理调用百度建议</h6><pre><code>msg.oninput = function(){
+    let _msg = msg.value;
+    clearTimeout(timer);
+    timer = setTimeout(()=&gt;{
+    let script = document.createElement(&apos;script&apos;);
+    script.src=&apos;https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/sujson=1&amp;cb=getData&amp;wd=&apos;+_msg;
+    document.body.appendChild(script);
+    },500);
+}
+window.getData = function(data){
+    suggest.innerHTML = data.s.map(item=&gt;{
+        return `&lt;li&gt;${item}&lt;/li&gt;`
+        }).join(&quot;&quot;);
+    }
+})
+//原理性代码：
+//1.script的src中回调函数的传递
+script.src=&apos;https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/sujson=1&amp;cb=getData&amp;wd=&apos;+_msg;
+//2.声明全局函数
+window.getData = function(data){处理数据}
+</code></pre><h3 id="CORS"><a href="#CORS" class="headerlink" title="CORS"></a>CORS</h3><p>CORS是一个W3C标准，全称是”跨域资源共享”（Cross-origin resource sharing），它允许浏览器向跨源服务器发出XMLHttpRequest请求，从而克服了AJAX只能同源使用的限制。</p>
+<p>CORS需要浏览器和服务器同时支持。目前，所有浏览器都支持该功能，IE浏览器不能低于IE10。</p>
+<pre><code>1.Access-Control-Allow-Origin
+    header(&apos;Access-Control-Allow-Origin: * &apos;);  
+该字段是必须的。需要在后端响应头添加词字段，值要么是一个*，表示接受任意域名的请求，要么指定一个域名http://localhost。
+2.Access-Control-Allow-Methods
+3.Access-Control-Allow-Headers
+    header(&apos;Access-Control-Allow-Methods:POST&apos;);  
+    header(&apos;Access-Control-Allow-Headers:x-requested-with,content-type&apos;); 
+</code></pre><h6 id="案例：天气预报"><a href="#案例：天气预报" class="headerlink" title="案例：天气预报"></a>案例：天气预报</h6><pre><code>//1.直接利用ajax请求得到数据
+let xhr = new XMLHttpRequest();
+let status = [200,304]
+xhr.onload = function(){
+    if(status.includes(xhr.status)){
+        let res = JSON.parse(xhr.responseText)
+        console.log(res.data);
+        //拿到数据，可以渲染部分到页面上
+        let title = document.createElement(&apos;h2&apos;);
+        title.innerHTML = res.data.city + &apos;天气预报&apos;;
+        let tips = document.createElement(&apos;p&apos;);
+        tips.innerHTML = res.data.ganmao;
+        let ul = document.createElement(&apos;ul&apos;);
+        ul.innerHTML = res.data.forecast.map(item=&gt;{
+            return `&lt;li&gt;
+                &lt;h4&gt;${item.date}&lt;/h4&gt;
+                &lt;p&gt;${item.low} / ${item.high}&lt;/p&gt;
+                &lt;p class=&quot;type&quot;&gt;${item.type}&lt;/p&gt;
+            &lt;/li&gt;`
+        }).join(&apos;\n&apos;);
+        // 清空内容
+        weather.innerHTML = &apos;&apos;;
+        weather.appendChild(title);
+        weather.appendChild(tips);
+        weather.appendChild(ul);
+    }
+}
+xhr.open(&apos;get&apos;,&apos;http://wthrcdn.etouch.cn/weather_mini?city=广州&apos;,true);
+xhr.send();
+//2.配合文本框实现，得到不同城市的天气预报
+city.onblur = function(){
+    let _city = city.value.trim();
+    if(_city.length === 0){
+        return;
+    }
+    xhr.open(&apos;get&apos;,&apos;http://wthrcdn.etouch.cn/weather_mini?city=&apos;+_city,true);
+    xhr.send();
+}
+</code></pre><h6 id="演示：百度地图"><a href="#演示：百度地图" class="headerlink" title="演示：百度地图"></a>演示：百度地图</h6><h3 id="服务器代理"><a href="#服务器代理" class="headerlink" title="服务器代理"></a>服务器代理</h3><p>后端不存在跨域问题，所以可以利用后端间接获取其他网站的数据</p>
+<h5 id="Promise"><a href="#Promise" class="headerlink" title="Promise"></a>Promise</h5><p>Promise是一个构造函数，所谓的Promise对象，就是通过new Promise()实例化得到的对象，用来传递异步操作的消息。它代表了某个未来才会知道结果的事件（通常是一个异步操作），并且这个事件提供统一的 API，可供进一步处理。           </p>
+<h5 id="Promise-的三种状态"><a href="#Promise-的三种状态" class="headerlink" title="Promise 的三种状态"></a>Promise 的三种状态</h5><p>Pending（未完成）可以理解为Promise对象实例创建时候的初始状态<br>Resolved（成功） 可以理解为成功的状态<br>Rejected（失败） 可以理解为失败的状态</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------阅读有风险<i class="fa fa-paw"></i>请谨慎阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ajax/" rel="tag"># ajax</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/12/模块化开发/" rel="next" title="模块化开发">
+                <i class="fa fa-chevron-left"></i> 模块化开发
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/12/PHP/" rel="prev" title="PHP">
+                PHP <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/baby.png" alt="唐唐胖次">
+            
+              <p class="site-author-name" itemprop="name">唐唐胖次</p>
+              <div class="site-description motion-element" itemprop="description">每天努力一点点</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">55</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/Junokl" title="GitHub &rarr; https://github.com/Junokl" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Ajax"><span class="nav-number">1.</span> <span class="nav-text">Ajax</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#了解AJAX"><span class="nav-number">1.1.</span> <span class="nav-text">了解AJAX</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#json"><span class="nav-number">1.2.</span> <span class="nav-text">json</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#json数据-json字符串"><span class="nav-number">1.2.0.1.</span> <span class="nav-text">json数据(json字符串)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#json字符串与对象的转换"><span class="nav-number">1.2.0.2.</span> <span class="nav-text">json字符串与对象的转换</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#了解json文件存在的意义"><span class="nav-number">1.2.0.3.</span> <span class="nav-text">了解json文件存在的意义</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ajax请求步骤"><span class="nav-number">1.3.</span> <span class="nav-text">Ajax请求步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建请求对象-返回一个异步请求对象"><span class="nav-number">1.3.0.1.</span> <span class="nav-text">创建请求对象,返回一个异步请求对象</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#处理服务器返回数据"><span class="nav-number">1.3.0.2.</span> <span class="nav-text">处理服务器返回数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#设置请求参数，建立与服务器连接"><span class="nav-number">1.3.0.3.</span> <span class="nav-text">设置请求参数，建立与服务器连接</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#向服务器发送请求"><span class="nav-number">1.3.0.4.</span> <span class="nav-text">向服务器发送请求</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#案例：演示向goodslist-json请求数据"><span class="nav-number">1.3.0.4.0.1.</span> <span class="nav-text">案例：演示向goodslist.json请求数据</span></a></li></ol></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#XMLHttpRequest对象属性方法"><span class="nav-number">1.4.</span> <span class="nav-text">XMLHttpRequest对象属性方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#open-type-url（同源策略）-async（同步、异步）"><span class="nav-number">1.4.0.1.</span> <span class="nav-text">open(type,url（同源策略）,async（同步、异步）)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#send-data"><span class="nav-number">1.4.0.2.</span> <span class="nav-text">send(data)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#readyState"><span class="nav-number">1.4.0.3.</span> <span class="nav-text">readyState</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#responseText"><span class="nav-number">1.4.0.4.</span> <span class="nav-text">responseText</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#status"><span class="nav-number">1.4.0.5.</span> <span class="nav-text">status</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#php本地数据操作"><span class="nav-number">2.</span> <span class="nav-text">php本地数据操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#获取前端数据"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">获取前端数据</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#文件的读取与写入"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">文件的读取与写入</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#fopen-path-mode-：打开文件"><span class="nav-number">2.0.0.2.1.</span> <span class="nav-text">fopen(path,mode)：打开文件</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#fread-file-length-：读取内容"><span class="nav-number">2.0.0.2.2.</span> <span class="nav-text">fread(file,length)：读取内容</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#fwrite-file-json字符串-：写入内容"><span class="nav-number">2.0.0.2.3.</span> <span class="nav-text">fwrite(file,json字符串)：写入内容</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#fclose-file-：关闭文件-避免资源占用"><span class="nav-number">2.0.0.2.4.</span> <span class="nav-text">fclose(file)：关闭文件,避免资源占用</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#filesize-path-：读取文件字符长度"><span class="nav-number">2.0.0.2.5.</span> <span class="nav-text">filesize(path)：读取文件字符长度</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#案例：微博点赞"><span class="nav-number">2.0.0.2.5.1.</span> <span class="nav-text">案例：微博点赞</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#补充：eval的使用"><span class="nav-number">2.0.0.2.5.2.</span> <span class="nav-text">补充：eval的使用</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#讲解：ajax的来历及同源策略、同步异步"><span class="nav-number">2.0.0.2.5.3.</span> <span class="nav-text">讲解：ajax的来历及同源策略、同步异步</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#案例：用户名验证"><span class="nav-number">2.0.0.2.5.4.</span> <span class="nav-text">案例：用户名验证</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#案例：分页数据加载"><span class="nav-number">2.0.0.2.5.5.</span> <span class="nav-text">案例：分页数据加载</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ajax跨域解决方案"><span class="nav-number">2.1.</span> <span class="nav-text">ajax跨域解决方案</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#JSONP"><span class="nav-number">2.1.1.</span> <span class="nav-text">JSONP</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#演示：使用script标签其他js文件调用本地js的某个函数"><span class="nav-number">2.1.1.0.0.1.</span> <span class="nav-text">演示：使用script标签其他js文件调用本地js的某个函数</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#演示：使用script标签其他php文件调用本地js的未知名方法，返回数据"><span class="nav-number">2.1.1.0.0.2.</span> <span class="nav-text">演示：使用script标签其他php文件调用本地js的未知名方法，返回数据</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#案例：利用JSONP原理调用百度建议"><span class="nav-number">2.1.1.0.0.3.</span> <span class="nav-text">案例：利用JSONP原理调用百度建议</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CORS"><span class="nav-number">2.1.2.</span> <span class="nav-text">CORS</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#案例：天气预报"><span class="nav-number">2.1.2.0.0.1.</span> <span class="nav-text">案例：天气预报</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#演示：百度地图"><span class="nav-number">2.1.2.0.0.2.</span> <span class="nav-text">演示：百度地图</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器代理"><span class="nav-number">2.1.3.</span> <span class="nav-text">服务器代理</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#Promise"><span class="nav-number">2.1.3.0.1.</span> <span class="nav-text">Promise</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Promise-的三种状态"><span class="nav-number">2.1.3.0.2.</span> <span class="nav-text">Promise 的三种状态</span></a></li></ol></li></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">唐唐胖次</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,0" opacity="0.5" zindex="-1" count="150" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>

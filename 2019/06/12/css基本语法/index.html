@@ -1,0 +1,1595 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2">
+
+<link rel="stylesheet" href="/css/main.css?v=7.1.2">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/Ham.png?v=7.1.2">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/Ham.png?v=7.1.2">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=7.1.2" color="#222">
+
+
+
+
+
+
+
+<script id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '7.1.2',
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false,"dimmer":false},
+    back2top: true,
+    back2top_sidebar: false,
+    fancybox: false,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="标签总结1.div 没有语义的盒子,块级元素的代表.                特点:(1) 默认宽度占据一整行                          (2) 可以设置宽高                 块级元素: div h1-h6  p hr form 列表元素 body 大部分的块级元素都会默认存在margin 外间距,                 除了div、li、d">
+<meta name="keywords" content="html">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css基本语法">
+<meta property="og:url" content="http://Junokl.com/2019/06/12/css基本语法/index.html">
+<meta property="og:site_name" content="势必要上进的咸鱼军">
+<meta property="og:description" content="标签总结1.div 没有语义的盒子,块级元素的代表.                特点:(1) 默认宽度占据一整行                          (2) 可以设置宽高                 块级元素: div h1-h6  p hr form 列表元素 body 大部分的块级元素都会默认存在margin 外间距,                 除了div、li、d">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.w3cplus.com/sites/default/files/translate-x-y.png">
+<meta property="og:image" content="e:/笔记/rotate.png">
+<meta property="og:image" content="http://www.w3cplus.com/sites/default/files/skew-x-y.png">
+<meta property="og:image" content="e:/笔记/轴.png">
+<meta property="og:updated_time" content="2019-06-12T10:12:13.791Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="css基本语法">
+<meta name="twitter:description" content="标签总结1.div 没有语义的盒子,块级元素的代表.                特点:(1) 默认宽度占据一整行                          (2) 可以设置宽高                 块级元素: div h1-h6  p hr form 列表元素 body 大部分的块级元素都会默认存在margin 外间距,                 除了div、li、d">
+<meta name="twitter:image" content="http://www.w3cplus.com/sites/default/files/translate-x-y.png">
+
+
+
+
+
+  
+  
+  <link rel="canonical" href="http://Junokl.com/2019/06/12/css基本语法/">
+
+
+
+<script id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>css基本语法 | 势必要上进的咸鱼军</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .motion-element,
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-title { opacity: initial; }
+
+  .use-motion .logo,
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">势必要上进的咸鱼军</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+      
+        <p class="site-subtitle">一只小小小攻城狮</p>
+      
+    
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/" rel="section"><i class="menu-item-icon fa fa-fw fa-home"></i> <br>首页</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/about/" rel="section"><i class="menu-item-icon fa fa-fw fa-user"></i> <br>关于</a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/tags/" rel="section"><i class="menu-item-icon fa fa-fw fa-tags"></i> <br>标签<span class="badge">19</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/categories/" rel="section"><i class="menu-item-icon fa fa-fw fa-th"></i> <br>分类<span class="badge">18</span></a>
+
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+
+    
+    
+    
+      
+    
+
+    
+      
+    
+
+    <a href="/archives/" rel="section"><i class="menu-item-icon fa fa-fw fa-archive"></i> <br>归档<span class="badge">55</span></a>
+
+  </li>
+
+      
+      
+    </ul>
+  
+
+  
+
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://Junokl.com/2019/06/12/css基本语法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="唐唐胖次">
+      <meta itemprop="description" content="每天努力一点点">
+      <meta itemprop="image" content="/images/baby.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="势必要上进的咸鱼军">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">css基本语法
+
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2019-06-12 10:28:59" itemprop="dateCreated datePublished" datetime="2019-06-12T10:28:59+08:00">2019-06-12</time>
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/html/" itemprop="url" rel="index"><span itemprop="name">html</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+
+          
+            
+            
+          
+
+          
+          
+
+          
+            <span class="post-meta-divider">|</span>
+            <span class="post-meta-item-icon">
+            <i class="fa fa-eye"></i>
+             阅读次数： 
+            <span class="busuanzi-value" id="busuanzi_value_page_pv"></span>
+            </span>
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="标签总结"><a href="#标签总结" class="headerlink" title="标签总结"></a>标签总结</h2><p>1.div 没有语义的盒子,块级元素的代表.<br>                特点:(1) 默认宽度占据一整行<br>                          (2) 可以设置宽高<br>                 块级元素: div h1-h6  p hr form 列表元素 body 大部分的块级元素都会默认存在margin 外间距,<br>                 除了div、li、dt</p>
+<p>2.span 没有语义的盒子,行内元素的代表.<br>                特点:(1) 宽高由内容决定（不能设置宽高）<br>            行内元素: 加粗(b、strong) 倾斜(i、em) 删除(s、del) img、a、input、select、textarea</p>
+<h2 id="CSS语法"><a href="#CSS语法" class="headerlink" title="CSS语法"></a>CSS语法</h2><p>css简介:        (cascading style sheets )汉译层叠样式表        </p>
+<p>​            层叠性：给同一个元素添加相同的css属性，属性值会存在覆盖问题</p>
+<h6 id="一-css语法"><a href="#一-css语法" class="headerlink" title="(一)css语法"></a>(一)css语法</h6><p>​                        1.样式的固定书写格式:<br>                                选择器{声明}<br>                        2.声明的组成  css属性:属性值;<br>                        3.css注释</p>
+<h6 id="二-css属性"><a href="#二-css属性" class="headerlink" title="(二)css属性"></a>(二)css属性</h6><p>​                    1.width 宽度<br>                    2.height 高度<br>                    3.background-color 背景颜色<br>                    4.color 字体颜色<br>                    red blue green pink</p>
+<h6 id="三-三种样式表"><a href="#三-三种样式表" class="headerlink" title="(三)三种样式表"></a>(三)三种样式表</h6><p>​                 1.内部样式表 head&gt;style[type=”text/css”]在style标签里面书写css样式.<br>                    作用域:当前页面</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>​         2.外部样式表: 在css文件夹新建css文件,书写样式.<br>                            需要用到外部样式表的html文件，<br>                            head&gt;link[href链接路径][rel=”stylesheet”][type=”text/css”] </p>
+<figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;link <span class="attribute">rel</span>=<span class="string">"stylesheet"</span> <span class="attribute">type</span>=<span class="string">"text/css"</span> <span class="attribute">href</span>=<span class="string">"style.css"</span> /&gt;</span><br></pre></td></tr></table></figure>
+<p>​                            作用域:链接到该CSS文件的所有页面</p>
+<p>​        3.内联样式表、行内样式表<br>                    将style作为html属性，将声明(css属性:属性值;)作为html属性值<br>                        作用域:当前元素</p>
+<p><strong>优先级:</strong></p>
+<p>​        三种样式表的优先级: 内联样式&gt;内部样式&gt;外部样式<br>                内部样式与外部样式，谁写在后面，就覆盖前面的相同<br>                元素的相同属性</p>
+<h6 id="四-选择器"><a href="#四-选择器" class="headerlink" title="(四)选择器"></a>(四)选择器</h6><p>​        1.标签选择器、元素选择器、通过标签名获取到的元素<br>                 <strong>2.类选择器</strong>:通过. 类名(class名)获取到元素<br>                        [class=””]给元素添加类名(绰号),可以重复.<br>                        命名规则:英文开头，包含数字、下划线。-。<br>                 <strong>3.id选择器</strong>：通过#id名获取到元素<br>                        [id=””]给元素添加id名（身份正号码），不可重复。<br>                  4.通配符选择器*获取到页面上的所有元素<br>                  5.群组选择器、并集选择器 将多个基本选择器用<strong>逗号</strong>隔开，<br>                    表示都获取到</p>
+<p>​        6.<strong>伪类选择器</strong>  用冒号开头<br>                    (1) a:link 锚链接被访问前出现的样式<br>                    (2) a:visited 锚链接被访问后出现的样式<br>                    (3) E:hover 鼠标悬停在E元素上出现样式<br>                    (4) E:active 鼠标点击E元素时出现样式<br>                    lv-ha  顺序固定不能乱</p>
+<p>​     !important用法:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">div</span>&#123; </span><br><span class="line">          <span class="attribute">color</span>:red <span class="meta">!important</span>;</span><br><span class="line">      &#125;</span><br></pre></td></tr></table></figure>
+<p>​    <strong>选择器的优先级:</strong><br>                <strong>!important&gt;内联样式&gt;id选择器&gt;类选择器(伪类选择器)&gt;标签选择器&gt;通配符选择器</strong></p>
+<h6 id="五-权重"><a href="#五-权重" class="headerlink" title="(五)权重"></a>(五)权重</h6><p>​        只有作用到同一个元素上才能比较权重<br>                    0000<br>                    第一个0代表important或者行内样式<br>                    第二个0代表id选择器     #<br>                    第三个0代表类选择器    .<br>                    第四个0代表标签选择器  div<br>                    继承的权重最低为0000</p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"yeye"</span> <span class="built_in">id</span>=<span class="string">"grandpa "</span>&gt;</span><br><span class="line">       &lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"baba"</span> <span class="built_in">id</span>=<span class="string">"father"</span>&gt;</span><br><span class="line">           &lt;<span class="keyword">div</span> <span class="built_in">class</span>=<span class="string">"erzi"</span> <span class="built_in">id</span>=<span class="string">"son"</span>&gt;我是什么颜色&lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">       &lt;/<span class="keyword">div</span>&gt;</span><br><span class="line">   &lt;/<span class="keyword">div</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>​        0110         （没有！important或者行内样式,1个id选择器，1个类选择器，0个标签选择器）</p>
+<pre><code>#father .erzi{
+    color:red;
+}
+</code></pre><h2 id="一-字体属性-font"><a href="#一-字体属性-font" class="headerlink" title="(一)字体属性 font"></a>(一)字体属性 font</h2><p>1.字体大小  <strong>font-size</strong><br>                        <em>默认字体大小为16px
+                        </em>最小的字体读大小为12px<br>                        <em>9pt=12px   12pt=16px<br>                    2.字体加粗 font-weight
+                        </em>属性值: normal(100-500)默认正常  bold (600-900)加粗   bolder更加粗<br>                    3.字体倾斜 font-style<br>                        <em>属性值: normal 默认正常 italic倾斜<br>                    4.字体家族 font-family
+                        </em>中文字体或者多个单词组成的字体要加双引号.<br>                        <em>多个字体家族用逗号隔开<br>                    5.字体颜色 color 
+                        </em>属性值: 英文单词  十六进制<br>                        <em>十六进制表示:#000000 前两个0红色,中间两个0绿,后面两个0蓝色
+                        </em>每一位的取值为0-9 a b c d e f</p>
+<h2 id="二-文本属性-text"><a href="#二-文本属性-text" class="headerlink" title="(二)文本属性 text"></a>(二)文本属性 text</h2><p><strong>1.设置文本大小写 text-transform</strong>    (转换大小写)<br>                   属性值：none默认不转换 lowercase全部小写 uppercase全部大写   capitalize首字母大写</p>
+<p><strong>2.文本修饰    text-decoration</strong>    (一般导航删除下划线)<br>                属性值；none默认不修饰   underline下划线    overline 上划线<br>                            line-though删除线  </p>
+<p><strong>3.首行缩进    text-indent</strong><br>                    <em>单位:em 以当前字体大小为基准
+                    </em>可以取负值</p>
+<p>4.字间距    letter-spacing</p>
+<p>5.词间距 word-spacing(以空格作为分隔符)</p>
+<p><strong>6.文本在容器中的水平对齐方式 text-align</strong><br>                            *属性值: left默认左边  center中间         right右边<br>                                      text-justify自动跳转（英文两端对齐）(只支持IE)</p>
+<p>7、<strong>行内元素在垂直方向的对齐方式 vertical-align</strong><br>                  <strong>属性值:baseline 默认基线对齐    middle中线对齐      英文有 顶线，中线，基线底线</strong><br>                   <strong>一般用在图片与文字垂直居中对齐</strong></p>
+<h2 id="三-列表属性-list-style"><a href="#三-列表属性-list-style" class="headerlink" title="(三)列表属性 list-style"></a>(三)列表属性 list-style</h2><p>1.列表样式类型 list-style-type1<br>                    <em>属性值:disc实心圆  circle空心圆 square方块 none去掉<br>2.列表样式图片 list-style-image:url(“”)<br>3.列表样式位置 list-style-position
+                        </em>属性值: outside 默认列表样式在li内容外面     inside在内容里面<br> <strong>总属性值:list-style:    1||2  3 ; (1,2选其一)可以缺省值</strong><br>                用的最多 <strong>list-style:none;</strong> （去除列表圆点）</p>
+<h2 id="四-边框属性border"><a href="#四-边框属性border" class="headerlink" title="(四)边框属性border"></a>(四)边框属性border</h2><p>1.边框宽度  borber-width<br>2.边框样式  border-style<br>                            <strong>*属性值: solid 实线  dashed虚线    dotted点线    double 双线</strong><br>3.边框颜色  borber-color<br>         <strong>总属性:border:1 2 3 ;</strong>    </p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">border: </span><span class="number">3</span>px dotted red<span class="comment">;  边框大小为3px红色的电线</span></span><br></pre></td></tr></table></figure>
+<p>​                        border-方位(top、bottom、left、right): 1 2 3<br>                        border-方位-分属性</p>
+<figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">border-left: </span><span class="number">5</span>px solid yellow<span class="comment">;	左边边框线为5px黄色实线</span></span><br></pre></td></tr></table></figure>
+<h2 id="五-背景属性background"><a href="#五-背景属性background" class="headerlink" title="(五)背景属性background"></a>(五)背景属性background</h2><p>1.背景颜色 background-color<br>2.背景图片 background-image:url(“”);<br>                                <em>当容器尺寸大于背景图片尺寸时会重复平铺满整个容器
+                                </em>当容器尺寸小于背景图片尺寸时会被裁减会丢失一部分<br>                                <em>当容器尺寸等于背景图片尺寸时刚好放下<br>3.背景平铺 background-repeat
+                                </em>属性值: repeat 平铺  no-repeat不平铺<br>                                        repeat-x水平方向平铺  repeat-y垂直方向平铺<br>4.背景图片在容器中的定位 background-position: 水平方向 垂直方向;<br>                            属性值：数值（往右为正、往下为正）、方位(left \ center\ right \ top\ center \bottom)</p>
+<p>5.背景图片的固定 background-attachment<br>                        属性值: scroll 默认滚动  fixd固定</p>
+<p>​    总属性 ：background:1 2 3 4 5;            分属性要写在总属性后面</p>
+<h2 id="六-浮动float"><a href="#六-浮动float" class="headerlink" title="(六) 浮动float"></a>(六) 浮动float</h2><p><em>属性值：left左浮动       right:有浮动   none默认不浮动
+            </em>特点： （1）浮动的元素会脱离标准流        （标准流：从左往右，从上往下）     但文本不会脱离文本流                   </p>
+<pre><code>*        (2) 浮动的元素相当于行内块级元素（一行显示多个、可以设置宽高）
+*        (3)当浮动的元素换行摆放，垂直方向的位置会参考上一个元素的最低点
+</code></pre><h2 id="七-line-height-行高"><a href="#七-line-height-行高" class="headerlink" title="(七)line-height 行高"></a>(七)line-height 行高</h2><p>1.单行文本若想实线在容器中垂直居中，将<strong>line-height</strong>大小设成<strong>height</strong>大小。</p>
+<p>2..单行文本若想实线在容器中垂直居中，<strong>以上</strong>。将<strong>line-height&lt;height</strong>，<strong>以下</strong>。则设成<strong>line-height&gt;height</strong></p>
+<p>3.同一段文本，测量line-height时，从上一行文本的最顶端到下一行文本的最顶端，就是line-height</p>
+<h2 id="一-盒模型"><a href="#一-盒模型" class="headerlink" title="(一)盒模型"></a>(一)盒模型</h2><p> 1.盒模型=内容content+内填充padding+边框border+外间距margin<br>  2.width、height 不是指盒子的大小，而是内容contnt的大小<br>                  做页面的时候，一开始测量的是盒子的大小，但我们会直接设置成width、height。若之后才发现需要         </p>
+<p>​                  添加padding、border,盒子会被撑大。为了保证盒子大小不变，width、height需要减去对应的值.</p>
+<h2 id="二-padding"><a href="#二-padding" class="headerlink" title="(二)padding"></a>(二)padding</h2><p>1.padding取值：遵循上右下左原则,缺省的值找反义词的值<br>2.padding-方位<br>3.注意；   （1）padding不可以为负值；<br>                     (2) 背景会从padding的区域开始摆放，说明<strong>background-position:0 0;在padding的左上角</strong>。</p>
+<h2 id="三-margin"><a href="#三-margin" class="headerlink" title="(三)margin"></a>(三)margin</h2><p>1.margin取值：遵循上右下左原则，缺省的值找反义词的值<br>2.margin-方位<br>3注意:    margin可以取负值</p>
+<h2 id="四-页面"><a href="#四-页面" class="headerlink" title="(四)页面"></a>(四)页面</h2><p>结构：<br>                <strong>最外层    </strong>#qianfeng -<strong>每一层大盒子#id名-版心容器</strong>（专门放内容的.container）<br>                页面链接css文件时，先链接到base.css,再单独链接到页面对应的css文件。</p>
+<p>​        （base.css是公共部分样式）    base.css 存在的意义:<br>                                                        1.清除默认样式<br>                                                        2.添加公共样式<br>                                                        3.添加页面公共部分<br>                                                         页面.css书写页面剩余部分的样式</p>
+<h2 id="五-样式"><a href="#五-样式" class="headerlink" title="(五)样式"></a>(五)样式</h2><p>1.清除默认样式<br>2.添加公共样式<br>            版心容器{宽度1000、背景、居中}<br>3.书写页面样式<br>            最外层宽度100%-每一层大容器｛宽度100%、高度背景色｝，每一层的版心容器｛高度跟随｝<br>  注意：<br>        1.h1最好是用背景图片 文本用text-indent隐藏<br>        2.<strong>列表中，li（float:left;）,每个列表项的样式给a标签加，</strong><br>        <strong>a｛display:block;width:;height:;｝</strong>但是宽度不一致的情况下，a标签就不能设置具体宽度，由其<strong>字体个数决定width</strong>.一般此时的盒子大小应由各自内容的width+左右padding.<br>        3.若容器内<strong>都是文本的</strong>，都添加<strong>｛line-height:;font-size:;color:;｝</strong>从有参照文本的那一段开始量.</p>
+<p>​    4.列表悬停改变样式的话，建议<strong>鼠标悬停在li上，改变子元素a的样式</strong>，写法<strong>li:hover a</strong></p>
+<p>​    5.当父元素与子元素存在上间距，若子元素不存在浮动的情况，就给父元素加padding-top,而不要给第一个字元素加margin-top</p>
+<p>​        </p>
+<h2 id="一、定位-position"><a href="#一、定位-position" class="headerlink" title="一、定位        position"></a>一、定位        position</h2><ol>
+<li>position:static; 静态定位(默认标准流定位)<pre><code>无法设置left、right、top、bottom值
+</code></pre></li>
+<li><strong>position:relative;</strong> 相对定位<pre><code>(1)相对于自己本身所在的位置进行移动定位
+(2)配合left、right、top、bottom进行移动定位。**相对于自己的某条边往元素中心移动为正值**。
+(3)相对定位的元素**不脱离标准流**。（灵魂出窍）
+</code></pre></li>
+<li><strong>position:absolute;</strong> 绝对定位<pre><code>(1)绝对定位的元素是相对于html或者最近的有定位的父元素 进行定位
+(2)配合left、right、top、bottom进行移动定位。**相对于包含块的某条边往包含块中心移动为正值**
+(3)绝对定位的元素会**脱离标准流**
+</code></pre></li>
+<li>如何实现<strong>元素在容器中居中</strong>？<pre><code>**子绝父相**（父元素可以是其他定位），子元素{top:50%;margin-top:-自己高度的一般;left:50%;margin-left:-自己宽度的一半。}
+</code></pre></li>
+<li><strong>position:fixed ;</strong> 固定定位<pre><code>(1) 相对于浏览器的可视区域进行移动定位
+(2) 配合left、right、top、bottom进行移动定位。**相对于浏览器可视区域的某条边往浏览器可视区域中心移动为正值**
+(3) 脱离标准流
+</code></pre></li>
+</ol>
+<h2 id="二、层级-z-index"><a href="#二、层级-z-index" class="headerlink" title="二、层级  z-index"></a>二、层级  z-index</h2><p>1.定位&gt;浮动&gt;标准流<br>2.z-index 只能用于有定位的元素上<br>3.z-index 可以取负数</p>
+<h2 id="三、命名锚点"><a href="#三、命名锚点" class="headerlink" title="三、命名锚点"></a>三、命名锚点</h2><p>​    a[href=”#id名”]跳转到id名所在的元素上<br>        a[href=”页面路径#id名”]跳转到其他页面该id名所在的元素上</p>
+<h2 id="四、overflow-内容溢出容器时的处理方式"><a href="#四、overflow-内容溢出容器时的处理方式" class="headerlink" title="四、overflow 内容溢出容器时的处理方式"></a>四、overflow 内容溢出容器时的处理方式</h2><p>​        属性值：visible 默认可见     <strong>hidden隐藏</strong><br>                        scroll 滚动条   auto判断需要出现滚动条时才出现<br>                设置某个方向： overflow-x 水平方向   overflow-y垂直方向<br>                规定：当某一个方向的值设置不为visible，另外一个方向会自动设置成auto</p>
+<h1 id="一、元素类型"><a href="#一、元素类型" class="headerlink" title="一、元素类型"></a>一、元素类型</h1><h2 id="一-块级元素"><a href="#一-块级元素" class="headerlink" title="(一) 块级元素"></a>(一) 块级元素</h2><p>特点：  (1)默认占一整行。<br>                        即使设置了宽度，右边多余的部分也会用margin进行填充。<br>             (2) 可以设置宽高<br>             (3) 块级元素可以嵌套所有的行内元素以及部分的块级元素<br>                            错误： p&gt;p  p&gt;div<br>             (4)大部分的块级元素都拥有默认的margin或padding，除了div、li…<br>                    应用场景： 怎么实现块级元素在父容器里水平居中？<br>                                       给该块级元素｛margin:0 auto;｝<br>               总结：<strong>body、h1-h6、p、列表ul&gt;li ol&gt;li dl&gt;dt+dd、form</strong></p>
+<h2 id="二-行内元素"><a href="#二-行内元素" class="headerlink" title="(二) 行内元素"></a>(二) 行内元素</h2><p>特点：（1）一行显示多个<br>            （2）宽高由内容决定，不能设置宽高<br>            （3）<strong>行内元素也遵循盒模型，但是设置上下的padding或margin无效</strong><br>            应用：行内元素如何实现在容器中水平居中呢？<br>                    给其父容器添加text-align:center;<br>            总结：<strong>加粗、倾斜、a、span、img、input、textarea、label</strong></p>
+<h1 id="二-元素类型的转换display"><a href="#二-元素类型的转换display" class="headerlink" title="二.元素类型的转换display"></a>二.元素类型的转换display</h1><ol>
+<li><p>inline 转换成行内元素</p>
+</li>
+<li><p>block 转换成块级元素</p>
+</li>
+<li><p>list-item 转换成列表项 (li)</p>
+</li>
+<li><p>inline-block 转换成行内块级元素 </p>
+<p>   行内块级元素   行内可置换元素（由元素标签名及属性，决定最终的显示效果）</p>
+<pre><code>（1）一行显示多个 （2）可以设置宽高  **img input textarea**
+</code></pre><p>   5.none 隐藏元素，不占位置</p>
+</li>
+</ol>
+<h2 id="行内块级元素与浮动的区别"><a href="#行内块级元素与浮动的区别" class="headerlink" title="行内块级元素与浮动的区别:"></a>行内块级元素与浮动的区别:</h2><p>​            1.两个行内块级元素之间存在空格，会在页面中存在一条缝隙。<br>                解决办法：（1）将元素之间的空格删除<br>                          （2）给其父元素设置｛font-size:0;｝<br>            2.行内元素都存在垂直方向基线对齐的问题<br>                解决办法: 设置<strong>vertical-align</strong>        属性设置元素的垂直对齐方式</p>
+<table>
+<thead>
+<tr>
+<th>baseline</th>
+<th>默认。元素放置在父元素的基线上。</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sub</td>
+<td>垂直对齐文本的下标。</td>
+</tr>
+<tr>
+<td>super</td>
+<td>垂直对齐文本的上标</td>
+</tr>
+<tr>
+<td>top</td>
+<td>把元素的顶端与行中最高元素的顶端对齐</td>
+</tr>
+<tr>
+<td>text-top</td>
+<td>把元素的顶端与父元素字体的顶端对齐</td>
+</tr>
+<tr>
+<td>middle</td>
+<td>把此元素放置在父元素的中部。</td>
+</tr>
+<tr>
+<td>bottom</td>
+<td>把元素的顶端与行中最低的元素的顶端对齐。</td>
+</tr>
+<tr>
+<td>text-bottom</td>
+<td>把元素的底端与父元素字体的底端对齐。</td>
+</tr>
+<tr>
+<td>length</td>
+<td></td>
+</tr>
+<tr>
+<td>%</td>
+<td>使用 “line-height” 属性的百分比值来排列此元素。允许使用负值。</td>
+</tr>
+<tr>
+<td>inherit</td>
+<td>规定应该从父元素继承 vertical-align 属性的值。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="导航条做法"><a href="#导航条做法" class="headerlink" title="导航条做法"></a>导航条做法</h2><p> <strong>ul{width height border padding}</strong><br>            <strong>li{float;margin;}</strong><br>            <strong>a{display:block;width;height;border;文本居中；文字大小颜色}</strong><br>            <strong>li:hover</strong></p>
+<p><strong>注意事项：若父元素与第一个子元素存在上间距，最好给父元素加padding-top。若子元素或父元素浮动了，则可以给子元素添加margin-top。</strong></p>
+<h2 id="设置一个元素在一个容器中垂直居中"><a href="#设置一个元素在一个容器中垂直居中" class="headerlink" title="设置一个元素在一个容器中垂直居中"></a>设置一个元素在一个容器中垂直居中</h2><p><strong>1.定位</strong></p>
+<p><strong>{position:fixd;left:50%;top:50%; margin:   -  自身高度宽度一半}</strong></p>
+<p><strong>2.利用行内元素中线对齐</strong></p>
+<p>三个条件：</p>
+<p>1：必须给容器（父元素）加上<strong>text-align:center;</strong></p>
+<p>2:必须给当前元素<strong>转成行内块元素（display:inline-block;）</strong>再给<strong>当前元素加上vertical-align:middle;</strong></p>
+<p>3：在当前元素的后面（没有回车）<strong>加上同级元素span</strong>;并<strong>对span进行</strong></p>
+<p>​        <strong>{vertical-align:middle;width:0;height:100%;display:inline-block}</strong></p>
+<h2 id="一、精灵图（图片整合）"><a href="#一、精灵图（图片整合）" class="headerlink" title="一、精灵图（图片整合）"></a>一、精灵图（图片整合）</h2><p>图片整合的优势：1.通过图片整合来减少对服务器的请求次数，从而提高页面的加载速度。</p>
+<p>​                   2.通过整合图片来减小图片的体积。</p>
+<p>原理：将导航背景图片、按钮背景图片等有规则的合并成一张背景图，即将多张图片合为一张整图，然后用                                 background-position”来实现背景图片的定位技术。</p>
+<h2 id="二、滑动门"><a href="#二、滑动门" class="headerlink" title="二、滑动门"></a>二、滑动门</h2><p>滑动门：通过多张背景图片进行层叠，从而在视觉上达到同一张图片的效果<br>            <strong>a{padding-left存放左边的背景图片}&gt;span{padding-right以实现文本居中}</strong></p>
+<h2 id="三、自适应布局"><a href="#三、自适应布局" class="headerlink" title="三、自适应布局"></a>三、自适应布局</h2><p>一、宽高自适应<br>        （一）宽度自适应<br>            当块级元素的宽度设置成100%，或者不设置，宽度默认都是占父级元素的100%。<br>            <strong>经验：当父元素脱离了标准流，可以由子元素撑开它的宽度。</strong></p>
+<p>二、父元素的高度由子元素撑开  （高度自适应）</p>
+<p>​            1. 最小高度 min-height</p>
+<pre><code>* 当内容高度小于最小高度，按最小高度显示；
+* 当内容高度大于最小高度，按内容高度显示。
+应用场景：内容不确定，无法较好地控制父元素高度
+
+兼容ie6： ie6中，height代表的是最小高度。若想这个属性只让ie6识别，通过过滤器_height。
+</code></pre><p><strong>2.高度塌陷:当子元素都浮动了，父元素会没有子元素撑开高度。</strong><br>                解决办法：<br>                （1）给父元素加overflow:hidden; 缺点:若存在内容溢出，会被裁剪掉。<br>                （2）给父元素添加最后一个子元素（块级){height:0;clear:both;overflow:hidden;} 缺点：会产生很多多余的标签<br>                （3）伪元素清除法，</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.clearfix</span><span class="selector-pseudo">::after</span>&#123;</span><br><span class="line">            <span class="attribute">content</span>:<span class="string">""</span>;</span><br><span class="line">            <span class="attribute">display</span>:block;</span><br><span class="line">            <span class="attribute">height</span>:<span class="number">0</span>;</span><br><span class="line">            <span class="attribute">clear</span>:both;</span><br><span class="line">            <span class="attribute">overflow</span>:hidden;</span><br><span class="line">            <span class="attribute">visibility</span>: hidden;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p>​<strong>                    一般我们用的时候,我们只需要将类名.clearfix添加到父元素上即可。</strong></p>
+<h2 id="四、伪元素"><a href="#四、伪元素" class="headerlink" title="四、伪元素"></a><strong>四、伪元素</strong></h2><p>   <strong>1.E::before  给E元素添加第一个子元素,content:””不能省略</strong><br>           <em>元素类型默认为行内元素
+           </em>content:url();添加图片</p>
+<p>   <strong>2.E::after  给E元素添加最后一个子元素</strong></p>
+<ol start="3">
+<li>E::first-letter 给E元素的第一个文本添加样式</li>
+<li>E::first-line 给E元素的第行文本添加样式</li>
+</ol>
+<h2 id="常用浏览器"><a href="#常用浏览器" class="headerlink" title="常用浏览器"></a>常用浏览器</h2><p>1.主流浏览器：Internet Explorer、 Safari、Mozilla Firefox、 Google Chrome、Opera</p>
+<p>2.最早浏览器：网景领航者</p>
+<p>五大浏览器内核</p>
+<p>内核             浏览器*</p>
+<p>Trident:        IE、Maxthon(遨游)、腾讯 、Theworld世界之窗、360浏览器 只能应用于windows，不开源</p>
+<p>Gecko：        Mozilla Firefox (火狐)是开源的,它的最大优势是跨平台</p>
+<p>Webkit :         代表作品Safari、Chrome ， 是一个开源项目。</p>
+<p>Presto :        Opera（欧朋）公认的渲染速度最快的引擎</p>
+<p>Blink        由Google和Opera Software开发的浏览器排版引擎，2013年4月发布</p>
+<h2 id="CSS-Bug、CSS-Hack和Filter"><a href="#CSS-Bug、CSS-Hack和Filter" class="headerlink" title="CSS Bug、CSS Hack和Filter"></a>CSS Bug、CSS Hack和Filter</h2><p>1.CSS Bug    CSS样式在各浏览器中解析不一致的情况 在浏览器中不能正确显示的问题</p>
+<p>2.CSS Hack    兼容CSS在不同浏览器中正确显示的技巧方法 补丁</p>
+<p>3.Filter        表示过滤器    Filter是一种用来过滤不同浏览器的Hack类型</p>
+<h2 id="IE兼容性问题"><a href="#IE兼容性问题" class="headerlink" title="IE兼容性问题"></a>IE兼容性问题</h2><p>(1).图片有边框（ie8-） 解决办法： img{border:0 none;}</p>
+<p>(2)div&gt;img,img下方会存在间隙        描述：在div中插入图片时，图片会将div下方撑大大约三像素。<br>​            解决办法：<br>​                <em> img{display:block;}<br>​                </em> div{font-size:0;}</p>
+<p>(3)ie6以下，会错误地将浮动元素的浮向边margin加倍显示。<br>​            解决：   ｛display:inline;｝</p>
+<p>(4) ie7-，存在默认高度16px。<br>​            解决办法:<br>​                <em> {font-size:0;}<br>​                </em> {overflow:hidden;}</p>
+<p>(5)表单元素行高不一致问题（基线对齐的问题）<br>​            解决办法：<br>​                <em> {vertical-align: middle;}<br>​                </em> {float:left;}</p>
+<p>(6)表单元素样式在各浏览器渲染效果不一<br>​           解决办法：给input清除默认样式{display:block;border: 0 none;padding:0;}，</p>
+<p>​                  给input外层嵌套标签，设置input需要的样式</p>
+<p>(7)浮动元素50%+50%&gt;100% （ie6-）<br>​            解决办法： 若两个元素都左浮动，给元素添加{clear:right;}清除反向浮动</p>
+<p>(8)ie8及以下浏览器才支持cursor:hand;     （鼠标指针）<br>​                解决办法： ｛cursor:pointer;｝</p>
+<p>(9)透明度<br>​                <em> opactity:val; val取值为0-1，越大越不透明。<br>​                </em> filter:alpha(opacity=val)   val取值为0-100，整十数，越大越不透明。</p>
+<h5 id="10-margin塌陷："><a href="#10-margin塌陷：" class="headerlink" title="(10).margin塌陷："></a><strong>(10).margin塌陷：</strong></h5><p>​            <strong>父元素与第一个子元素存在上间距，若给第一个子元素加margin-top，会错误地渲染成父元素的margin-top。</strong><br>​            <strong>解决办法：</strong><br>​                    （<strong>1）子元素或者父元素浮动</strong><br>​                    <strong>（2）给父元素加overflow:hidden;</strong><br>​                    <strong>（3）给父元素加border-top</strong><br>​                    <strong>（4）将子元素的margin-top当作父元素的padding-top</strong></p>
+<p>(11).margin合并当两个块级元素竖直排列时，上一个元素的margin-bottom与下一个元素的margin-top会发生合并，它们之间的margin取两者之间较大的值。</p>
+<p>(12).ie8只支持单冒号写法<br>(13).总属性（border、background）的多个属性值之间要用空格隔开<br>(14).ul&gt;li(float)&gt;a(宽高)（float–&gt;ie6）<br>​    ul&gt;li(float)&gt;a(高度)（float–&gt;ie6）&gt;span(padding)(假如span也设置成了display:block;也要float)<br>(15).页面最外层设置最小宽度（版心容器宽度）<br>兼容ie6：_width:expression(document.body.clientWidth &lt; 1190 ? “1190px” : “auto”);</p>
+<h2 id="BFC"><a href="#BFC" class="headerlink" title="BFC"></a>BFC</h2><p>BFC(Block formatting context)直译为“块级格式化上下文” 独立的渲染区域，<strong>只有Block-level box（块）参与</strong>，规定内部如何布局，<strong>与外部毫不相干。</strong></p>
+<h5 id="BFC的布局规则"><a href="#BFC的布局规则" class="headerlink" title="BFC的布局规则"></a>BFC的布局规则</h5><p>1、<strong>内部的</strong>Box会在垂直方向，一个接一个地放置。</p>
+<p>2、Box垂直方向的距离由margin决定。属于同一个BFC的两个相邻块会发生<strong>margin重叠</strong>。</p>
+<p>3、每个元素的margin box的左边， 与包含块border box的左边相接触</p>
+<p>盒模型=content+padding+border+margin。Width指的是content的宽，height=content的高。</p>
+<p>4、<strong>BFC的区域不会与float box重叠。</strong>(应用场景：<strong>清除浮动的第二种方式、自适应两栏布局</strong>)</p>
+<p>5、BFC就是页面上的一个<strong>隔离的独立容器</strong>，容器里面的<strong>子元素不会影响到外面的元素</strong>。</p>
+<p>(应用场景：<strong>防止margin合并</strong>，对独立的bfc里面的子元素操作不会影响到外部元素)</p>
+<p>6、<strong>计算BFC的高度时，里面的浮动元素也参与计算</strong>(应用场景:清除浮动的第一种方式)</p>
+<h5 id="触发BFC"><a href="#触发BFC" class="headerlink" title="触发BFC"></a>触发BFC</h5><p><strong>根元素html</strong></p>
+<p><strong>float属性不为none</strong></p>
+<p><strong>position为absolute（有定位的父元素或者html）或fixed（可视窗口）</strong></p>
+<p><strong>display为inline-block, table-cell, table-caption, flex, inline-flex（css3）</strong></p>
+<p><strong>overflow不为visible(overflow:hidden;)</strong></p>
+<h5 id="应用：自适应两栏布局"><a href="#应用：自适应两栏布局" class="headerlink" title="应用：自适应两栏布局"></a><strong>应用：自适应两栏布局</strong></h5><p><strong>方法一：</strong></p>
+<p><strong>左边定宽加浮动，右边margin-left留出左边的宽（因为浮动的元素会脱离标准流，第二个元素会跑上来占据第一个元素的位置，而块级元素的宽度刚好是100%，当设置了margin-left为第一个元素的宽度，它的宽度会自动调整为页面剩余部分的宽度）</strong><br>​<br><strong>​       .dv1{width: 200px;height:600px;background-color: red;float: left;}</strong><br>​        <strong>.dv2{margin-left:200px;height: 600px;background: blue;}*/</strong></p>
+<p> <strong>方法二：</strong><br>​            <strong>左边定宽加浮动，右边不定宽加overflow:hidden</strong><br>​            <strong>原理：bfc的区域不会与浮动块重叠</strong></p>
+<h5 id="防止margin重叠"><a href="#防止margin重叠" class="headerlink" title="防止margin重叠"></a><strong>防止margin重叠</strong></h5><p>属于同一个bfc的两个相邻块会发生margin重叠</p>
+<p><strong>给第二个p添加一个盒子并添加overflow:hidden;</strong></p>
+<h5 id="清除内部浮动"><a href="#清除内部浮动" class="headerlink" title="清除内部浮动"></a>清除内部浮动</h5><p><strong>计算BFC的高度时，里面的浮动元素也参与计算</strong></p>
+<h2 id="表单新增属性"><a href="#表单新增属性" class="headerlink" title="表单新增属性"></a>表单新增属性</h2><p>1、表单字段集：</p>
+<p><code>&lt;fieldset&gt;&lt;/fieldset&gt;</code>        对表单中的元素进行分组</p>
+<p>2、字段集标题    <strong>fieldset&gt;legend字段集标题（必须作为表单字段集的第一个子元素）[align控制它在fieldset的某一个位置]</strong></p>
+<p>3、label提示信息标签</p>
+<p>​    [for] 关联到id名所在的表单元素<br>        若用于单选框或多选框，一般都是直接将文字及表单元素包含在label里面。</p>
+<p>4、type属性值</p>
+<p>​    1.input[type=”file”]上传文件 [multiple多选]</p>
+<pre><code>2. input[type=&quot;image&quot;] 图像提交按钮 [src图片路径]
+</code></pre><h2 id="表格新增属性"><a href="#表格新增属性" class="headerlink" title="表格新增属性"></a>表格新增属性</h2><h3 id="表格布局元素"><a href="#表格布局元素" class="headerlink" title="表格布局元素"></a>表格布局元素</h3><p>表格                         描述    </p>
+<p><table>                         定义表格</table></p>
+<p><caption>                     定义表格标题 </caption></p>
+<p><th>                         定义表格列标题 </th></p>
+<p><tr>                            定义表格的行 </tr></p>
+<p><td>                         定义表格单元</td></p>
+<p><thead>                      定义表格的页眉</thead></p>
+<p><tbody>                        定义表格的主体</tbody></p>
+<p><tfoot>                         定义表格的页脚</tfoot></p>
+<p><col>                        定义表格列的分组</p>
+<p><colgroup>                    定义表格列的分组</colgroup></p>
+<ol>
+<li><p>th标题行单元格，加粗居中 </p>
+</li>
+<li><p>caption 表格标题(作为table的第一个子元素)</p>
+</li>
+<li><p>行分组  thead表头   tbody表体      tfoot表尾</p>
+<p> ​        thead&gt;tr&gt;th        tbody&gt;tr&gt;td   tfoot&gt;tr&gt;td</p>
+<pre><code>书写顺序：thead、tfoot、tbody，这样子保证在数据加载完毕前，先呈现表头跟表尾。
+如果要使用 thead、tfoot 以及 tbody 元素，就必须使用全部的元素。(如果没有表尾，就省略tfoot)
+</code></pre></li>
+<li><p>列分组<strong>colgroup[span表示每个列分组占据的列数]</strong></p>
+</li>
+</ol>
+<h3 id="table的html属性"><a href="#table的html属性" class="headerlink" title="table的html属性"></a>table的html属性</h3><p>1）colspan=”value”    合并列2）rowspan=“value”   合并行</p>
+<p> [rules 添加分隔线]:cols列分隔线   rows行分隔线<br>                        all 行与行、列与列都存在分隔线   none没有     groups组分隔线<br> [align] 整个表格在其父元素的水平对齐方式  </p>
+<h3 id="表格的css属性"><a href="#表格的css属性" class="headerlink" title="表格的css属性"></a>表格的css属性</h3><p>1.(table)border-spacing 单元格与单元格之间的间距,不可取负值<br>2.(table)border-collapse 合并单元格边框<br>                    属性值：separate默认分离  collapse合并<br>3.(td)empty-cells 无内容时单元格边框的设置<br>                    属性值：show默认出现   hide隐藏<br>4.(caption)caption-side：top/right/bottom/left</p>
+<pre><code>* left,right位置只有火狐识别
+</code></pre><h2 id="html5新表单"><a href="#html5新表单" class="headerlink" title="html5新表单"></a>html5新表单</h2><h5 id="html表单标签"><a href="#html表单标签" class="headerlink" title="html表单标签"></a>html表单标签</h5><p> 1.拥有输入功能的下拉列表 input[list]+datalist[id]<br> 2.输出output，配合着form[oninput]使用。</p>
+<h5 id="表单类型type"><a href="#表单类型type" class="headerlink" title="表单类型type"></a>表单类型type</h5><p>1.color 拾色器<br><strong>2.email 邮箱（正则验证）</strong><br><strong>3.number 数字</strong><br><strong>4.tel 电话号码</strong><br><strong>5.url 网址（正则验证）</strong><br>6.search 搜索<br>7.range 特定范围内的数值选择器，min最小值、max最大值、step( 步数 )、value当前值</p>
+<p>8.date    <em><input type="date"></em> 用于应该包含日期的输入字段。  日期选择器</p>
+<h5 id="表单html属性"><a href="#表单html属性" class="headerlink" title="表单html属性"></a>表单html属性</h5><p>1.autofocus 自动聚焦<br>2.placeholder 占位符<br>3.required 必填项<br>4.pattern  正则</p>
+<h2 id="doctype-html声明文档类型"><a href="#doctype-html声明文档类型" class="headerlink" title="doctype html声明文档类型"></a>doctype html声明文档类型</h2><!-- doctype html声明文档类型为html5 -->
+<!-- <!DOCTYPE html> -->
+<!-- html:4t+tab ：声明文档类型为html4.01版本的过渡时期-->
+<p>&lt;!DOCTYPE HTML PUBLIC “-//W3C//DTD HTML 4.01 Transitional//EN” “<a href="http://www.w3.org/TR/html4/loose.dtd&quot;&gt;" target="_blank" rel="noopener">http://www.w3.org/TR/html4/loose.dtd&quot;&gt;</a></p>
+<!-- html:4s+tab ：声明文档类型为html4.01版本的严格时期-->
+<p>&lt;!DOCTYPE HTML PUBLIC “-//W3C//DTD HTML 4.01//EN” “<a href="http://www.w3.org/TR/html4/strict.dtd&quot;&gt;" target="_blank" rel="noopener">http://www.w3.org/TR/html4/strict.dtd&quot;&gt;</a></p>
+<!-- html:xt+tab -->
+<p>&lt;!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Transitional//EN” “<a href="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;" target="_blank" rel="noopener">http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd&quot;&gt;</a></p>
+<!-- html:xs+tab -->
+<p>&lt;!DOCTYPE html PUBLIC “-//W3C//DTD XHTML 1.0 Strict//EN” “<a href="http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;" target="_blank" rel="noopener">http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd&quot;&gt;</a></p>
+<h2 id="HTML5新标签"><a href="#HTML5新标签" class="headerlink" title="HTML5新标签"></a>HTML5新标签</h2><ol>
+<li><p><strong>header</strong> 头部标签，一般都是包含标题标签或者导航条。header、footer不互相嵌套。</p>
+</li>
+<li><p><strong>hgroup</strong> 对标题进行组合</p>
+</li>
+<li><p><strong>footer</strong> 一般都是版权信息、作者简介。。。</p>
+</li>
+<li><p><strong>nav</strong> 导航条</p>
+</li>
+<li><p><strong>main</strong>  主要内容，一个页面就用一次，外层结构。</p>
+</li>
+<li><p><strong>article</strong> 文章、独立的内容块。article可以嵌套自己。</p>
+</li>
+<li><p><strong>section</strong> 章节、区块，专题性的内容</p>
+</li>
+<li><p><strong>aside</strong> 侧边栏，非正文的内容</p>
+</li>
+<li><p><strong>figure</strong>对图片跟文字进行组合&gt;figcaption 对figure的内容进行说明</p>
+</li>
+<li><p><strong>time</strong>时间 [datetime 规定具体时间]</p>
+</li>
+<li><p><strong>details</strong>细节[open默认显示细节]&gt;summary 对细节的总结</p>
+</li>
+<li><p><strong>mark</strong>    定义带有记号的文本</p>
+</li>
+<li><p><strong>progress</strong>     定义进度条         progress [max最大值 ]【value当前值】</p>
+</li>
+<li><p><strong>meter</strong> 度量尺    min最小值              low较低的值                 value当前值         optimum较佳的值，当取值小于较低的值说明越低越好，反之同理</p>
+</li>
+<li><p><strong>ruby</strong>注释标签 &gt; rt对内容的注释信息</p>
+</li>
+<li><p>引入视频的方式：<strong>video</strong>[src] 或者 video&gt;source[src]</p>
+<pre><code>    (1)[controls]控制条
+    (2)[autoplay]自动播放
+    (3)[loop]循环播放
+    (4)[width]    or      [height]                 
+    (5)[poster]等待加载时的图片
+
+支持格式：ogg、mp4、webM
+</code></pre></li>
+</ol>
+<h1 id="一、选择器"><a href="#一、选择器" class="headerlink" title="一、选择器"></a>一、选择器</h1><h2 id="（一）基本选择器"><a href="#（一）基本选择器" class="headerlink" title="（一）基本选择器"></a>（一）基本选择器</h2><ol>
+<li>标签（元素）选择器：通过标签名获取元素</li>
+<li>类选择器：通过.类名获取元素</li>
+<li>id选择器：通过#id名获取元素</li>
+<li>通配符选择器：通过*获取到页面中所有元素</li>
+<li>群组选择器E1,E2：通过逗号同时获取到多个选择器，即获取E1和E2，以此类推。</li>
+</ol>
+<h2 id="二）层次选择器"><a href="#二）层次选择器" class="headerlink" title="(二）层次选择器"></a>(二）层次选择器</h2><ol>
+<li>后代选择器E1 E2:表示获取到的E2元素是E1元素的后代</li>
+<li>子代选择器E1&gt;E2:表示获取到的E2元素是E1元素的子代</li>
+<li>相邻兄弟选择器 E1+E2:表示获取的E2元素紧跟在E1元素的后面</li>
+<li>兄弟选择器E1~E2:表示获取E1后面的所有E2元素</li>
+</ol>
+<h2 id="三-动态伪类选择器"><a href="#三-动态伪类选择器" class="headerlink" title="(三) 动态伪类选择器"></a>(三) 动态伪类选择器</h2><ol>
+<li>:link 锚链接被访问前添加的样式</li>
+<li>:visited 锚链接被访问后添加的样式</li>
+<li>:hover 鼠标悬停在任意元素上添加的样式</li>
+<li>:active 鼠标点击任意元素时添加的样式</li>
+<li>:focus 表单元素被聚焦时添加的样式</li>
+</ol>
+<h2 id="四-目标伪类选择器"><a href="#四-目标伪类选择器" class="headerlink" title="(四)目标伪类选择器"></a>(四)目标伪类选择器</h2><p>URL 带有后面跟有锚名称 #，指向文档内某个具体的元素。这个被链接的元素就是目标元素(target element) </p>
+<p>​            <strong>E:target</strong>  获取到E元素里面被作为当前目标的元素</p>
+<h2 id="五-ui状态伪类选择器"><a href="#五-ui状态伪类选择器" class="headerlink" title="(五)ui状态伪类选择器"></a>(五)ui状态伪类选择器</h2><ol>
+<li>:enabled 可用的表单元素添加样式</li>
+<li>:disabled 可用的表单元素添加样式</li>
+<li>:checked 选中的表单选框添加样式</li>
+</ol>
+<h2 id="六-结构伪类选择器"><a href="#六-结构伪类选择器" class="headerlink" title="(六)结构伪类选择器"></a>(六)结构伪类选择器</h2><table>
+<thead>
+<tr>
+<th style="text-align:center">选择器                         5555555555555555555</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">E:first-child</td>
+<td>获取到其父元素的第一个子元素，且要满足为E元素</td>
+</tr>
+<tr>
+<td style="text-align:center">E:last-child</td>
+<td>获取到其父元素的最后一个子元素，且要满足为E元素</td>
+</tr>
+<tr>
+<td style="text-align:center">E:nth-child(n)</td>
+<td>获取到其父元素的第n个子元素，且要满足为E元素。从1开始计数。</td>
+</tr>
+<tr>
+<td style="text-align:center">E:nth-last-child(n)</td>
+<td>获取到其父元素的倒数第n个子元素，且要满足为E元素。从1开始计数。                                                                                                                 * n的取值： 具体数值    odd（2n-1）第奇数个孩子   even（2n）第偶数个孩子                                                                                                                                                                              -n +a 获取到父元素第一个到第a个孩子</td>
+</tr>
+<tr>
+<td style="text-align:center">E:first-of-type</td>
+<td>获取到其父元素的第一个E类型的子元素</td>
+</tr>
+<tr>
+<td style="text-align:center">E:last-of-type</td>
+<td>获取到其父元素的最后一个E类型的子元素</td>
+</tr>
+<tr>
+<td style="text-align:center">E:nth-of-type(n)</td>
+<td>获取到其父元素的第n个E类型的子元素</td>
+</tr>
+<tr>
+<td style="text-align:center">E:nth-last-of-type(n)</td>
+<td>获取到其父元素的倒数第n个E类型的子元素</td>
+</tr>
+<tr>
+<td style="text-align:center">E:empty</td>
+<td>空文本的E元素（不能有空格）添加样式</td>
+</tr>
+<tr>
+<td style="text-align:center">E:only-child</td>
+<td>获取到其父元素唯一的一个子元素,且要满足为E元素</td>
+</tr>
+<tr>
+<td style="text-align:center">E:only-of-type</td>
+<td>获取到父元素的唯一一个E类型的孩子</td>
+</tr>
+</tbody>
+</table>
+<p> :first-child 匹配的是某父元素的第一个子元素，可以说是结构上的第一个子元素。</p>
+<p>:first-of-type 匹配的是该类型的第一个，类型是指什么呢，就是冒号前面匹配到的东西，比如 p:first-of-type，就是指所有p元素中的第一个。这里不再限制是第一个子元素了，只要是该类型元素的第一个就行了，当然这些元素的范围都是属于同一级的，也就是同辈的。</p>
+<h2 id="七-否定伪类选择器"><a href="#七-否定伪类选择器" class="headerlink" title="(七)否定伪类选择器"></a>(七)否定伪类选择器</h2><p>​            F:not(E)  除了E条件以外的所有F元素</p>
+<h2 id="八-伪元素选择器"><a href="#八-伪元素选择器" class="headerlink" title="(八)伪元素选择器"></a>(八)伪元素选择器</h2><p>​            1.E::before{content:””} 给E元素添加第一个子元素（行内元素）<br>            2.E::after{content:””} 给E元素添加最后一个子元素<br>            3.E::first-letter 给E元素的第一个文本添加样式</p>
+<p>​            4.E::first-line 给E元素的第行文本添加样式<br>            5.E::selection E元素的内容被选中时添加样式<br>              兼容火狐::-moz-selection</p>
+<h2 id="九-属性选择器"><a href="#九-属性选择器" class="headerlink" title="(九) 属性选择器"></a>(九) 属性选择器</h2><p>​            1. E[attr] 拥有该attr属性的E元素被获取到</p>
+<pre><code>2. E[attr=&quot;val&quot;] 拥有该attr属性，且属性值等于val值的E元素被获取到
+3. E[attr*=&quot;val&quot;] 拥有该attr属性，且属性值包含val值的E元素被获取到
+4. E[attr^=&quot;val&quot;] 拥有该attr属性，且属性值以val值开头的E元素被获取到
+5. E[attr$=&quot;val&quot;] 拥有该attr属性，且属性值以val值结尾的E元素被获取到
+</code></pre><h2 id="十-语言伪类选择器-q-lang-no-quotes-””””"><a href="#十-语言伪类选择器-q-lang-no-quotes-””””" class="headerlink" title="(十) 语言伪类选择器 q:lang(no){quotes:””””;}"></a>(十) 语言伪类选择器 q:lang(no){quotes:””””;}</h2><p>​            * q[lang=”no”]在内容两侧会生成引号，若想改变符号，通过如上的语言伪类选择器</p>
+<h1 id="二、文本属性"><a href="#二、文本属性" class="headerlink" title="二、文本属性"></a>二、文本属性</h1><h2 id="1-文本阴影"><a href="#1-文本阴影" class="headerlink" title="1.文本阴影"></a>1.文本阴影</h2><p>​     text-shadow:x-offset  y-offset blur color[,…];</p>
+<pre><code>* x-offset 水平偏移，往右为正
+* y-offset 垂直偏移，往下为正
+* blur 模糊区域，不能取负值
+</code></pre><h2 id="2-文本溢出-text-overflow"><a href="#2-文本溢出-text-overflow" class="headerlink" title="2.文本溢出 text-overflow"></a>2.文本溢出 text-overflow</h2><p>​                * 属性值： clip默认不处理   ellipsis 以省略号的形式出现</p>
+<pre><code>* 配合三个属性使用：width、white-space:nowrap、overflow:hidden
+</code></pre><h2 id="3-单词换行-word-wrap-break-word"><a href="#3-单词换行-word-wrap-break-word" class="headerlink" title="3.单词换行 word-wrap:break-word;"></a>3.单词换行 word-wrap:break-word;</h2><h2 id="4-自定义字体-font-face-font-family起名字-src-url-“字体路径”"><a href="#4-自定义字体-font-face-font-family起名字-src-url-“字体路径”" class="headerlink" title="4.自定义字体 @font-face{font-family起名字;src:url(“字体路径”)}"></a>4.自定义字体 @font-face{font-family起名字;src:url(“字体路径”)}</h2><h2 id="5-字体图标"><a href="#5-字体图标" class="headerlink" title="5.字体图标"></a>5.字体图标</h2><p>使用服务端字体矢量图</p>
+<p><a href="http://www.iconfont.cn" target="_blank" rel="noopener">http://www.iconfont.cn</a>    </p>
+<p>打开链接选择图片下载后打开CSS文件复制按以下方法使用</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">type</span>=<span class="string">"text/css"</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="css">        @<span class="keyword">font-face</span> &#123;<span class="attribute">font-family</span>: <span class="string">"lemon"</span>;</span></span><br><span class="line"><span class="undefined">          src: url('../iconfont/iconfont.eot?t=1475997645'); /* IE9*/</span></span><br><span class="line"><span class="undefined">          src: url('../iconfont/iconfont.eot?t=1475997645#iefix') format('embedded-opentype'), /* IE6-IE8 */</span></span><br><span class="line"><span class="undefined">          url('../iconfont/iconfont.woff?t=1475997645') format('woff'), /* chrome, firefox */</span></span><br><span class="line"><span class="undefined">          url('../iconfont/iconfont.ttf?t=1475997645') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/</span></span><br><span class="line"><span class="undefined">          url('../iconfont/iconfont.svg?t=1475997645#iconfont') format('svg'); /* iOS 4.1- */</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.icon</span> &#123;</span></span><br><span class="line"><span class="css">          <span class="selector-tag">font-family</span><span class="selector-pseudo">:"lemon"</span> !<span class="selector-tag">important</span>;</span></span><br><span class="line"><span class="css">          <span class="selector-tag">font-style</span><span class="selector-pseudo">:normal</span>;</span></span><br><span class="line"><span class="css">          <span class="selector-tag">font-size</span><span class="selector-pseudo">:100px</span>;</span></span><br><span class="line"><span class="undefined">        &#125;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.fangzi</span><span class="selector-pseudo">:before</span> &#123; <span class="attribute">content</span>: <span class="string">"\e667"</span>; &#125;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.xiaoche</span><span class="selector-pseudo">:before</span> &#123; <span class="attribute">content</span>: <span class="string">"\e668"</span>; &#125;</span></span><br><span class="line"><span class="css">        <span class="selector-class">.meinv</span><span class="selector-pseudo">:before</span> &#123; <span class="attribute">content</span>: <span class="string">"\e66a"</span>; &#125;</span></span><br><span class="line"><span class="undefined">    </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span>我有一个大<span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"icon fangzi"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span>,我有一辆大<span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"icon xiaoche"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span>,我还有一个<span class="tag">&lt;<span class="name">i</span> <span class="attr">class</span>=<span class="string">"icon meinv"</span>&gt;</span><span class="tag">&lt;/<span class="name">i</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h1 id="三、背景属性"><a href="#三、背景属性" class="headerlink" title="三、背景属性"></a>三、背景属性</h1><h2 id="1-背景图片的尺寸-background-size"><a href="#1-背景图片的尺寸-background-size" class="headerlink" title="1.背景图片的尺寸 background-size"></a>1.背景图片的尺寸 background-size</h2><p>​                    取值：</p>
+<pre><code>    * 数值: 水平 垂直; 绝大部分情况会出现扭曲变形。
+    * cover 背景图片完全覆盖容器,绝大部分会出现背景图丢失一部分的情况
+    * contain 容器完全包含背景图片,绝大部分会出现容器留白现象
+* 等比缩放：cover、contain
+* 应用：一般轮播图采用背景图片｛background-size:cover;background-position:center center;｝
+</code></pre><h2 id="2-背景图片的定位区域-background-origin"><a href="#2-背景图片的定位区域-background-origin" class="headerlink" title="2.背景图片的定位区域 background-origin"></a>2.背景图片的定位区域 background-origin</h2><p>​                属性值：</p>
+<pre><code>* 默认从padding开始摆放 padding-box
+* 从content开始  content-box（说明此时background-position:0 0;在content内容的左上角。）
+* border-box 
+</code></pre><h2 id="3-背景图片的裁剪（最终显示区域）background-clip"><a href="#3-背景图片的裁剪（最终显示区域）background-clip" class="headerlink" title="3.背景图片的裁剪（最终显示区域）background-clip"></a>3.背景图片的裁剪（最终显示区域）background-clip</h2><p>​                * border-box 从边框部分开始裁剪</p>
+<pre><code>* padding-box 从padding部分开始裁剪
+* content-box 从content部分开始裁剪
+</code></pre><h1 id="一、边框属性"><a href="#一、边框属性" class="headerlink" title="一、边框属性"></a>一、边框属性</h1><h2 id="1-边框阴影box-shadow-x-offset-y-offset-blur-spread-color-inset-…"><a href="#1-边框阴影box-shadow-x-offset-y-offset-blur-spread-color-inset-…" class="headerlink" title="1.边框阴影box-shadow: x-offset y-offset blur spread color inset[,…];"></a>1.边框阴影box-shadow: x-offset y-offset blur spread color inset[,…];</h2><p>​                    * x-offset 水平偏移，往右为正值</p>
+<pre><code>* y-offset 垂直偏移，往下为正值
+* blur 模糊区域
+* spread 扩展区域
+* color 颜色
+* inset 往元素内部移动。若是不设置，则往元素外部添加边框阴影
+</code></pre><h2 id="2-边框图片-border-image"><a href="#2-边框图片-border-image" class="headerlink" title="2.边框图片 border-image"></a>2.边框图片 border-image</h2><p>​                * 边框图片引入border-image-source:url()</p>
+<pre><code>* 边框图片的裁剪 border-image-slice 遵循上右下左原则(不带单位)
+* 边框图片的宽度 border-image-width 若省略该值，默认就是边框宽度
+* 边框图片的重复 border-image-repeat
+    *属性值：stretch默认拉伸    repeat重复  round压缩重复
+* 边框图片向外延伸 border-image-outset 不能取负数
+</code></pre><h2 id="3-边框圆角-border-radius"><a href="#3-边框圆角-border-radius" class="headerlink" title="3.边框圆角 border-radius"></a>3.边框圆角 border-radius</h2><p>​                某个角的边框圆角：border-垂直方位-水平方位-radius:水平半径 垂直半径;<br>                border-radius:水平半径/垂直半径;<br>                    水平或垂直半径遵循（从左上角开始）顺时针原则,缺省的值找对角</p>
+<h1 id="二-渐变"><a href="#二-渐变" class="headerlink" title="二.渐变"></a>二.渐变</h1><h2 id="（一）线性渐变-linear-gradient"><a href="#（一）线性渐变-linear-gradient" class="headerlink" title="（一）线性渐变  linear-gradient"></a>（一）线性渐变  linear-gradient</h2><p>​                1.gradient(linear,起点坐标,终点坐标,from(color),to(color))</p>
+<pre><code>    * 坐标写法：水平坐标 垂直坐标; (只能用百分比)
+2.gradient(linear,起点坐标,终点坐标,color-stop(渐变开始的位置,color)[,...])
+    * 渐变开始的位置取值为0-1
+3.linear-gradient(方向||角度,颜色 渐变开始的位置)
+    * 方向：top bottom left right
+    * 角度单位:deg
+    * 渐变开始的位置:0-100%
+    * 老版本（加前缀的写法）+新版本 = 90deg
+</code></pre><h2 id="二-径向渐变radial-gradient"><a href="#二-径向渐变radial-gradient" class="headerlink" title="(二)径向渐变radial-gradient"></a>(二)径向渐变radial-gradient</h2><p>​                1. radial-gradient(圆心，颜色 开始渐变的位置[,….])</p>
+<pre><code>2. radial-gradient(圆心,size||shape,颜色 开始渐变的位置[,....])
+    * size大小：
+        closest-side：最近边； 
+        farthest-side：最远边；
+        closest-corner：最近角；
+        farthest-corner：最远角（默认值）
+    * shape形状：
+        ellipse椭圆形(默认)，circle表示圆形。
+</code></pre><h2 id="三-重复渐变-repeating-linear（radial）-gradient-用法同上"><a href="#三-重复渐变-repeating-linear（radial）-gradient-用法同上" class="headerlink" title="(三) 重复渐变 repeating-linear（radial）-gradient 用法同上"></a>(三) 重复渐变 repeating-linear（radial）-gradient 用法同上</h2><h1 id="浏览器的私有前缀"><a href="#浏览器的私有前缀" class="headerlink" title="浏览器的私有前缀"></a>浏览器的私有前缀</h1><table>
+<thead>
+<tr>
+<th>浏览器</th>
+<th>内核</th>
+<th>私有前缀</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>chrome、safari</td>
+<td>Webkit</td>
+<td>-webkit-</td>
+</tr>
+<tr>
+<td>opera</td>
+<td>Presto</td>
+<td>-o-</td>
+</tr>
+<tr>
+<td>ie</td>
+<td>Trident</td>
+<td>-ms-</td>
+</tr>
+<tr>
+<td>firefox</td>
+<td>Gecko</td>
+<td>-moz-</td>
+</tr>
+<tr>
+<td>chrome、opera</td>
+<td>blink</td>
+</tr>
+</tbody>
+</table>
+<h1 id="过渡-transition"><a href="#过渡-transition" class="headerlink" title="过渡 transition"></a>过渡 transition</h1><p>​          </p>
+<ol>
+<li><p>需要过渡的属性  transition-property：</p>
+</li>
+<li><p>过渡的时间 transition-duration：</p>
+</li>
+<li><p>过渡的形式 transition-timing-function：</p>
+<pre><code>*linear 匀速    ease慢速进入慢速离开
+   *ease-in 慢速进入   ease-out慢速离开
+   *ease-in-out慢速进入慢速离开
+</code></pre></li>
+<li><p>过渡的延迟 transition-delay：   </p>
+<pre><code>**总属性 transition: 1 2 3 4;(1跟2不可以省略) **
+  多个属性同时过渡可以用**all**。            
+</code></pre></li>
+</ol>
+<h2 id="四-2d变换transform-gt-这是一种状态"><a href="#四-2d变换transform-gt-这是一种状态" class="headerlink" title="四.2d变换transform ==&gt;这是一种状态"></a>四.2d变换transform ==&gt;这是一种状态</h2><p>​    <strong>写变换时，先写移动，再写旋转。</strong></p>
+<h2 id="1-移动变换-transform-translate-水平方向-右-垂直方向-下"><a href="#1-移动变换-transform-translate-水平方向-右-垂直方向-下" class="headerlink" title="1. 移动变换 transform:translate(水平方向(右),垂直方向(下))"></a>1. 移动变换 transform:translate(水平方向(右),垂直方向(下))</h2><p>​                改变某个方向 transform:translateX(水平方向)<br>                               transform:translateY(垂直方向)<br>                *取值取百分比的话，指的是参考自己的宽高   </p>
+<p>transform:translate(100px,20px):                                   </p>
+<p>   <img src="http://www.w3cplus.com/sites/default/files/translate-x-y.png" alt="img">               </p>
+<h2 id="2-缩放变换transform-scale-x-y"><a href="#2-缩放变换transform-scale-x-y" class="headerlink" title="2.缩放变换transform:scale(x,y)"></a>2.缩放变换transform:scale(x,y)</h2><p>​                * 取值为缩放比（倍数），基准点为元素中心。</p>
+<pre><code>* transform:scaleX(x)    transform:scaleY(y)
+</code></pre><h2 id="3-旋转变换-transform-rotate-deg"><a href="#3-旋转变换-transform-rotate-deg" class="headerlink" title="3.旋转变换 transform:rotate(deg)"></a>3.旋转变换 <strong>transform:rotate(deg</strong>)</h2><p>​                *顺时针旋转为正值，基准点在元素中心如：transform:rotate(30deg): </p>
+<p><img src="E:\笔记\rotate.png" alt="img"> </p>
+<h2 id="4-扭曲transform-skew-x轴旋转的角度，y轴旋转的角度"><a href="#4-扭曲transform-skew-x轴旋转的角度，y轴旋转的角度" class="headerlink" title="4.扭曲transform:skew(x轴旋转的角度，y轴旋转的角度)"></a>4.扭曲transform:skew(x轴旋转的角度，y轴旋转的角度)</h2><p>​                *transform:skewX(x轴旋转的角度)</p>
+<p>​    transform:skew(30deg,10deg): </p>
+<p><img src="http://www.w3cplus.com/sites/default/files/skew-x-y.png" alt="img"> </p>
+<h2 id="5-改变元素变换的基准点-transform-origin"><a href="#5-改变元素变换的基准点-transform-origin" class="headerlink" title="5.改变元素变换的基准点 transform-origin"></a>5.改变元素变换的基准点 transform-origin</h2><p>​                    取值：数值 百分比 方位</p>
+<h1 id="一-颜色模式（属性值：可以控制某个属性）"><a href="#一-颜色模式（属性值：可以控制某个属性）" class="headerlink" title="(一)颜色模式（属性值：可以控制某个属性）"></a>(一)颜色模式（属性值：可以控制某个属性）</h1><p>​            <strong>1.rgba(red0-255,green0-255,blue0-255,alpha不透明度0-1)</strong><br>            <strong>2.hsla(色调0-360,饱和度0-100%,亮度0-100%,alpha0-1)</strong><br>            <strong>3.transparent 完全透明 (三角形)</strong></p>
+<h1 id="二-盒模型"><a href="#二-盒模型" class="headerlink" title="(二)盒模型"></a>(二)盒模型</h1><p>​        盒模型由content内容、padding内填充、border边框、margin外间距组成。<br>        1.标准盒模型：width、height指的是content的宽高<br>        2.怪异盒模型: width、height指的是content+padding+border的宽高</p>
+<h5 id="box-sizing-规定盒模型"><a href="#box-sizing-规定盒模型" class="headerlink" title="box-sizing 规定盒模型"></a>box-sizing 规定盒模型</h5><p>​            *属性值：content-box（默认）     border-box设置成怪异盒模型</p>
+<h1 id="三、3d变换"><a href="#三、3d变换" class="headerlink" title="三、3d变换"></a>三、3d变换</h1><h5 id="1-transform-translate3d-x-y-z-移动变换"><a href="#1-transform-translate3d-x-y-z-移动变换" class="headerlink" title="1.transform:translate3d(x,y,z); 移动变换"></a>1.transform:translate3d(x,y,z); 移动变换</h5><p>​            transform:translateZ(z),其他方向同理</p>
+<h5 id="2-transform-style-preserve-3d-保持3d变换（父元素上）"><a href="#2-transform-style-preserve-3d-保持3d变换（父元素上）" class="headerlink" title="2.transform-style:preserve-3d; 保持3d变换（父元素上）"></a>2.transform-style:preserve-3d; 保持3d变换（父元素上）</h5><p>​                *flat平面（默认）</p>
+<h5 id="3-设置观察的距离，景深perspective-父元素上"><a href="#3-设置观察的距离，景深perspective-父元素上" class="headerlink" title="3.设置观察的距离，景深perspective(父元素上)"></a>3.设置观察的距离，景深perspective(父元素上)</h5><p>4.旋转变换   </p>
+<p>​                左手定律：大拇指指向轴的正方向，其他手指卷曲的方向为旋转的正方向</p>
+<h5 id="transform-rotate3d-x-y-z-deg-x、y、z取值为0（不旋转）或1（旋转）"><a href="#transform-rotate3d-x-y-z-deg-x、y、z取值为0（不旋转）或1（旋转）" class="headerlink" title="transform:rotate3d(x,y,z,deg)  x、y、z取值为0（不旋转）或1（旋转）"></a>transform:rotate3d(x,y,z,deg)  x、y、z取值为0（不旋转）或1（旋转）</h5><p>​                transform:rotateX(deg);</p>
+<h5 id="立方体"><a href="#立方体" class="headerlink" title="立方体"></a>立方体</h5><p>1.先把所有的面都定位在盒子的同一位置</p>
+<p>2.设置3d变换，将每个面移动到指定位置</p>
+<p>3.设置景深</p>
+<p>4.transform-origin 变换的基准点</p>
+<p>5.perspective-origin 观察的基准点</p>
+<p><img src="E:\笔记\轴.png" alt></p>
+<h5 id="3D导航"><a href="#3D导航" class="headerlink" title="3D导航"></a>3D导航</h5><p>1.导航的套路<br>2.两个a一开始先放在li同一位置再进行移动旋转变换<br>3.hover之后整个li翻转即可。过渡及延迟。</p>
+<h1 id="四、关键帧动画"><a href="#四、关键帧动画" class="headerlink" title="四、关键帧动画"></a>四、关键帧动画</h1><h4 id="（一）自定义动画"><a href="#（一）自定义动画" class="headerlink" title="（一）自定义动画"></a>（一）自定义动画</h4><p>​            （1）通过@keyframes指定动画序列；@keyframes name{}<br>            （2）通过百分比将动画序列分割成多个节点；<br>            （3）在各节点中分别定义各属性<br>            （4）通过animation将动画应用于相应元素；</p>
+<pre><code>@keyframes name{
+    百分比{
+        声明
+    }
+}
+</code></pre><h4 id="二-animation属性"><a href="#二-animation属性" class="headerlink" title="(二) animation属性"></a>(二) animation属性</h4><h5 id="1-animation-name-动画名字"><a href="#1-animation-name-动画名字" class="headerlink" title="1. animation-name 动画名字"></a>1. animation-name 动画名字</h5><h5 id="2-animation-duration-动画播放时间"><a href="#2-animation-duration-动画播放时间" class="headerlink" title="2. animation-duration 动画播放时间"></a>2. animation-duration 动画播放时间</h5><h5 id="3-animation-timing-function-动画播放的形式"><a href="#3-animation-timing-function-动画播放的形式" class="headerlink" title="3. animation-timing-function 动画播放的形式"></a>3. animation-timing-function 动画播放的形式</h5><p>​                    linear匀速   ease…<br>                    steps(n)</p>
+<p>​    steps(n)、steps(n,end)每一帧都分成n步，每一步都以前一步的状态填充时间段<br>            steps(n,start)每一帧都分成n步，每一步都以后一步的状态填充时间段</p>
+<h5 id="4-animation-delay-动画播放的延迟"><a href="#4-animation-delay-动画播放的延迟" class="headerlink" title="4. animation-delay 动画播放的延迟"></a>4. animation-delay 动画播放的延迟</h5><h5 id="5-animation-iteration-count-动画播放的次数-infinite无限次播放"><a href="#5-animation-iteration-count-动画播放的次数-infinite无限次播放" class="headerlink" title="5. animation-iteration-count 动画播放的次数  infinite无限次播放"></a>5. animation-iteration-count 动画播放的次数  infinite无限次播放</h5><h5 id="6-animation-direction-动画播放的方向"><a href="#6-animation-direction-动画播放的方向" class="headerlink" title="6. animation-direction 动画播放的方向"></a>6. animation-direction 动画播放的方向</h5><p>​                    属性值：normal正向播放  reverse反向播放  alternate 交替播放<br>                    alternate-reverse反向交替播放</p>
+<h5 id="animation-play-state-paused-动画暂停"><a href="#animation-play-state-paused-动画暂停" class="headerlink" title="animation-play-state: paused; 动画暂停"></a>animation-play-state: paused; 动画暂停</h5><h5 id="7-animation-fill-mode-动画完成后的状态-forwards保持最后的状态"><a href="#7-animation-fill-mode-动画完成后的状态-forwards保持最后的状态" class="headerlink" title="7. animation-fill-mode 动画完成后的状态  forwards保持最后的状态"></a>7. animation-fill-mode 动画完成后的状态  forwards保持最后的状态</h5><p>​                animation: 1 2 3 4 5 6 7;</p>
+<h1 id="一、弹性盒布局"><a href="#一、弹性盒布局" class="headerlink" title="一、弹性盒布局"></a>一、弹性盒布局</h1><h2 id="（一）设置在父元素上"><a href="#（一）设置在父元素上" class="headerlink" title="（一）设置在父元素上"></a>（一）设置在父元素上</h2><h5 id="1-display-flex-将父元素设置成弹性盒，那么里面的子元素会在主轴方向上默认不换行摆放；侧轴方向的大小不设置的话，就会在当前行默认被拉伸"><a href="#1-display-flex-将父元素设置成弹性盒，那么里面的子元素会在主轴方向上默认不换行摆放；侧轴方向的大小不设置的话，就会在当前行默认被拉伸" class="headerlink" title="1.display:flex; 将父元素设置成弹性盒，那么里面的子元素会在主轴方向上默认不换行摆放；侧轴方向的大小不设置的话，就会在当前行默认被拉伸"></a>1.display:flex; 将父元素设置成弹性盒，那么里面的子元素会在主轴方向上默认不换行摆放；侧轴方向的大小不设置的话，就会在当前行默认被拉伸</h5><h5 id="2-flex-direction-设置主轴方向"><a href="#2-flex-direction-设置主轴方向" class="headerlink" title="2.flex-direction 设置主轴方向"></a>2.flex-direction 设置主轴方向</h5><p>​                    属性值：<br>                        row 从左往右<br>                        row-reverse 从右往左<br>                        column 从上到下<br>                        column-reverse 从下到上</p>
+<h5 id="3-flex-wrap-伸缩换行"><a href="#3-flex-wrap-伸缩换行" class="headerlink" title="3.flex-wrap 伸缩换行"></a>3.flex-wrap 伸缩换行</h5><p>​                    <em>nowrap默认不换行
+                    </em>wrap 换行<br>                    *wrap-reverse 换行反向    主轴是水平时，上下反向，主轴垂直时，左右反向；</p>
+<h5 id="4-flex-flow-flex-direction-flex-wrap"><a href="#4-flex-flow-flex-direction-flex-wrap" class="headerlink" title="4.flex-flow:flex-direction ||  flex-wrap;"></a>4.flex-flow:flex-direction ||  flex-wrap;</h5><h5 id="5-justify-content-设置子项目在主轴方向的对齐方式"><a href="#5-justify-content-设置子项目在主轴方向的对齐方式" class="headerlink" title="5.justify-content 设置子项目在主轴方向的对齐方式"></a>5.justify-content 设置子项目在主轴方向的对齐方式</h5><p>​                * flex-start 默认在主轴的起点位置靠齐摆放</p>
+<pre><code>* flex-end 在主轴的终点位置靠齐摆放
+* center 在主轴的中间位置靠齐摆放
+* space-between 将主轴方向空白区域平分在子项目之间
+</code></pre><p>​        *space-around 将主轴方向空白区域环绕在子项目两侧</p>
+<h5 id="6-align-items-设置子项目在（当前行）侧轴方向的对齐方式"><a href="#6-align-items-设置子项目在（当前行）侧轴方向的对齐方式" class="headerlink" title="6.align-items 设置子项目在（当前行）侧轴方向的对齐方式"></a>6.align-items 设置子项目在（当前行）侧轴方向的对齐方式</h5><p>​                * stretch 若不设置子项目在侧轴方向的大小，会被默认拉伸</p>
+<pre><code>* flex-start 若设置子项目在侧轴方向的大小，会被默认摆放在侧轴的起点位置
+* flex-end 摆放在侧轴的终点位置
+* center 摆放在侧轴的中间位置
+* baseline 子项目以基线对齐
+</code></pre><h5 id="7-align-content-控制子项目在侧轴方向的对齐方式（有换行情况下用此属性，单行用align-self）"><a href="#7-align-content-控制子项目在侧轴方向的对齐方式（有换行情况下用此属性，单行用align-self）" class="headerlink" title="7.align-content 控制子项目在侧轴方向的对齐方式（有换行情况下用此属性，单行用align-self）"></a>7.align-content 控制子项目在侧轴方向的对齐方式（有换行情况下用此属性，单行用align-self）</h5><p>​                属性值等同于 justify-content</p>
+<p>flex-start：各行向伸缩容器的起点位置堆叠；<br>    flex-end：各行向伸缩容器的结束位置堆叠；<br>    center：各行向伸缩容器的中间位置堆叠；<br>    space-between：各行在伸缩容器中平均分布；<br>    space-around：各行在伸缩容器中平均分布，两端保留一半的空间；<br>    stretch：各行将伸展以占用额外空间。</p>
+<h2 id="（二）设置在子元素上"><a href="#（二）设置在子元素上" class="headerlink" title="（二）设置在子元素上"></a>（二）设置在子元素上</h2><h5 id="1-flex-设置子项目在主轴方向的比份"><a href="#1-flex-设置子项目在主轴方向的比份" class="headerlink" title="1.flex 设置子项目在主轴方向的比份"></a>1.flex 设置子项目在主轴方向的比份</h5><h5 id="2-align-self-设置单个子项目在（当前行）侧轴方向的对齐方式"><a href="#2-align-self-设置单个子项目在（当前行）侧轴方向的对齐方式" class="headerlink" title="2.align-self 设置单个子项目在（当前行）侧轴方向的对齐方式"></a>2.align-self 设置单个子项目在（当前行）侧轴方向的对齐方式</h5><p>​                    取值同align-items</p>
+<p>flex-start：伸缩项目在侧轴起点边的外边距 紧靠住 该行在侧轴起始边；(侧轴的起点位置摆放)<br>    flex-end：伸缩项目在侧轴终点边的外边距 紧靠住 该行在侧轴终点边；（侧轴的终点位置摆放）<br>    center：伸缩项目的外边距盒 在该行的侧轴上居中放置；（侧轴居中摆放）<br>    baseline：伸缩项目根据伸缩项目的基线对齐；（侧轴方向子项目以基线对齐）<br>    stretch：伸缩项目拉伸填充整个伸缩容器。（伸缩项目不给高度时，默认会被拉伸。）</p>
+<h5 id="3-order-设置子项目的显示顺序"><a href="#3-order-设置子项目的显示顺序" class="headerlink" title="3.order 设置子项目的显示顺序"></a>3.order 设置子项目的显示顺序</h5><p>​                * 设置了order会放在没设置order子项目后面</p>
+<pre><code>* 都设置了order,数字越小越靠前
+</code></pre><h1 id="二、多列布局"><a href="#二、多列布局" class="headerlink" title="二、多列布局"></a>二、多列布局</h1><h5 id="1-column-width-每列的最小宽度"><a href="#1-column-width-每列的最小宽度" class="headerlink" title="1.column-width 每列的最小宽度"></a>1.column-width 每列的最小宽度</h5><h5 id="2-column-count-最多的列数"><a href="#2-column-count-最多的列数" class="headerlink" title="2.column-count 最多的列数"></a>2.column-count 最多的列数</h5><h5 id="3-column-gap-列间距"><a href="#3-column-gap-列间距" class="headerlink" title="3.column-gap 列间距"></a>3.column-gap 列间距</h5><h5 id="4-column-rule-列边框"><a href="#4-column-rule-列边框" class="headerlink" title="4.column-rule 列边框"></a>4.column-rule 列边框</h5><h5 id="5-column-span-跨列"><a href="#5-column-span-跨列" class="headerlink" title="5.column-span 跨列"></a>5.column-span 跨列</h5><p>​                *none不跨列 all跨所有列</p>
+<p>​     <code>column-width:300px;</code><br>            <code>column-count:4;</code><br>            <code>column-gap:30px;</code><br>            <code>column-rule:4px solid #ccc;</code></p>
+<h1 id="三-媒体查询"><a href="#三-媒体查询" class="headerlink" title="三.媒体查询"></a>三.媒体查询</h1><h5 id="1-用法-media-screen-and-条件-选择器-声明"><a href="#1-用法-media-screen-and-条件-选择器-声明" class="headerlink" title="1. 用法 @media screen and (条件){选择器{声明}"></a>1. 用法 @media screen and (条件){选择器{声明}</h5><h5 id="2-min-width-当页面宽度大于最小宽度，生效。（从小写到大）"><a href="#2-min-width-当页面宽度大于最小宽度，生效。（从小写到大）" class="headerlink" title="2.  min-width 当页面宽度大于最小宽度，生效。（从小写到大）"></a>2.  min-width 当页面宽度大于最小宽度，生效。（从小写到大）</h5><p>​                max-width 当页面宽度大于最小宽度，生效。（从大写到小）<br>                min-device-width 【设备宽度】</p>
+<h5 id="3-link-media-quot-screen-and-条件-quot-href"><a href="#3-link-media-quot-screen-and-条件-quot-href" class="headerlink" title="3.link[media=&quot;screen and (条件)&quot;][href]"></a>3.link<code>[media=&quot;screen and (条件)&quot;][href]</code></h5><h1 id="1-自适应布局"><a href="#1-自适应布局" class="headerlink" title="1.自适应布局"></a>1.自适应布局</h1><p>​        元素的宽高自适应窗口或者子元素的大小，从而实现同一套页面适应不同的窗口、分辨率及设备。（！！！）<br>        2.响应式布局（一般都是用于较为简单的页面）<br>        响应不同的屏幕大小或者设备大小，对同一套页面的部分布局进行修改，但大体保持一致。</p>
+<h1 id="一、移动端页面布局"><a href="#一、移动端页面布局" class="headerlink" title="一、移动端页面布局"></a>一、移动端页面布局</h1><h5 id="1、弹性布局（100-布局）——拉勾网、天猫首页-px"><a href="#1、弹性布局（100-布局）——拉勾网、天猫首页-px" class="headerlink" title="1、弹性布局（100%布局）——拉勾网、天猫首页  px"></a>1、弹性布局（100%布局）——拉勾网、天猫首页  px</h5><p>好处：充分发挥大手机的优势——显示内容越多.<br>缺点：屏幕过大，间距过大，比例失调。</p>
+<p>特点：</p>
+<ul>
+<li>顶部与底部的bar不管分辨率怎么变，它的高度和位置都不变；</li>
+<li>中间每条招聘信息不管分辨率怎么变，招聘公司的图标等信息都位于条目的左边，薪资都位于右边。</li>
+</ul>
+<h5 id="2、等比缩放布局（rem布局）——网易、淘宝首页"><a href="#2、等比缩放布局（rem布局）——网易、淘宝首页" class="headerlink" title="2、等比缩放布局（rem布局）——网易、淘宝首页"></a>2、等比缩放布局（rem布局）——网易、淘宝首页</h5><p> 尽量保证不同设备显示效果一致</p>
+<p><code>&lt;script type=&quot;text/javascript&quot;&gt;</code><br>    // 把尺寸放大N倍（N是window.devicePixelRatio）<br>    var wd = document.documentElement.clientWidth<em>window.devicePixelRatio/10;<br>    //物理像素</em>设备像素比=真实像素<br>    document.getElementsByTagName(“html”)[0].style.fontSize = wd + “px”;<br>    // 把屏幕的倍率缩小到N分之一（N是window.devicePixelRatio）<br>    var scale = 1/window.devicePixelRatio;<br>    var mstr = ‘initial-scale=’+ scale +’, maximum-scale=’+ scale +’, minimum-scale=’+ scale +’, user-scalable=no’;<br>    document.getElementById(“vp”).content = mstr;<br><code>&lt;/script&gt;</code></p>
+<p>640px iphone5  px=根部字体大小=&gt;rem * 不同设备的根部字体大小 ==&gt;不同设备的具体px</p>
+<ul>
+<li><p>视口(viewport)设置：<meta name="viewport" content="initial-scale=1,maximum-scale=1, minimum-scale=1"></p>
+</li>
+<li><p>在html上根据不同分辨率设置不同font-size，通过js计算出来</p>
+</li>
+</ul>
+<ul>
+<li>页面里除了font-size之外的其它css尺寸都使用了rem作为单位</li>
+<li>正文的font-size需要额外的媒介查询，并且不使用rem</li>
+</ul>
+<p>devicePixelRatio设备像素比   真实像素640/物理像素320(固定)<br>视网膜屏幕</p>
+<p>//1/4  5052/1263=4</p>
+<ul>
+<li>动态设置viewport的scale，淘宝触屏版首页布局的前提是viewport的scale根据devicePixelRatio动态设置：在devicePixelRatio为1的时候，scale为1；在devicePixelRatio为2的时候，scale为0.5；在devicePixelRatio为3的时候，scale为0.3333</li>
+</ul>
+<p>1.获取不同手机的设备像素比 2<br>2.求出对应的scale的值，给meta标签（js）</p>
+<p>640px</p>
+<ul>
+<li><p>动态计算html的font-size：font-size = deviceWidth / 10</p>
+</li>
+<li><p>布局的时候，各元素的css尺寸=设计稿标注尺寸/设计稿横向分辨率/10</p>
+</li>
+<li><p>每个元素的font-size可能需要额外的媒介查询，并且font-size不使用rem</p>
+</li>
+</ul>
+<p>//1.百分比布局（量到多少写多少，js代码删掉前两句，记得meta加id）<br>//2.复制一份百分比布局文件，在复制的文件夹上面改成rem布局（js代码。设计稿640px，说明你在iphone5上开发，插件px-rem：64；设计稿750px，说明在iphone6开发，px-rem75）<br>//3.rem概念理解:以根部字体大小为基准。<br>//每个元素的font-size可能需要额外的媒介查询</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+      
+    
+    
+
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------阅读有风险<i class="fa fa-paw"></i>请谨慎阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/html/" rel="tag"># html</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/06/12/html基础/" rel="next" title="html基础">
+                <i class="fa fa-chevron-left"></i> html基础
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/06/12/js基础/" rel="prev" title="js基础">
+                js基础 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/baby.png" alt="唐唐胖次">
+            
+              <p class="site-author-name" itemprop="name">唐唐胖次</p>
+              <div class="site-description motion-element" itemprop="description">每天努力一点点</div>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">55</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  
+                    
+                      <a href="/categories/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">18</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  
+                    
+                      <a href="/tags/">
+                    
+                  
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">19</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  
+                  
+                    
+                  
+                  
+                    
+                  
+                  <a href="https://github.com/Junokl" title="GitHub &rarr; https://github.com/Junokl" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+            </div>
+          
+
+          
+
+          
+          
+
+          
+            
+          
+          
+
+        </div>
+      </div>
+
+      
+      <!--noindex-->
+        <div class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+            
+            
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#标签总结"><span class="nav-number">1.</span> <span class="nav-text">标签总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS语法"><span class="nav-number">2.</span> <span class="nav-text">CSS语法</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#一-css语法"><span class="nav-number">2.0.0.0.1.</span> <span class="nav-text">(一)css语法</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#二-css属性"><span class="nav-number">2.0.0.0.2.</span> <span class="nav-text">(二)css属性</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#三-三种样式表"><span class="nav-number">2.0.0.0.3.</span> <span class="nav-text">(三)三种样式表</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#四-选择器"><span class="nav-number">2.0.0.0.4.</span> <span class="nav-text">(四)选择器</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#五-权重"><span class="nav-number">2.0.0.0.5.</span> <span class="nav-text">(五)权重</span></a></li></ol></li></ol><li class="nav-item nav-level-2"><a class="nav-link" href="#一-字体属性-font"><span class="nav-number">3.</span> <span class="nav-text">(一)字体属性 font</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-文本属性-text"><span class="nav-number">4.</span> <span class="nav-text">(二)文本属性 text</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三-列表属性-list-style"><span class="nav-number">5.</span> <span class="nav-text">(三)列表属性 list-style</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四-边框属性border"><span class="nav-number">6.</span> <span class="nav-text">(四)边框属性border</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五-背景属性background"><span class="nav-number">7.</span> <span class="nav-text">(五)背景属性background</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六-浮动float"><span class="nav-number">8.</span> <span class="nav-text">(六) 浮动float</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七-line-height-行高"><span class="nav-number">9.</span> <span class="nav-text">(七)line-height 行高</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一-盒模型"><span class="nav-number">10.</span> <span class="nav-text">(一)盒模型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-padding"><span class="nav-number">11.</span> <span class="nav-text">(二)padding</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三-margin"><span class="nav-number">12.</span> <span class="nav-text">(三)margin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四-页面"><span class="nav-number">13.</span> <span class="nav-text">(四)页面</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五-样式"><span class="nav-number">14.</span> <span class="nav-text">(五)样式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、定位-position"><span class="nav-number">15.</span> <span class="nav-text">一、定位        position</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、层级-z-index"><span class="nav-number">16.</span> <span class="nav-text">二、层级  z-index</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、命名锚点"><span class="nav-number">17.</span> <span class="nav-text">三、命名锚点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、overflow-内容溢出容器时的处理方式"><span class="nav-number">18.</span> <span class="nav-text">四、overflow 内容溢出容器时的处理方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、元素类型"><span class="nav-number"></span> <span class="nav-text">一、元素类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#一-块级元素"><span class="nav-number">1.</span> <span class="nav-text">(一) 块级元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-行内元素"><span class="nav-number">2.</span> <span class="nav-text">(二) 行内元素</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二-元素类型的转换display"><span class="nav-number"></span> <span class="nav-text">二.元素类型的转换display</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#行内块级元素与浮动的区别"><span class="nav-number">1.</span> <span class="nav-text">行内块级元素与浮动的区别:</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#导航条做法"><span class="nav-number">2.</span> <span class="nav-text">导航条做法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#设置一个元素在一个容器中垂直居中"><span class="nav-number">3.</span> <span class="nav-text">设置一个元素在一个容器中垂直居中</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一、精灵图（图片整合）"><span class="nav-number">4.</span> <span class="nav-text">一、精灵图（图片整合）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二、滑动门"><span class="nav-number">5.</span> <span class="nav-text">二、滑动门</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三、自适应布局"><span class="nav-number">6.</span> <span class="nav-text">三、自适应布局</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四、伪元素"><span class="nav-number">7.</span> <span class="nav-text">四、伪元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常用浏览器"><span class="nav-number">8.</span> <span class="nav-text">常用浏览器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#CSS-Bug、CSS-Hack和Filter"><span class="nav-number">9.</span> <span class="nav-text">CSS Bug、CSS Hack和Filter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#IE兼容性问题"><span class="nav-number">10.</span> <span class="nav-text">IE兼容性问题</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#10-margin塌陷："><span class="nav-number">10.0.0.1.</span> <span class="nav-text">(10).margin塌陷：</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BFC"><span class="nav-number">11.</span> <span class="nav-text">BFC</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#BFC的布局规则"><span class="nav-number">11.0.0.1.</span> <span class="nav-text">BFC的布局规则</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#触发BFC"><span class="nav-number">11.0.0.2.</span> <span class="nav-text">触发BFC</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#应用：自适应两栏布局"><span class="nav-number">11.0.0.3.</span> <span class="nav-text">应用：自适应两栏布局</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#防止margin重叠"><span class="nav-number">11.0.0.4.</span> <span class="nav-text">防止margin重叠</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#清除内部浮动"><span class="nav-number">11.0.0.5.</span> <span class="nav-text">清除内部浮动</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表单新增属性"><span class="nav-number">12.</span> <span class="nav-text">表单新增属性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#表格新增属性"><span class="nav-number">13.</span> <span class="nav-text">表格新增属性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#表格布局元素"><span class="nav-number">13.1.</span> <span class="nav-text">表格布局元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#table的html属性"><span class="nav-number">13.2.</span> <span class="nav-text">table的html属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#表格的css属性"><span class="nav-number">13.3.</span> <span class="nav-text">表格的css属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#html5新表单"><span class="nav-number">14.</span> <span class="nav-text">html5新表单</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#html表单标签"><span class="nav-number">14.0.0.1.</span> <span class="nav-text">html表单标签</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#表单类型type"><span class="nav-number">14.0.0.2.</span> <span class="nav-text">表单类型type</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#表单html属性"><span class="nav-number">14.0.0.3.</span> <span class="nav-text">表单html属性</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#doctype-html声明文档类型"><span class="nav-number">15.</span> <span class="nav-text">doctype html声明文档类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HTML5新标签"><span class="nav-number">16.</span> <span class="nav-text">HTML5新标签</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、选择器"><span class="nav-number"></span> <span class="nav-text">一、选择器</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#（一）基本选择器"><span class="nav-number">1.</span> <span class="nav-text">（一）基本选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二）层次选择器"><span class="nav-number">2.</span> <span class="nav-text">(二）层次选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三-动态伪类选择器"><span class="nav-number">3.</span> <span class="nav-text">(三) 动态伪类选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#四-目标伪类选择器"><span class="nav-number">4.</span> <span class="nav-text">(四)目标伪类选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#五-ui状态伪类选择器"><span class="nav-number">5.</span> <span class="nav-text">(五)ui状态伪类选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#六-结构伪类选择器"><span class="nav-number">6.</span> <span class="nav-text">(六)结构伪类选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#七-否定伪类选择器"><span class="nav-number">7.</span> <span class="nav-text">(七)否定伪类选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#八-伪元素选择器"><span class="nav-number">8.</span> <span class="nav-text">(八)伪元素选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#九-属性选择器"><span class="nav-number">9.</span> <span class="nav-text">(九) 属性选择器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十-语言伪类选择器-q-lang-no-quotes-””””"><span class="nav-number">10.</span> <span class="nav-text">(十) 语言伪类选择器 q:lang(no){quotes:””””;}</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、文本属性"><span class="nav-number"></span> <span class="nav-text">二、文本属性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-文本阴影"><span class="nav-number">1.</span> <span class="nav-text">1.文本阴影</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-文本溢出-text-overflow"><span class="nav-number">2.</span> <span class="nav-text">2.文本溢出 text-overflow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-单词换行-word-wrap-break-word"><span class="nav-number">3.</span> <span class="nav-text">3.单词换行 word-wrap:break-word;</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-自定义字体-font-face-font-family起名字-src-url-“字体路径”"><span class="nav-number">4.</span> <span class="nav-text">4.自定义字体 @font-face{font-family起名字;src:url(“字体路径”)}</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-字体图标"><span class="nav-number">5.</span> <span class="nav-text">5.字体图标</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、背景属性"><span class="nav-number"></span> <span class="nav-text">三、背景属性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-背景图片的尺寸-background-size"><span class="nav-number">1.</span> <span class="nav-text">1.背景图片的尺寸 background-size</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-背景图片的定位区域-background-origin"><span class="nav-number">2.</span> <span class="nav-text">2.背景图片的定位区域 background-origin</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-背景图片的裁剪（最终显示区域）background-clip"><span class="nav-number">3.</span> <span class="nav-text">3.背景图片的裁剪（最终显示区域）background-clip</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、边框属性"><span class="nav-number"></span> <span class="nav-text">一、边框属性</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-边框阴影box-shadow-x-offset-y-offset-blur-spread-color-inset-…"><span class="nav-number">1.</span> <span class="nav-text">1.边框阴影box-shadow: x-offset y-offset blur spread color inset[,…];</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-边框图片-border-image"><span class="nav-number">2.</span> <span class="nav-text">2.边框图片 border-image</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-边框圆角-border-radius"><span class="nav-number">3.</span> <span class="nav-text">3.边框圆角 border-radius</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二-渐变"><span class="nav-number"></span> <span class="nav-text">二.渐变</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#（一）线性渐变-linear-gradient"><span class="nav-number">1.</span> <span class="nav-text">（一）线性渐变  linear-gradient</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二-径向渐变radial-gradient"><span class="nav-number">2.</span> <span class="nav-text">(二)径向渐变radial-gradient</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#三-重复渐变-repeating-linear（radial）-gradient-用法同上"><span class="nav-number">3.</span> <span class="nav-text">(三) 重复渐变 repeating-linear（radial）-gradient 用法同上</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#浏览器的私有前缀"><span class="nav-number"></span> <span class="nav-text">浏览器的私有前缀</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#过渡-transition"><span class="nav-number"></span> <span class="nav-text">过渡 transition</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#四-2d变换transform-gt-这是一种状态"><span class="nav-number">1.</span> <span class="nav-text">四.2d变换transform ==&gt;这是一种状态</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-移动变换-transform-translate-水平方向-右-垂直方向-下"><span class="nav-number">2.</span> <span class="nav-text">1. 移动变换 transform:translate(水平方向(右),垂直方向(下))</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-缩放变换transform-scale-x-y"><span class="nav-number">3.</span> <span class="nav-text">2.缩放变换transform:scale(x,y)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-旋转变换-transform-rotate-deg"><span class="nav-number">4.</span> <span class="nav-text">3.旋转变换 transform:rotate(deg)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-扭曲transform-skew-x轴旋转的角度，y轴旋转的角度"><span class="nav-number">5.</span> <span class="nav-text">4.扭曲transform:skew(x轴旋转的角度，y轴旋转的角度)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-改变元素变换的基准点-transform-origin"><span class="nav-number">6.</span> <span class="nav-text">5.改变元素变换的基准点 transform-origin</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一-颜色模式（属性值：可以控制某个属性）"><span class="nav-number"></span> <span class="nav-text">(一)颜色模式（属性值：可以控制某个属性）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二-盒模型"><span class="nav-number"></span> <span class="nav-text">(二)盒模型</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#box-sizing-规定盒模型"><span class="nav-number">0.0.0.1.</span> <span class="nav-text">box-sizing 规定盒模型</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、3d变换"><span class="nav-number"></span> <span class="nav-text">三、3d变换</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-transform-translate3d-x-y-z-移动变换"><span class="nav-number">0.0.0.1.</span> <span class="nav-text">1.transform:translate3d(x,y,z); 移动变换</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-transform-style-preserve-3d-保持3d变换（父元素上）"><span class="nav-number">0.0.0.2.</span> <span class="nav-text">2.transform-style:preserve-3d; 保持3d变换（父元素上）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-设置观察的距离，景深perspective-父元素上"><span class="nav-number">0.0.0.3.</span> <span class="nav-text">3.设置观察的距离，景深perspective(父元素上)</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#transform-rotate3d-x-y-z-deg-x、y、z取值为0（不旋转）或1（旋转）"><span class="nav-number">0.0.0.4.</span> <span class="nav-text">transform:rotate3d(x,y,z,deg)  x、y、z取值为0（不旋转）或1（旋转）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#立方体"><span class="nav-number">0.0.0.5.</span> <span class="nav-text">立方体</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3D导航"><span class="nav-number">0.0.0.6.</span> <span class="nav-text">3D导航</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、关键帧动画"><span class="nav-number"></span> <span class="nav-text">四、关键帧动画</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#（一）自定义动画"><span class="nav-number">0.0.1.</span> <span class="nav-text">（一）自定义动画</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#二-animation属性"><span class="nav-number">0.0.2.</span> <span class="nav-text">(二) animation属性</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-animation-name-动画名字"><span class="nav-number">0.0.2.1.</span> <span class="nav-text">1. animation-name 动画名字</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-animation-duration-动画播放时间"><span class="nav-number">0.0.2.2.</span> <span class="nav-text">2. animation-duration 动画播放时间</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-animation-timing-function-动画播放的形式"><span class="nav-number">0.0.2.3.</span> <span class="nav-text">3. animation-timing-function 动画播放的形式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-animation-delay-动画播放的延迟"><span class="nav-number">0.0.2.4.</span> <span class="nav-text">4. animation-delay 动画播放的延迟</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-animation-iteration-count-动画播放的次数-infinite无限次播放"><span class="nav-number">0.0.2.5.</span> <span class="nav-text">5. animation-iteration-count 动画播放的次数  infinite无限次播放</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-animation-direction-动画播放的方向"><span class="nav-number">0.0.2.6.</span> <span class="nav-text">6. animation-direction 动画播放的方向</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#animation-play-state-paused-动画暂停"><span class="nav-number">0.0.2.7.</span> <span class="nav-text">animation-play-state: paused; 动画暂停</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-animation-fill-mode-动画完成后的状态-forwards保持最后的状态"><span class="nav-number">0.0.2.8.</span> <span class="nav-text">7. animation-fill-mode 动画完成后的状态  forwards保持最后的状态</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、弹性盒布局"><span class="nav-number"></span> <span class="nav-text">一、弹性盒布局</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#（一）设置在父元素上"><span class="nav-number">1.</span> <span class="nav-text">（一）设置在父元素上</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-display-flex-将父元素设置成弹性盒，那么里面的子元素会在主轴方向上默认不换行摆放；侧轴方向的大小不设置的话，就会在当前行默认被拉伸"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">1.display:flex; 将父元素设置成弹性盒，那么里面的子元素会在主轴方向上默认不换行摆放；侧轴方向的大小不设置的话，就会在当前行默认被拉伸</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-flex-direction-设置主轴方向"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">2.flex-direction 设置主轴方向</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-flex-wrap-伸缩换行"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">3.flex-wrap 伸缩换行</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-flex-flow-flex-direction-flex-wrap"><span class="nav-number">1.0.0.4.</span> <span class="nav-text">4.flex-flow:flex-direction ||  flex-wrap;</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-justify-content-设置子项目在主轴方向的对齐方式"><span class="nav-number">1.0.0.5.</span> <span class="nav-text">5.justify-content 设置子项目在主轴方向的对齐方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#6-align-items-设置子项目在（当前行）侧轴方向的对齐方式"><span class="nav-number">1.0.0.6.</span> <span class="nav-text">6.align-items 设置子项目在（当前行）侧轴方向的对齐方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#7-align-content-控制子项目在侧轴方向的对齐方式（有换行情况下用此属性，单行用align-self）"><span class="nav-number">1.0.0.7.</span> <span class="nav-text">7.align-content 控制子项目在侧轴方向的对齐方式（有换行情况下用此属性，单行用align-self）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（二）设置在子元素上"><span class="nav-number">2.</span> <span class="nav-text">（二）设置在子元素上</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-flex-设置子项目在主轴方向的比份"><span class="nav-number">2.0.0.1.</span> <span class="nav-text">1.flex 设置子项目在主轴方向的比份</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-align-self-设置单个子项目在（当前行）侧轴方向的对齐方式"><span class="nav-number">2.0.0.2.</span> <span class="nav-text">2.align-self 设置单个子项目在（当前行）侧轴方向的对齐方式</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-order-设置子项目的显示顺序"><span class="nav-number">2.0.0.3.</span> <span class="nav-text">3.order 设置子项目的显示顺序</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、多列布局"><span class="nav-number"></span> <span class="nav-text">二、多列布局</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-column-width-每列的最小宽度"><span class="nav-number">0.0.0.1.</span> <span class="nav-text">1.column-width 每列的最小宽度</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-column-count-最多的列数"><span class="nav-number">0.0.0.2.</span> <span class="nav-text">2.column-count 最多的列数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-column-gap-列间距"><span class="nav-number">0.0.0.3.</span> <span class="nav-text">3.column-gap 列间距</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#4-column-rule-列边框"><span class="nav-number">0.0.0.4.</span> <span class="nav-text">4.column-rule 列边框</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#5-column-span-跨列"><span class="nav-number">0.0.0.5.</span> <span class="nav-text">5.column-span 跨列</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三-媒体查询"><span class="nav-number"></span> <span class="nav-text">三.媒体查询</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1-用法-media-screen-and-条件-选择器-声明"><span class="nav-number">0.0.0.1.</span> <span class="nav-text">1. 用法 @media screen and (条件){选择器{声明}</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2-min-width-当页面宽度大于最小宽度，生效。（从小写到大）"><span class="nav-number">0.0.0.2.</span> <span class="nav-text">2.  min-width 当页面宽度大于最小宽度，生效。（从小写到大）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#3-link-media-quot-screen-and-条件-quot-href"><span class="nav-number">0.0.0.3.</span> <span class="nav-text">3.link[media=&quot;screen and (条件)&quot;][href]</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#1-自适应布局"><span class="nav-number"></span> <span class="nav-text">1.自适应布局</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#一、移动端页面布局"><span class="nav-number"></span> <span class="nav-text">一、移动端页面布局</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#1、弹性布局（100-布局）——拉勾网、天猫首页-px"><span class="nav-number">0.0.0.1.</span> <span class="nav-text">1、弹性布局（100%布局）——拉勾网、天猫首页  px</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#2、等比缩放布局（rem布局）——网易、淘宝首页"><span class="nav-number">0.0.0.2.</span> <span class="nav-text">2、等比缩放布局（rem布局）——网易、淘宝首页</span></a></li></ol></li></div>
+            
+
+          </div>
+        </div>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+  
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">唐唐胖次</span>
+
+  
+
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-user"></i>
+    </span>
+    <span class="site-uv" title="总访客量">
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="post-meta-divider">|</span>
+  
+
+  
+    <span class="post-meta-item-icon">
+      <i class="fa fa-eye"></i>
+    </span>
+    <span class="site-pv" title="总访问量">
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+    
+
+    
+  </div>
+
+  
+
+<script>
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+    
+    
+  
+  <script color="0,0,0" opacity="0.5" zindex="-1" count="150" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+
+  
+
+
+  <script src="/js/utils.js?v=7.1.2"></script>
+
+  <script src="/js/motion.js?v=7.1.2"></script>
+
+
+
+  
+  
+
+
+  <script src="/js/affix.js?v=7.1.2"></script>
+
+  <script src="/js/schemes/pisces.js?v=7.1.2"></script>
+
+
+
+  
+  <script src="/js/scrollspy.js?v=7.1.2"></script>
+<script src="/js/post-details.js?v=7.1.2"></script>
+
+
+
+  
+
+
+  <script src="/js/next-boot.js?v=7.1.2"></script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/clicklove.js"></script>
